@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".JogoDasPasActivity"></activity>
+        <activity android:name=".JogoDasPasActivity" />
+        <activity android:name=".JogoDeOrdernarActivity"></activity>
     </application>
 
 </manifest>
