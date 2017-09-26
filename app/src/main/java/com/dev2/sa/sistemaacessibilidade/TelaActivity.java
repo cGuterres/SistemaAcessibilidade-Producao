@@ -15,10 +15,10 @@ public class TelaActivity extends AppCompatActivity {
 
     public void eventosFases(View view){
 
-        if (view.getId() == R.id.fase_1)
+        if (view.getId() == R.id.jogo_das_pas)
             startActivity(new Intent(this, JogoDasPasActivity.class));
-        else if (view.getId() == R.id.fase_2)
-            startActivity(new Intent(this, JogoDeOrdernarActivity.class));
+        else if (view.getId() == R.id.jogo_das_frutas)
+            startActivity(new Intent(this, JogoDasFrutasActivity.class));
     }
 
 
