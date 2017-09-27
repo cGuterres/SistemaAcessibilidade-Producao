@@ -1,9 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dev2.sa.sistemaacessibilidade.JogoDeOrdernarActivity">
+    tools:context="com.dev2.sa.sistemaacessibilidade.JogoDeOrdernarActivity"
+    android:background="@color/pastel"
+    android:orientation="vertical"
+    android:baselineAligned="false"
+    android:weightSum="1">
+    android:gravity="bottom">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/leyout_direito1"
+        android:layout_width="192dp"
+        android:layout_height="210dp"
+        android:layout_gravity="top|left"
+        android:layout_marginRight="10dp"
+        android:background="#87CEFF">
+
+        <ImageView
+            android:id="@+id/imagem_op1"
+            android:layout_width="90dp"
+            android:layout_height="150dp"
+            android:src="@drawable/letraa" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/sair"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.17"
+        android:background="#E0FFFF"
+        android:elevation="12dp"
+        android:onClick="onClick"
+        android:text="Sair"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="30sp"
+        android:visibility="visible" />
+</FrameLayout>
