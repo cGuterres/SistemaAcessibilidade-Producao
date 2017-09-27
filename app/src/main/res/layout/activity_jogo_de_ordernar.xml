@@ -1,30 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fase_3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dev2.sa.sistemaacessibilidade.JogoDeOrdernarActivity"
     android:background="@color/pastel"
-    android:orientation="vertical"
     android:baselineAligned="false"
-    android:weightSum="1">
+    android:orientation="vertical"
+    android:weightSum="1"
+    tools:context="com.dev2.sa.sistemaacessibilidade.JogoDeOrdernarActivity">
     android:gravity="bottom">
 
-    <LinearLayout
-        android:id="@+id/leyout_direito1"
-        android:layout_width="192dp"
-        android:layout_height="210dp"
-        android:layout_gravity="top|left"
-        android:layout_marginRight="10dp"
-        android:background="#87CEFF">
+    <ImageView
+        android:id="@+id/casinha"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_weight="0.24"
+        android:adjustViewBounds="true"
+        android:src="@drawable/casinha" />
 
-        <ImageView
-            android:id="@+id/imagem_op1"
-            android:layout_width="90dp"
-            android:layout_height="150dp"
-            android:src="@drawable/letraa" />
+    <LinearLayout
+        android:id="@+id/yellowLayout"
+        android:layout_width="match_parent"
+        android:layout_height="112dp"
+        android:layout_weight="0.03"
+        android:background="@color/pastel"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:id="@+id/primeiro"
+            android:layout_width="62dp"
+            android:layout_height="64dp"
+            android:layout_weight="0.24"
+            android:background="@color/quadrado"
+            android:gravity="center"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/segundo"
+            android:layout_width="62dp"
+            android:layout_height="64dp"
+            android:layout_weight="0.15"
+            android:background="@color/quadrado"
+            android:gravity="center"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/terceiro"
+            android:layout_width="62dp"
+            android:layout_height="64dp"
+            android:layout_weight="0.17"
+            android:background="@color/quadrado"
+            android:gravity="center"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/quarto"
+            android:layout_width="62dp"
+            android:layout_height="64dp"
+            android:layout_weight="0.19"
+            android:background="@color/quadrado"
+            android:gravity="center"
+            android:orientation="vertical" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/pastel"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:id="@+id/top4"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.13"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/letraa"
+                android:layout_width="67dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/letraa" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/top3"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.13"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/letrac"
+                android:layout_width="67dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/letrac" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/top2"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.13"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/letras"
+                android:layout_width="67dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/letras" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/top1"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.13"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/letraa1"
+                android:layout_width="67dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:elevation="1dp"
+                android:src="@drawable/letraa1" />
+        </LinearLayout>
+
+
     </LinearLayout>
 
     <Button
@@ -39,4 +154,6 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="30sp"
         android:visibility="visible" />
-</FrameLayout>
+
+
+</LinearLayout>

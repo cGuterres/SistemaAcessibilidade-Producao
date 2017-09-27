@@ -19,6 +19,10 @@ public class TelaActivity extends AppCompatActivity {
             startActivity(new Intent(this, JogoDasPasActivity.class));
         else if (view.getId() == R.id.jogo_das_frutas)
             startActivity(new Intent(this, JogoDasFrutasActivity.class));
+        else if (view.getId() == R.id.jogo_de_ordenar)
+            startActivity(new Intent(this, JogoDeOrdernarActivity.class));
+
+
     }
 
 
