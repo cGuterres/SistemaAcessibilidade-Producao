@@ -18,6 +18,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".JogoDasPasActivity"
             android:exported="true">
@@ -25,6 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".JogoDeOrdernarActivity"
             android:exported="true">
@@ -33,11 +35,16 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".JogoDasFrutasActivity"
+            android:exported="true" />
 
-
-        <activity android:name=".JogoDasFrutasActivity" android:exported="true"></activity>
-
-
+        <activity android:name=".Jogo_de_Ordenar_Palavra2">
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
 
     </application>
 

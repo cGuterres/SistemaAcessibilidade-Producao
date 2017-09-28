@@ -11,14 +11,14 @@ import android.view.View.DragShadowBuilder;
 import android.view.View.OnDragListener;
 import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.util.HashMap;
 
 public class JogoDasFrutasActivity extends AppCompatActivity {
-    View pa_amarela_view, balde_view;
-    LinearLayout pa_layout, balde_layout;
+    View sombraAbacaxi;
     HashMap<String, String> Balde_Pa = new HashMap<>(14,1);
     int pontos = 0;
 
@@ -35,11 +35,11 @@ public class JogoDasFrutasActivity extends AppCompatActivity {
         findViewById(R.id.uva_preta);
 
         findViewById(R.id.topleft).setOnDragListener(new MyOnDragListener(1));
-        findViewById(R.id.topright).setOnDragListener(new MyOnDragListener(2));
+        findViewById(R.id.topright).setOnDragListener(new MyOnDragListener(2));//laranja preta
         findViewById(R.id.centerleft).setOnDragListener(new MyOnDragListener(3));
-        findViewById(R.id.centerrigth).setOnDragListener(new MyOnDragListener(4));
+        findViewById(R.id.centerrigth).setOnDragListener(new MyOnDragListener(4));//abacaxi preto
         findViewById(R.id.bottomleft).setOnDragListener(new MyOnDragListener(5));
-        findViewById(R.id.bottomright).setOnDragListener(new MyOnDragListener(6));
+        findViewById(R.id.bottomright).setOnDragListener(new MyOnDragListener(6));//uva preta
 
 
 
@@ -118,9 +118,14 @@ public class JogoDasFrutasActivity extends AppCompatActivity {
                         View view = (View) event.getLocalState();//aqui entra quem está sendo movido
                         if(view.getId() == Integer.parseInt(frutaselecionada) && v.getId() == Integer.parseInt(sombra))
                         {
+                            ImageView pegaImagemColorida = (ImageView) view;
                             Toast.makeText(JogoDasFrutasActivity.this, "ACERTOU!!", Toast.LENGTH_SHORT).show();
                             ViewGroup owner = (ViewGroup) view.getParent();
                             owner.removeView(view);
+                            ImageView testee = (ImageView) findViewById(v.getId());
+                            //testee.setImageDrawable(pegaImagemColorida.getDrawable());
+                            // testee.setImageResource();
+
                             LinearLayout container = (LinearLayout) v;
                             container.addView(view);
                             pontos++;
@@ -134,45 +139,6 @@ public class JogoDasFrutasActivity extends AppCompatActivity {
                             //builder.setMessage("TESTE").setPositiveButton("husahduihsaud", new  DialogInterface.OnclickListener());
                         }
                         break;
-                       /* if (view.getId() == R.id.abacaxi_colorido && v.getId() == R.id.centerrigth) { /////descomentar essa linhas depois
-                            Toast.makeText(JogoDasFrutasActivity.this, "ACERTOU!!", Toast.LENGTH_SHORT).show();
-                            ViewGroup owner = (ViewGroup) view.getParent();
-                            owner.removeView(view);
-                            LinearLayout container = (LinearLayout) v;
-                            container.addView(view);
-                            pontos++;
-                            view.setVisibility(View.VISIBLE);
-                            view.setEnabled(false);
-                            v.setEnabled(false);
-
-
-                        } else if (view.getId() == R.id.uva_colorida && v.getId() == R.id.bottomright) {
-                            Toast.makeText(JogoDasFrutasActivity.this, "ACERTOU!!!", Toast.LENGTH_SHORT).show();
-                            ViewGroup owner = (ViewGroup) view.getParent();
-                            owner.removeView(view);
-                            LinearLayout container = (LinearLayout) v;
-                            container.addView(view);
-                            pontos++;
-                            view.setVisibility(View.VISIBLE);
-                            view.setEnabled(false);
-                            v.setEnabled(false);
-                        } else if (view.getId() == R.id.laranja_colorida && v.getId() == R.id.topright) {
-                            Toast.makeText(JogoDasFrutasActivity.this, "ACERTOU!!!", Toast.LENGTH_SHORT).show();
-                            ViewGroup owner = (ViewGroup) view.getParent();
-                            owner.removeView(view);
-                            LinearLayout container = (LinearLayout) v;
-                            container.addView(view);
-                            pontos++;
-                            view.setVisibility(View.VISIBLE);
-                            view.setEnabled(false);
-                            v.setEnabled(false);
-                        }
-
-
-                    case DragEvent.ACTION_DRAG_ENDED:
-                        Log.i("Script", num + " - ACTION_DRAG_ENDED");
-                        //v.setBackgroundColor(Color.BLUE);
-                        break;*/
                 }
             }
             return true;

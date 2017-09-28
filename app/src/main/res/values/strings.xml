@@ -1,6 +1,7 @@
 <resources>
 
     <string name="app_name">Sistema de Acessibilidade</string>
+    <string name="action_settings">Settings</string>
     <string name="draggable_text">Draggable Text</string>
     <string name="draggable_button">Draggable Button</string>
 </resources>
