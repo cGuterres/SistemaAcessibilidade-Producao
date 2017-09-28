@@ -26,14 +26,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".JogoDeOrdernarActivity"
-            android:exported="true">
+            android:name=".JogoDeOrdernarActivity"  android:exported="true">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
 
         <activity android:name=".JogoDasFrutasActivity" android:exported="true"></activity>
 
