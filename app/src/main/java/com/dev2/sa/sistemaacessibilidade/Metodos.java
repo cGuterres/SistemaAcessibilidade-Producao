@@ -16,18 +16,19 @@ public class Metodos {
     // Define a variável responsável pela execução do áudio do c.
     public static MediaPlayer toque;
 
-    // OBS: Lista de objetos, para imagens e sons.
-    public static String[] objetos = {"letrac","letraa","letras","letraa"};
-
-    public static String[] objetos2 = {"letram","letraa","letral","letraa1"};
-
     // palavras do jogo
+    public static String[] palavras = {"CASA", "MALA", "UVA"};
 
-    public static String[] palavras = {"CASA"};
+    // vetor com os ids das drawables
+    public  static int[] imagensCentro = {R.drawable.casinha, R.drawable.mala, R.drawable.cadeira, R.drawable.uva};
+
+    // alfabeto para utilização nos jogos
+    public static String[] letras = {"A", "B", "C", "D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W", "X","Y","Z"};
 
     // Retorna a ImageView da respectiva posição da lista (Imagem do letra).
-    public static int getImagem(String letra, Context context){
-        int imagem = context.getResources().getIdentifier(letra, "drawable", context.getPackageName());
+    public static int getImagem(char tmpLetra, Context context){
+        String letra = Character.toString(tmpLetra);
+        int imagem = context.getResources().getIdentifier("letra" + letra.toLowerCase(), "drawable", context.getPackageName());
         return imagem;
     }
 
@@ -92,5 +93,9 @@ public class Metodos {
         list.remove(letra);
         objetosAux = list.toArray(new String[0]);
         return objetosAux;
+    }
+
+    public static String sorteiraPalavraJogo(int index){
+        return palavras[index];
     }
 }

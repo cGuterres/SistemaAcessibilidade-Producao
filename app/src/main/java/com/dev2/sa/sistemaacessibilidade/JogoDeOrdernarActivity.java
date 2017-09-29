@@ -23,23 +23,27 @@ import android.widget.Toast;
 
 public class JogoDeOrdernarActivity extends Activity  {
 
-    View pa_amarela_view, balde_view;
-    LinearLayout pa_layout, balde_layout;
+    ImageView img1, img2,img3,img4,img5,img6, imgCenter;
     int pontos = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jogo_de_ordernar);
 
-        findViewById(R.id.letraa).setOnLongClickListener(new MyOnLongClickListener());
-        findViewById(R.id.letraa1).setOnLongClickListener(new MyOnLongClickListener());
-        findViewById(R.id.letras).setOnLongClickListener(new MyOnLongClickListener());
-        findViewById(R.id.letrac).setOnLongClickListener(new MyOnLongClickListener());
-        findViewById(R.id.casinha);
+        findViewById(R.id.letra1).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.letra2).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.letra3).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.letra4).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.letra5).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.letra6).setOnLongClickListener(new MyOnLongClickListener());
+
+
         findViewById(R.id.top_layout);
         findViewById(R.id.top_layout1);
-        //  findViewById(R.id.balde_vermelho);
-        //  findViewById(R.id.balde_amarelo);
+
+        //seta imagem para ordernar as palavras
+        setImageCenter(0);
+        setLetrasImagem();
 
         findViewById(R.id.primeiro).setOnDragListener(new MyOnDragListener(1));
         findViewById(R.id.segundo).setOnDragListener(new MyOnDragListener(2));
@@ -47,11 +51,33 @@ public class JogoDeOrdernarActivity extends Activity  {
         findViewById(R.id.quarto).setOnDragListener(new MyOnDragListener(4));
         findViewById(R.id.quinto).setOnDragListener(new MyOnDragListener(5));
         findViewById(R.id.sexto).setOnDragListener(new MyOnDragListener(6));
-        //  findViewById(R.id.bottomleft).setOnDragListener(new MyOnDragListener(5));
-        //  findViewById(R.id.bottomright).setOnDragListener(new MyOnDragListener(6));
 
     }
 
+    private void setLetrasImagem(){
+        img1 = (ImageView)findViewById(R.id.letra1);
+        img1.setImageResource(R.drawable.letram);
+
+        img2 = (ImageView)findViewById(R.id.letra2);
+        img2.setImageResource(R.drawable.letram);
+
+        img3 = (ImageView)findViewById(R.id.letra3);
+        img3.setImageResource(R.drawable.letram);
+
+        img4 = (ImageView)findViewById(R.id.letra4);
+        img4.setImageResource(R.drawable.letram);
+
+        img5 = (ImageView)findViewById(R.id.letra5);
+        img5.setImageResource(R.drawable.letram);
+
+        img6 = (ImageView)findViewById(R.id.letra6);
+        img6.setImageResource(R.drawable.letram);
+    }
+
+    private void setImageCenter(int index){
+        imgCenter = (ImageView)findViewById(R.id.casinha);
+        imgCenter.setImageResource(Metodos.imagensCentro[index]);
+    }
 
     class MyOnLongClickListener implements OnLongClickListener {
         @Override
@@ -98,7 +124,7 @@ public class JogoDeOrdernarActivity extends Activity  {
                     Log.i("Script", num+" - ACTION_DRAG_EXITED");
                     //v.setBackgroundColor(Color.BLUE);
                     break;
-                case DragEvent.ACTION_DROP:
+                case DragEvent.ACTION_DROP:/*
                     Log.i("Script", num+" - ACTION_DROP");
                     // Move a imagem de um container para outro (6 linhas abaixo)
                     View view = (View) event.getLocalState();//aqui entra quem está sendo movido
@@ -148,6 +174,7 @@ public class JogoDeOrdernarActivity extends Activity  {
                     //builder.setMessage("TESTE").setPositiveButton("husahduihsaud", new  DialogInterface.OnclickListener());
                 }
                     break;
+                    */
                 case DragEvent.ACTION_DRAG_ENDED:
                     Log.i("Script", num+" - ACTION_DRAG_ENDED");
                     //v.setBackgroundColor(Color.BLUE);

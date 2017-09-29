@@ -110,7 +110,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/letraa"
+                android:id="@+id/letra1"
                 android:layout_width="67dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -125,7 +125,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/letraa"
+                android:id="@+id/letra2"
                 android:layout_width="67dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -140,7 +140,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/letraa"
+                android:id="@+id/letra3"
                 android:layout_width="67dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -168,7 +168,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/letrac"
+                android:id="@+id/letra4"
                 android:layout_width="67dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -183,7 +183,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/letras"
+                android:id="@+id/letra5"
                 android:layout_width="67dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -198,12 +198,12 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/letraa1"
+                android:id="@+id/letra6"
                 android:layout_width="67dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:elevation="1dp"
-                android:src="@drawable/letraa1" />
+                android:src="@drawable/letraa" />
         </LinearLayout>
 
 
