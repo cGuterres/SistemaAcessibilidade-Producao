@@ -18,7 +18,7 @@
     ]]>
 
     <ImageView
-        android:id="@+id/casinha"
+        android:id="@+id/molduraparaimagem"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:layout_weight="0.24"
@@ -33,12 +33,12 @@
         android:background="@color/pastel"
         android:gravity="center"
         android:orientation="horizontal"
-        android:weightSum="1">
+        android:weightSum="0">
 
         <LinearLayout
             android:id="@+id/primeiro"
-            android:layout_width="62dp"
-            android:layout_height="64dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_weight="0.24"
             android:background="@color/quadrado"
             android:gravity="center"
@@ -46,8 +46,8 @@
 
         <LinearLayout
             android:id="@+id/segundo"
-            android:layout_width="62dp"
-            android:layout_height="64dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_weight="0.15"
             android:background="@color/quadradosequen"
             android:gravity="center"
@@ -55,8 +55,8 @@
 
         <LinearLayout
             android:id="@+id/terceiro"
-            android:layout_width="62dp"
-            android:layout_height="64dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_weight="0.17"
             android:background="@color/quadrado"
             android:gravity="center"
@@ -64,8 +64,8 @@
 
         <LinearLayout
             android:id="@+id/quarto"
-            android:layout_width="62dp"
-            android:layout_height="64dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_weight="0.19"
             android:background="@color/quadradosequen"
             android:gravity="center"
@@ -73,8 +73,8 @@
 
         <LinearLayout
             android:id="@+id/quinto"
-            android:layout_width="62dp"
-            android:layout_height="64dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_weight="0.24"
             android:background="@color/quadrado"
             android:gravity="center"
@@ -82,8 +82,8 @@
 
         <LinearLayout
             android:id="@+id/sexto"
-            android:layout_width="62dp"
-            android:layout_height="64dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:layout_weight="0.24"
             android:background="@color/quadradosequen"
             android:gravity="center"
@@ -111,7 +111,7 @@
 
             <ImageView
                 android:id="@+id/letra1"
-                android:layout_width="67dp"
+                android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/letraa" />
@@ -126,7 +126,7 @@
 
             <ImageView
                 android:id="@+id/letra2"
-                android:layout_width="67dp"
+                android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/letraa" />
@@ -141,7 +141,7 @@
 
             <ImageView
                 android:id="@+id/letra3"
-                android:layout_width="67dp"
+                android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/letraa" />
@@ -169,7 +169,7 @@
 
             <ImageView
                 android:id="@+id/letra4"
-                android:layout_width="67dp"
+                android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/letrac" />
@@ -184,7 +184,7 @@
 
             <ImageView
                 android:id="@+id/letra5"
-                android:layout_width="67dp"
+                android:layout_width="60dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:src="@drawable/letras" />
@@ -199,8 +199,8 @@
 
             <ImageView
                 android:id="@+id/letra6"
-                android:layout_width="67dp"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:elevation="1dp"
                 android:src="@drawable/letraa" />

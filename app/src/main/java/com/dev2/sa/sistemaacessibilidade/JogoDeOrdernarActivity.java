@@ -1,6 +1,5 @@
 package com.dev2.sa.sistemaacessibilidade;
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -9,13 +8,11 @@ import android.content.ClipData;
 import android.content.ClipDescription;
 import android.util.Log;
 import android.view.DragEvent;
-import android.view.View;
 import android.view.View.DragShadowBuilder;
 import android.view.View.OnDragListener;
 import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class JogoDeOrdernarActivity extends Activity {
@@ -196,7 +193,7 @@ public class JogoDeOrdernarActivity extends Activity {
     }
 
     private void setImageCenter(int index) {
-        imgCenter = (ImageView) findViewById(R.id.casinha);
+        imgCenter = (ImageView) findViewById(R.id.molduraparaimagem);
         imgCenter.setImageResource(Metodos.imagensCentro[index]);
     }
 
