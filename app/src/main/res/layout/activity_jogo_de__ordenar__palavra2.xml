@@ -31,8 +31,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:tag="img_lixo"
-                android:src="@drawable/img_lixo" />
+                android:src="@drawable/img_lixo"
+                android:tag="img_lixo" />
         </LinearLayout>
 
         <LinearLayout
@@ -49,8 +49,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:tag="img_seta"
-                android:src="@drawable/img_seta" />
+                android:src="@drawable/img_seta"
+                android:tag="img_seta" />
         </LinearLayout>
 
         <LinearLayout
@@ -67,8 +67,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:tag="img_fada"
-                android:src="@drawable/img_fada" />
+                android:src="@drawable/img_fada"
+                android:tag="img_fada" />
         </LinearLayout>
 
         <LinearLayout
@@ -85,8 +85,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:tag="img_olho"
-                android:src="@drawable/img_olho" />
+                android:src="@drawable/img_olho"
+                android:tag="img_olho" />
         </LinearLayout>
 
         <com.jmedeisis.draglinearlayout.DragLinearLayout
@@ -110,8 +110,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:tag="lixo"
-                    android:src="@drawable/lixo" />
+                    android:src="@drawable/lixo"
+                    android:tag="lixo" />
             </LinearLayout>
 
             <LinearLayout
@@ -126,8 +126,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:tag="fada"
-                    android:src="@drawable/fada" />
+                    android:src="@drawable/fada"
+                    android:tag="fada" />
             </LinearLayout>
 
             <LinearLayout
@@ -142,8 +142,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:tag="seta"
-                    android:src="@drawable/seta" />
+                    android:src="@drawable/seta"
+                    android:tag="seta" />
             </LinearLayout>
 
             <LinearLayout
@@ -158,8 +158,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:tag="olho"
-                    android:src="@drawable/olho" />
+                    android:src="@drawable/olho"
+                    android:tag="olho" />
 
             </LinearLayout>
 
