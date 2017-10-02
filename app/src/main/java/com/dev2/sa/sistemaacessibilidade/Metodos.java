@@ -16,18 +16,19 @@ public class Metodos {
     // Define a variável responsável pela execução do áudio do c.
     public static MediaPlayer toque;
 
-    // OBS: Lista de objetos, para imagens e sons.
-    public static String[] objetos = {"letrac","letraa","letras","letraa"};
-
-    public static String[] objetos2 = {"letram","letraa","letral","letraa1"};
-
     // palavras do jogo
+    public static String[] palavras = {"CASA", "MALA", "UVA", "PATO"};
 
-    public static String[] palavras = {"CASA"};
+    // vetor com os ids das drawables
+    public  static int[] imagensCentro = {R.drawable.casinha, R.drawable.mala, R.drawable.uva, R.drawable.pato};
+
+    // alfabeto para utilização nos jogos
+    public static String[] letras = {"A", "B", "C", "D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W", "X","Y","Z"};
 
     // Retorna a ImageView da respectiva posição da lista (Imagem do letra).
-    public static int getImagem(String letra, Context context){
-        int imagem = context.getResources().getIdentifier(letra, "drawable", context.getPackageName());
+    public static int getImagem(char tmpLetra, Context context){
+        String letra = Character.toString(tmpLetra);
+        int imagem = context.getResources().getIdentifier("letra" + letra.toLowerCase(), "drawable", context.getPackageName());
         return imagem;
     }
 
@@ -50,18 +51,10 @@ public class Metodos {
     }
 
     // Retorna um valor aleatório dentro do limite.
-    public static int sortearNumero(int limite){
+    public static int sortearNumero(int limite) {
         Random valor = new Random();
         int aleatorio = valor.nextInt(limite);
         return aleatorio;
-    }
-
-    // sorteia a palavra para iniciar o jogo
-    public static String sorteiaPalavraJogo(){
-        Random random = new Random();
-        int valor = random.nextInt(palavras.length);
-        //
-        return palavras[valor];
     }
 
     // Método usado para executar áudio dos letra e do toque dos botões.
@@ -92,5 +85,71 @@ public class Metodos {
         list.remove(letra);
         objetosAux = list.toArray(new String[0]);
         return objetosAux;
+    }
+
+    // sorteia a palavra do jogo
+    public static String sorteiraPalavraJogo(int index){
+        return palavras[index];
+    }
+
+    // funcao que retorna a imagem da letra
+    public static int getDrawableId(char letra){
+        switch (letra){
+            case 'A':
+                return R.drawable.letraa;
+            case 'B':
+                return R.drawable.letrab;
+            case 'C':
+                return R.drawable.letrac;
+            case 'D':
+                return R.drawable.letrad;
+            case 'E':
+                return R.drawable.letrae;
+            case 'F':
+                return R.drawable.letraf;
+            case 'G':
+                return R.drawable.letrag;
+            case 'H':
+                return R.drawable.letrah;
+            case 'I':
+                return R.drawable.letrai;
+            case 'J':
+                return R.drawable.letraj;
+            case 'K':
+                return R.drawable.letrak;
+            case 'L':
+                return R.drawable.letral;
+            case 'M':
+                return R.drawable.letram;
+            case 'N':
+                return R.drawable.letran;
+            case 'O':
+                return R.drawable.letrao;
+            case 'P':
+                return R.drawable.letrap;
+            case 'Q':
+                return R.drawable.letraq;
+            case 'R':
+                return R.drawable.letrar;
+            case 'S':
+                return R.drawable.letras;
+            case 'T':
+                return R.drawable.letrat;
+            case 'U':
+                return R.drawable.letrau;
+            case 'V':
+                return R.drawable.letrav;
+            case 'X':
+                return R.drawable.letrax;
+            case 'W':
+                return R.drawable.letraw;
+            case 'Y':
+                return R.drawable.letray;
+            case 'Z':
+                return R.drawable.letraz;
+            default:
+                break;
+        }
+        return 1;
     }
 }
