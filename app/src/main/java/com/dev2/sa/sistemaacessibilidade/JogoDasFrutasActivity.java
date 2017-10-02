@@ -21,6 +21,7 @@ public class JogoDasFrutasActivity extends AppCompatActivity {
     View sombraAbacaxi;
     HashMap<String, String> Balde_Pa = new HashMap<>(14,1);
     int pontos = 0;
+    int controle = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +32,9 @@ public class JogoDasFrutasActivity extends AppCompatActivity {
         findViewById(R.id.laranja_colorida).setOnLongClickListener(new MyOnLongClickListener());
         findViewById(R.id.uva_colorida).setOnLongClickListener(new MyOnLongClickListener());
         findViewById(R.id.abacaxi_preto);
-        findViewById(R.id.laranja_preta);
         findViewById(R.id.uva_preta);
+        findViewById(R.id.laranja_preta);
+
 
         findViewById(R.id.topleft).setOnDragListener(new MyOnDragListener(1));
         findViewById(R.id.topright).setOnDragListener(new MyOnDragListener(2));//laranja preta
@@ -80,7 +82,7 @@ public class JogoDasFrutasActivity extends AppCompatActivity {
                 String test = "";
 
 
-                switch (action) {
+                 switch (action) {
                     case DragEvent.ACTION_DRAG_STARTED:
                         // Log para entender o funcionamento (Android Monitor)
                         Log.i("Script", num + " - ACTION_DRAG_STARTED");
@@ -99,32 +101,18 @@ public class JogoDasFrutasActivity extends AppCompatActivity {
                         Log.i("Script", num + " - ACTION_DRAG_EXITED");
                         //v.setBackgroundColor(Color.BLUE);
                         break;
-                /*
-                case DragEvent.ACTION_DROP:
-                    Log.i("Script", num+" - ACTION_DROP");
-                    // Move a imagem de um container para outro (6 linhas abaixo)
-                    View view = (View) event.getLocalState();
-                    ViewGroup owner = (ViewGroup) view.getParent();
-                    owner.removeView(view);
-                    LinearLayout container = (LinearLayout) v;
-                    container.addView(view);
-                    view.setVisibility(View.VISIBLE);
-                    break;
-                */
 
                     case DragEvent.ACTION_DROP:
                         Log.i("Script", num + " - ACTION_DROP");
                         // Move a imagem de um container para outro (6 linhas abaixo)
                         View view = (View) event.getLocalState();//aqui entra quem está sendo movido
-                        if(view.getId() == Integer.parseInt(frutaselecionada) && v.getId() == Integer.parseInt(sombra))
+                        if(view.getId() == Integer.parseInt(frutaselecionada)
+                                && v.getId() == Integer.parseInt(sombra))
                         {
                             ImageView pegaImagemColorida = (ImageView) view;
                             Toast.makeText(JogoDasFrutasActivity.this, "ACERTOU!!", Toast.LENGTH_SHORT).show();
                             ViewGroup owner = (ViewGroup) view.getParent();
                             owner.removeView(view);
-                            ImageView testee = (ImageView) findViewById(v.getId());
-                            //testee.setImageDrawable(pegaImagemColorida.getDrawable());
-                            // testee.setImageResource();
 
                             LinearLayout container = (LinearLayout) v;
                             container.addView(view);
@@ -133,10 +121,14 @@ public class JogoDasFrutasActivity extends AppCompatActivity {
                             view.setEnabled(false);
                             v.setEnabled(false);
                         }
-                        if (pontos == 3) {
+                        else if (pontos == 3) {
                             Toast.makeText(JogoDasFrutasActivity.this, "PARABÉNS, VOCÊ GANHOU!!!", Toast.LENGTH_SHORT).show();
                             //AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                             //builder.setMessage("TESTE").setPositiveButton("husahduihsaud", new  DialogInterface.OnclickListener());
+                        }
+                        else
+                        {
+                            Toast.makeText(JogoDasFrutasActivity.this, "Você Errou!!", Toast.LENGTH_SHORT).show();
                         }
                         break;
                 }
