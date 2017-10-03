@@ -105,7 +105,7 @@ public class JogoDasFrutasActivity extends AppCompatActivity {
                                 view.setEnabled(false);
                                 v.setEnabled(false);
                             }
-                            else if (pontos == 3) {
+                            if (pontos == 3) {
                                 Toast.makeText(JogoDasFrutasActivity.this, "PARABÉNS, VOCÊ GANHOU!!!", Toast.LENGTH_SHORT).show();
                                 //AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                                 //builder.setMessage("TESTE").setPositiveButton("husahduihsaud", new  DialogInterface.OnclickListener());
