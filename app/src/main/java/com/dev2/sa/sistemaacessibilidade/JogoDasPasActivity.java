@@ -132,10 +132,7 @@ public class JogoDasPasActivity extends Activity {
                             //AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                             //builder.setMessage("TESTE").setPositiveButton("husahduihsaud", new  DialogInterface.OnclickListener());
                         }
-                        if(controle == 0)
-                        {
-                            Toast.makeText(JogoDasPasActivity.this, "Você Errou!!", Toast.LENGTH_SHORT).show();
-                        }
+                        
                         break;
                 }
             }

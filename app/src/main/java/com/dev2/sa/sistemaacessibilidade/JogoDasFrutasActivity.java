@@ -83,58 +83,39 @@ public class JogoDasFrutasActivity extends AppCompatActivity {
 
 
                  switch (action) {
-                    case DragEvent.ACTION_DRAG_STARTED:
-                        // Log para entender o funcionamento (Android Monitor)
-                        Log.i("Script", num + " - ACTION_DRAG_STARTED");
-                        if (event.getClipDescription().hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)) {
-                            return (true);
-                        }
-                        return (false);
-                    case DragEvent.ACTION_DRAG_ENTERED:
-                        Log.i("Script", num + " - ACTION_DRAG_ENTERED");
-                        //v.setBackgroundColor(Color.YELLOW);
-                        break;
-                    case DragEvent.ACTION_DRAG_LOCATION:
-                        Log.i("Script", num + " - ACTION_DRAG_LOCATION");
-                        break;
-                    case DragEvent.ACTION_DRAG_EXITED:
-                        Log.i("Script", num + " - ACTION_DRAG_EXITED");
-                        //v.setBackgroundColor(Color.BLUE);
-                        break;
 
                     case DragEvent.ACTION_DROP:
-                        Log.i("Script", num + " - ACTION_DROP");
-                        // Move a imagem de um container para outro (6 linhas abaixo)
-                        View view = (View) event.getLocalState();//aqui entra quem está sendo movido
-                        if(view.getId() == Integer.parseInt(frutaselecionada)
-                                && v.getId() == Integer.parseInt(sombra))
-                        {
-                            ImageView pegaImagemColorida = (ImageView) view;
-                            Toast.makeText(JogoDasFrutasActivity.this, "ACERTOU!!", Toast.LENGTH_SHORT).show();
-                            ViewGroup owner = (ViewGroup) view.getParent();
-                            owner.removeView(view);
 
-                            LinearLayout container = (LinearLayout) v;
-                            container.addView(view);
-                            pontos++;
-                            view.setVisibility(View.VISIBLE);
-                            view.setEnabled(false);
-                            v.setEnabled(false);
-                        }
-                        else if (pontos == 3) {
-                            Toast.makeText(JogoDasFrutasActivity.this, "PARABÉNS, VOCÊ GANHOU!!!", Toast.LENGTH_SHORT).show();
-                            //AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                            //builder.setMessage("TESTE").setPositiveButton("husahduihsaud", new  DialogInterface.OnclickListener());
-                        }
-                        else
-                        {
-                            Toast.makeText(JogoDasFrutasActivity.this, "Você Errou!!", Toast.LENGTH_SHORT).show();
-                        }
-                        break;
+                            Log.i("Script", num + " - ACTION_DROP");
+                            // Move a imagem de um container para outro (6 linhas abaixo)
+                            View view = (View) event.getLocalState();//aqui entra quem está sendo movido
+                            if(view.getId() == Integer.parseInt(frutaselecionada)
+                                    && v.getId() == Integer.parseInt(sombra))
+                            {
+                                controle=1;
+                                ImageView pegaImagemColorida = (ImageView) view;
+                                Toast.makeText(JogoDasFrutasActivity.this, "ACERTOU!!", Toast.LENGTH_SHORT).show();
+                                ViewGroup owner = (ViewGroup) view.getParent();
+                                owner.removeView(view);
+
+                                LinearLayout container = (LinearLayout) v;
+                                container.addView(view);
+                                pontos++;
+                                view.setVisibility(View.VISIBLE);
+                                view.setEnabled(false);
+                                v.setEnabled(false);
+                            }
+                            else if (pontos == 3) {
+                                Toast.makeText(JogoDasFrutasActivity.this, "PARABÉNS, VOCÊ GANHOU!!!", Toast.LENGTH_SHORT).show();
+                                //AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                                //builder.setMessage("TESTE").setPositiveButton("husahduihsaud", new  DialogInterface.OnclickListener());
+                            }
+                            break;
                 }
             }
             return true;
         }
+
     }
 
 }
