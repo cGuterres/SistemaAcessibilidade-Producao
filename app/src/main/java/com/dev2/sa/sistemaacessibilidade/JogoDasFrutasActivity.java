@@ -16,7 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.util.HashMap;
-
+//PRIORIDADES: 1MSG DE ERRO 2RANDOM
 public class JogoDasFrutasActivity extends AppCompatActivity {
     View sombraAbacaxi;
     HashMap<String, String> Balde_Pa = new HashMap<>(14,1);

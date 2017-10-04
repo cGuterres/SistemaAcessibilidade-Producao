@@ -9,35 +9,45 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TelaActivity" android:exported="true" android:screenOrientation="portrait">
+        <activity
+            android:name=".TelaActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".JogoDasPasActivity" android:exported="true" android:screenOrientation="portrait">
+        <activity
+            android:name=".JogoDasPasActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".JogoDeOrdernarActivity" android:exported="true" android:screenOrientation="portrait">
+        <activity
+            android:name=".JogoDeOrdernarActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".JogoDasFrutasActivity" android:exported="true" android:screenOrientation="portrait"/>
-
-        <activity android:name=".Jogo_de_Ordenar_Palavra2" android:screenOrientation="portrait">
+        <activity
+            android:name=".JogoDasFrutasActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Jogo_de_Ordenar_Palavra2"
+            android:screenOrientation="portrait">
             android:exported="true">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".Dialog"></activity>
     </application>
 
 </manifest>

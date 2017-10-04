@@ -1,12 +1,20 @@
 package com.dev2.sa.sistemaacessibilidade;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.media.MediaPlayer;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+
+import android.support.annotation.DrawableRes;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.Toast;
+
 
 /**
  * Created by Christian on 26/09/2017.
@@ -151,5 +159,35 @@ public class Metodos {
                 break;
         }
         return 1;
+    }
+
+    public static void ShowDialog(final Activity act, @DrawableRes int desenho, String titulo, String mensagem){
+        AlertDialog.Builder builder = new AlertDialog.Builder(act);
+
+        builder.setTitle(titulo)
+                .setMessage(mensagem)
+                .setCancelable(false)
+                .setIcon(desenho)
+                .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    public  void onClick(DialogInterface dialog, int id) {
+                        act.finish();
+                    }
+                })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                })
+                .setNeutralButton("Middle", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(act, "Middle button clicked!", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        builder.create().show();        // create and show the alert dialog
+
+
+
     }
 }

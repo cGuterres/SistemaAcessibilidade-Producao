@@ -129,6 +129,7 @@ public class JogoDasPasActivity extends Activity {
                         }
                         if (pontos == 3) {
                             Toast.makeText(JogoDasPasActivity.this, "PARABÉNS, VOCÊ GANHOU!!!", Toast.LENGTH_SHORT).show();
+                            Metodos.ShowDialog(JogoDasPasActivity.this, R.drawable.pa_amarela, "Vitória!!", "Deseja continuar?");
                             //AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                             //builder.setMessage("TESTE").setPositiveButton("husahduihsaud", new  DialogInterface.OnclickListener());
                         }
