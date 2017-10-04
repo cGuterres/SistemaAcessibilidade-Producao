@@ -303,9 +303,7 @@ public class JogoDeOrdernarActivity extends Activity {
                         index = 5;
 
                     String tag = view.getTag().toString();
-
                     char letra = Metodos.getDrawableId(Integer.parseInt(tag));
-
                     boolean acertou = validaLetra(letra, index);
                     if (acertou) {
                         pontos++;

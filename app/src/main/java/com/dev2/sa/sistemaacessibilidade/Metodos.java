@@ -161,6 +161,66 @@ public class Metodos {
         return 1;
     }
 
+    public static char getDrawableId(int drawableId){
+        switch (drawableId){
+            case R.drawable.letraa:
+                return 'A';
+            case R.drawable.letrab:
+                return 'B';
+            case R.drawable.letrac:
+                return 'C';
+            case R.drawable.letrad:
+                return 'D';
+            case R.drawable.letrae:
+                return 'E';
+            case R.drawable.letraf:
+                return 'F';
+            case R.drawable.letrag:
+                return 'G';
+            case R.drawable.letrah:
+                return 'H';
+            case R.drawable.letrai:
+                return 'I';
+            case R.drawable.letraj:
+                return 'J';
+            case R.drawable.letrak:
+                return 'K';
+            case R.drawable.letral:
+                return 'L';
+            case R.drawable.letram:
+                return 'M';
+            case R.drawable.letran:
+                return 'N';
+            case R.drawable.letrao:
+                return 'O';
+            case R.drawable.letrap:
+                return 'P';
+            case R.drawable.letraq:
+                return 'Q';
+            case R.drawable.letrar:
+                return 'R';
+            case  R.drawable.letras:
+                return 'S';
+            case R.drawable.letrat:
+                return 'T';
+            case R.drawable.letrau:
+                return 'U';
+            case R.drawable.letrav:
+                return 'V';
+            case R.drawable.letrax:
+                return 'X';
+            case R.drawable.letraw:
+                return 'W';
+            case R.drawable.letray:
+                return 'Y';
+            case R.drawable.letraz:
+                return 'Z';
+            default:
+                break;
+        }
+        return 1;
+    }
+
     public static void ShowDialog(final Activity act, @DrawableRes int desenho, String titulo, String mensagem){
         AlertDialog.Builder builder = new AlertDialog.Builder(act);
 
