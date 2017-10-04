@@ -1,6 +1,17 @@
 package com.dev2.sa.sistemaacessibilidade;
 
+import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.annotation.IntRange;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.app.Activity;
@@ -21,7 +32,7 @@ public class JogoDeOrdernarActivity extends Activity {
     ImageView img1, img2, img3, img4, img5, img6, imgCenter;
     LinearLayout ln1, ln2, ln3, ln4, ln5, ln6, lnCenter;
     int pontos = 0;
-    int fase = 0;
+    int fase = 3;
     String palavra = "";
     char[] ordemCerta = null;
 
@@ -63,14 +74,17 @@ public class JogoDeOrdernarActivity extends Activity {
 
             img1 = (ImageView) findViewById(R.id.letra1);
             img1.setImageResource(Metodos.getDrawableId(array[1]));
+            img1.setTag(Metodos.getDrawableId(array[1]));
             ordemCerta[0] = array[0];
 
             img2 = (ImageView) findViewById(R.id.letra2);
             img2.setImageResource(Metodos.getDrawableId(array[0]));
+            img2.setTag(Metodos.getDrawableId(array[0]));
             ordemCerta[1] = array[1];
 
             img3 = (ImageView) findViewById(R.id.letra3);
             img3.setImageResource(Metodos.getDrawableId(array[2]));
+            img3.setTag(Metodos.getDrawableId(array[2]));
             ordemCerta[2] = array[2];
 
             img4 = (ImageView) findViewById(R.id.letra4);
@@ -99,18 +113,22 @@ public class JogoDeOrdernarActivity extends Activity {
         } else if (array.length == 4) {
             img1 = (ImageView) findViewById(R.id.letra1);
             img1.setImageResource(Metodos.getDrawableId(array[1]));
+            img1.setTag(Metodos.getDrawableId(array[1]));
             ordemCerta[0] = array[0];
 
             img2 = (ImageView) findViewById(R.id.letra2);
             img2.setImageResource(Metodos.getDrawableId(array[0]));
+            img2.setTag(Metodos.getDrawableId(array[0]));
             ordemCerta[1] = array[1];
 
             img3 = (ImageView) findViewById(R.id.letra3);
             img3.setImageResource(Metodos.getDrawableId(array[3]));
+            img3.setTag(Metodos.getDrawableId(array[3]));
             ordemCerta[2] = array[2];
 
             img4 = (ImageView) findViewById(R.id.letra4);
             img4.setImageResource(Metodos.getDrawableId(array[2]));
+            img4.setTag(Metodos.getDrawableId(array[2]));
             ordemCerta[3] = array[3];
 
             lnCenter = (LinearLayout) findViewById(R.id.yellowLayout);
@@ -134,24 +152,28 @@ public class JogoDeOrdernarActivity extends Activity {
 
             img1 = (ImageView) findViewById(R.id.letra1);
             img1.setImageResource(Metodos.getDrawableId(array[3]));
+            img1.setTag(Metodos.getDrawableId(array[3]));
             ordemCerta[0] = array[0];
 
             img2 = (ImageView) findViewById(R.id.letra2);
             img2.setImageResource(Metodos.getDrawableId(array[4]));
+            img2.setTag(Metodos.getDrawableId(array[4]));
             ordemCerta[1] = array[1];
 
             img3 = (ImageView) findViewById(R.id.letra3);
             img3.setImageResource(Metodos.getDrawableId(array[1]));
+            img3.setTag(Metodos.getDrawableId(array[1]));
             ordemCerta[2] = array[2];
 
             img4 = (ImageView) findViewById(R.id.letra4);
             img4.setImageResource(Metodos.getDrawableId(array[0]));
+            img4.setTag(Metodos.getDrawableId(array[0]));
             ordemCerta[3] = array[3];
 
             img5 = (ImageView) findViewById(R.id.letra5);
             img5.setImageResource(Metodos.getDrawableId(array[2]));
+            img5.setTag(Metodos.getDrawableId(array[2]));
             ordemCerta[4] = array[4];
-
 
             lnCenter = (LinearLayout) findViewById(R.id.yellowLayout);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
@@ -168,26 +190,32 @@ public class JogoDeOrdernarActivity extends Activity {
         } else {
             img1 = (ImageView) findViewById(R.id.letra1);
             img1.setImageResource(Metodos.getDrawableId(array[3]));
+            img1.setTag(Metodos.getDrawableId(array[3]));
             ordemCerta[0] = array[0];
 
             img2 = (ImageView) findViewById(R.id.letra2);
             img2.setImageResource(Metodos.getDrawableId(array[4]));
+            img2.setTag(Metodos.getDrawableId(array[4]));
             ordemCerta[1] = array[1];
 
             img3 = (ImageView) findViewById(R.id.letra3);
             img3.setImageResource(Metodos.getDrawableId(array[1]));
+            img3.setTag(Metodos.getDrawableId(array[1]));
             ordemCerta[2] = array[2];
 
             img4 = (ImageView) findViewById(R.id.letra4);
             img4.setImageResource(Metodos.getDrawableId(array[5]));
+            img4.setTag(Metodos.getDrawableId(array[5]));
             ordemCerta[3] = array[3];
 
             img5 = (ImageView) findViewById(R.id.letra5);
             img5.setImageResource(Metodos.getDrawableId(array[2]));
+            img5.setTag(Metodos.getDrawableId(array[2]));
             ordemCerta[4] = array[4];
 
             img6 = (ImageView) findViewById(R.id.letra6);
             img6.setImageResource(Metodos.getDrawableId(array[0]));
+            img6.setTag(Metodos.getDrawableId(array[0]));
             ordemCerta[5] = array[5];
         }
     }
@@ -261,23 +289,22 @@ public class JogoDeOrdernarActivity extends Activity {
 
                     // indice onde foi largada a imagem
                     int index = 0;
-                    if (v.getId() == R.id.primeiro && view.getId() == R.id.letra1) // Clicou na primeira imagem
+                    if (v.getId() == R.id.primeiro) // Clicou na primeira imagem
                         index = 0;
-                    else if (v.getId() == R.id.segundo && view.getId() == R.id.letra2) // Clicou na segunda imagem
+                    else if (v.getId() == R.id.segundo) // Clicou na segunda imagem
                         index = 1;
-                    else if (v.getId() == R.id.terceiro && view.getId() == R.id.letra3) // Clicou na terceira imagem
+                    else if (v.getId() == R.id.terceiro) // Clicou na terceira imagem
                         index = 2;
-                    else if (v.getId() == R.id.quarto && view.getId() == R.id.letra4) // Clicou na quarta imagem
+                    else if (v.getId() == R.id.quarto) // Clicou na quarta imagem
                         index = 3;
-                    else if (v.getId() == R.id.quinto && view.getId() == R.id.letra5) // Clicou na quinta imagem
+                    else if (v.getId() == R.id.quinto) // Clicou na quinta imagem
                         index = 4;
-                    else if (v.getId() == R.id.sexto && view.getId() == R.id.letra6) // Clicou na sexra imagem
+                    else if (v.getId() == R.id.sexto) // Clicou na sexra imagem
                         index = 5;
 
+                    String tag = view.getTag().toString();
 
-                    // AQUI TEM QUE DESCOBRIR QUAL FOI A LETRA QUE O USUARIO PEGOU!!!! DRAWABLE!!!
-
-                    char letra = ordemCerta[index];
+                    char letra = Metodos.getDrawableId(Integer.parseInt(tag));
 
                     boolean acertou = validaLetra(letra, index);
                     if (acertou) {
@@ -287,7 +314,6 @@ public class JogoDeOrdernarActivity extends Activity {
                         owner.removeView(view);
                         LinearLayout container = (LinearLayout) v;
                         container.addView(view);
-                        pontos++;
                         view.setVisibility(View.VISIBLE);
                         view.setEnabled(false);
                         v.setEnabled(false);
@@ -297,8 +323,11 @@ public class JogoDeOrdernarActivity extends Activity {
                     }
                     if (pontos == palavra.length()) {
                         Toast.makeText(JogoDeOrdernarActivity.this, "PARABÉNS, VOCÊ GANHOU!!!", Toast.LENGTH_SHORT).show();
-                        //AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                        //builder.setMessage("TESTE").setPositiveButton("husahduihsaud", new  DialogInterface.OnclickListener());
+                        Intent intent = new Intent(getBaseContext(), JogoDeOrdernarActivity.class);
+                        Bundle params = new Bundle();
+                        params.putInt("fase", fase++);
+                        intent.putExtras(params);
+                        startActivity(intent);
                     }
                     break;
                 case DragEvent.ACTION_DRAG_ENDED:
@@ -309,5 +338,7 @@ public class JogoDeOrdernarActivity extends Activity {
             return true;
         }
     }
+
+
 
 }
