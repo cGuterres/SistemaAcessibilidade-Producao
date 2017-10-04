@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.media.MediaPlayer;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -28,32 +29,32 @@ public class Metodos {
     public static String[] palavras = {"CASA", "MALA", "UVA", "PATO"};
 
     // vetor com os ids das drawables
-    public  static int[] imagensCentro = {R.drawable.casinha, R.drawable.mala, R.drawable.uva, R.drawable.pato};
+    public static int[] imagensCentro = {R.drawable.casinha, R.drawable.mala, R.drawable.uva, R.drawable.pato};
 
     // alfabeto para utilização nos jogos
-    public static String[] letras = {"A", "B", "C", "D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W", "X","Y","Z"};
+    public static String[] letras = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
 
     // Retorna a ImageView da respectiva posição da lista (Imagem do letra).
-    public static int getImagem(char tmpLetra, Context context){
+    public static int getImagem(char tmpLetra, Context context) {
         String letra = Character.toString(tmpLetra);
         int imagem = context.getResources().getIdentifier("letra" + letra.toLowerCase(), "drawable", context.getPackageName());
         return imagem;
     }
 
     // Retorna a ImageView da respectiva posição da lista (Imagem do letra).
-    public static int getImagemMoldura(String letra, Context context){
+    public static int getImagemMoldura(String letra, Context context) {
         int imagem = context.getResources().getIdentifier(letra, "drawable", context.getPackageName());
         return imagem;
     }
 
     // Retorna o DRAWABLE (imagem) pelo nome do letra.
-    public static int getNome(String letra, Context context){
+    public static int getNome(String letra, Context context) {
         int imagem = context.getResources().getIdentifier(letra, "drawable", context.getPackageName());
         return imagem;
     }
 
     // Retorna o RAW (áudio) pelo nome do letra.
-    public static int getSom(String letra, Context context){
+    public static int getSom(String letra, Context context) {
         int audio = context.getResources().getIdentifier(letra, "raw", context.getPackageName());
         return audio;
     }
@@ -70,7 +71,7 @@ public class Metodos {
         pararSomletra();
         int audio = Metodos.getSom(letra, context);
         toque = MediaPlayer.create(context, audio);
-        toque.setOnCompletionListener(new MediaPlayer.OnCompletionListener(){
+        toque.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
                 toque.stop();
@@ -96,13 +97,13 @@ public class Metodos {
     }
 
     // sorteia a palavra do jogo
-    public static String sorteiraPalavraJogo(int index){
+    public static String sorteiraPalavraJogo(int index) {
         return palavras[index];
     }
 
     // funcao que retorna a imagem da letra
-    public static int getDrawableId(char letra){
-        switch (letra){
+    public static int getDrawableId(char letra) {
+        switch (letra) {
             case 'A':
                 return R.drawable.letraa;
             case 'B':
@@ -161,8 +162,8 @@ public class Metodos {
         return 1;
     }
 
-    public static char getDrawableId(int drawableId){
-        switch (drawableId){
+    public static char getDrawableId(int drawableId) {
+        switch (drawableId) {
             case R.drawable.letraa:
                 return 'A';
             case R.drawable.letrab:
@@ -199,7 +200,7 @@ public class Metodos {
                 return 'Q';
             case R.drawable.letrar:
                 return 'R';
-            case  R.drawable.letras:
+            case R.drawable.letras:
                 return 'S';
             case R.drawable.letrat:
                 return 'T';
@@ -221,7 +222,7 @@ public class Metodos {
         return 1;
     }
 
-    public static void ShowDialog(final Activity act, @DrawableRes int desenho, String titulo, String mensagem){
+    public static void ShowDialog(final Activity act, @DrawableRes int desenho, String titulo, String mensagem) {
         AlertDialog.Builder builder = new AlertDialog.Builder(act);
 
         builder.setTitle(titulo)
@@ -229,25 +230,22 @@ public class Metodos {
                 .setCancelable(false)
                 .setIcon(desenho)
                 .setPositiveButton("Reiniciar", new DialogInterface.OnClickListener() {
-                    public  void onClick(DialogInterface dialog, int id) {
-                        act.recreate();
-
-                    }
-                })
-                .setNegativeButton("Menu", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        act.finish();
+                        act.recreate();
                     }
-                })
-                .setNeutralButton("Middle", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Toast.makeText(act, "Middle button clicked!", Toast.LENGTH_SHORT).show();
-                    }
-                });
+                }).setNegativeButton("Menu", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                act.finish();
+            }
+        }).setNeutralButton("Middle", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(act, "Middle button clicked!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
 
         builder.create().show();        // create and show the alert dialog
-
 
 
     }

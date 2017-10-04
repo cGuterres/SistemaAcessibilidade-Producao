@@ -106,9 +106,7 @@ public class JogoDasFrutasActivity extends AppCompatActivity {
                                 v.setEnabled(false);
                             }
                             if (pontos == 3) {
-                                Toast.makeText(JogoDasFrutasActivity.this, "PARABÉNS, VOCÊ GANHOU!!!", Toast.LENGTH_SHORT).show();
-                                //AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                                //builder.setMessage("TESTE").setPositiveButton("husahduihsaud", new  DialogInterface.OnclickListener());
+                                Metodos.ShowDialog(JogoDasFrutasActivity.this, R.drawable.casinha, "Vitória!", "Parabéns, você venceu o jogo");
                             }
                             break;
                 }
