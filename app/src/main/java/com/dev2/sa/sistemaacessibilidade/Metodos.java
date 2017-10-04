@@ -168,14 +168,15 @@ public class Metodos {
                 .setMessage(mensagem)
                 .setCancelable(false)
                 .setIcon(desenho)
-                .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                .setPositiveButton("Reiniciar", new DialogInterface.OnClickListener() {
                     public  void onClick(DialogInterface dialog, int id) {
-                        act.finish();
+                        act.recreate();
+
                     }
                 })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                .setNegativeButton("Menu", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
+                        act.finish();
                     }
                 })
                 .setNeutralButton("Middle", new DialogInterface.OnClickListener() {
