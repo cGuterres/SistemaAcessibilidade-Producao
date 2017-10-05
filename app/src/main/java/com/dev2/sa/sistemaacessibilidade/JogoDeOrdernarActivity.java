@@ -1,22 +1,14 @@
 package com.dev2.sa.sistemaacessibilidade;
 
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.IntRange;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import android.support.annotation.DrawableRes;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.app.Activity;
 import android.content.ClipData;
-import android.content.ClipDescription;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.View.DragShadowBuilder;
@@ -28,17 +20,33 @@ import android.widget.Toast;
 
 public class JogoDeOrdernarActivity extends Activity {
 
-    // imagens da tela
+    // imagens da tela e variavies
     ImageView img1, img2, img3, img4, img5, img6, imgCenter;
     LinearLayout ln1, ln2, ln3, ln4, ln5, ln6, lnCenter;
     int pontos = 0;
-    int fase = 3;
+    private int fase = 0;
     String palavra = "";
     char[] ordemCerta = null;
+
+    public int getFase() {
+        return fase;
+    }
+
+    public void setFase(int fase) {
+        this.fase = fase;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Intent intent = getIntent();
+        if(intent != null) {
+            int nextPhase = intent.getIntExtra("fase", 0);
+            if(nextPhase <= Metodos.palavras.length) {
+                setFase(nextPhase);
+            }
+        }
         setContentView(R.layout.activity_jogo_de_ordernar);
 
         findViewById(R.id.letra1).setOnLongClickListener(new MyOnLongClickListener());
@@ -65,6 +73,16 @@ public class JogoDeOrdernarActivity extends Activity {
         findViewById(R.id.quarto).setOnDragListener(new MyOnDragListener(4));
         findViewById(R.id.quinto).setOnDragListener(new MyOnDragListener(5));
         findViewById(R.id.sexto).setOnDragListener(new MyOnDragListener(6));
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        // Sempre chame a superclasse para que possa
+        // restaurar a hierarquia da view
+        super.onRestoreInstanceState(savedInstanceState);
+
+        // Restaura estados membros da instância salva
+        fase++;
     }
 
     private void setLetrasImagem(String palavra) {
@@ -262,26 +280,7 @@ public class JogoDeOrdernarActivity extends Activity {
         @Override
         public boolean onDrag(View v, DragEvent event) {
             int action = event.getAction();
-
             switch (action) {
-                case DragEvent.ACTION_DRAG_STARTED:
-                    // Log para entender o funcionamento (Android Monitor)
-                    Log.i("Script", num + " - ACTION_DRAG_STARTED");
-                    if (event.getClipDescription().hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)) {
-                        return (true);
-                    }
-                    return (false);
-                case DragEvent.ACTION_DRAG_ENTERED:
-                    Log.i("Script", num + " - ACTION_DRAG_ENTERED");
-                    //v.setBackgroundColor(Color.YELLOW);
-                    break;
-                case DragEvent.ACTION_DRAG_LOCATION:
-                    Log.i("Script", num + " - ACTION_DRAG_LOCATION");
-                    break;
-                case DragEvent.ACTION_DRAG_EXITED:
-                    Log.i("Script", num + " - ACTION_DRAG_EXITED");
-                    //v.setBackgroundColor(Color.BLUE);
-                    break;
                 case DragEvent.ACTION_DROP:
                     Log.i("Script", num + " - ACTION_DROP");
                     // Move a imagem de um container para outro (6 linhas abaixo)
@@ -320,23 +319,62 @@ public class JogoDeOrdernarActivity extends Activity {
                         Toast.makeText(JogoDeOrdernarActivity.this, "LETRA ERRADA!!", Toast.LENGTH_SHORT).show();
                     }
                     if (pontos == palavra.length()) {
-                        Toast.makeText(JogoDeOrdernarActivity.this, "PARABÉNS, VOCÊ GANHOU!!!", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(getBaseContext(), JogoDeOrdernarActivity.class);
-                        Bundle params = new Bundle();
-                        params.putInt("fase", fase++);
-                        intent.putExtras(params);
-                        startActivity(intent);
+                        if(getFase() <= Metodos.palavras.length && getFase() != Metodos.palavras.length - 1) {
+                            ShowDialogNext(JogoDeOrdernarActivity.this, R.drawable.icocasa, "PARABÉNS!", "VOCÊ GANHOU!!");
+                        }else{
+                            ShowDialogRecreateGame(JogoDeOrdernarActivity.this, R.drawable.icocasa, "PARABÉNS!", "Você concluiu todas as fases! =]");
+                        }
                     }
-                    break;
-                case DragEvent.ACTION_DRAG_ENDED:
-                    Log.i("Script", num + " - ACTION_DRAG_ENDED");
-                    //v.setBackgroundColor(Color.BLUE);
                     break;
             }
             return true;
         }
     }
+    public void ShowDialogNext(final Activity act, @DrawableRes int desenho, String titulo, String mensagem) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(act);
+        builder.setTitle(titulo)
+                .setMessage(mensagem)
+                .setCancelable(false)
+                .setIcon(desenho)
+                .setPositiveButton("Próxima", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        fase++;
+                        setFase(fase);
+                        if(getFase() <= Metodos.palavras.length && getFase() != Metodos.palavras.length) {
+                            Intent nextActivity = new Intent(getBaseContext(), JogoDeOrdernarActivity.class);
+                            nextActivity.putExtra("fase", getFase());
+                            startActivity(nextActivity);
+                            finish();
+                        }
+                    }
+                }).setNegativeButton("Sair", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                act.finish();
+            }
+        });
+        builder.create().show();        // create and show the alert dialog
+    }
 
-
-
+    public void ShowDialogRecreateGame(final Activity act, @DrawableRes int desenho, String titulo, String mensagem) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(act);
+        builder.setTitle(titulo)
+                .setMessage(mensagem)
+                .setCancelable(false)
+                .setIcon(desenho)
+                .setPositiveButton("Reiniciar Fases", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        fase = 0;
+                        setFase(fase);
+                        Intent nextActivity = new Intent(getBaseContext(), JogoDeOrdernarActivity.class);
+                        nextActivity.putExtra("fase", getFase());
+                        startActivity(nextActivity);
+                        finish();
+                    }
+                }).setNegativeButton("Sair", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                act.finish();
+            }
+        });
+        builder.create().show();        // create and show the alert dialog
+    }
 }

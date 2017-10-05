@@ -26,10 +26,10 @@ public class Metodos {
     public static MediaPlayer toque;
 
     // palavras do jogo
-    public static String[] palavras = {"CASA", "MALA", "UVA", "PATO"};
+    public static String[] palavras = {"UVA", "CASA", "MALA", "PATO"};
 
     // vetor com os ids das drawables
-    public static int[] imagensCentro = {R.drawable.casinha, R.drawable.mala, R.drawable.uva, R.drawable.pato};
+    public static int[] imagensCentro = {R.drawable.uva, R.drawable.casinha, R.drawable.mala, R.drawable.pato};
 
     // alfabeto para utilização nos jogos
     public static String[] letras = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
@@ -224,7 +224,6 @@ public class Metodos {
 
     public static void ShowDialog(final Activity act, @DrawableRes int desenho, String titulo, String mensagem) {
         AlertDialog.Builder builder = new AlertDialog.Builder(act);
-
         builder.setTitle(titulo)
                 .setMessage(mensagem)
                 .setCancelable(false)
@@ -243,10 +242,6 @@ public class Metodos {
                 Toast.makeText(act, "Middle button clicked!", Toast.LENGTH_SHORT).show();
             }
         });
-
-
         builder.create().show();        // create and show the alert dialog
-
-
     }
 }
