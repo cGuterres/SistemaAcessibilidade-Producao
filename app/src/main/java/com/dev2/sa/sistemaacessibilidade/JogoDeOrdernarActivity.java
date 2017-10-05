@@ -16,6 +16,7 @@ import android.view.View.OnDragListener;
 import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class JogoDeOrdernarActivity extends Activity {
@@ -23,10 +24,13 @@ public class JogoDeOrdernarActivity extends Activity {
     // imagens da tela e variavies
     ImageView img1, img2, img3, img4, img5, img6, imgCenter;
     LinearLayout ln1, ln2, ln3, ln4, ln5, ln6, lnCenter;
-    int pontos = 0;
+    int acerto = 0;
     private int fase = 0;
     String palavra = "";
     char[] ordemCerta = null;
+    final int pontoAcerto = 10;
+    final int pontoErro = 5;
+    private int pontuacao = 0;
 
     public int getFase() {
         return fase;
@@ -36,9 +40,29 @@ public class JogoDeOrdernarActivity extends Activity {
         this.fase = fase;
     }
 
+    public int getPontuacao() {
+        return pontuacao;
+    }
+
+    public void setPontuacao(int pontuacao) {
+        this.pontuacao = pontuacao;
+    }
+
+    // check = true - acerto
+    //check = false - erro
+    public int somaTotal(int valor, boolean check){
+        if(check){
+            this.pontuacao += valor;
+        }else{
+            this.pontuacao -= valor;
+        }
+        return this.pontuacao;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_jogo_de_ordernar);
 
         Intent intent = getIntent();
         if(intent != null) {
@@ -46,8 +70,14 @@ public class JogoDeOrdernarActivity extends Activity {
             if(nextPhase <= Metodos.palavras.length) {
                 setFase(nextPhase);
             }
+            int pontuacaoAtual = intent.getIntExtra("pontuacao", 0);
+            setPontuacao(pontuacaoAtual);
+
+            TextView txtPonto = (TextView)findViewById(R.id.txtPonto);
+            if(txtPonto != null) {
+                txtPonto.setText(Integer.toString(getPontuacao()));
+            }
         }
-        setContentView(R.layout.activity_jogo_de_ordernar);
 
         findViewById(R.id.letra1).setOnLongClickListener(new MyOnLongClickListener());
         findViewById(R.id.letra2).setOnLongClickListener(new MyOnLongClickListener());
@@ -305,7 +335,9 @@ public class JogoDeOrdernarActivity extends Activity {
                     char letra = Metodos.getDrawableId(Integer.parseInt(tag));
                     boolean acertou = validaLetra(letra, index);
                     if (acertou) {
-                        pontos++;
+                        acerto++;
+                        // faz o somatório
+                        somaTotal(pontoAcerto, true);
                         Toast.makeText(JogoDeOrdernarActivity.this, "ACERTOU!!", Toast.LENGTH_SHORT).show();
                         ViewGroup owner = (ViewGroup) view.getParent();
                         owner.removeView(view);
@@ -317,14 +349,18 @@ public class JogoDeOrdernarActivity extends Activity {
                     } else {
                         // mensagem de erro para o usuário
                         Toast.makeText(JogoDeOrdernarActivity.this, "LETRA ERRADA!!", Toast.LENGTH_SHORT).show();
+                        somaTotal(pontoErro, false);
                     }
-                    if (pontos == palavra.length()) {
+                    if (acerto == palavra.length()) {
                         if(getFase() <= Metodos.palavras.length && getFase() != Metodos.palavras.length - 1) {
                             ShowDialogNext(JogoDeOrdernarActivity.this, R.drawable.icocasa, "PARABÉNS!", "VOCÊ GANHOU!!");
                         }else{
-                            ShowDialogRecreateGame(JogoDeOrdernarActivity.this, R.drawable.icocasa, "PARABÉNS!", "Você concluiu todas as fases! =]");
+                            ShowDialogRecreateGame(JogoDeOrdernarActivity.this, R.drawable.icocasa, "PARABÉNS!", "Você concluiu todas as fases! =]\n Sua pontuação: " + getPontuacao());
                         }
                     }
+                    TextView mostra = (TextView)findViewById(R.id.txtPonto);
+                    int pontuacaoAtual = getPontuacao();
+                    mostra.setText(Integer.toString(pontuacaoAtual));
                     break;
             }
             return true;
@@ -343,6 +379,7 @@ public class JogoDeOrdernarActivity extends Activity {
                         if(getFase() <= Metodos.palavras.length && getFase() != Metodos.palavras.length) {
                             Intent nextActivity = new Intent(getBaseContext(), JogoDeOrdernarActivity.class);
                             nextActivity.putExtra("fase", getFase());
+                            nextActivity.putExtra("pontuacao", getPontuacao());
                             startActivity(nextActivity);
                             finish();
                         }
@@ -365,6 +402,8 @@ public class JogoDeOrdernarActivity extends Activity {
                     public void onClick(DialogInterface dialog, int id) {
                         fase = 0;
                         setFase(fase);
+                        pontuacao = 0;
+                        setPontuacao(pontuacao);
                         Intent nextActivity = new Intent(getBaseContext(), JogoDeOrdernarActivity.class);
                         nextActivity.putExtra("fase", getFase());
                         startActivity(nextActivity);
