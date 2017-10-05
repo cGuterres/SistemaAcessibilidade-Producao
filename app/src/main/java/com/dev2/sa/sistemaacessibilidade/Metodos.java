@@ -26,10 +26,10 @@ public class Metodos {
     public static MediaPlayer toque;
 
     // palavras do jogo
-    public static String[] palavras = {"UVA", "CASA", "MALA", "PATO"};
+    public static String[] palavras = {"UVA", "CASA", "MALA", "PATO","MACACO"};
 
     // vetor com os ids das drawables
-    public static int[] imagensCentro = {R.drawable.uva, R.drawable.casinha, R.drawable.mala, R.drawable.pato};
+    public static int[] imagensCentro = {R.drawable.uva, R.drawable.casinha, R.drawable.mala, R.drawable.pato,R.drawable.macaco};
 
     // alfabeto para utilização nos jogos
     public static String[] letras = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
