@@ -26,10 +26,10 @@ public class Metodos {
     public static MediaPlayer toque;
 
     // palavras do jogo
-    public static String[] palavras = {"UVA", "CASA", "MALA", "PATO","MACACO"};
+    public static String[] palavras = {"UVA", "CASA", "MALA", "PATO", "MACACO"};
 
     // vetor com os ids das drawables
-    public static int[] imagensCentro = {R.drawable.uva, R.drawable.casinha, R.drawable.mala, R.drawable.pato,R.drawable.macaco};
+    public static int[] imagensCentro = {R.drawable.uva, R.drawable.casinha, R.drawable.mala, R.drawable.pato, R.drawable.macaco};
 
     // alfabeto para utilização nos jogos
     public static String[] letras = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
@@ -243,5 +243,21 @@ public class Metodos {
             }
         });
         builder.create().show();        // create and show the alert dialog
+    }
+
+    public static int getDrawablePhaseTwo(int index) {
+        switch (index) {
+            case 0:
+                return R.drawable.lixo;
+            case 1:
+                return R.drawable.fada;
+            case 2:
+                return R.drawable.olho;
+            case 3:
+                return R.drawable.seta;
+            default:
+                break;
+        }
+        return 0;
     }
 }

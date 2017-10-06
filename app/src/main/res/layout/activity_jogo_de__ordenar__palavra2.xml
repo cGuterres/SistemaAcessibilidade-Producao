@@ -99,14 +99,14 @@
 
 
             <LinearLayout
-                android:id="@+id/moldura_1"
+                android:id="@+id/lixo"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/lixo"
+                    android:id="@+id/palavralixo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -115,14 +115,14 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/moldura_2"
+                android:id="@+id/fada"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/fada"
+                    android:id="@+id/palavrafada"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -131,35 +131,35 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/moldura_3"
+                android:id="@+id/olho"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/seta"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/seta"
-                    android:tag="seta" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/moldura_4"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/olho"
+                    android:id="@+id/palavraolho"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:src="@drawable/olho"
                     android:tag="olho" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/seta"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/palavraseta"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/seta"
+                    android:tag="seta" />
 
             </LinearLayout>
 
