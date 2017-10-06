@@ -260,4 +260,8 @@ public class Metodos {
         }
         return 0;
     }
+
+    public static void ShowHitMessage(Activity act, String message){
+        Toast.makeText(act, message, Toast.LENGTH_SHORT).show();
+    }
 }

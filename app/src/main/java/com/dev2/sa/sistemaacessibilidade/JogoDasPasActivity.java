@@ -82,63 +82,66 @@ public class JogoDasPasActivity extends Activity {
         @Override
         public boolean onDrag(View v, DragEvent event) {
             int action = event.getAction();
-            for(String paSelecionada: Balde_Pa.keySet()) {
-                String sombra = Balde_Pa.get(paSelecionada);
-               // String test = "";
+            boolean hit = false;
+            View view = (View) event.getLocalState();//aqui entra quem está sendo movido
 
 
                 switch (action) {
                     case DragEvent.ACTION_DRAG_STARTED:
-                        // Log para entender o funcionamento (Android Monitor)
-                        Log.i("Script", num + " - ACTION_DRAG_STARTED");
                         if (event.getClipDescription().hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)) {
                             return (true);
                         }
                         return (false);
                     case DragEvent.ACTION_DRAG_ENTERED:
-                        Log.i("Script", num + " - ACTION_DRAG_ENTERED");
-                        //v.setBackgroundColor(Color.YELLOW);
+
                         break;
                     case DragEvent.ACTION_DRAG_LOCATION:
-                        Log.i("Script", num + " - ACTION_DRAG_LOCATION");
+
                         break;
                     case DragEvent.ACTION_DRAG_EXITED:
-                        Log.i("Script", num + " - ACTION_DRAG_EXITED");
-                        //v.setBackgroundColor(Color.BLUE);
+
                         break;
 
                     case DragEvent.ACTION_DROP:
-                        Log.i("Script", num + " - ACTION_DROP");
-                        // Move a imagem de um container para outro (6 linhas abaixo)
-                        View view = (View) event.getLocalState();//aqui entra quem está sendo movido
-                        if(view.getId() == Integer.parseInt(paSelecionada)//condição de acerto
-                                && v.getId() == Integer.parseInt(sombra))
-                        {
-                            controle = 1;
-                            ImageView pegaImagemColorida = (ImageView) view;
-                            Toast.makeText(JogoDasPasActivity.this, "ACERTOU!!", Toast.LENGTH_SHORT).show();
-                            ViewGroup owner = (ViewGroup) view.getParent();
-                            owner.removeView(view);
-
-                            LinearLayout container = (LinearLayout) v;
-                            container.addView(view);
+                        if(view.getId() == R.id.pa_amarela && v.getId() == R.id.centerrigth){
+                            LinearLayout oldparent = (LinearLayout) view.getParent();
+                            hit = true;
+                            oldparent.removeView(view);
+                            LinearLayout newParent = (LinearLayout)v;
+                            newParent.addView(view);
                             pontos++;
-                            view.setVisibility(View.VISIBLE);
-                            view.setEnabled(false);
-                            v.setEnabled(false);
                         }
-                        if (pontos == 3) {
-                            Toast.makeText(JogoDasPasActivity.this, "PARABÉNS, VOCÊ GANHOU!!!", Toast.LENGTH_SHORT).show();
-                            Metodos.ShowDialog(JogoDasPasActivity.this, R.drawable.pa_amarela, "Vitória!!", "Deseja continuar?");
-                            //AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                            //builder.setMessage("TESTE").setPositiveButton("husahduihsaud", new  DialogInterface.OnclickListener());
+                        else if(view.getId() == R.id.pa_vermelha && v.getId() == R.id.bottomright){
+                            LinearLayout oldparent = (LinearLayout) view.getParent();
+                            hit = true;
+                            oldparent.removeView(view);
+                            LinearLayout newParent = (LinearLayout)v;
+                            newParent.addView(view);
+                            pontos++;
                         }
-
+                        else if(view.getId() == R.id.pa_azul && v.getId() == R.id.topright){
+                            LinearLayout oldparent = (LinearLayout) view.getParent();
+                            hit = true;
+                            oldparent.removeView(view);
+                            LinearLayout newParent = (LinearLayout)v;
+                            newParent.addView(view);
+                            pontos++;
+                        }
+                        else{
+                            Toast.makeText(JogoDasPasActivity.this, "Você errou!", Toast.LENGTH_SHORT).show();
+                        }
+                        if(pontos <= 2 && hit) {
+                            Metodos.ShowHitMessage(JogoDasPasActivity.this, "Acerto!");
+                        }
+                        if(pontos == 3) {
+                            Metodos.ShowDialog(JogoDasPasActivity.this, R.drawable.pa_amarela, "Vitória", "Parabéns! Você ganhou!");
+                        }
+                        hit = false;
                         break;
                 }
-            }
             return true;
+            }
         }
     }
 
-}
+

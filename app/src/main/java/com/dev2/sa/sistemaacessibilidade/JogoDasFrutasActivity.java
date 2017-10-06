@@ -77,43 +77,54 @@ public class JogoDasFrutasActivity extends AppCompatActivity {
         @Override
         public boolean onDrag(View v, DragEvent event) {
             int action = event.getAction();
-            for(String frutaselecionada: Balde_Pa.keySet()) {
-                String sombra = Balde_Pa.get(frutaselecionada);
-                String test = "";
-
-
+            boolean hit = false;
+            View view = (View) event.getLocalState();//aqui entra quem está sendo movido
                  switch (action) {
 
                     case DragEvent.ACTION_DROP:
 
-                            Log.i("Script", num + " - ACTION_DROP");
-                            // Move a imagem de um container para outro (6 linhas abaixo)
-                            View view = (View) event.getLocalState();//aqui entra quem está sendo movido
-                            if(view.getId() == Integer.parseInt(frutaselecionada)
-                                    && v.getId() == Integer.parseInt(sombra))
-                            {
-                                controle=1;
-                                ImageView pegaImagemColorida = (ImageView) view;
-                                Toast.makeText(JogoDasFrutasActivity.this, "ACERTOU!!", Toast.LENGTH_SHORT).show();
-                                ViewGroup owner = (ViewGroup) view.getParent();
-                                owner.removeView(view);
+                        if(view.getId() == R.id.laranja_colorida && v.getId() == R.id.topright){
+                            hit = true;
+                            LinearLayout oldparent = (LinearLayout) view.getParent();
+                            oldparent.removeView(view);
+                            LinearLayout newParent = (LinearLayout)v;
+                            newParent.addView(view);
+                            pontos++;
+                        }
+                        else if(view.getId() == R.id.uva_colorida && v.getId() == R.id.bottomright){
+                            hit=true;
+                            LinearLayout oldparent = (LinearLayout) view.getParent();
+                            oldparent.removeView(view);
+                            LinearLayout newParent = (LinearLayout)v;
+                            newParent.addView(view);
+                            pontos++;
+                        }
+                        else if(view.getId() == R.id.abacaxi_colorido && v.getId() == R.id.centerrigth){
+                            hit = true;
 
-                                LinearLayout container = (LinearLayout) v;
-                                container.addView(view);
-                                pontos++;
-                                view.setVisibility(View.VISIBLE);
-                                view.setEnabled(false);
-                                v.setEnabled(false);
-                            }
-                            if (pontos == 3) {
-                                Metodos.ShowDialog(JogoDasFrutasActivity.this, R.drawable.casinha, "Vitória!", "Parabéns, você venceu o jogo");
-                            }
+                            LinearLayout oldparent = (LinearLayout) view.getParent();
+                            oldparent.removeView(view);
+                            LinearLayout newParent = (LinearLayout)v;
+                            newParent.addView(view);
+                            pontos++;
+                        }
+                        else{
+                            Toast.makeText(JogoDasFrutasActivity.this, "Você errou!", Toast.LENGTH_SHORT).show();
+                        }
+                        if(pontos <= 2 && hit) {
+                            Metodos.ShowHitMessage(JogoDasFrutasActivity.this, "Acerto!");
+                        }
+                        if(pontos == 3) {
+                            Metodos.ShowDialog(JogoDasFrutasActivity.this, R.drawable.pa_amarela, "Vitória", "Parabéns! Você ganhou!");
+                        }
+                        hit = false;
                             break;
                 }
-            }
             return true;
+            }
+
         }
 
     }
 
-}
+
