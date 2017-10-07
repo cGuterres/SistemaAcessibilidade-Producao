@@ -54,9 +54,64 @@ public class Metodos {
     }
 
     // Retorna o RAW (áudio) pelo nome do letra.
-    public static int getSom(String letra, Context context) {
-        int audio = context.getResources().getIdentifier(letra, "raw", context.getPackageName());
-        return audio;
+    public static int getSom(String letra) {
+        switch (letra){
+            case "A":
+                return R.raw.a;
+            case "B":
+                return R.raw.b;
+            case "C":
+                return R.raw.c;
+            case "D":
+                return R.raw.d;
+            case "E":
+                return R.raw.e;
+            case "F":
+                return R.raw.f;
+            case "G":
+                return R.raw.g;
+            case "H":
+                return R.raw.h;
+            case "I":
+                return R.raw.i;
+            case "J":
+                return R.raw.k;
+            case "K":
+                return R.raw.k;
+            case "L":
+                return R.raw.l;
+            case "M":
+                return R.raw.m;
+            case "N":
+                return R.raw.n;
+            case "O":
+                return R.raw.o;
+            case "P":
+                return R.raw.p;
+            case "Q":
+                return R.raw.q;
+            case "R":
+                return R.raw.r;
+            case "S":
+                return R.raw.s;
+            case "T":
+                return R.raw.t;
+            case "U":
+                return R.raw.u;
+            case "V":
+                return R.raw.v;
+            case "X":
+                return R.raw.x;
+            case "W":
+                return R.raw.w;
+            case "Y":
+                return R.raw.y;
+            case "Z":
+                return R.raw.z;
+            default:
+                break;
+        }
+        return 0;
     }
 
     // Retorna um valor aleatório dentro do limite.
@@ -69,7 +124,7 @@ public class Metodos {
     // Método usado para executar áudio dos letra e do toque dos botões.
     public static void chamarSomletra(String letra, Context context) {
         pararSomletra();
-        int audio = Metodos.getSom(letra, context);
+        int audio = Metodos.getSom(letra);
         toque = MediaPlayer.create(context, audio);
         toque.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
