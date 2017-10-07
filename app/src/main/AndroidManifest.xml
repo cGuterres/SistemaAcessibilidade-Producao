@@ -48,6 +48,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".Dialog"></activity>
+
+
+        <supports-screens android:smallScreens="true"
+            android:normalScreens="true"
+            android:largeScreens="true"
+            android:anyDensity="true" />
     </application>
+
 
 </manifest>
