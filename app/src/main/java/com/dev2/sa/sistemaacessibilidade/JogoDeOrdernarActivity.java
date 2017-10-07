@@ -333,6 +333,8 @@ public class JogoDeOrdernarActivity extends Activity {
 
                     String tag = view.getTag().toString();
                     char letra = Metodos.getDrawableId(Integer.parseInt(tag));
+                    // chama método para colocar som na letra
+                    Metodos.chamarSomletra(Character.toString(letra), JogoDeOrdernarActivity.this);
                     boolean acertou = validaLetra(letra, index);
                     if (acertou) {
                         acerto++;
