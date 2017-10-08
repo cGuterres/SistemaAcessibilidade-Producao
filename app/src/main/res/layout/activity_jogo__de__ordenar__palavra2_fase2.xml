@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:layout_margin="5dp"
+android:background="@color/pastel"
+android:orientation="horizontal"
+
+tools:context="com.dev2.sa.sistemaacessibilidade.Jogo_De_Ordenar_Palavra2_fase2">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/moldura1"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="13dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/Img_grilo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/img_grilo"
+            android:tag="img_grilo" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/moldura4"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_alignLeft="@+id/moldura3"
+        android:layout_alignStart="@+id/moldura3"
+        android:layout_below="@+id/moldura3"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/img_porta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/img_porta"
+            android:tag="img_porta" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/moldura2"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_alignLeft="@+id/moldura1"
+        android:layout_alignStart="@+id/moldura1"
+        android:layout_below="@+id/moldura1"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/img_trono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/img_trono"
+            android:tag="img_trono" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/moldura3"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_alignLeft="@+id/moldura2"
+        android:layout_alignStart="@+id/moldura2"
+        android:layout_below="@+id/moldura2"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/img_treno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/img_treno"
+            android:tag="img_treno" />
+    </LinearLayout>
+
+    <com.jmedeisis.draglinearlayout.DragLinearLayout
+        android:id="@+id/drag_drop_layout_fase2"
+        android:layout_width="173dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true">
+
+
+        <LinearLayout
+            android:id="@+id/grilo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/palavragrilo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/grilo"
+                android:tag="colher" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/trono"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/palavratrono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/trono"
+                android:tag="tomate" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/treno"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/palavratreno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/treno"
+                android:tag="cebola" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/porta"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/palavraporta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/porta"
+                android:tag="cavalo" />
+
+        </LinearLayout>
+
+
+    </com.jmedeisis.draglinearlayout.DragLinearLayout>
+
+</RelativeLayout>
+
+</LinearLayout>

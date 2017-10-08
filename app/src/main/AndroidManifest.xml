@@ -19,6 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".JogoDasPasActivity"
             android:exported="true"
@@ -27,6 +28,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".JogoDeOrdernarActivity"
             android:exported="true"
@@ -35,26 +37,45 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".JogoDasFrutasActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
+
+        <activity android:name=".Jogo_De_Ordenar_Palavra2_fase3"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
+        <activity android:name=".Jogo_De_Ordenar_Palavra2_fase2"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
         <activity
             android:name=".Jogo_de_Ordenar_Palavra2"
-            android:screenOrientation="portrait"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Dialog"></activity>
 
+        <activity android:name=".Dialog" />
 
-        <supports-screens android:smallScreens="true"
-            android:normalScreens="true"
+        <supports-screens
+            android:anyDensity="true"
             android:largeScreens="true"
-            android:anyDensity="true" />
+            android:normalScreens="true"
+            android:smallScreens="true" />
+
+
+
+
+
+
     </application>
 
-
 </manifest>
+
+
+

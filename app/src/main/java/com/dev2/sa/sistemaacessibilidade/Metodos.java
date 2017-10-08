@@ -316,6 +316,43 @@ public class Metodos {
         return 0;
     }
 
+    public static int getDrawablePhaseTwo1(int index) {
+        switch (index) {
+            case 0:
+                return R.drawable.grilo;
+            case 1:
+                return R.drawable.trono;
+            case 2:
+                return R.drawable.treno;
+            case 3:
+                return R.drawable.porta;
+            default:
+                break;
+        }
+        return 0;
+    }
+
+
+    public static int getDrawablePhaseTwo2(int index) {
+        switch (index) {
+            case 0:
+                return R.drawable.colher;
+            case 1:
+                return R.drawable.tomate;
+            case 2:
+                return R.drawable.cebola;
+            case 3:
+                return R.drawable.cavalo;
+            default:
+                break;
+        }
+        return 0;
+    }
+
+
+
+
+
     public static void ShowHitMessage(Activity act, String message){
         Toast.makeText(act, message, Toast.LENGTH_SHORT).show();
     }
