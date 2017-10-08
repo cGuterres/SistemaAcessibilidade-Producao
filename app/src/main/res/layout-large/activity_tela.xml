@@ -149,16 +149,23 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="153dp" />
 
-    <Button
-        android:id="@+id/mute"
-        android:layout_width="92dp"
-        android:layout_height="82dp"
-        android:layout_marginBottom="32dp"
-        android:background="@android:drawable/stat_notify_call_mute"
+    <!--android:background="@drawable/check" busca o xml com os icones-->
+    <ToggleButton
+        android:id="@+id/toggle"
+        android:layout_width="79dp"
+        android:layout_height="80dp"
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp"
+        android:background="@drawable/check"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         android:onClick="botaonmute"
+        android:textOff=""
+        android:textOn=""
+        android:layout_marginRight="32dp"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginRight="31dp"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:layout_marginBottom="24dp" />
 
 
 </android.support.constraint.ConstraintLayout>
