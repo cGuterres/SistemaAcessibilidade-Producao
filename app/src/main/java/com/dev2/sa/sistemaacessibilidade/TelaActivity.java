@@ -10,7 +10,6 @@ public class TelaActivity extends AppCompatActivity {
 
     MediaPlayer mp = new MediaPlayer();
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

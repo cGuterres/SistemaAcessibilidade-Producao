@@ -22,14 +22,13 @@ import android.widget.Toast;
 public class JogoDeOrdernarActivity extends Activity {
 
     // imagens da tela e variavies
-    ImageView img1, img2, img3, img4, img5, img6, imgCenter;
-    LinearLayout ln1, ln2, ln3, ln4, ln5, ln6, lnCenter;
-    int acerto = 0;
-    private int fase = 0;
-    String palavra = "";
-    char[] ordemCerta = null;
-    final int pontoAcerto = 10;
-    final int pontoErro = 5;
+    private ImageView img1, img2, img3, img4, img5, img6, imgCenter;
+    private LinearLayout ln1, ln2, ln3, ln4, ln5, ln6, lnCenter;
+    private int acerto = 0, fase = 0;
+    private String palavra = "";
+    private char[] ordemCerta = null;
+    private final int pontoAcerto = 10;
+    private final int pontoErro = 5;
     private int pontuacao = 0;
 
     public int getFase() {
@@ -354,6 +353,8 @@ public class JogoDeOrdernarActivity extends Activity {
                         somaTotal(pontoErro, false);
                     }
                     if (acerto == palavra.length()) {
+                        // fala a palavra correta
+                        Metodos.chamarSomPalavra(getFase(),JogoDeOrdernarActivity.this);
                         if(getFase() <= Metodos.palavras.length && getFase() != Metodos.palavras.length - 1) {
                             ShowDialogNext(JogoDeOrdernarActivity.this, R.drawable.icocasa, "PARABÉNS!", "VOCÊ GANHOU!!");
                         }else{

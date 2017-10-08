@@ -53,6 +53,25 @@ public class Metodos {
         return imagem;
     }
 
+    // retorna som correspondente a fase
+    public static int getSomFase(int fase){
+        switch (fase) {
+            case 0:
+                return R.raw.uva;
+            case 1:
+                return R.raw.casa;
+            case 2:
+                return R.raw.mala;
+            case 3:
+                return R.raw.pato;
+            case 4:
+                return R.raw.macaco;
+            default:
+                break;
+        }
+        return 0;
+    }
+
     // Retorna o RAW (áudio) pelo nome do letra.
     public static int getSom(String letra) {
         switch (letra){
@@ -122,8 +141,23 @@ public class Metodos {
     }
 
     // Método usado para executar áudio dos letra e do toque dos botões.
-    public static void chamarSomletra(String letra, Context context) {
+    public static void chamarSomPalavra(int fase, Context context) {
         pararSomletra();
+        int audio = Metodos.getSomFase(fase);
+        toque = MediaPlayer.create(context, audio);
+        toque.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                toque.stop();
+                toque.release();
+                toque = null;
+            }
+        });
+        toque.start();
+    }
+
+    public static void chamarSomletra(String letra, Context context) {
+        //pararSomletra();
         int audio = Metodos.getSom(letra);
         toque = MediaPlayer.create(context, audio);
         toque.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
@@ -302,14 +336,14 @@ public class Metodos {
 
     public static int getDrawablePhaseTwo(int index) {
         switch (index) {
-            case 0:
-                return R.drawable.lixo;
-            case 1:
-                return R.drawable.fada;
-            case 2:
-                return R.drawable.olho;
-            case 3:
-                return R.drawable.seta;
+                case 0:
+                    return R.drawable.lixo;
+                case 1:
+                    return R.drawable.fada;
+                case 2:
+                    return R.drawable.olho;
+                case 3:
+                    return R.drawable.seta;
             default:
                 break;
         }
@@ -332,7 +366,6 @@ public class Metodos {
         return 0;
     }
 
-
     public static int getDrawablePhaseTwo2(int index) {
         switch (index) {
             case 0:
@@ -348,10 +381,6 @@ public class Metodos {
         }
         return 0;
     }
-
-
-
-
 
     public static void ShowHitMessage(Activity act, String message){
         Toast.makeText(act, message, Toast.LENGTH_SHORT).show();
