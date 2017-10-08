@@ -18,8 +18,31 @@ import android.widget.Toast;
 import com.jmedeisis.draglinearlayout.DragLinearLayout;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Jogo_de_Ordenar_Palavra2 extends AppCompatActivity {
+
+    private HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+    private final int lixoId = 2131493012;
+    private final int fadaId = 2131493014;
+    private final int olhoId = 2131493016;
+    private final int setaId = 2131493018;
+
+    public Integer getLixoId() {
+        return lixoId;
+    }
+
+    public int getFadaId() {
+        return fadaId;
+    }
+
+    public int getSetaId() {
+        return setaId;
+    }
+
+    public int getOlhoId() {
+        return olhoId;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +54,10 @@ public class Jogo_de_Ordenar_Palavra2 extends AppCompatActivity {
         findViewById(R.id.palavraolho).setOnTouchListener(new MyTouchListener());
         findViewById(R.id.palavraseta).setOnTouchListener(new MyTouchListener());
 
-        findViewById(R.id.moldura1).setOnDragListener(new MyDragListener());
-        findViewById(R.id.moldura2).setOnDragListener(new MyDragListener());
-        findViewById(R.id.moldura3).setOnDragListener(new MyDragListener());
-        findViewById(R.id.moldura4).setOnDragListener(new MyDragListener());
+        findViewById(R.id.moldura1).setOnTouchListener(new MyTouchListener());
+        findViewById(R.id.moldura2).setOnTouchListener(new MyTouchListener());
+        findViewById(R.id.moldura3).setOnTouchListener(new MyTouchListener());
+        findViewById(R.id.moldura4).setOnTouchListener(new MyTouchListener());
 
         /*DragLinearLayout menujogo = (DragLinearLayout) findViewById(R.id.drag_drop_layout);
         for (int i = 0; i < menujogo.getChildCount(); i++) {
@@ -51,14 +74,14 @@ public class Jogo_de_Ordenar_Palavra2 extends AppCompatActivity {
         }
         for (int i = 0; i < menujogo.getChildCount(); i++) {
             int numeroSorteado = Metodos.sortearNumero(menujogo.getChildCount());
-            boolean valida = validaNumero(vetor, numeroSorteado);
+            boolean valida = Metodos.validaNumero(vetor, numeroSorteado);
             if (valida) {
                 vetor[i] = numeroSorteado;
             } else {
                 boolean encontrou = false;
                 while (!encontrou) {
                     numeroSorteado = Metodos.sortearNumero(menujogo.getChildCount());
-                    valida = validaNumero(vetor, numeroSorteado);
+                    valida = Metodos.validaNumero(vetor, numeroSorteado);
                     if (valida) {
                         vetor[i] = numeroSorteado;
                         encontrou = true;
@@ -70,102 +93,67 @@ public class Jogo_de_Ordenar_Palavra2 extends AppCompatActivity {
 
         ImageView im1 = (ImageView) findViewById(R.id.palavralixo);
         im1.setImageResource(Metodos.getDrawablePhaseTwo(vetor[0]));
+        im1.setTag(Metodos.getDrawablePhaseTwo(vetor[0]));
 
         ImageView im2 = (ImageView) findViewById(R.id.palavrafada);
         im2.setImageResource(Metodos.getDrawablePhaseTwo(vetor[1]));
+        im2.setTag(Metodos.getDrawablePhaseTwo(vetor[1]));
 
         ImageView im3 = (ImageView) findViewById(R.id.palavraolho);
         im3.setImageResource(Metodos.getDrawablePhaseTwo(vetor[2]));
+        im3.setTag(Metodos.getDrawablePhaseTwo(vetor[2]));
 
         ImageView im4 = (ImageView) findViewById(R.id.palavraseta);
         im4.setImageResource(Metodos.getDrawablePhaseTwo(vetor[3]));
+        im4.setTag(Metodos.getDrawablePhaseTwo(vetor[3]));
 
-        for(View v : lst) {
+        for (View v : lst) {
             menujogo.setViewDraggable(v, v);
         }
     }
 
     private final class MyTouchListener implements View.OnTouchListener {
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            if (motionEvent.getAction() == MotionEvent.ACTION_MOVE) {
-                /*ClipData data = ClipData.newPlainText("", "");
-                View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(
-                        view);
-                view.startDrag(data, shadowBuilder, view, 0);
-                //view.setVisibility(View.INVISIBLE);*/
-                DragLinearLayout menujogo = (DragLinearLayout) findViewById(R.id.drag_drop_layout);
-                for (int i = 0; i < menujogo.getChildCount(); i++) {
-                    View child = menujogo.getChildAt(i);
-                    menujogo.setViewDraggable(child, child);
-                }
+            String tag = view.getTag().toString();
+            // pega a imagem que foi mexida
+            String palavra = Metodos.getDrawableContentString(Integer.parseInt(tag));
+            switch (motionEvent.getAction()) {
+                case MotionEvent.ACTION_DOWN:
 
-                return true;
-            } else {
-                return false;
-            }
-        }
-    }
-
-    class MyDragListener implements View.OnDragListener {
-        View draggedView;
-        @Override
-        public boolean onDrag(View v, DragEvent event) {
-            switch (event.getAction()) {
-                case DragEvent.ACTION_DRAG_STARTED:
-                    draggedView = (View) event.getLocalState();
-                    //draggedView.setVisibility(View.INVISIBLE);
-                    Toast.makeText(Jogo_de_Ordenar_Palavra2.this, "ACTION_DRAG_STARTED", Toast.LENGTH_SHORT).show();
-
-                    break;
-                case DragEvent.ACTION_DRAG_ENTERED:
-                    break;
-                case DragEvent.ACTION_DRAG_EXITED:
-                    break;
-                case DragEvent.ACTION_DROP:
-
-                    Toast.makeText(Jogo_de_Ordenar_Palavra2.this, "ACTION_DROP", Toast.LENGTH_SHORT).show();
-                    break;
-                case DragEvent.ACTION_DRAG_ENDED:
+                    if (view.getId() == getLixoId() && palavra.equals("palavralixo")) {
+                        Toast.makeText(Jogo_de_Ordenar_Palavra2.this, "palavralixo", Toast.LENGTH_SHORT).show();
+                    } else if (view.getId() == getFadaId() && palavra.equals("palavrafada")) {
+                        Toast.makeText(Jogo_de_Ordenar_Palavra2.this, "palavrafada", Toast.LENGTH_SHORT).show();
+                    } else if (view.getId() == getSetaId() && palavra.equals("palavraseta")) {
+                        Toast.makeText(Jogo_de_Ordenar_Palavra2.this, "palavraseta", Toast.LENGTH_SHORT).show();
+                    } else if (view.getId() == getOlhoId() && palavra.equals("palavraolho")) {
+                        Toast.makeText(Jogo_de_Ordenar_Palavra2.this, "palavraolho", Toast.LENGTH_SHORT).show();
+                    }
                     break;
                 default:
                     break;
             }
-            return true;
+            return false;
         }
     }
-
-
-    private boolean validaNumero(int[] vetor, int value) {
-        // valida as posições
-        for (int i = 0; i < vetor.length; i++) {
-            if (vetor[i] == value)
-                // numero já sorteado
-                return false;
-        }
-        // numero nao existe
-        return true;
-    }
-
 
     private ArrayList<ImageView> getImages() {
         ArrayList<ImageView> lst = new ArrayList<ImageView>();
         DragLinearLayout menujogo = (DragLinearLayout) findViewById(R.id.drag_drop_layout);
         for (int i = 0; i < menujogo.getChildCount(); i++) {
             ImageView child = (ImageView) menujogo.getChildAt(i);
-            //menujogo.setViewDraggable(child, child);
             lst.add(child);
         }
         return lst;
     }
 
     // metodo que retorna a ordem das palavras
-    private ArrayList<String> getOrdem() {
+    private void create() {
         ArrayList<String> lst = new ArrayList<String>();
         lst.add("lixo");
         lst.add("fada");
         lst.add("olho");
         lst.add("seta");
         //
-        return lst;
     }
 }

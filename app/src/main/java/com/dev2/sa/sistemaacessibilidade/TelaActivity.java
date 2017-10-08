@@ -16,10 +16,7 @@ public class TelaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tela);
 
         mp.stop();
-        mp = MediaPlayer.create(this, R.raw.menu);
-        mp.start();
-        mp.setLooping(true);
-
+        playMusic();
     }
 
     public void eventosFases(View view) {
@@ -32,11 +29,33 @@ public class TelaActivity extends AppCompatActivity {
             startActivity(new Intent(this, Jogo_de_Ordenar_Palavra2.class));
         else if (view.getId() == R.id.jogo_de_ordenar_palavra)
             startActivity(new Intent(this, JogoDeOrdernarActivity.class));
+    }
 
-
+    @Override
+    protected void onStop() {
+        super.onStop();
+        this.mp.stop();
     }
 
     public void botaonmute(View view) {
-        mp.stop();
+        if(this.mp != null && this.mp.isPlaying()){
+            this.mp.stop();
+        }else{
+            playMusic();
+        }
+    }
+
+    private void playMusic(){
+        this.mp = MediaPlayer.create(this, R.raw.menu);
+        this.mp.start();
+        this.mp.setLooping(true);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(this.mp != null && !this.mp.isPlaying()) {
+            playMusic();
+        }
     }
 }
