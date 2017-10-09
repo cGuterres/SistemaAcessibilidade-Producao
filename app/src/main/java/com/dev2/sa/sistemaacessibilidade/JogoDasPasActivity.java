@@ -1,5 +1,6 @@
 package com.dev2.sa.sistemaacessibilidade;
 
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -28,7 +29,11 @@ public class JogoDasPasActivity extends Activity {
     LinearLayout pa_layout, balde_layout;
     HashMap<String, String> Balde_Pa = new HashMap<>(14,1);
     int pontos = 0;
+    private final int pontoAcerto = 10;
+    private final int pontoErro = 5;
     int controle = 0;
+    int total = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,6 +114,10 @@ public class JogoDasPasActivity extends Activity {
                             oldparent.removeView(view);
                             LinearLayout newParent = (LinearLayout)v;
                             newParent.addView(view);
+
+                            view.setEnabled(false);
+                            Metodos.somaTotal(total, pontoAcerto, true);
+
                             pontos++;
                         }
                         else if(view.getId() == R.id.pa_vermelha && v.getId() == R.id.bottomright){
@@ -117,6 +126,8 @@ public class JogoDasPasActivity extends Activity {
                             oldparent.removeView(view);
                             LinearLayout newParent = (LinearLayout)v;
                             newParent.addView(view);
+                            view.setEnabled(false);
+                            Metodos.somaTotal(total, pontoAcerto, true);
                             pontos++;
                         }
                         else if(view.getId() == R.id.pa_azul && v.getId() == R.id.topright){
@@ -125,10 +136,13 @@ public class JogoDasPasActivity extends Activity {
                             oldparent.removeView(view);
                             LinearLayout newParent = (LinearLayout)v;
                             newParent.addView(view);
+                            Metodos.somaTotal(total, pontoAcerto, true);
+                            view.setEnabled(false);
                             pontos++;
                         }
                         else{
                             Toast.makeText(JogoDasPasActivity.this, "VOCÊ ERROU!", Toast.LENGTH_SHORT).show();
+                            Metodos.somaTotal(total, pontoErro, true);
                         }
                         if(pontos <= 2 && hit) {
                             Metodos.ShowHitMessage(JogoDasPasActivity.this, "VOCÊ ACERTOU!");

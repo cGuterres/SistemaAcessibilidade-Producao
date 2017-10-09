@@ -1,5 +1,6 @@
 package com.dev2.sa.sistemaacessibilidade;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.ClipData;
@@ -17,7 +18,7 @@ import android.widget.Toast;
 
 import java.util.HashMap;
 //PRIORIDADES: 1MSG DE ERRO 2RANDOM
-public class JogoDasFrutasActivity extends AppCompatActivity {
+public class JogoDasFrutasActivity extends Activity {
     View sombraAbacaxi;
     HashMap<String, String> Balde_Pa = new HashMap<>(14,1);
     int pontos = 0;
@@ -88,6 +89,7 @@ public class JogoDasFrutasActivity extends AppCompatActivity {
                             LinearLayout oldparent = (LinearLayout) view.getParent();
                             oldparent.removeView(view);
                             LinearLayout newParent = (LinearLayout)v;
+                            view.setEnabled(false);
                             newParent.addView(view);
                             pontos++;
                         }
@@ -96,6 +98,7 @@ public class JogoDasFrutasActivity extends AppCompatActivity {
                             LinearLayout oldparent = (LinearLayout) view.getParent();
                             oldparent.removeView(view);
                             LinearLayout newParent = (LinearLayout)v;
+                            view.setEnabled(false);
                             newParent.addView(view);
                             pontos++;
                         }
@@ -106,6 +109,7 @@ public class JogoDasFrutasActivity extends AppCompatActivity {
                             oldparent.removeView(view);
                             LinearLayout newParent = (LinearLayout)v;
                             newParent.addView(view);
+                            view.setEnabled(false);
                             pontos++;
                         }
                         else{
