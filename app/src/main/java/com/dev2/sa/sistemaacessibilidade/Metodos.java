@@ -410,4 +410,15 @@ public class Metodos {
         // numero nao existe
         return true;
     }
+
+    // check = true - acerto
+    //check = false - erro
+    public static int somaTotal(int total, int valor, boolean check){
+        if(check){
+            total += valor;
+        }else{
+            total -= valor;
+        }
+        return total;
+    }
 }

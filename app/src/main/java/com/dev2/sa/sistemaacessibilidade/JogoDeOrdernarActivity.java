@@ -338,7 +338,8 @@ public class JogoDeOrdernarActivity extends Activity {
                     if (acertou) {
                         acerto++;
                         // faz o somatório
-                        somaTotal(pontoAcerto, true);
+                        int total = Metodos.somaTotal(pontuacao, pontoAcerto, true);
+                        setPontuacao(total);
                         Toast.makeText(JogoDeOrdernarActivity.this, "VOCÊ ACERTOU!", Toast.LENGTH_SHORT).show();
                         ViewGroup owner = (ViewGroup) view.getParent();
                         owner.removeView(view);
@@ -350,7 +351,8 @@ public class JogoDeOrdernarActivity extends Activity {
                     } else {
                         // mensagem de erro para o usuário
                         Toast.makeText(JogoDeOrdernarActivity.this, "LETRA ERRADA!", Toast.LENGTH_SHORT).show();
-                        somaTotal(pontoErro, false);
+                        int total = Metodos.somaTotal(pontuacao,pontoErro, false);
+                        setPontuacao(total);
                     }
                     if (acerto == palavra.length()) {
                         // fala a palavra correta
