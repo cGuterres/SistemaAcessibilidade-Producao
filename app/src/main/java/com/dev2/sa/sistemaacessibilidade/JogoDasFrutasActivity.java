@@ -109,13 +109,13 @@ public class JogoDasFrutasActivity extends AppCompatActivity {
                             pontos++;
                         }
                         else{
-                            Toast.makeText(JogoDasFrutasActivity.this, "Você errou!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(JogoDasFrutasActivity.this, "VOCÊ ERROU!", Toast.LENGTH_SHORT).show();
                         }
                         if(pontos <= 2 && hit) {
-                            Metodos.ShowHitMessage(JogoDasFrutasActivity.this, "Você acerto!");
+                            Metodos.ShowHitMessage(JogoDasFrutasActivity.this, "VOCÊ ACERTOU!");
                         }
                         if(pontos == 3) {
-                            Metodos.ShowDialog(JogoDasFrutasActivity.this, R.drawable.pa_amarela, "Parabéns", "Você ganhou!");
+                            Metodos.ShowDialog(JogoDasFrutasActivity.this, R.drawable.pa_amarela, "PARABÉNS", "VOCÊ GANHOU!");
                         }
                         hit = false;
                             break;

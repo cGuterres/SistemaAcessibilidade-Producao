@@ -128,13 +128,13 @@ public class JogoDasPasActivity extends Activity {
                             pontos++;
                         }
                         else{
-                            Toast.makeText(JogoDasPasActivity.this, "Você errou!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(JogoDasPasActivity.this, "VOCÊ ERROU!", Toast.LENGTH_SHORT).show();
                         }
                         if(pontos <= 2 && hit) {
-                            Metodos.ShowHitMessage(JogoDasPasActivity.this, "Você acertou!");
+                            Metodos.ShowHitMessage(JogoDasPasActivity.this, "VOCÊ ACERTOU!");
                         }
                         if(pontos == 3) {
-                            Metodos.ShowDialog(JogoDasPasActivity.this, R.drawable.pa_amarela, "Parabéns", "Você ganhou!");
+                            Metodos.ShowDialog(JogoDasPasActivity.this, R.drawable.pa_amarela, "PARABÉNS", "VOCÊ GANHOU!");
                         }
                         hit = false;
                         break;

@@ -339,7 +339,7 @@ public class JogoDeOrdernarActivity extends Activity {
                         acerto++;
                         // faz o somatório
                         somaTotal(pontoAcerto, true);
-                        Toast.makeText(JogoDeOrdernarActivity.this, "ACERTOU!!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(JogoDeOrdernarActivity.this, "VOCÊ ACERTOU!", Toast.LENGTH_SHORT).show();
                         ViewGroup owner = (ViewGroup) view.getParent();
                         owner.removeView(view);
                         LinearLayout container = (LinearLayout) v;
@@ -349,7 +349,7 @@ public class JogoDeOrdernarActivity extends Activity {
                         v.setEnabled(false);
                     } else {
                         // mensagem de erro para o usuário
-                        Toast.makeText(JogoDeOrdernarActivity.this, "LETRA ERRADA!!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(JogoDeOrdernarActivity.this, "LETRA ERRADA!", Toast.LENGTH_SHORT).show();
                         somaTotal(pontoErro, false);
                     }
                     if (acerto == palavra.length()) {
@@ -358,7 +358,7 @@ public class JogoDeOrdernarActivity extends Activity {
                         if(getFase() <= Metodos.palavras.length && getFase() != Metodos.palavras.length - 1) {
                             ShowDialogNext(JogoDeOrdernarActivity.this, R.drawable.icocasa, "PARABÉNS!", "VOCÊ GANHOU!!");
                         }else{
-                            ShowDialogRecreateGame(JogoDeOrdernarActivity.this, R.drawable.icocasa, "PARABÉNS!", "Você concluiu todas as fases! =]\n Sua pontuação: " + getPontuacao());
+                            ShowDialogRecreateGame(JogoDeOrdernarActivity.this, R.drawable.icocasa, "PARABÉNS!", "VOCÊ CONCLUIU TODAS AS FASES!\n SUA PONTUAÇÃO: " + getPontuacao());
                         }
                     }
                     TextView mostra = (TextView)findViewById(R.id.txtPonto);
@@ -375,7 +375,7 @@ public class JogoDeOrdernarActivity extends Activity {
                 .setMessage(mensagem)
                 .setCancelable(false)
                 .setIcon(desenho)
-                .setPositiveButton("Próxima", new DialogInterface.OnClickListener() {
+                .setPositiveButton("PRÓXIMA", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         fase++;
                         setFase(fase);
@@ -387,7 +387,7 @@ public class JogoDeOrdernarActivity extends Activity {
                             finish();
                         }
                     }
-                }).setNegativeButton("Sair", new DialogInterface.OnClickListener() {
+                }).setNegativeButton("SAIR", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 act.finish();
             }
@@ -401,7 +401,7 @@ public class JogoDeOrdernarActivity extends Activity {
                 .setMessage(mensagem)
                 .setCancelable(false)
                 .setIcon(desenho)
-                .setPositiveButton("Reiniciar Fases", new DialogInterface.OnClickListener() {
+                .setPositiveButton("REINICIAR FASES", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         fase = 0;
                         setFase(fase);
@@ -412,7 +412,7 @@ public class JogoDeOrdernarActivity extends Activity {
                         startActivity(nextActivity);
                         finish();
                     }
-                }).setNegativeButton("Sair", new DialogInterface.OnClickListener() {
+                }).setNegativeButton("SAIR", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 act.finish();
             }

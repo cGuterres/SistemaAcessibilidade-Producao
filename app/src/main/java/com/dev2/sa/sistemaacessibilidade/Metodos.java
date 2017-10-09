@@ -331,11 +331,11 @@ public class Metodos {
                 .setMessage(mensagem)
                 .setCancelable(false)
                 .setIcon(desenho)
-                .setPositiveButton("Reiniciar", new DialogInterface.OnClickListener() {
+                .setPositiveButton("REINICIAR", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         act.recreate();
                     }
-                }).setNegativeButton("Menu", new DialogInterface.OnClickListener() {
+                }).setNegativeButton("MENU", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 act.finish();
             }
