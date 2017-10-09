@@ -339,12 +339,12 @@ public class Metodos {
             public void onClick(DialogInterface dialog, int id) {
                 act.finish();
             }
-        }).setNeutralButton("Middle", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(act, "Middle button clicked!", Toast.LENGTH_SHORT).show();
-            }
-        });
+        });//.setNeutralButton("Middle", new DialogInterface.OnClickListener() {
+            //@Override
+            //public void onClick(DialogInterface dialog, int which) {
+              //  Toast.makeText(act, "Middle button clicked!", Toast.LENGTH_SHORT).show();
+            //}
+        //});
         builder.create().show();        // create and show the alert dialog
     }
 

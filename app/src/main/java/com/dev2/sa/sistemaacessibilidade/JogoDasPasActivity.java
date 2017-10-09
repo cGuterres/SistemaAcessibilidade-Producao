@@ -131,10 +131,10 @@ public class JogoDasPasActivity extends Activity {
                             Toast.makeText(JogoDasPasActivity.this, "Você errou!", Toast.LENGTH_SHORT).show();
                         }
                         if(pontos <= 2 && hit) {
-                            Metodos.ShowHitMessage(JogoDasPasActivity.this, "Acerto!");
+                            Metodos.ShowHitMessage(JogoDasPasActivity.this, "Você acertou!");
                         }
                         if(pontos == 3) {
-                            Metodos.ShowDialog(JogoDasPasActivity.this, R.drawable.pa_amarela, "Vitória", "Parabéns! Você ganhou!");
+                            Metodos.ShowDialog(JogoDasPasActivity.this, R.drawable.pa_amarela, "Parabéns", "Você ganhou!");
                         }
                         hit = false;
                         break;

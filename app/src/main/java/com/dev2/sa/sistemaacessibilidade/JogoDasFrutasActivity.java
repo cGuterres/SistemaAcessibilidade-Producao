@@ -112,10 +112,10 @@ public class JogoDasFrutasActivity extends AppCompatActivity {
                             Toast.makeText(JogoDasFrutasActivity.this, "Você errou!", Toast.LENGTH_SHORT).show();
                         }
                         if(pontos <= 2 && hit) {
-                            Metodos.ShowHitMessage(JogoDasFrutasActivity.this, "Acerto!");
+                            Metodos.ShowHitMessage(JogoDasFrutasActivity.this, "Você acerto!");
                         }
                         if(pontos == 3) {
-                            Metodos.ShowDialog(JogoDasFrutasActivity.this, R.drawable.pa_amarela, "Vitória", "Parabéns! Você ganhou!");
+                            Metodos.ShowDialog(JogoDasFrutasActivity.this, R.drawable.pa_amarela, "Parabéns", "Você ganhou!");
                         }
                         hit = false;
                             break;
