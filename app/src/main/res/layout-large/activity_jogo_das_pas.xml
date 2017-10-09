@@ -6,21 +6,40 @@
     android:background="#87CEFF">
 
 
+
     <LinearLayout
-        android:id="@+id/centerrigth"
-        android:layout_width="315dp"
-        android:layout_height="257dp"
-        android:layout_gravity="center|right"
+        android:id="@+id/topleft"
+        android:layout_width="281dp"
+        android:layout_height="277dp"
+        android:layout_gravity="top|left"
+        android:layout_marginRight="10dp"
         android:background="#87CEFF"
-        android:weightSum="1">
+     >
 
         <ImageView
-            android:id="@+id/balde_amarelo"
-            android:layout_width="80dp"
-            android:layout_height="236dp"
-            android:src="@drawable/balde_amarelo"
-            android:layout_weight="0.32" />
+            android:id="@+id/pa_amarela"
+            android:layout_width="120dp"
+            android:layout_height="225dp"
+            android:src="@drawable/pa_amarela" />
     </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/centerleft"
+        android:layout_width="281dp"
+        android:layout_height="261dp"
+        android:layout_gravity="center|left"
+        android:background="#87CEFF"
+      >
+
+
+        <ImageView
+            android:id="@+id/pa_vermelha"
+            android:layout_width="120dp"
+            android:layout_height="225dp"
+            android:src="@drawable/pa_vermelha" />
+    </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/topright"
@@ -32,60 +51,13 @@
 
         <ImageView
             android:id="@+id/balde_azul"
-            android:layout_width="80dp"
-            android:layout_height="226dp"
-            android:src="@drawable/balde_azul"
-            android:layout_weight="0.39" />
+            android:layout_width="120dp"
+            android:layout_height="225dp"
+
+            android:scaleType="centerInside"
+            android:src="@drawable/balde_azul" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/topleft"
-        android:layout_width="281dp"
-        android:layout_height="277dp"
-        android:layout_gravity="top|left"
-        android:layout_marginRight="10dp"
-        android:background="#87CEFF"
-        android:weightSum="1">
-
-        <ImageView
-            android:id="@+id/pa_amarela"
-            android:layout_width="90dp"
-            android:layout_height="239dp"
-            android:layout_weight="0.47"
-            android:src="@drawable/pa_amarela" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/centerleft"
-        android:layout_width="281dp"
-        android:layout_height="261dp"
-        android:layout_gravity="center|left"
-        android:background="#87CEFF"
-        android:weightSum="1">
-
-
-        <ImageView
-            android:id="@+id/pa_vermelha"
-            android:layout_width="162dp"
-            android:layout_height="240dp"
-            android:src="@drawable/pa_vermelha" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/bottomright"
-        android:layout_width="311dp"
-        android:layout_height="284dp"
-        android:layout_gravity="bottom|right"
-        android:background="#87CEFF"
-        android:weightSum="1">
-
-        <ImageView
-            android:id="@+id/balde_vermelho"
-            android:layout_width="80dp"
-            android:layout_height="254dp"
-            android:src="@drawable/balde_vermelho"
-            android:layout_weight="0.40" />
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/bottomleft"
@@ -98,10 +70,45 @@
 
         <ImageView
             android:id="@+id/pa_azul"
-            android:layout_width="141dp"
-            android:layout_height="247dp"
+            android:layout_width="120dp"
+            android:layout_height="225dp"
             android:src="@drawable/pa_azul" />
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/centerrigth"
+        android:layout_width="315dp"
+        android:layout_height="257dp"
+        android:layout_gravity="center|right"
+        android:background="#87CEFF"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/balde_amarelo"
+            android:layout_width="120dp"
+            android:layout_height="225dp"
+
+            android:src="@drawable/balde_amarelo" />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/bottomright"
+        android:layout_width="311dp"
+        android:layout_height="284dp"
+        android:layout_gravity="bottom|right"
+        android:background="#87CEFF"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/balde_vermelho"
+            android:layout_width="120dp"
+            android:layout_height="225dp"
+
+            android:src="@drawable/balde_vermelho" />
+    </LinearLayout>
+
 
 
 </FrameLayout>
