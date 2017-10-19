@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/SistemaAcessibilidade.iml" filepath="$PROJECT_DIR$/SistemaAcessibilidade.iml" />
       <module fileurl="file://$PROJECT_DIR$/SistemaAcessibilidade-Producao.iml" filepath="$PROJECT_DIR$/SistemaAcessibilidade-Producao.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/trabalho.iml" filepath="$PROJECT_DIR$/trabalho.iml" />
     </modules>
   </component>
 </project>
