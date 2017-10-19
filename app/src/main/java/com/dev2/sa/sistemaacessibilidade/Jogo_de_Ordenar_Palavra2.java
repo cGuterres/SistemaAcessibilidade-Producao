@@ -49,7 +49,7 @@ public class Jogo_de_Ordenar_Palavra2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jogo_de__ordenar__palavra2);
 
-        findViewById(R.id.palavralixo).setOnTouchListener(new MyTouchListener());
+        /*findViewById(R.id.palavralixo).setOnTouchListener(new MyTouchListener());
         findViewById(R.id.palavrafada).setOnTouchListener(new MyTouchListener());
         findViewById(R.id.palavraolho).setOnTouchListener(new MyTouchListener());
         findViewById(R.id.palavraseta).setOnTouchListener(new MyTouchListener());
@@ -63,7 +63,7 @@ public class Jogo_de_Ordenar_Palavra2 extends AppCompatActivity {
         for (int i = 0; i < menujogo.getChildCount(); i++) {
             View child = menujogo.getChildAt(i);
             menujogo.setViewDraggable(child, child);
-        }*/
+        }
 
         DragLinearLayout menujogo = (DragLinearLayout) findViewById(R.id.drag_drop_layout);
         ArrayList<View> lst = new ArrayList<View>();
@@ -109,7 +109,8 @@ public class Jogo_de_Ordenar_Palavra2 extends AppCompatActivity {
 
         for (View v : lst) {
             menujogo.setViewDraggable(v, v);
-        }
+    }
+    */
     }
 
     private final class MyTouchListener implements View.OnTouchListener {

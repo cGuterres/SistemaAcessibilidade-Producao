@@ -1,171 +1,234 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fase_3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="5dp"
     android:background="@color/pastel"
-    android:orientation="horizontal"
+    android:baselineAligned="false"
+    android:orientation="vertical"
+    android:paddingLeft="6dp"
+    android:paddingRight="6dp"
+    android:weightSum="1"
+    tools:context="com.dev2.sa.sistemaacessibilidade.JogoDeOrdernarActivity"><![CDATA[
+    android:gravity="bottom">
 
-    tools:context="com.dev2.sa.sistemaacessibilidade.Jogo_de_Ordenar_Palavra2">
 
-    <RelativeLayout
+
+    ]]>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Pontuação: "
+            android:textSize="24sp"
+            tools:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtPonto"
+            android:layout_width="163dp"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/yellowLayout"
+        android:layout_width="200dp"
+        android:layout_height="310dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/linearLayout"
+        android:layout_gravity="right"
+        android:layout_weight="0.24"
+        android:background="@color/pastel"
+        android:gravity="right"
+        android:orientation="vertical"
+        android:weightSum="0">
 
         <LinearLayout
-            android:id="@+id/moldura1"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="14dp"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="13dp"
-            android:orientation="horizontal">
+            android:id="@+id/primeiro"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.24"
+            android:background="@color/quadrado"
+            android:gravity="center"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/Img_lixo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/img_lixo"
-                android:tag="img_lixo" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/moldura4"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:layout_alignLeft="@+id/moldura3"
-            android:layout_alignStart="@+id/moldura3"
-            android:layout_below="@+id/moldura3"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/img_seta"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/img_seta"
-                android:tag="img_seta" />
-        </LinearLayout>
+            android:id="@+id/segundo"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.24"
+            android:background="@color/quadradosequen"
+            android:gravity="center"
+            android:orientation="vertical" />
 
         <LinearLayout
-            android:id="@+id/moldura2"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:layout_alignLeft="@+id/moldura1"
-            android:layout_alignStart="@+id/moldura1"
-            android:layout_below="@+id/moldura1"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/img_fada"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/img_fada"
-                android:tag="img_fada" />
-        </LinearLayout>
+            android:id="@+id/terceiro"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:background="@color/quadrado"
+            android:gravity="center"
+            android:orientation="vertical" />
 
         <LinearLayout
-            android:id="@+id/moldura3"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:layout_alignLeft="@+id/moldura2"
-            android:layout_alignStart="@+id/moldura2"
-            android:layout_below="@+id/moldura2"
-            android:orientation="horizontal">
+            android:id="@+id/quarto"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.24"
+            android:background="@color/quadradosequen"
+            android:gravity="center"
+            android:orientation="vertical" />
 
-            <ImageView
-                android:id="@+id/img_olho"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:src="@drawable/img_olho"
-                android:tag="img_olho" />
-        </LinearLayout>
+    </LinearLayout>
 
-        <com.jmedeisis.draglinearlayout.DragLinearLayout
-            android:id="@+id/drag_drop_layout"
-            android:layout_width="173dp"
+    <LinearLayout
+        android:id="@+id/top_layout1"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="0.24"
+        android:background="@color/pastel"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        android:weightSum="1"
+        android:layout_below="@+id/yellowLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true">
+            android:orientation="horizontal">
 
-
-            <LinearLayout
-                android:id="@+id/lixo"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                app:srcCompat="@drawable/fada" />
 
-                <ImageView
-                    android:id="@+id/palavralixo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/lixo"
-                    android:tag="lixo" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/fada"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                app:srcCompat="@drawable/lixo" />
+        </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/palavrafada"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/fada"
-                    android:tag="fada" />
-            </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/olho"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_weight="0.20"
+        android:background="@color/pastel"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        android:weightSum="1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="14dp">
+
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/olho" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="193dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/seta" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/yellowLayout"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignBottom="@+id/yellowLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                app:srcCompat="@drawable/img_lixo" />
+        </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/palavraolho"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/olho"
-                    android:tag="olho" />
-            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:id="@+id/seta"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                app:srcCompat="@drawable/img_seta" />
+        </LinearLayout>
 
-                <ImageView
-                    android:id="@+id/palavraseta"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:src="@drawable/seta"
-                    android:tag="seta" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal">
 
-            </LinearLayout>
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/img_olho" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/img_fada" />
+        </LinearLayout>
+    </LinearLayout>
 
 
-        </com.jmedeisis.draglinearlayout.DragLinearLayout>
-
-    </RelativeLayout>
-
-</LinearLayout>
+</RelativeLayout>
