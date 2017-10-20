@@ -311,18 +311,69 @@ public class Metodos {
         return 1;
     }
 
-    public static String getDrawableContentString(int drawableId) {
-        switch (drawableId) {
-            case R.drawable.lixo:
-                return "palavralixo";
-            case R.drawable.seta:
-                return "palavraseta";
-            case R.drawable.olho:
-                return "palavraolho";
-            case R.drawable.fada:
-                return "palavrafada";
+    public static int getDrawableContent(int drawableId, int fase) {
+
+        if(fase == 0) {
+            switch (drawableId) {
+                case 0:
+                    return R.drawable.lixo;
+                case 1:
+                    return R.drawable.seta;
+                case 2:
+                    return R.drawable.fada;
+                case 3:
+                    return R.drawable.olho;
+                default:
+                    break;
+            }
+        }else if(fase == 1){
+            switch (drawableId) {
+                case 0:
+                    return R.drawable.grilo;
+                case 1:
+                    return R.drawable.trono;
+                case 2:
+                    return R.drawable.treno;
+                case 3:
+                    return R.drawable.porta;
+                default:
+                    break;
+            }
         }
-        return null;
+        return 0;
+    }
+
+    public static String getDrawableString(int drawableId, int fase){
+        if(fase == 0) {
+            switch (drawableId) {
+                case R.drawable.lixo:
+                    return "lixo";
+                case R.drawable.seta:
+                    return "seta";
+                case R.drawable.olho:
+                    return "olho";
+                case R.drawable.fada:
+                    return "fada";
+                default:
+                    break;
+            }
+        }else if (fase == 1){
+            switch (drawableId){
+                case R.drawable.grilo:
+                    return "grilo";
+                case R.drawable.trono:
+                    return "trono";
+                case R.drawable.treno:
+                    return "treno";
+                case R.drawable.porta:
+                    return "porta";
+                default:
+                    break;
+            }
+        }else{
+
+        }
+        return "";
     }
 
     public static void ShowDialog(final Activity act, @DrawableRes int desenho, String titulo, String mensagem) {

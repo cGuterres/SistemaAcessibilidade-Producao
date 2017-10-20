@@ -1,8 +1,13 @@
 package com.dev2.sa.sistemaacessibilidade;
 
+import android.app.Activity;
 import android.content.ClipData;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.DrawableRes;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,139 +27,263 @@ import java.util.HashMap;
 
 public class Jogo_de_Ordenar_Palavra2 extends AppCompatActivity {
 
-    private HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
-    private final int lixoId = 2131493012;
-    private final int fadaId = 2131493014;
-    private final int olhoId = 2131493016;
-    private final int setaId = 2131493018;
+    private int fase = 0, acerto = 0;
+    private final int pontoAcerto = 10;
+    private final int pontoErro = 5;
+    private int pontuacao = 0;
 
-    public Integer getLixoId() {
-        return lixoId;
+    public int getFase() {
+        return fase;
     }
 
-    public int getFadaId() {
-        return fadaId;
+    public void setFase(int fase) {
+        this.fase = fase;
     }
 
-    public int getSetaId() {
-        return setaId;
+    public int getPontuacao() {
+        return pontuacao;
     }
 
-    public int getOlhoId() {
-        return olhoId;
+    public void setPontuacao(int pontuacao) {
+        this.pontuacao = pontuacao;
     }
+
+    private ImageView image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jogo_de__ordenar__palavra2);
 
-        /*findViewById(R.id.palavralixo).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.palavrafada).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.palavraolho).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.palavraseta).setOnTouchListener(new MyTouchListener());
-
-        findViewById(R.id.moldura1).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.moldura2).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.moldura3).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.moldura4).setOnTouchListener(new MyTouchListener());
-
-        /*DragLinearLayout menujogo = (DragLinearLayout) findViewById(R.id.drag_drop_layout);
-        for (int i = 0; i < menujogo.getChildCount(); i++) {
-            View child = menujogo.getChildAt(i);
-            menujogo.setViewDraggable(child, child);
-        }
-
-        DragLinearLayout menujogo = (DragLinearLayout) findViewById(R.id.drag_drop_layout);
-        ArrayList<View> lst = new ArrayList<View>();
-        int[] vetor = new int[menujogo.getChildCount()];
-        // troca o valor para que nao seja validado de forma errada quando o vetor for iniciado com 0
-        for (int i = 0; i < vetor.length; i++) {
-            vetor[i] = 9;
-        }
-        for (int i = 0; i < menujogo.getChildCount(); i++) {
-            int numeroSorteado = Metodos.sortearNumero(menujogo.getChildCount());
-            boolean valida = Metodos.validaNumero(vetor, numeroSorteado);
-            if (valida) {
-                vetor[i] = numeroSorteado;
-            } else {
-                boolean encontrou = false;
-                while (!encontrou) {
-                    numeroSorteado = Metodos.sortearNumero(menujogo.getChildCount());
-                    valida = Metodos.validaNumero(vetor, numeroSorteado);
-                    if (valida) {
-                        vetor[i] = numeroSorteado;
-                        encontrou = true;
-                    }
-                }
+        Intent intent = getIntent();
+        if(intent != null) {
+            int nextPhase = intent.getIntExtra("fase", 0);
+            if(nextPhase <= 3) {
+                setFase(nextPhase);
             }
-            lst.add(menujogo.getChildAt(numeroSorteado));
+            int pontuacaoAtual = intent.getIntExtra("pontuacao", 0);
+            setPontuacao(pontuacaoAtual);
+
+            TextView txtPonto = (TextView)findViewById(R.id.txtPonto);
+            if(txtPonto != null) {
+                txtPonto.setText(Integer.toString(getPontuacao()));
+            }
         }
 
-        ImageView im1 = (ImageView) findViewById(R.id.palavralixo);
-        im1.setImageResource(Metodos.getDrawablePhaseTwo(vetor[0]));
-        im1.setTag(Metodos.getDrawablePhaseTwo(vetor[0]));
+        findViewById(R.id.palavralixo).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.palavrafada).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.palavraolho).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.palavraseta).setOnLongClickListener(new MyOnLongClickListener());
 
-        ImageView im2 = (ImageView) findViewById(R.id.palavrafada);
-        im2.setImageResource(Metodos.getDrawablePhaseTwo(vetor[1]));
-        im2.setTag(Metodos.getDrawablePhaseTwo(vetor[1]));
 
-        ImageView im3 = (ImageView) findViewById(R.id.palavraolho);
-        im3.setImageResource(Metodos.getDrawablePhaseTwo(vetor[2]));
-        im3.setTag(Metodos.getDrawablePhaseTwo(vetor[2]));
+        findViewById(R.id.primeiro).setOnDragListener(new MyOnDragListener(1));
+        findViewById(R.id.segundo).setOnDragListener(new MyOnDragListener(2));
+        findViewById(R.id.terceiro).setOnDragListener(new MyOnDragListener(3));
+        findViewById(R.id.quarto).setOnDragListener(new MyOnDragListener(4));
 
-        ImageView im4 = (ImageView) findViewById(R.id.palavraseta);
-        im4.setImageResource(Metodos.getDrawablePhaseTwo(vetor[3]));
-        im4.setTag(Metodos.getDrawablePhaseTwo(vetor[3]));
+        randomObjects();
 
-        for (View v : lst) {
-            menujogo.setViewDraggable(v, v);
+      }
+
+      private  void randomObjects() {
+          int[] vetor = new int[4];         // troca o valor para que nao seja validado de forma errada quando o vetor for iniciado com 0
+          for (int i = 0; i < vetor.length; i++) {
+              vetor[i] = 9;
+          }
+          for (int i = 0; i < 4; i++) {
+              int numeroSorteado = Metodos.sortearNumero(4);
+              boolean valida = Metodos.validaNumero(vetor, numeroSorteado);
+              if (valida) {
+                  vetor[i] = numeroSorteado;
+              } else {
+                  boolean encontrou = false;
+                  while (!encontrou) {
+                      numeroSorteado = Metodos.sortearNumero(4);
+                      valida = Metodos.validaNumero(vetor, numeroSorteado);
+                      if (valida) {
+                          vetor[i] = numeroSorteado;
+                          encontrou = true;
+                      }
+                  }
+              }
+          }
+
+          image = new ImageView(this);
+          image = (ImageView) findViewById(R.id.palavralixo);
+          image.setImageResource(Metodos.getDrawableContent(vetor[0],fase));
+          image.setTag(Metodos.getDrawableContent(vetor[0],fase));
+
+          image = new ImageView(this);
+          image = (ImageView) findViewById(R.id.palavraseta);
+          image.setImageResource(Metodos.getDrawableContent(vetor[1],fase));
+          image.setTag(Metodos.getDrawableContent(vetor[1],fase));
+
+          image = new ImageView(this);
+          image = (ImageView) findViewById(R.id.palavrafada);
+          image.setImageResource(Metodos.getDrawableContent(vetor[2],fase));
+          image.setTag(Metodos.getDrawableContent(vetor[2],fase));
+
+          image = new ImageView(this);
+          image = (ImageView) findViewById(R.id.palavraolho);
+          image.setImageResource(Metodos.getDrawableContent(vetor[3],fase));
+          image.setTag(Metodos.getDrawableContent(vetor[3],fase));
+      }
+
+
+    class MyOnLongClickListener implements View.OnLongClickListener {
+        @Override
+        public boolean onLongClick(View v) {
+            ClipData data = ClipData.newPlainText("simple_text", "text");
+            //DragShadowBuilder sb = new View.DragShadowBuilder(findViewById(R.id.shadow));
+            View.DragShadowBuilder sb = new View.DragShadowBuilder(v);
+            v.startDrag(data, sb, v, 0);
+            // Esconde a imagem quando for arrastar a sua sombra
+            // v.setVisibility(View.INVISIBLE);
+            return (true);
+        }
     }
-    */
-    }
 
-    private final class MyTouchListener implements View.OnTouchListener {
-        public boolean onTouch(View view, MotionEvent motionEvent) {
-            String tag = view.getTag().toString();
-            // pega a imagem que foi mexida
-            String palavra = Metodos.getDrawableContentString(Integer.parseInt(tag));
-            switch (motionEvent.getAction()) {
-                case MotionEvent.ACTION_DOWN:
+    class MyOnDragListener implements View.OnDragListener {
+        private int num;
 
-                    if (view.getId() == getLixoId() && palavra.equals("palavralixo")) {
-                        Toast.makeText(Jogo_de_Ordenar_Palavra2.this, "palavralixo", Toast.LENGTH_SHORT).show();
-                    } else if (view.getId() == getFadaId() && palavra.equals("palavrafada")) {
-                        Toast.makeText(Jogo_de_Ordenar_Palavra2.this, "palavrafada", Toast.LENGTH_SHORT).show();
-                    } else if (view.getId() == getSetaId() && palavra.equals("palavraseta")) {
-                        Toast.makeText(Jogo_de_Ordenar_Palavra2.this, "palavraseta", Toast.LENGTH_SHORT).show();
-                    } else if (view.getId() == getOlhoId() && palavra.equals("palavraolho")) {
-                        Toast.makeText(Jogo_de_Ordenar_Palavra2.this, "palavraolho", Toast.LENGTH_SHORT).show();
+        // Construtor
+        public MyOnDragListener(int num) {
+            super();
+            this.num = num;
+        }
+
+        // View 'v' é o parâmetro onde o objeto está sendo largado
+        @Override
+        public boolean onDrag(View v, DragEvent event) {
+            int action = event.getAction();
+            switch (action) {
+                case DragEvent.ACTION_DROP:
+                    Log.i("Script", num + " - ACTION_DROP");
+                    // Move a imagem de um container para outro (6 linhas abaixo)
+                    View view = (View) event.getLocalState();//aqui entra quem está sendo movido
+
+                    // indice onde foi largada a imagem
+                    int index = 0;
+                    if (v.getId() == R.id.primeiro) // Clicou na primeira imagem
+                        index = 0;
+                    else if (v.getId() == R.id.segundo) // Clicou na segunda imagem
+                        index = 1;
+                    else if (v.getId() == R.id.terceiro) // Clicou na terceira imagem
+                        index = 2;
+                    else if (v.getId() == R.id.quarto) // Clicou na quarta imagem
+                        index = 3;
+
+                    String tagId = view.getTag().toString();
+                    String palavra = Metodos.getDrawableString(Integer.parseInt(tagId),fase);
+
+                    boolean acertou = validade(index, palavra);
+                    if(acertou){
+                        acerto++;
+                        // faz o somatório
+                        int total = Metodos.somaTotal(pontuacao, pontoAcerto, true);
+                        setPontuacao(total);
+                        Toast.makeText(Jogo_de_Ordenar_Palavra2.this, "VOCÊ ACERTOU!", Toast.LENGTH_SHORT).show();
+                        ViewGroup owner = (ViewGroup) view.getParent();
+                        owner.removeView(view);
+                        LinearLayout container = (LinearLayout) v;
+                        container.addView(view);
+                        view.setVisibility(View.VISIBLE);
+                        view.setEnabled(false);
+                        v.setEnabled(false);
+                    } else{
+                        // mensagem de erro para o usuário
+                        Toast.makeText(Jogo_de_Ordenar_Palavra2.this, "PALAVRA ERRADA!", Toast.LENGTH_SHORT).show();
+                        int total = Metodos.somaTotal(pontuacao,pontoErro, false);
+                        setPontuacao(total);
                     }
-                    break;
-                default:
+
+                    if (acerto == 4) {
+                        // fala a palavra correta
+                        if(getFase() <= Metodos.palavras.length && getFase() != Metodos.palavras.length - 1) {
+                            ShowDialogNext(Jogo_de_Ordenar_Palavra2.this, R.drawable.icopala, "PARABÉNS!", "VOCÊ GANHOU!!");
+                        }else{
+                            ShowDialogRecreateGame(Jogo_de_Ordenar_Palavra2.this, R.drawable.icocasa, "PARABÉNS!", "VOCÊ CONCLUIU TODAS AS FASES!\n SUA PONTUAÇÃO: " + getPontuacao());
+                        }
+                    }
+                    TextView mostra = (TextView)findViewById(R.id.txtPonto);
+                    int pontuacaoAtual = getPontuacao();
+                    mostra.setText(Integer.toString(pontuacaoAtual));
                     break;
             }
-            return false;
+            return true;
         }
     }
 
-    private ArrayList<ImageView> getImages() {
-        ArrayList<ImageView> lst = new ArrayList<ImageView>();
-        DragLinearLayout menujogo = (DragLinearLayout) findViewById(R.id.drag_drop_layout);
-        for (int i = 0; i < menujogo.getChildCount(); i++) {
-            ImageView child = (ImageView) menujogo.getChildAt(i);
-            lst.add(child);
+    private boolean validade(int index, String palavra){
+        boolean isValid = false;
+        HashMap<Integer,String> map = hashMap();
+        for (int key : map.keySet()) {
+            if(palavra.equals(map.get(index))){
+                isValid = true;
+                break;
+            }
         }
-        return lst;
+        return isValid;
     }
 
-    // metodo que retorna a ordem das palavras
-    private void create() {
-        ArrayList<String> lst = new ArrayList<String>();
-        lst.add("lixo");
-        lst.add("fada");
-        lst.add("olho");
-        lst.add("seta");
-        //
+    private HashMap<Integer,String> hashMap(){
+        HashMap<Integer, String> map = new HashMap<>();
+        map.put(0,"lixo");
+        map.put(1,"seta");
+        map.put(2,"olho");
+        map.put(3,"fada");
+
+        return map;
+    }
+
+    public void ShowDialogNext(final Activity act, @DrawableRes int desenho, String titulo, String mensagem) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(act);
+        builder.setTitle(titulo)
+                .setMessage(mensagem)
+                .setCancelable(false)
+                .setIcon(desenho)
+                .setPositiveButton("PRÓXIMA", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        fase++;
+                        setFase(fase);
+                        if(getFase() <= Metodos.palavras.length && getFase() != Metodos.palavras.length) {
+                            Intent nextActivity = new Intent(getBaseContext(), Jogo_De_Ordenar_Palavra2_fase2.class);
+                            nextActivity.putExtra("fase", getFase());
+                            nextActivity.putExtra("pontuacao", getPontuacao());
+                            startActivity(nextActivity);
+                            finish();
+                        }
+                    }
+                }).setNegativeButton("SAIR", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                act.finish();
+            }
+        });
+        builder.create().show();        // create and show the alert dialog
+    }
+
+    public void ShowDialogRecreateGame(final Activity act, @DrawableRes int desenho, String titulo, String mensagem) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(act);
+        builder.setTitle(titulo)
+                .setMessage(mensagem)
+                .setCancelable(false)
+                .setIcon(desenho)
+                .setPositiveButton("REINICIAR FASES", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        fase = 0;
+                        setFase(fase);
+                        pontuacao = 0;
+                        setPontuacao(pontuacao);
+                        Intent nextActivity = new Intent(getBaseContext(), Jogo_de_Ordenar_Palavra2.class);
+                        nextActivity.putExtra("fase", getFase());
+                        startActivity(nextActivity);
+                        finish();
+                    }
+                }).setNegativeButton("SAIR", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                act.finish();
+            }
+        });
+        builder.create().show();        // create and show the alert dialog
     }
 }
