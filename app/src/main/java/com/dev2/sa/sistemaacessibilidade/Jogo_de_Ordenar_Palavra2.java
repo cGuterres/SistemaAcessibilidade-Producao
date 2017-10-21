@@ -28,8 +28,10 @@ import java.util.HashMap;
 public class Jogo_de_Ordenar_Palavra2 extends AppCompatActivity {
 
     private int fase = 0, acerto = 0;
-    private final int pontoAcerto = 10;
-    private final int pontoErro = 5;
+    private final int PONTO_ACERTO = 10;
+    private final int PONTO_ERRO = 5;
+    private final int TOTAL_ACERTO = 4;
+    private final int TOTAL_FASE = 3;
     private int pontuacao = 0;
 
     public int getFase() {
@@ -70,10 +72,10 @@ public class Jogo_de_Ordenar_Palavra2 extends AppCompatActivity {
             }
         }
 
-        findViewById(R.id.palavralixo).setOnLongClickListener(new MyOnLongClickListener());
-        findViewById(R.id.palavrafada).setOnLongClickListener(new MyOnLongClickListener());
-        findViewById(R.id.palavraolho).setOnLongClickListener(new MyOnLongClickListener());
-        findViewById(R.id.palavraseta).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.palavra1).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.palavra2).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.palavra3).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.palavra4).setOnLongClickListener(new MyOnLongClickListener());
 
 
         findViewById(R.id.primeiro).setOnDragListener(new MyOnDragListener(1));
@@ -81,11 +83,11 @@ public class Jogo_de_Ordenar_Palavra2 extends AppCompatActivity {
         findViewById(R.id.terceiro).setOnDragListener(new MyOnDragListener(3));
         findViewById(R.id.quarto).setOnDragListener(new MyOnDragListener(4));
 
-        randomObjects();
+        randomObjects(getFase());
 
       }
 
-      private  void randomObjects() {
+      private  void randomObjects(int fase) {
           int[] vetor = new int[4];         // troca o valor para que nao seja validado de forma errada quando o vetor for iniciado com 0
           for (int i = 0; i < vetor.length; i++) {
               vetor[i] = 9;
@@ -107,28 +109,106 @@ public class Jogo_de_Ordenar_Palavra2 extends AppCompatActivity {
                   }
               }
           }
+          if(fase == 0) {
+              image = new ImageView(this);
+              image = (ImageView) findViewById(R.id.palavra1);
+              image.setImageResource(Metodos.getDrawableContent(vetor[0], fase));
+              image.setTag(Metodos.getDrawableContent(vetor[0], fase));
 
-          image = new ImageView(this);
-          image = (ImageView) findViewById(R.id.palavralixo);
-          image.setImageResource(Metodos.getDrawableContent(vetor[0],fase));
-          image.setTag(Metodos.getDrawableContent(vetor[0],fase));
+              image = new ImageView(this);
+              image = (ImageView) findViewById(R.id.img1);
+              image.setImageResource(R.drawable.img_lixo);
 
-          image = new ImageView(this);
-          image = (ImageView) findViewById(R.id.palavraseta);
-          image.setImageResource(Metodos.getDrawableContent(vetor[1],fase));
-          image.setTag(Metodos.getDrawableContent(vetor[1],fase));
+              image = new ImageView(this);
+              image = (ImageView) findViewById(R.id.palavra2);
+              image.setImageResource(Metodos.getDrawableContent(vetor[1], fase));
+              image.setTag(Metodos.getDrawableContent(vetor[1], fase));
 
-          image = new ImageView(this);
-          image = (ImageView) findViewById(R.id.palavrafada);
-          image.setImageResource(Metodos.getDrawableContent(vetor[2],fase));
-          image.setTag(Metodos.getDrawableContent(vetor[2],fase));
+              image = new ImageView(this);
+              image = (ImageView) findViewById(R.id.imag2);
+              image.setImageResource(R.drawable.img_seta);
 
-          image = new ImageView(this);
-          image = (ImageView) findViewById(R.id.palavraolho);
-          image.setImageResource(Metodos.getDrawableContent(vetor[3],fase));
-          image.setTag(Metodos.getDrawableContent(vetor[3],fase));
+              image = new ImageView(this);
+              image = (ImageView) findViewById(R.id.palavra3);
+              image.setImageResource(Metodos.getDrawableContent(vetor[2], fase));
+              image.setTag(Metodos.getDrawableContent(vetor[2], fase));
+              image = new ImageView(this);
+              image = (ImageView) findViewById(R.id.img3);
+              image.setImageResource(R.drawable.img_olho);
+
+              image = new ImageView(this);
+              image = (ImageView) findViewById(R.id.palavra4);
+              image.setImageResource(Metodos.getDrawableContent(vetor[3], fase));
+              image.setTag(Metodos.getDrawableContent(vetor[3], fase));
+              image = new ImageView(this);
+              image = (ImageView) findViewById(R.id.img4);
+              image.setImageResource(R.drawable.img_fada);
+          } else if(fase == 1){
+              image = new ImageView(this);
+              image = (ImageView) findViewById(R.id.palavra1);
+              image.setImageResource(Metodos.getDrawableContent(vetor[0], fase));
+              image.setTag(Metodos.getDrawableContent(vetor[0], fase));
+              image = new ImageView(this);
+              image = (ImageView) findViewById(R.id.img1);
+              image.setImageResource(R.drawable.img_grilo);
+
+              image = new ImageView(this);
+              image = (ImageView) findViewById(R.id.palavra2);
+              image.setImageResource(Metodos.getDrawableContent(vetor[1], fase));
+              image.setTag(Metodos.getDrawableContent(vetor[1], fase));
+              image = new ImageView(this);
+              image = (ImageView) findViewById(R.id.imag2);
+              image.setImageResource(R.drawable.img_trono);
+
+              image = new ImageView(this);
+              image = (ImageView) findViewById(R.id.palavra3);
+              image.setImageResource(Metodos.getDrawableContent(vetor[2], fase));
+              image.setTag(Metodos.getDrawableContent(vetor[2], fase));
+              image = new ImageView(this);
+              image = (ImageView) findViewById(R.id.img3);
+              image.setImageResource(R.drawable.img_cebola);
+
+              image = new ImageView(this);
+              image = (ImageView) findViewById(R.id.palavra4);
+              image.setImageResource(Metodos.getDrawableContent(vetor[3], fase));
+              image.setTag(Metodos.getDrawableContent(vetor[3], fase));
+              image = new ImageView(this);
+              image = (ImageView) findViewById(R.id.img4);
+              image.setImageResource(R.drawable.img_porta);
+          }else{
+              image = new ImageView(this);
+              image = (ImageView) findViewById(R.id.palavra1);
+              image.setImageResource(Metodos.getDrawableContent(vetor[0], fase));
+              image.setTag(Metodos.getDrawableContent(vetor[0], fase));
+              image = new ImageView(this);
+              image = (ImageView) findViewById(R.id.img1);
+              image.setImageResource(R.drawable.img_colher);
+
+              image = new ImageView(this);
+              image = (ImageView) findViewById(R.id.palavra2);
+              image.setImageResource(Metodos.getDrawableContent(vetor[1], fase));
+              image.setTag(Metodos.getDrawableContent(vetor[1], fase));
+              image = new ImageView(this);
+              image = (ImageView) findViewById(R.id.imag2);
+              image.setImageResource(R.drawable.img_tomate);
+
+              image = new ImageView(this);
+              image = (ImageView) findViewById(R.id.palavra3);
+              image.setImageResource(Metodos.getDrawableContent(vetor[2], fase));
+              image.setTag(Metodos.getDrawableContent(vetor[2], fase));
+              image = new ImageView(this);
+              image = (ImageView) findViewById(R.id.img3);
+              image.setImageResource(R.drawable.img_treno);
+
+              image = new ImageView(this);
+              image = (ImageView) findViewById(R.id.palavra4);
+              image.setImageResource(Metodos.getDrawableContent(vetor[3], fase));
+              image.setTag(Metodos.getDrawableContent(vetor[3], fase));
+              image = new ImageView(this);
+              image = (ImageView) findViewById(R.id.img4);
+              image.setImageResource(R.drawable.img_cavalo);
+          }
       }
-
 
     class MyOnLongClickListener implements View.OnLongClickListener {
         @Override
@@ -176,11 +256,11 @@ public class Jogo_de_Ordenar_Palavra2 extends AppCompatActivity {
                     String tagId = view.getTag().toString();
                     String palavra = Metodos.getDrawableString(Integer.parseInt(tagId),fase);
 
-                    boolean acertou = validade(index, palavra);
+                    boolean acertou = validade(index, palavra, getFase());
                     if(acertou){
                         acerto++;
                         // faz o somatório
-                        int total = Metodos.somaTotal(pontuacao, pontoAcerto, true);
+                        int total = Metodos.somaTotal(pontuacao, PONTO_ACERTO, true);
                         setPontuacao(total);
                         Toast.makeText(Jogo_de_Ordenar_Palavra2.this, "VOCÊ ACERTOU!", Toast.LENGTH_SHORT).show();
                         ViewGroup owner = (ViewGroup) view.getParent();
@@ -193,13 +273,13 @@ public class Jogo_de_Ordenar_Palavra2 extends AppCompatActivity {
                     } else{
                         // mensagem de erro para o usuário
                         Toast.makeText(Jogo_de_Ordenar_Palavra2.this, "PALAVRA ERRADA!", Toast.LENGTH_SHORT).show();
-                        int total = Metodos.somaTotal(pontuacao,pontoErro, false);
+                        int total = Metodos.somaTotal(pontuacao,PONTO_ERRO, false);
                         setPontuacao(total);
                     }
 
-                    if (acerto == 4) {
+                    if (acerto == TOTAL_ACERTO) {
                         // fala a palavra correta
-                        if(getFase() <= Metodos.palavras.length && getFase() != Metodos.palavras.length - 1) {
+                        if(getFase() < TOTAL_FASE - 1) {
                             ShowDialogNext(Jogo_de_Ordenar_Palavra2.this, R.drawable.icopala, "PARABÉNS!", "VOCÊ GANHOU!!");
                         }else{
                             ShowDialogRecreateGame(Jogo_de_Ordenar_Palavra2.this, R.drawable.icocasa, "PARABÉNS!", "VOCÊ CONCLUIU TODAS AS FASES!\n SUA PONTUAÇÃO: " + getPontuacao());
@@ -214,9 +294,9 @@ public class Jogo_de_Ordenar_Palavra2 extends AppCompatActivity {
         }
     }
 
-    private boolean validade(int index, String palavra){
+    private boolean validade(int index, String palavra, int fase){
         boolean isValid = false;
-        HashMap<Integer,String> map = hashMap();
+        HashMap<Integer,String> map = hashMap(fase);
         for (int key : map.keySet()) {
             if(palavra.equals(map.get(index))){
                 isValid = true;
@@ -226,13 +306,24 @@ public class Jogo_de_Ordenar_Palavra2 extends AppCompatActivity {
         return isValid;
     }
 
-    private HashMap<Integer,String> hashMap(){
+    private HashMap<Integer,String> hashMap(int fase){
         HashMap<Integer, String> map = new HashMap<>();
-        map.put(0,"lixo");
-        map.put(1,"seta");
-        map.put(2,"olho");
-        map.put(3,"fada");
-
+        if(fase == 0) {
+            map.put(0, "lixo");
+            map.put(1, "seta");
+            map.put(2, "olho");
+            map.put(3, "fada");
+        }else if(fase == 1){
+            map.put(0,"grilo");
+            map.put(1,"trono");
+            map.put(2,"cebola");
+            map.put(3,"porta");
+        }else{
+            map.put(0,"colher");
+            map.put(1,"tomate");
+            map.put(2,"treno");
+            map.put(3,"cavalo");
+        }
         return map;
     }
 
@@ -247,7 +338,7 @@ public class Jogo_de_Ordenar_Palavra2 extends AppCompatActivity {
                         fase++;
                         setFase(fase);
                         if(getFase() <= Metodos.palavras.length && getFase() != Metodos.palavras.length) {
-                            Intent nextActivity = new Intent(getBaseContext(), Jogo_De_Ordenar_Palavra2_fase2.class);
+                            Intent nextActivity = new Intent(getBaseContext(), Jogo_de_Ordenar_Palavra2.class);
                             nextActivity.putExtra("fase", getFase());
                             nextActivity.putExtra("pontuacao", getPontuacao());
                             startActivity(nextActivity);

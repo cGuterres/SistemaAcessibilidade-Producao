@@ -333,9 +333,22 @@ public class Metodos {
                 case 1:
                     return R.drawable.trono;
                 case 2:
-                    return R.drawable.treno;
+                    return R.drawable.cebola;
                 case 3:
                     return R.drawable.porta;
+                default:
+                    break;
+            }
+        }else{
+            switch (drawableId) {
+                case 0:
+                    return R.drawable.colher;
+                case 1:
+                    return R.drawable.tomate;
+                case 2:
+                    return R.drawable.treno;
+                case 3:
+                    return R.drawable.cavalo;
                 default:
                     break;
             }
@@ -363,15 +376,26 @@ public class Metodos {
                     return "grilo";
                 case R.drawable.trono:
                     return "trono";
-                case R.drawable.treno:
-                    return "treno";
+                case R.drawable.cebola:
+                    return "cebola";
                 case R.drawable.porta:
                     return "porta";
                 default:
                     break;
             }
         }else{
-
+            switch (drawableId){
+                case R.drawable.colher:
+                    return "colher";
+                case R.drawable.tomate:
+                    return "tomate";
+                case R.drawable.treno:
+                    return "treno";
+                case R.drawable.cavalo:
+                    return "cavalo";
+                default:
+                    break;
+            }
         }
         return "";
     }
@@ -469,6 +493,9 @@ public class Metodos {
             total += valor;
         }else{
             total -= valor;
+            if(total < 0){
+                total = 0;
+            }
         }
         return total;
     }

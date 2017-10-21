@@ -12,7 +12,7 @@
     android:paddingLeft="6dp"
     android:paddingRight="6dp"
     android:weightSum="1"
-    tools:context="com.dev2.sa.sistemaacessibilidade.JogoDeOrdernarActivity"><![CDATA[
+    tools:context="com.dev2.sa.sistemaacessibilidade.Jogo_de_Ordenar_Palavra2"><![CDATA[
     android:gravity="bottom">
 
 
@@ -121,14 +121,14 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/palavrafada"
+                android:id="@+id/palavra1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/fada" />
 
             <ImageView
-                android:id="@+id/palavralixo"
+                android:id="@+id/palavra2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -155,14 +155,14 @@
 
 
         <ImageView
-            android:id="@+id/palavraolho"
+            android:id="@+id/palavra3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             app:srcCompat="@drawable/olho" />
 
         <ImageView
-            android:id="@+id/palavraseta"
+            android:id="@+id/palavra4"
             android:layout_width="193dp"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/seta" />
@@ -184,7 +184,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/img_lixo"
+                android:id="@+id/img1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -197,7 +197,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imgseta"
+                android:id="@+id/imag2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -210,7 +210,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/img_olho"
+                android:id="@+id/img3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -223,7 +223,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/img_fada"
+                android:id="@+id/img4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

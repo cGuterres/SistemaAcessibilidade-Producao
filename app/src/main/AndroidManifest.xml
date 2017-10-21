@@ -43,16 +43,17 @@
             android:exported="true"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".Jogo_De_Ordenar_Palavra2_fase3"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-
-        <activity android:name=".Jogo_De_Ordenar_Palavra2_fase2"
-            android:exported="true"
-            android:screenOrientation="portrait" />
-
         <activity
             android:name=".Jogo_de_Ordenar_Palavra2"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".JogoDosVizinhosActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -67,7 +68,6 @@
             android:largeScreens="true"
             android:normalScreens="true"
             android:smallScreens="true" />
-
 
 
 
