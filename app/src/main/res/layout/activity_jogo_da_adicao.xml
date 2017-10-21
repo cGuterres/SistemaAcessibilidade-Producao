@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fase_3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pastel"
+    android:baselineAligned="false"
+    android:orientation="vertical"
+    android:paddingLeft="6dp"
+    android:paddingRight="6dp"
+    android:weightSum="1"
+    tools:context="com.dev2.sa.sistemaacessibilidade.JogoDaAdicaoActivity"><![CDATA[
+    android:gravity="bottom">
+
+
+
+
+
+    ]]>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Pontuação: "
+            android:textSize="24sp"
+            tools:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtPonto"
+            android:layout_width="163dp"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/colRigth"
+        android:layout_width="120dp"
+        android:layout_height="318dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/linearLayout"
+        android:layout_gravity="right"
+        android:layout_weight="0.24"
+        android:background="@color/pastel"
+        android:gravity="right"
+        android:orientation="vertical"
+        android:weightSum="0">
+
+        <LinearLayout
+            android:id="@+id/primeiroD"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.24"
+            android:background="@color/quadradosequen"
+            android:gravity="center"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/segundoD"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.24"
+            android:background="@color/quadradosequen"
+            android:gravity="center"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/terceiroD"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:background="@color/quadradosequen"
+            android:gravity="center"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/quartoD"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_weight="0.24"
+            android:background="@color/quadradosequen"
+            android:gravity="center"
+            android:orientation="vertical" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/colCenter"
+        android:layout_width="130dp"
+        android:layout_height="318dp"
+        android:layout_below="@+id/linearLayout"
+        android:layout_toLeftOf="@+id/colRigth"
+        android:orientation="vertical"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:id="@+id/colim1"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/somacinco" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/somadois" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/somaoito" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/somaum" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/opcao1"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="0.24"
+        android:background="@color/pastel"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        android:weightSum="1"
+        android:layout_below="@+id/colRigth"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:id="@+id/op1_1"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.13"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/num1"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.18"
+                android:src="@drawable/numeroum" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/op1_2"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.13"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/num2"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.18"
+                android:src="@drawable/numerodois" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/op1_3"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.13"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/num3"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.18"
+                android:src="@drawable/numerotres" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/op1_4"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.13"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/num4"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/numeroquatro" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/op1_5"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.13"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/num5"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/numerocinco" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/opcao2"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_weight="0.24"
+        android:background="@color/pastel"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:id="@+id/op26"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.13"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/num6"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.18"
+                android:src="@drawable/numeroseis" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/op2_7"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.13"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/num7"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.18"
+                android:src="@drawable/numerosete" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/op2_8"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.13"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/num8"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.18"
+                android:src="@drawable/numerooito" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/op2_9"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.13"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/num9"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/numeronove" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/op2_10"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.13"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/num10"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/numerodez" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

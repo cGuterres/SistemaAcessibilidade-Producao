@@ -19,7 +19,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".JogoDasPasActivity"
             android:exported="true"
@@ -28,7 +27,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".JogoDeOrdernarActivity"
             android:exported="true"
@@ -37,12 +35,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".JogoDasFrutasActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
-
         <activity
             android:name=".Jogo_de_Ordenar_Palavra2"
             android:exported="true"
@@ -51,7 +47,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".JogoDosVizinhosActivity"
             android:exported="true"
@@ -60,7 +55,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".Dialog" />
 
         <supports-screens
@@ -69,13 +63,13 @@
             android:normalScreens="true"
             android:smallScreens="true" />
 
+        <activity android:name=".JogoDaAdicaoActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-
-
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
-
-
-
