@@ -6,11 +6,10 @@
     android:background="#87CEFF">
 
 
-
     <LinearLayout
         android:id="@+id/topleft"
-        android:layout_width="281dp"
-        android:layout_height="277dp"
+        android:layout_width="315dp"
+        android:layout_height="300dp"
         android:layout_gravity="top|left"
         android:layout_marginRight="10dp"
         android:background="#87CEFF">
@@ -24,26 +23,9 @@
 
 
     <LinearLayout
-        android:id="@+id/centerleft"
-        android:layout_width="281dp"
-        android:layout_height="261dp"
-        android:layout_gravity="center|left"
-        android:background="#87CEFF"
-      >
-
-
-        <ImageView
-            android:id="@+id/pa_vermelha"
-            android:layout_width="120dp"
-            android:layout_height="225dp"
-            android:src="@drawable/pa_vermelha" />
-    </LinearLayout>
-
-
-    <LinearLayout
         android:id="@+id/topright"
-        android:layout_width="320dp"
-        android:layout_height="279dp"
+        android:layout_width="315dp"
+        android:layout_height="300dp"
         android:layout_gravity="top|right"
         android:background="#87CEFF"
         android:weightSum="1">
@@ -59,9 +41,24 @@
 
 
     <LinearLayout
+        android:id="@+id/centerleft"
+        android:layout_width="315dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center|left"
+        android:background="#87CEFF">
+
+
+        <ImageView
+            android:id="@+id/pa_vermelha"
+            android:layout_width="120dp"
+            android:layout_height="225dp"
+            android:src="@drawable/pa_vermelha" />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/bottomleft"
-        android:layout_width="284dp"
-        android:layout_height="279dp"
+        android:layout_width="315dp"
+        android:layout_height="300dp"
         android:layout_gravity="bottom|left"
         android:layout_marginRight="10dp"
         android:background="#87CEFF"
@@ -77,7 +74,7 @@
     <LinearLayout
         android:id="@+id/centerrigth"
         android:layout_width="315dp"
-        android:layout_height="257dp"
+        android:layout_height="300dp"
         android:layout_gravity="center|right"
         android:background="#87CEFF"
         android:weightSum="1">
@@ -89,11 +86,10 @@
             android:src="@drawable/balde_amarelo" />
     </LinearLayout>
 
-
     <LinearLayout
         android:id="@+id/bottomright"
-        android:layout_width="311dp"
-        android:layout_height="284dp"
+        android:layout_width="315dp"
+        android:layout_height="300dp"
         android:layout_gravity="bottom|right"
         android:background="#87CEFF"
         android:weightSum="1">
