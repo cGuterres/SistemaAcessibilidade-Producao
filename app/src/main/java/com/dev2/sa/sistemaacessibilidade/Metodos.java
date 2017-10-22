@@ -140,6 +140,11 @@ public class Metodos {
         return aleatorio;
     }
 
+    public static int randomNumber(int max, int min){
+        Random v = new Random();
+        return v.nextInt((max - min) + 1) + min;
+    }
+
     // Método usado para executar áudio dos letra e do toque dos botões.
     public static void chamarSomPalavra(int fase, Context context) {
         pararSomletra();
@@ -498,5 +503,160 @@ public class Metodos {
             }
         }
         return total;
+    }
+
+    public static boolean ehSucessor(int central, int numero){
+        return (central + 1) == numero;
+    }
+
+    public static boolean ehAntecessor(int central, int numero){
+        return (central - 1) == numero;
+    }
+
+    public static int SetNumberDrawable(int number, int fase){
+        if(fase == 0){
+            switch (number){
+                case 0:
+                    return R.drawable.numerozero;
+                case 1:
+                    return R.drawable.numeroum;
+                case 2:
+                    return R.drawable.numerodois;
+                case 3:
+                    return R.drawable.numerotres;
+                case 4:
+                    return R.drawable.numeroquatro;
+                case 5:
+                    return R.drawable.numerocinco;
+                case 6:
+                    return R.drawable.numeroseis;
+                case 7:
+                    return R.drawable.numerosete;
+                case 8:
+                    return R.drawable.numerooito;
+                case 9:
+                    return R.drawable.numeronove;
+                case 10:
+                    return R.drawable.numerodez;
+                default:
+                    break;
+            }
+        }else if(fase == 1){
+            switch (number){
+                case 10:
+                    return R.drawable.numerodez;
+                case 11:
+                    return R.drawable.numeroonze;
+                case 12:
+                    return R.drawable.numerodoze;
+                case 13:
+                    return R.drawable.numerotreze;
+                case 14:
+                    return R.drawable.numeroquatorze;
+                case 15:
+                    return R.drawable.numeroquinze;
+                case 16:
+                    return R.drawable.numerodezeseis;
+                case 17:
+                    return R.drawable.numerodezesete;
+                case 18:
+                    return R.drawable.numerodezoito;
+                case 19:
+                    return R.drawable.numerodezenove;
+                case 20:
+                    return R.drawable.numerovinte;
+                default:
+                    break;
+            }
+        }else if(fase == 2){
+            switch (number){
+                case 20:
+                    return R.drawable.numerovinte;
+                case 21:
+                    return R.drawable.numerovinteum;
+                case 22:
+                    return R.drawable.numerovintedois;
+                case 23:
+                    return R.drawable.numerovintetres;
+                case 24:
+                    return R.drawable.numerovintequatro;
+                case 25:
+                    return R.drawable.numerovintecinco;
+                case 26:
+                    return R.drawable.numerovinteseis;
+                case 27:
+                    return R.drawable.numerovintesete;
+                case 28:
+                    return R.drawable.numerovinteoito;
+                case 29:
+                    return R.drawable.numerovintenove;
+                case 30:
+                    return R.drawable.numerotrinta;
+                default:
+                    break;
+            }
+        }
+        return 0;
+    }
+
+    public static int getNumberForDrawable(int drawableId, int fase){
+        if(fase == 0){
+            switch (drawableId){
+                case R.drawable.numerozero:
+                    return 0;
+                case R.drawable.numeroum:
+                    return 1;
+                case R.drawable.numerodois:
+                    return 2;
+                case R.drawable.numerotres:
+                    return 3;
+                case R.drawable.numeroquatro:
+                    return 4;
+                case R.drawable.numerocinco:
+                    return 5;
+                case R.drawable.numeroseis:
+                    return 6;
+                case R.drawable.numerosete:
+                    return 7;
+                case R.drawable.numerooito:
+                    return 8;
+                case R.drawable.numeronove:
+                    return 9;
+                case R.drawable.numerodez:
+                    return 10;
+                default:
+                    break;
+            }
+        }else if(fase == 1){
+            switch (drawableId){
+                case R.drawable.numerodez:
+                    return 10;
+                case R.drawable.numeroonze:
+                    return 11;
+                case R.drawable.numerodoze:
+                    return 12;
+                case R.drawable.numerotreze:
+                    return 13;
+                case R.drawable.numeroquatorze:
+                    return 14;
+                case R.drawable.numeroquinze:
+                    return 15;
+                case R.drawable.numerodezeseis:
+                    return 16;
+                case R.drawable.numerodezesete:
+                    return 17;
+                case R.drawable.numerodezoito:
+                    return 18;
+                case R.drawable.numerodezenove:
+                    return 19;
+                case R.drawable.numerovinte:
+                    return 20;
+                case R.drawable.numerovinteum:
+                    return 21;
+                default:
+                    break;
+            }
+        }
+        return 0;
     }
 }
