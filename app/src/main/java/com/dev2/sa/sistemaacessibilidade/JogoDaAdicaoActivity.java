@@ -69,24 +69,11 @@ public class JogoDaAdicaoActivity extends AppCompatActivity {
     }
 
     private void setTags(int fase){
-        int[] vetor = null;
-        if(fase == 0){
-            vetor = new int[8];
-        }else if(fase == 1){
-            vetor = new int[10];
-        }
+        int[] vetor = new int[8];
         // troca o valor para que nao seja validado de forma errada quando o vetor for iniciado com 0
-        int max = 0, min = 0;
+        int max = 8, min = 0;
         for (int i = 0; i < vetor.length; i++) {
             vetor[i] = 100;
-        }
-        if(fase == 0){
-            max = 7;
-        }else if(fase == 1){
-            min = 12;
-            max = 21;
-        }else{
-
         }
         for (int i = 0; i < vetor.length; i++) {
             int numeroSorteado = Metodos.randomNumber(max,min);
@@ -112,111 +99,47 @@ public class JogoDaAdicaoActivity extends AppCompatActivity {
             }
         }
 
-        int[] newVetor = new int[10];
-        if(fase == 0) {
-            for (int j = 0; j < vetor.length; j++) {
-                newVetor[j] = vetor[j];
-                if (vetor[j] == 1) {
-                    newVetor[j] = 8;
-                }
-                if (vetor[j] == 4) {
-                    newVetor[j] = 8;
-                }
-                if (vetor[j] == 7) {
-                    newVetor[j] = 10;
-                }
-            }
-        }else if(fase == 1){
-            for (int j = 0; j < vetor.length; j++) {
-                newVetor[j] = vetor[j];
-                if (vetor[j] == 11) {
-                    newVetor[j] = 10;
-                }
-                if (vetor[j] == 14) {
-                    newVetor[j] = 21;
-                }
-                if (vetor[j] == 20) {
-                    newVetor[j] = 21;
-                }
-            }
-        }else if(fase == 2){
-
-        }
 
         img = new ImageView(this);
         img = (ImageView) findViewById(R.id.num1);
-        img.setImageResource(Metodos.SetNumberDrawableJogoSoma(newVetor[0], fase));
-        img.setTag(Metodos.SetNumberDrawableJogoSoma(newVetor[0], fase));
+        img.setImageResource(Metodos.SetNumberDrawable(vetor[0], fase));
+        img.setTag(Metodos.SetNumberDrawable(vetor[0], fase));
 
         img = new ImageView(this);
         img = (ImageView) findViewById(R.id.num2);
-        img.setImageResource(Metodos.SetNumberDrawableJogoSoma(newVetor[1], fase));
-        img.setTag(Metodos.SetNumberDrawableJogoSoma(newVetor[1], fase));
+        img.setImageResource(Metodos.SetNumberDrawable(vetor[1], fase));
+        img.setTag(Metodos.SetNumberDrawable(vetor[1], fase));
 
         img = new ImageView(this);
         img = (ImageView) findViewById(R.id.num3);
-        img.setImageResource(Metodos.SetNumberDrawableJogoSoma(newVetor[2], fase));
-        img.setTag(Metodos.SetNumberDrawableJogoSoma(newVetor[2], fase));
+        img.setImageResource(Metodos.SetNumberDrawable(vetor[2], fase));
+        img.setTag(Metodos.SetNumberDrawable(vetor[2], fase));
 
         img = new ImageView(this);
         img = (ImageView) findViewById(R.id.num4);
-        img.setImageResource(Metodos.SetNumberDrawableJogoSoma(newVetor[3], fase));
-        img.setTag(Metodos.SetNumberDrawableJogoSoma(newVetor[3], fase));
+        img.setImageResource(Metodos.SetNumberDrawable(vetor[3], fase));
+        img.setTag(Metodos.SetNumberDrawable(vetor[3], fase));
 
 
-
-        int[] vetorCentral = SetNumeroCentral(fase);
         img = new ImageView(this);
         img = (ImageView) findViewById(R.id.colCNum1);
-        img.setImageResource(Metodos.SetNumberDrawableJogoSoma(vetorCentral[0], fase));
-        img.setTag(Metodos.SetNumberDrawableJogoSoma(vetorCentral[0], fase));
+        img.setImageResource(Metodos.SetNumberDrawableJogoSoma(vetor[0], fase));
+        img.setTag(Metodos.SetNumberDrawableJogoSoma(vetor[0], fase));
 
         img = new ImageView(this);
         img = (ImageView) findViewById(R.id.ColCNum2);
-        img.setImageResource(Metodos.SetNumberDrawableJogoSoma(vetorCentral[1], fase));
-        img.setTag(Metodos.SetNumberDrawableJogoSoma(vetorCentral[1], fase));
+        img.setImageResource(Metodos.SetNumberDrawableJogoSoma(vetor[1], fase));
+        img.setTag(Metodos.SetNumberDrawableJogoSoma(vetor[1], fase));
 
         img = new ImageView(this);
         img = (ImageView) findViewById(R.id.ColCNum3);
-        img.setImageResource(Metodos.SetNumberDrawableJogoSoma(vetorCentral[2], fase));
-        img.setTag(Metodos.SetNumberDrawableJogoSoma(vetorCentral[2], fase));
+        img.setImageResource(Metodos.SetNumberDrawableJogoSoma(vetor[2], fase));
+        img.setTag(Metodos.SetNumberDrawableJogoSoma(vetor[2], fase));
 
         img = new ImageView(this);
         img = (ImageView) findViewById(R.id.ColCNum4);
-        img.setImageResource(Metodos.SetNumberDrawableJogoSoma(vetorCentral[3], fase));
-        img.setTag(Metodos.SetNumberDrawableJogoSoma(vetorCentral[3], fase));
-    }
-
-    private int[] SetNumeroCentral(int fase){
-        int[] vetor = new int[4];
-        int max = 0, min = 0;
-        if(fase == 0){
-            max = 9;
-        }else if(fase == 1){
-            min = 10;
-            max = 21;
-        }else{
-            min = 20;
-            max = 30;
-        }
-        for (int i = 0; i < vetor.length; i++) {
-            int numeroSorteado = Metodos.randomNumber(max,min);
-            boolean valida = validaNumero(vetor, numeroSorteado, fase);
-            if (valida) {
-                vetor[i] = numeroSorteado;
-            } else {
-                boolean encontrou = false;
-                while (!encontrou) {
-                    numeroSorteado = Metodos.randomNumber(max,min);
-                    valida = validaNumero(vetor, numeroSorteado, fase);
-                    if (valida) {
-                        vetor[i] = numeroSorteado;
-                        encontrou = true;
-                    }
-                }
-            }
-        }
-        return vetor;
+        img.setImageResource(Metodos.SetNumberDrawableJogoSoma(vetor[3], fase));
+        img.setTag(Metodos.SetNumberDrawableJogoSoma(vetor[3], fase));
     }
 
     public static boolean validaNumero(int[] vetor, int value,int fase) {

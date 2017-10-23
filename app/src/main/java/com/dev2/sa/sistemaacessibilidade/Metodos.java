@@ -688,10 +688,12 @@ public class Metodos {
         }
         return "";
     }
+
+    //ajustar imagens das somas
     public static int SetNumberDrawableJogoSoma(int number, int fase) {
         if (fase == 0) {
             switch (number) {
-                case 0:
+                case 0 :
                     return R.drawable.somazero;
                 case 1:
                     return R.drawable.somaum;
@@ -705,7 +707,7 @@ public class Metodos {
                     return R.drawable.somacinco;
                 case 6:
                     return R.drawable.somaseis;
-                case 8:
+                case 7:
                     return R.drawable.somaoito;
                 default:
                     break;
