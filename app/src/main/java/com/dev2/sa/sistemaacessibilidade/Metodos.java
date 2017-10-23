@@ -54,7 +54,7 @@ public class Metodos {
     }
 
     // retorna som correspondente a fase
-    public static int getSomFase(int fase){
+    public static int getSomFase(int fase) {
         switch (fase) {
             case 0:
                 return R.raw.uva;
@@ -74,7 +74,7 @@ public class Metodos {
 
     // Retorna o RAW (áudio) pelo nome do letra.
     public static int getSom(String letra) {
-        switch (letra){
+        switch (letra) {
             case "A":
                 return R.raw.a;
             case "B":
@@ -140,7 +140,7 @@ public class Metodos {
         return aleatorio;
     }
 
-    public static int randomNumber(int max, int min){
+    public static int randomNumber(int max, int min) {
         Random v = new Random();
         return v.nextInt((max - min) + 1) + min;
     }
@@ -258,58 +258,58 @@ public class Metodos {
 
     public static char getDrawableId(int drawableId) {
         switch (drawableId) {
-                case R.drawable.letraa:
-                    return 'A';
-                case R.drawable.letrab:
-                    return 'B';
-                case R.drawable.letrac:
-                    return 'C';
-                case R.drawable.letrad:
-                    return 'D';
-                case R.drawable.letrae:
-                    return 'E';
-                case R.drawable.letraf:
-                    return 'F';
-                case R.drawable.letrag:
-                    return 'G';
-                case R.drawable.letrah:
-                    return 'H';
-                case R.drawable.letrai:
-                    return 'I';
-                case R.drawable.letraj:
-                    return 'J';
-                case R.drawable.letrak:
-                    return 'K';
-                case R.drawable.letral:
-                    return 'L';
-                case R.drawable.letram:
-                    return 'M';
-                case R.drawable.letran:
-                    return 'N';
-                case R.drawable.letrao:
-                    return 'O';
-                case R.drawable.letrap:
-                    return 'P';
-                case R.drawable.letraq:
-                    return 'Q';
-                case R.drawable.letrar:
-                    return 'R';
-                case R.drawable.letras:
-                    return 'S';
-                case R.drawable.letrat:
-                    return 'T';
-                case R.drawable.letrau:
-                    return 'U';
-                case R.drawable.letrav:
-                    return 'V';
-                case R.drawable.letrax:
-                    return 'X';
-                case R.drawable.letraw:
-                    return 'W';
-                case R.drawable.letray:
-                    return 'Y';
-                case R.drawable.letraz:
-                    return 'Z';
+            case R.drawable.letraa:
+                return 'A';
+            case R.drawable.letrab:
+                return 'B';
+            case R.drawable.letrac:
+                return 'C';
+            case R.drawable.letrad:
+                return 'D';
+            case R.drawable.letrae:
+                return 'E';
+            case R.drawable.letraf:
+                return 'F';
+            case R.drawable.letrag:
+                return 'G';
+            case R.drawable.letrah:
+                return 'H';
+            case R.drawable.letrai:
+                return 'I';
+            case R.drawable.letraj:
+                return 'J';
+            case R.drawable.letrak:
+                return 'K';
+            case R.drawable.letral:
+                return 'L';
+            case R.drawable.letram:
+                return 'M';
+            case R.drawable.letran:
+                return 'N';
+            case R.drawable.letrao:
+                return 'O';
+            case R.drawable.letrap:
+                return 'P';
+            case R.drawable.letraq:
+                return 'Q';
+            case R.drawable.letrar:
+                return 'R';
+            case R.drawable.letras:
+                return 'S';
+            case R.drawable.letrat:
+                return 'T';
+            case R.drawable.letrau:
+                return 'U';
+            case R.drawable.letrav:
+                return 'V';
+            case R.drawable.letrax:
+                return 'X';
+            case R.drawable.letraw:
+                return 'W';
+            case R.drawable.letray:
+                return 'Y';
+            case R.drawable.letraz:
+                return 'Z';
             default:
                 break;
         }
@@ -318,7 +318,7 @@ public class Metodos {
 
     public static int getDrawableContent(int drawableId, int fase) {
 
-        if(fase == 0) {
+        if (fase == 0) {
             switch (drawableId) {
                 case 0:
                     return R.drawable.lixo;
@@ -331,7 +331,7 @@ public class Metodos {
                 default:
                     break;
             }
-        }else if(fase == 1){
+        } else if (fase == 1) {
             switch (drawableId) {
                 case 0:
                     return R.drawable.grilo;
@@ -344,7 +344,7 @@ public class Metodos {
                 default:
                     break;
             }
-        }else{
+        } else {
             switch (drawableId) {
                 case 0:
                     return R.drawable.colher;
@@ -361,8 +361,8 @@ public class Metodos {
         return 0;
     }
 
-    public static String getDrawableString(int drawableId, int fase){
-        if(fase == 0) {
+    public static String getDrawableString(int drawableId, int fase) {
+        if (fase == 0) {
             switch (drawableId) {
                 case R.drawable.lixo:
                     return "lixo";
@@ -375,8 +375,8 @@ public class Metodos {
                 default:
                     break;
             }
-        }else if (fase == 1){
-            switch (drawableId){
+        } else if (fase == 1) {
+            switch (drawableId) {
                 case R.drawable.grilo:
                     return "grilo";
                 case R.drawable.trono:
@@ -388,8 +388,8 @@ public class Metodos {
                 default:
                     break;
             }
-        }else{
-            switch (drawableId){
+        } else {
+            switch (drawableId) {
                 case R.drawable.colher:
                     return "colher";
                 case R.drawable.tomate:
@@ -420,24 +420,24 @@ public class Metodos {
                 act.finish();
             }
         });//.setNeutralButton("Middle", new DialogInterface.OnClickListener() {
-            //@Override
-            //public void onClick(DialogInterface dialog, int which) {
-              //  Toast.makeText(act, "Middle button clicked!", Toast.LENGTH_SHORT).show();
-            //}
+        //@Override
+        //public void onClick(DialogInterface dialog, int which) {
+        //  Toast.makeText(act, "Middle button clicked!", Toast.LENGTH_SHORT).show();
+        //}
         //});
         builder.create().show();        // create and show the alert dialog
     }
 
     public static int getDrawablePhaseTwo(int index) {
         switch (index) {
-                case 0:
-                    return R.drawable.lixo;
-                case 1:
-                    return R.drawable.fada;
-                case 2:
-                    return R.drawable.olho;
-                case 3:
-                    return R.drawable.seta;
+            case 0:
+                return R.drawable.lixo;
+            case 1:
+                return R.drawable.fada;
+            case 2:
+                return R.drawable.olho;
+            case 3:
+                return R.drawable.seta;
             default:
                 break;
         }
@@ -476,7 +476,7 @@ public class Metodos {
         return 0;
     }
 
-    public static void ShowHitMessage(Activity act, String message){
+    public static void ShowHitMessage(Activity act, String message) {
         Toast.makeText(act, message, Toast.LENGTH_SHORT).show();
     }
 
@@ -493,29 +493,29 @@ public class Metodos {
 
     // check = true - acerto
     //check = false - erro
-    public static int somaTotal(int total, int valor, boolean check){
-        if(check){
+    public static int somaTotal(int total, int valor, boolean check) {
+        if (check) {
             total += valor;
-        }else{
+        } else {
             total -= valor;
-            if(total < 0){
+            if (total < 0) {
                 total = 0;
             }
         }
         return total;
     }
 
-    public static boolean ehSucessor(int central, int numero){
+    public static boolean ehSucessor(int central, int numero) {
         return (central + 1) == numero;
     }
 
-    public static boolean ehAntecessor(int central, int numero){
+    public static boolean ehAntecessor(int central, int numero) {
         return (central - 1) == numero;
     }
 
-    public static int SetNumberDrawable(int number, int fase){
-        if(fase == 0){
-            switch (number){
+    public static int SetNumberDrawable(int number, int fase) {
+        if (fase == 0) {
+            switch (number) {
                 case 0:
                     return R.drawable.numerozero;
                 case 1:
@@ -541,8 +541,8 @@ public class Metodos {
                 default:
                     break;
             }
-        }else if(fase == 1){
-            switch (number){
+        } else if (fase == 1) {
+            switch (number) {
                 case 10:
                     return R.drawable.numerodez;
                 case 11:
@@ -568,8 +568,8 @@ public class Metodos {
                 default:
                     break;
             }
-        }else if(fase == 2){
-            switch (number){
+        } else if (fase == 2) {
+            switch (number) {
                 case 20:
                     return R.drawable.numerovinte;
                 case 21:
@@ -599,9 +599,9 @@ public class Metodos {
         return 0;
     }
 
-    public static int getNumberForDrawable(int drawableId, int fase){
-        if(fase == 0){
-            switch (drawableId){
+    public static int getNumberForDrawable(int drawableId, int fase) {
+        if (fase == 0) {
+            switch (drawableId) {
                 case R.drawable.numerozero:
                     return 0;
                 case R.drawable.numeroum:
@@ -627,8 +627,8 @@ public class Metodos {
                 default:
                     break;
             }
-        }else if(fase == 1){
-            switch (drawableId){
+        } else if (fase == 1) {
+            switch (drawableId) {
                 case R.drawable.numerodez:
                     return 10;
                 case R.drawable.numeroonze:
@@ -659,4 +659,131 @@ public class Metodos {
         }
         return 0;
     }
+
+    public static int SetNumberDrawableJogoSoma(int number, int fase) {
+        if (fase == 0) {
+            switch (number) {
+                case 0:
+                    return R.drawable.somazero;
+                case 1:
+                    return R.drawable.somaum;
+                case 2:
+                    return R.drawable.somadois;
+                case 3:
+                    return R.drawable.somatres;
+                case 4:
+                    return R.drawable.somaquatro;
+                case 5:
+                    return R.drawable.somacinco;
+                case 6:
+                    return R.drawable.somaseis;
+                case 8:
+                    return R.drawable.somaoito;
+                default:
+                    break;
+            }
+        } else if (fase == 1) {
+            switch (number) {
+
+                case 1:
+                    return R.drawable.somaumflor;
+                case 2:
+                    return R.drawable.somadoisf;
+                case 3:
+                    return R.drawable.somatresf;
+                case 4:
+                    return R.drawable.somaquatrof;
+                case 5:
+                    return R.drawable.somacincof;
+                case 6:
+                    return R.drawable.somacseisf;
+                case 8:
+                    return R.drawable.somacoitof;
+                default:
+                    break;
+            }
+        } else if (fase == 2) {
+            switch (number) {
+
+                case 4:
+                    return R.drawable.somaquatrog;
+                case 5:
+                    return R.drawable.somacincog;
+                case 6:
+                    return R.drawable.somaseisg;
+                case 7:
+                    return R.drawable.somaseisg;
+
+                case 8:
+                    return R.drawable.somaoitog;
+                default:
+                    break;
+            }
+        }
+        return 0;
+    }
+
+    public static int getNumberForDrawableJogoSoma(int drawableId, int fase) {
+        if (fase == 0) {
+            switch (drawableId) {
+                case 0:
+                    return R.drawable.somazero;
+                case 1:
+                    return R.drawable.somaum;
+                case 2:
+                    return R.drawable.somadois;
+                case 3:
+                    return R.drawable.somatres;
+                case 4:
+                    return R.drawable.somaquatro;
+                case 5:
+                    return R.drawable.somacinco;
+                case 6:
+                    return R.drawable.somaseis;
+                case 8:
+                    return R.drawable.somaoito;
+                default:
+                    break;
+            }
+        } else if (fase == 1) {
+            switch (drawableId) {
+                case 1:
+                    return R.drawable.somaumflor;
+                case 2:
+                    return R.drawable.somadoisf;
+                case 3:
+                    return R.drawable.somatresf;
+                case 4:
+                    return R.drawable.somaquatrof;
+                case 5:
+                    return R.drawable.somacincof;
+                case 6:
+                    return R.drawable.somacseisf;
+                case 8:
+                    return R.drawable.somacoitof;
+                default:
+                    break;
+            }
+        } else if (fase == 2) {
+            switch (drawableId) {
+
+                case 4:
+                    return R.drawable.somaquatrog;
+                case 5:
+                    return R.drawable.somacincog;
+                case 6:
+                    return R.drawable.somaseisg;
+                case 7:
+                    return R.drawable.somaseisg;
+
+                case 8:
+                    return R.drawable.somaoitog;
+                default:
+                    break;
+            }
+        }
+            return 0;
+        }
+
+
 }

@@ -63,7 +63,10 @@
             android:normalScreens="true"
             android:smallScreens="true" />
 
-        <activity android:name=".JogoDaAdicaoActivity">
+        <activity
+            android:name=".JogoDaAdicaoActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
