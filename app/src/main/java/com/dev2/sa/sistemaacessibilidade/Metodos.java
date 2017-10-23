@@ -688,4 +688,128 @@ public class Metodos {
         }
         return "";
     }
+    public static int SetNumberDrawableJogoSoma(int number, int fase) {
+        if (fase == 0) {
+            switch (number) {
+                case 0:
+                    return R.drawable.somazero;
+                case 1:
+                    return R.drawable.somaum;
+                case 2:
+                    return R.drawable.somadois;
+                case 3:
+                    return R.drawable.somatres;
+                case 4:
+                    return R.drawable.somaquatro;
+                case 5:
+                    return R.drawable.somacinco;
+                case 6:
+                    return R.drawable.somaseis;
+                case 8:
+                    return R.drawable.somaoito;
+                default:
+                    break;
+            }
+        } else if (fase == 1) {
+            switch (number) {
+
+                case 1:
+                    return R.drawable.somaumflor;
+                case 2:
+                    return R.drawable.somadoisf;
+                case 3:
+                    return R.drawable.somatresf;
+                case 4:
+                    return R.drawable.somaquatrof;
+                case 5:
+                    return R.drawable.somacincof;
+                case 6:
+                    return R.drawable.somacseisf;
+                case 8:
+                    return R.drawable.somacoitof;
+                default:
+                    break;
+            }
+        } else if (fase == 2) {
+            switch (number) {
+
+                case 4:
+                    return R.drawable.somaquatrog;
+                case 5:
+                    return R.drawable.somacincog;
+                case 6:
+                    return R.drawable.somaseisg;
+                case 7:
+                    return R.drawable.somaseisg;
+
+                case 8:
+                    return R.drawable.somaoitog;
+                default:
+                    break;
+            }
+        }
+        return 0;
+    }
+
+    public static int getNumberForDrawableJogoSoma(int drawableId, int fase) {
+        if (fase == 0) {
+            switch (drawableId) {
+                case 0:
+                    return R.drawable.somazero;
+                case 1:
+                    return R.drawable.somaum;
+                case 2:
+                    return R.drawable.somadois;
+                case 3:
+                    return R.drawable.somatres;
+                case 4:
+                    return R.drawable.somaquatro;
+                case 5:
+                    return R.drawable.somacinco;
+                case 6:
+                    return R.drawable.somaseis;
+                case 8:
+                    return R.drawable.somaoito;
+                default:
+                    break;
+            }
+        } else if (fase == 1) {
+            switch (drawableId) {
+                case 1:
+                    return R.drawable.somaumflor;
+                case 2:
+                    return R.drawable.somadoisf;
+                case 3:
+                    return R.drawable.somatresf;
+                case 4:
+                    return R.drawable.somaquatrof;
+                case 5:
+                    return R.drawable.somacincof;
+                case 6:
+                    return R.drawable.somacseisf;
+                case 8:
+                    return R.drawable.somacoitof;
+                default:
+                    break;
+            }
+        } else if (fase == 2) {
+            switch (drawableId) {
+
+                case 4:
+                    return R.drawable.somaquatrog;
+                case 5:
+                    return R.drawable.somacincog;
+                case 6:
+                    return R.drawable.somaseisg;
+                case 7:
+                    return R.drawable.somaseisg;
+
+                case 8:
+                    return R.drawable.somaoitog;
+                default:
+                    break;
+            }
+        }
+        return 0;
+    }
 }
