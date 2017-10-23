@@ -680,8 +680,8 @@ public class Metodos {
                     return "balde_rosa";
                 case R.drawable.balde_roxo:
                     return "cebola";
-                case R.drawable.porta:
-                    return "porta";
+                case R.drawable.balde_vinho:
+                    return "balde_vinho";
                 default:
                     break;
             }
