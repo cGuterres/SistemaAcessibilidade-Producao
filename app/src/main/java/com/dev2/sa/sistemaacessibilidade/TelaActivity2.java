@@ -22,7 +22,7 @@ public class TelaActivity2 extends AppCompatActivity {
     public void returnMenu(View view) {
         if (view.getId() == R.id.jogo_dos_vizinhos)
             startActivity(new Intent(this, JogoDosVizinhosActivity.class));
-        else if (view.getId() == R.id.jogodaAdicao)
+        else if (view.getId() == R.id.jogodaAdição)
             startActivity(new Intent(this, JogoDaAdicaoActivity.class));
         else if(view.getId() == R.id.retorna_fase)
             startActivity(new Intent(this, TelaActivity.class));

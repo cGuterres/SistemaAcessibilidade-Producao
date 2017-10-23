@@ -31,7 +31,7 @@ public class TelaActivity extends AppCompatActivity {
             startActivity(new Intent(this, JogoDeOrdernarActivity.class));
         else if (view.getId() == R.id.jogo_dos_vizinhos)
             startActivity(new Intent(this, JogoDosVizinhosActivity.class));
-        else if (view.getId() == R.id.jogodaAdicao)
+        else if (view.getId() == R.id.jogodaAdição)
             startActivity(new Intent(this, JogoDaAdicaoActivity.class));
         else if(view.getId() == R.id.outra_fase)
             startActivity(new Intent(this, TelaActivity2.class));
