@@ -25,7 +25,7 @@ import android.widget.Toast;
 import java.util.HashMap;
 
 public class JogoDasPasActivity extends Activity {
-    View pa_amarela_view, balde_view;
+    View pa_amarela_view, pa_vermelha, pa_azul  ;
     LinearLayout pa_layout, balde_layout;
     HashMap<String, String> Balde_Pa = new HashMap<>(14,1);
     int pontos = 0;
