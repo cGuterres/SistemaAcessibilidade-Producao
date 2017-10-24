@@ -737,6 +737,8 @@ public class Metodos {
                 case 6:
                     return R.drawable.somaseis;
                 case 7:
+                    return R.drawable.somasete;
+                case 8:
                     return R.drawable.somaoito;
                 default:
                     break;
@@ -756,6 +758,8 @@ public class Metodos {
                     return R.drawable.somacincof;
                 case 6:
                     return R.drawable.somacseisf;
+                case 7:
+                    return R.drawable.somacsetef;
                 case 8:
                     return R.drawable.somacoitof;
                 default:
@@ -763,7 +767,14 @@ public class Metodos {
             }
         } else if (fase == 2) {
             switch (number) {
-
+                case 0:
+                    return R.drawable.somazero;
+                case 1:
+                    return R.drawable.somaumg;
+                case 2:
+                    return R.drawable.somadoisg;
+                case 3:
+                    return R.drawable.somatresg;
                 case 4:
                     return R.drawable.somaquatrog;
                 case 5:
@@ -771,7 +782,7 @@ public class Metodos {
                 case 6:
                     return R.drawable.somaseisg;
                 case 7:
-                    return R.drawable.somaseisg;
+                    return R.drawable.somaseteg;
 
                 case 8:
                     return R.drawable.somaoitog;
@@ -785,61 +796,99 @@ public class Metodos {
     public static int getNumberForDrawableJogoSoma(int drawableId, int fase) {
         if (fase == 0) {
             switch (drawableId) {
-                case 0:
-                    return R.drawable.somazero;
-                case 1:
-                    return R.drawable.somaum;
-                case 2:
-                    return R.drawable.somadois;
-                case 3:
-                    return R.drawable.somatres;
-                case 4:
-                    return R.drawable.somaquatro;
-                case 5:
-                    return R.drawable.somacinco;
-                case 6:
-                    return R.drawable.somaseis;
-                case 8:
-                    return R.drawable.somaoito;
+                case R.drawable.somazero:
+                    return 0;
+                case R.drawable.somaum:
+                    return 1;
+                case R.drawable.somadois:
+                    return 2;
+                case R.drawable.somatres:
+                    return 3;
+                case R.drawable.somaquatro:
+                    return 4;
+                case R.drawable.somacinco:
+                    return 5;
+                case R.drawable.somaseis:
+                    return 6;
+                case R.drawable.somasete:
+                    return 7;
+                case R.drawable.somaoito:
+                    return 8;
                 default:
                     break;
             }
         } else if (fase == 1) {
             switch (drawableId) {
-                case 1:
-                    return R.drawable.somaumflor;
-                case 2:
-                    return R.drawable.somadoisf;
-                case 3:
-                    return R.drawable.somatresf;
-                case 4:
-                    return R.drawable.somaquatrof;
-                case 5:
-                    return R.drawable.somacincof;
-                case 6:
-                    return R.drawable.somacseisf;
-                case 8:
-                    return R.drawable.somacoitof;
+                case R.drawable.somazero:
+                    return 0;
+                case R.drawable.somaumflor:
+                    return 1;
+                case R.drawable.somadoisf:
+                    return 2;
+                case R.drawable.somatresf:
+                    return 3;
+                case R.drawable.somaquatrof:
+                    return 4;
+                case R.drawable.somacincof:
+                    return 5;
+                case R.drawable.somacseisf:
+                    return 6;
+                case R.drawable.somacsetef:
+                    return 7;
+                case R.drawable.somacoitof:
+                    return 8;
                 default:
                     break;
             }
         } else if (fase == 2) {
             switch (drawableId) {
-
-                case 4:
-                    return R.drawable.somaquatrog;
-                case 5:
-                    return R.drawable.somacincog;
-                case 6:
-                    return R.drawable.somaseisg;
-                case 7:
-                    return R.drawable.somaseisg;
-
-                case 8:
-                    return R.drawable.somaoitog;
+                case R.drawable.somazero:
+                    return 0;
+                case R.drawable.somaumg:
+                    return 1;
+                case R.drawable.somadoisg:
+                    return 2;
+                case R.drawable.somatresg:
+                    return 3;
+                case R.drawable.somaquatrog:
+                    return 4;
+                case R.drawable.somacincog:
+                    return 5;
+                case R.drawable.somaseisg:
+                    return 6;
+                case R.drawable.somaseteg:
+                    return 7;
+                case R.drawable.somaoitog:
+                    return 8;
                 default:
                     break;
             }
+        }
+        return 0;
+    }
+
+    public static int getResultDrawable(int drawableId){
+        switch (drawableId){
+            case R.drawable.numerozero:
+                return 0;
+            case R.drawable.somaum:
+                return 1;
+            case R.drawable.somadois:
+                return 2;
+            case R.drawable.somatres:
+                return 3;
+            case R.drawable.somaquatro:
+                return 4;
+            case R.drawable.somacinco:
+                return 5;
+            case R.drawable.somaseis:
+                return 6;
+            case R.drawable.somasete:
+                return 7;
+            case R.drawable.somaoito:
+                return 8;
+            default:
+                break;
         }
         return 0;
     }

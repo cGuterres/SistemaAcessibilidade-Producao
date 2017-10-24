@@ -24,8 +24,12 @@ public class TelaActivity2 extends AppCompatActivity {
             startActivity(new Intent(this, JogoDosVizinhosActivity.class));
         else if (view.getId() == R.id.jogodaAdicao)
             startActivity(new Intent(this, JogoDaAdicaoActivity.class));
-        else if(view.getId() == R.id.retorna_fase)
+        else if(view.getId() == R.id.retorna_fase) {
+            if(this.mp.isPlaying()){
+                this.mp.stop();
+            }
             startActivity(new Intent(this, TelaActivity.class));
+        }
     }
 
     @Override

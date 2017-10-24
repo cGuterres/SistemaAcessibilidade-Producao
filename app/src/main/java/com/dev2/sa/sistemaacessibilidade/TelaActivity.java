@@ -33,8 +33,12 @@ public class TelaActivity extends AppCompatActivity {
             startActivity(new Intent(this, JogoDosVizinhosActivity.class));
         else if (view.getId() == R.id.jogodaAdição)
             startActivity(new Intent(this, JogoDaAdicaoActivity.class));
-        else if(view.getId() == R.id.outra_fase)
+        else if(view.getId() == R.id.outra_fase) {
+            if(this.mp.isPlaying()){
+                this.mp.stop();
+            }
             startActivity(new Intent(this, TelaActivity2.class));
+        }
     }
 
     @Override

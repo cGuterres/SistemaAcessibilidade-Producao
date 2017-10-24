@@ -21,7 +21,7 @@ public class JogoDaAdicaoActivity extends AppCompatActivity {
 
     private final int PONTO_ACERTO = 10;
     private final int PONTO_ERRO = 5;
-    private final int TOTAL_ACERTO = 8;
+    private final int TOTAL_ACERTO = 4;
     private final int TOTAL_FASE = 3;
     private int acerto = 0,fase = 0;
     private int pontuacao = 0;
@@ -79,13 +79,7 @@ public class JogoDaAdicaoActivity extends AppCompatActivity {
             int numeroSorteado = Metodos.randomNumber(max,min);
             boolean valida = Metodos.validaNumero(vetor, numeroSorteado);
             if (valida) {
-                if( fase == 0 && numeroSorteado <= 10){
-                    vetor[i] = numeroSorteado;
-                }else if(fase == 1 && numeroSorteado >= 10 && numeroSorteado <= 21){
-                    vetor[i] = numeroSorteado;
-                }else if(fase == 2 && numeroSorteado > 20){
-                    vetor[i] = numeroSorteado;
-                }
+                vetor[i] = numeroSorteado;
             } else {
                 boolean encontrou = false;
                 while (!encontrou) {
@@ -99,47 +93,46 @@ public class JogoDaAdicaoActivity extends AppCompatActivity {
             }
         }
 
-
         img = new ImageView(this);
         img = (ImageView) findViewById(R.id.num1);
-        img.setImageResource(Metodos.SetNumberDrawable(vetor[0], fase));
-        img.setTag(Metodos.SetNumberDrawable(vetor[0], fase));
+        img.setImageResource(Metodos.SetNumberDrawable(vetor[0], 0));
+        img.setTag(Metodos.SetNumberDrawable(vetor[0], 0));
 
         img = new ImageView(this);
         img = (ImageView) findViewById(R.id.num2);
-        img.setImageResource(Metodos.SetNumberDrawable(vetor[1], fase));
-        img.setTag(Metodos.SetNumberDrawable(vetor[1], fase));
+        img.setImageResource(Metodos.SetNumberDrawable(vetor[1], 0));
+        img.setTag(Metodos.SetNumberDrawable(vetor[1], 0));
 
         img = new ImageView(this);
         img = (ImageView) findViewById(R.id.num3);
-        img.setImageResource(Metodos.SetNumberDrawable(vetor[2], fase));
-        img.setTag(Metodos.SetNumberDrawable(vetor[2], fase));
+        img.setImageResource(Metodos.SetNumberDrawable(vetor[2], 0));
+        img.setTag(Metodos.SetNumberDrawable(vetor[2], 0));
 
         img = new ImageView(this);
         img = (ImageView) findViewById(R.id.num4);
-        img.setImageResource(Metodos.SetNumberDrawable(vetor[3], fase));
-        img.setTag(Metodos.SetNumberDrawable(vetor[3], fase));
+        img.setImageResource(Metodos.SetNumberDrawable(vetor[3], 0));
+        img.setTag(Metodos.SetNumberDrawable(vetor[3], 0));
 
-
+        // é adicionado as equações de acordo com os valores randomicos do vetor
         img = new ImageView(this);
         img = (ImageView) findViewById(R.id.colCNum1);
-        img.setImageResource(Metodos.SetNumberDrawableJogoSoma(vetor[0], fase));
-        img.setTag(Metodos.SetNumberDrawableJogoSoma(vetor[0], fase));
+        img.setImageResource(Metodos.SetNumberDrawableJogoSoma(vetor[0], getFase()));
+        img.setTag(Metodos.SetNumberDrawableJogoSoma(vetor[0], getFase()));
 
         img = new ImageView(this);
         img = (ImageView) findViewById(R.id.ColCNum2);
-        img.setImageResource(Metodos.SetNumberDrawableJogoSoma(vetor[1], fase));
-        img.setTag(Metodos.SetNumberDrawableJogoSoma(vetor[1], fase));
+        img.setImageResource(Metodos.SetNumberDrawableJogoSoma(vetor[1], getFase()));
+        img.setTag(Metodos.SetNumberDrawableJogoSoma(vetor[1], getFase()));
 
         img = new ImageView(this);
         img = (ImageView) findViewById(R.id.ColCNum3);
-        img.setImageResource(Metodos.SetNumberDrawableJogoSoma(vetor[2], fase));
-        img.setTag(Metodos.SetNumberDrawableJogoSoma(vetor[2], fase));
+        img.setImageResource(Metodos.SetNumberDrawableJogoSoma(vetor[2], getFase()));
+        img.setTag(Metodos.SetNumberDrawableJogoSoma(vetor[2], getFase()));
 
         img = new ImageView(this);
         img = (ImageView) findViewById(R.id.ColCNum4);
-        img.setImageResource(Metodos.SetNumberDrawableJogoSoma(vetor[3], fase));
-        img.setTag(Metodos.SetNumberDrawableJogoSoma(vetor[3], fase));
+        img.setImageResource(Metodos.SetNumberDrawableJogoSoma(vetor[3], getFase()));
+        img.setTag(Metodos.SetNumberDrawableJogoSoma(vetor[3], getFase()));
     }
 
     public static boolean validaNumero(int[] vetor, int value,int fase) {
@@ -165,16 +158,7 @@ public class JogoDaAdicaoActivity extends AppCompatActivity {
         findViewById(R.id.num2).setOnLongClickListener(new MyOnLongClickListener());
         findViewById(R.id.num3).setOnLongClickListener(new MyOnLongClickListener());
         findViewById(R.id.num4).setOnLongClickListener(new MyOnLongClickListener());
-      /*  findViewById(R.id.num6).setOnLongClickListener(new MyOnLongClickListener());
-        findViewById(R.id.num7).setOnLongClickListener(new MyOnLongClickListener());
-        findViewById(R.id.num8).setOnLongClickListener(new MyOnLongClickListener());
-        findViewById(R.id.num9).setOnLongClickListener(new MyOnLongClickListener());
 
-        findViewById(R.id.primeiroE).setOnDragListener(new MyOnDragListener(1));
-        findViewById(R.id.segundoE).setOnDragListener(new MyOnDragListener(2));
-        findViewById(R.id.terceiroE).setOnDragListener(new MyOnDragListener(3));
-        findViewById(R.id.quartoE).setOnDragListener(new MyOnDragListener(4));
-*/
         findViewById(R.id.primeiroD).setOnDragListener(new MyOnDragListener(1));
         findViewById(R.id.segundoD).setOnDragListener(new MyOnDragListener(2));
         findViewById(R.id.terceiroD).setOnDragListener(new MyOnDragListener(3));
@@ -213,61 +197,37 @@ public class JogoDaAdicaoActivity extends AppCompatActivity {
                     // Move a imagem de um container para outro (6 linhas abaixo)
                     View view = (View) event.getLocalState();//aqui entra quem está sendo movido
 
-                    // indice onde foi largada a imagem
-                    int index = 0, numCentral = 0;
-                    //boolean ladoE = false;
-                     boolean ladoD = false;
-                    String tagV = "";
-                    ImageView imageCenter = null;
-                  /*  if (v.getId() == R.id.primeiroE) { // Clicou na primeira imagem
-                        ladoE = true;
-                        imageCenter = (ImageView)findViewById(R.id.colCNum1);
-                        tagV = imageCenter.getTag().toString();
-                    } else if (v.getId() == R.id.segundoE) { // Clicou na segunda imagem
-                        ladoE = true;
-                        imageCenter = (ImageView)findViewById(R.id.ColCNum2);
-                        tagV = imageCenter.getTag().toString();
-                    } else if (v.getId() == R.id.terceiroE) { // Clicou na terceira imagem
-                        ladoE = true;
-                        imageCenter = (ImageView)findViewById(R.id.ColCNum3);
-                        tagV = imageCenter.getTag().toString();
-                    } else if (v.getId() == R.id.quartoE) { // Clicou na quarta imagem
-                        ladoE = true;
-                        imageCenter = (ImageView)findViewById(R.id.ColCNum4);
-                        tagV = imageCenter.getTag().toString();
+                    // fluxo para pegar a imagem da soma correspondente ao valor que foi movido
+                    int colDrawableId = 0;
+                    String tagViewDaSoma = "";
+                    ImageView viewDaSoma = null;
+                    if (v.getId() == R.id.primeiroD){// Clicou na primeira imagem
+                        viewDaSoma = (ImageView)findViewById(R.id.colCNum1);
+                        if(viewDaSoma.getTag() != null){
+                            tagViewDaSoma = viewDaSoma.getTag().toString();
+                        }
+                    } else if (v.getId() == R.id.segundoD){// Clicou na primeira imagem
+                        viewDaSoma = (ImageView)findViewById(R.id.ColCNum2);
+                        if(viewDaSoma.getTag() != null){
+                            tagViewDaSoma = viewDaSoma.getTag().toString();
+                        }
+                    } else if (v.getId() == R.id.terceiroD){// Clicou na primeira imagem
+                        viewDaSoma = (ImageView)findViewById(R.id.ColCNum3);
+                        if(viewDaSoma.getTag() != null){
+                            tagViewDaSoma = viewDaSoma.getTag().toString();
+                        }
+                    }else if (v.getId() == R.id.quartoD){// Clicou na primeira imagem
+                        viewDaSoma = (ImageView)findViewById(R.id.ColCNum4);
+                        if(viewDaSoma.getTag() != null){
+                            tagViewDaSoma = viewDaSoma.getTag().toString();
+                        }
                     }
-                    else     */ if(v.getId() == R.id.primeiroD){
-                        ladoD = true;
-                        imageCenter = (ImageView)findViewById(R.id.colCNum1);
-                        tagV = imageCenter.getTag().toString();
-                    }else if(v.getId() == R.id.segundoD){
-                        ladoD = true;
-                        imageCenter = (ImageView)findViewById(R.id.ColCNum2);
-                        tagV = imageCenter.getTag().toString();
-                    }else if(v.getId() == R.id.terceiroD){
-                        ladoD = true;
-                        imageCenter = (ImageView)findViewById(R.id.ColCNum3);
-                        tagV = imageCenter.getTag().toString();
-                    }else if(v.getId() == R.id.quartoD){
-                        ladoD = true;
-                        imageCenter = (ImageView)findViewById(R.id.ColCNum4);
-                        tagV = imageCenter.getTag().toString();
-                    }
-
+                    // variavel equacao referente a imagem da coluna da esquerda
+                    int equacao = Metodos.getNumberForDrawableJogoSoma(Integer.parseInt(tagViewDaSoma),getFase());
                     String tagId = view.getTag().toString();
-                    numCentral = Metodos.getNumberForDrawableJogoSoma(Integer.parseInt(tagV), fase);
-                    if(tagId.equals("10")){
-                        tagId = Integer.toString(R.drawable.numerodez);
-                    }
-                    if(tagId.equals("8")){
-                        tagId = Integer.toString(R.drawable.numerooito);
-                    }
-                    int numMovido = Metodos.getNumberForDrawableJogoSoma(Integer.parseInt(tagId),fase);
-                    boolean acertou = false;
-                   if(ladoD){
-                        acertou = Metodos.ehSucessor(numCentral, numMovido);
-                    }
-
+                    // numero que foi movido pelo usuario
+                    int numMovido = Metodos.getNumberForDrawable(Integer.parseInt(tagId),0);
+                    boolean acertou = valida(equacao, numMovido);
                     if (acertou) {
                         acerto++;
                         // faz o somatório
@@ -283,7 +243,7 @@ public class JogoDaAdicaoActivity extends AppCompatActivity {
                         v.setEnabled(false);
                     } else {
                         // mensagem de erro para o usuário
-                        Toast.makeText(JogoDaAdicaoActivity.this, "LETRA ERRADA!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(JogoDaAdicaoActivity.this, "SOMA ERRADA!", Toast.LENGTH_SHORT).show();
                         int total = Metodos.somaTotal(pontuacao,PONTO_ERRO, false);
                         setPontuacao(total);
                     }
@@ -304,6 +264,9 @@ public class JogoDaAdicaoActivity extends AppCompatActivity {
         }
     }
 
+    private boolean valida(int equacao, int numero){
+        return equacao == numero;
+    }
     public void ShowDialogNext(final Activity act, @DrawableRes int desenho, String titulo, String mensagem) {
         AlertDialog.Builder builder = new AlertDialog.Builder(act);
         builder.setTitle(titulo)
@@ -314,8 +277,8 @@ public class JogoDaAdicaoActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int id) {
                         fase++;
                         setFase(fase);
-                        if(getFase() <= Metodos.palavras.length && getFase() != Metodos.palavras.length) {
-                            Intent nextActivity = new Intent(getBaseContext(), JogoDosVizinhosActivity.class);
+                        if(getFase() <= TOTAL_FASE - 1) {
+                            Intent nextActivity = new Intent(getBaseContext(), JogoDaAdicaoActivity.class);
                             nextActivity.putExtra("fase", getFase());
                             nextActivity.putExtra("pontuacao", getPontuacao());
                             startActivity(nextActivity);
@@ -338,8 +301,14 @@ public class JogoDaAdicaoActivity extends AppCompatActivity {
                 .setIcon(desenho)
                 .setPositiveButton("REINICIAR FASES", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+                        fase = 0;
+                        setFase(fase);
                         pontuacao = 0;
                         setPontuacao(pontuacao);
+                        Intent nextActivity = new Intent(getBaseContext(), JogoDaAdicaoActivity.class);
+                        nextActivity.putExtra("fase", getFase());
+                        startActivity(nextActivity);
+                        finish();
                     }
                 }).setNegativeButton("SAIR", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
