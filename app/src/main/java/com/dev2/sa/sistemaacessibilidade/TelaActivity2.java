@@ -19,10 +19,10 @@ public class TelaActivity2 extends AppCompatActivity {
         playMusic();
     }
 
-    public void returnMenu(View view) {
-        if (view.getId() == R.id.jogo_dos_vizinhos)
+    public void eventosFases(View view) {
+        if (view.getId() == R.id.vizinhos)
             startActivity(new Intent(this, JogoDosVizinhosActivity.class));
-        else if (view.getId() == R.id.jogodaAdição)
+        else if (view.getId() == R.id.jogodaAdicao)
             startActivity(new Intent(this, JogoDaAdicaoActivity.class));
         else if(view.getId() == R.id.retorna_fase)
             startActivity(new Intent(this, TelaActivity.class));

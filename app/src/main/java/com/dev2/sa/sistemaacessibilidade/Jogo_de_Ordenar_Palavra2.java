@@ -337,7 +337,7 @@ public class Jogo_de_Ordenar_Palavra2 extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int id) {
                         fase++;
                         setFase(fase);
-                        if(getFase() <= Metodos.palavras.length && getFase() != Metodos.palavras.length) {
+                        if(getFase() <= TOTAL_FASE - 1) {
                             Intent nextActivity = new Intent(getBaseContext(), Jogo_de_Ordenar_Palavra2.class);
                             nextActivity.putExtra("fase", getFase());
                             nextActivity.putExtra("pontuacao", getPontuacao());

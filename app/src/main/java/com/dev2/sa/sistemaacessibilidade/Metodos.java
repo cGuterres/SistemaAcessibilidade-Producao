@@ -565,6 +565,8 @@ public class Metodos {
                     return R.drawable.numerodezenove;
                 case 20:
                     return R.drawable.numerovinte;
+                case 21:
+                    return R.drawable.numerovinteum;
                 default:
                     break;
             }
@@ -653,6 +655,33 @@ public class Metodos {
                     return 20;
                 case R.drawable.numerovinteum:
                     return 21;
+                default:
+                    break;
+            }
+        }else{
+            switch (drawableId){
+                case R.drawable.numerovinte:
+                    return 20;
+                case R.drawable.numerovinteum:
+                    return 21;
+                case R.drawable.numerovintedois:
+                    return 22;
+                case R.drawable.numerovintetres:
+                    return 23;
+                case R.drawable.numerovintequatro:
+                    return 24;
+                case R.drawable.numerovintecinco:
+                    return 25;
+                case R.drawable.numerovinteseis:
+                    return 26;
+                case R.drawable.numerovintesete:
+                    return 27;
+                case R.drawable.numerovinteoito:
+                    return 28;
+                case R.drawable.numerovintenove:
+                    return 29;
+                case R.drawable.numerotrinta:
+                    return 30;
                 default:
                     break;
             }

@@ -23,6 +23,7 @@ public class JogoDosVizinhosActivity extends AppCompatActivity {
     private final int PONTO_ERRO = 5;
     private final int TOTAL_ACERTO = 8;
     private final int TOTAL_FASE = 3;
+    private final int ARRAY_SORT = 8;
     private int acerto = 0,fase = 0;
     private int pontuacao = 0;
     private ImageView img;
@@ -62,19 +63,12 @@ public class JogoDosVizinhosActivity extends AppCompatActivity {
                 txtPonto.setText(Integer.toString(getPontuacao()));
             }
         }
-
         createElements();
-
         setTags(getFase());
     }
 
     private void setTags(int fase){
-        int[] vetor = null;
-        if(fase == 0){
-            vetor = new int[8];
-        }else if(fase == 1){
-            vetor = new int[10];
-        }
+        int[] vetor = new int[ARRAY_SORT];
         // troca o valor para que nao seja validado de forma errada quando o vetor for iniciado com 0
         int max = 0, min = 0;
         for (int i = 0; i < vetor.length; i++) {
@@ -83,10 +77,11 @@ public class JogoDosVizinhosActivity extends AppCompatActivity {
         if(fase == 0){
             max = 7;
         }else if(fase == 1){
-            min = 12;
-            max = 21;
+            min = 13;
+            max = 20;
         }else{
-
+            min = 23;
+            max = 30;
         }
         for (int i = 0; i < vetor.length; i++) {
             int numeroSorteado = Metodos.randomNumber(max,min);
@@ -112,7 +107,7 @@ public class JogoDosVizinhosActivity extends AppCompatActivity {
             }
         }
 
-        int[] newVetor = new int[10];
+        int[] newVetor = new int[vetor.length];
         if(fase == 0) {
             for (int j = 0; j < vetor.length; j++) {
                 newVetor[j] = vetor[j];
@@ -129,18 +124,29 @@ public class JogoDosVizinhosActivity extends AppCompatActivity {
         }else if(fase == 1){
             for (int j = 0; j < vetor.length; j++) {
                 newVetor[j] = vetor[j];
-                if (vetor[j] == 11) {
+                if (vetor[j] == 14) {
                     newVetor[j] = 10;
                 }
-                if (vetor[j] == 14) {
-                    newVetor[j] = 21;
+                if (vetor[j] == 17) {
+                    newVetor[j] = 12;
                 }
                 if (vetor[j] == 20) {
                     newVetor[j] = 21;
                 }
             }
         }else if(fase == 2){
-
+            for (int j = 0; j < vetor.length; j++) {
+                newVetor[j] = vetor[j];
+                if (vetor[j] == 26) {
+                    newVetor[j] = 20;
+                }
+                if (vetor[j] == 24) {
+                    newVetor[j] = 25;
+                }
+                if(vetor[j] == 29){
+                    newVetor[j] = 22;
+                }
+            }
         }
 
         img = new ImageView(this);
@@ -214,7 +220,7 @@ public class JogoDosVizinhosActivity extends AppCompatActivity {
             min = 10;
             max = 21;
         }else{
-            min = 20;
+            min = 21;
             max = 30;
         }
         for (int i = 0; i < vetor.length; i++) {
@@ -243,7 +249,7 @@ public class JogoDosVizinhosActivity extends AppCompatActivity {
             return false;
         } else if(fase == 1 && value != 11 && value != 14 && value != 17 && value != 20){
             return false;
-        }else if(fase == 2){
+        }else if(fase == 2 && value != 21 && value != 24 && value != 26 && value != 29){
             return false;
         }
         for (int i = 0; i < vetor.length; i++) {
@@ -362,7 +368,6 @@ public class JogoDosVizinhosActivity extends AppCompatActivity {
                     }else if(ladoD){
                         acertou = Metodos.ehSucessor(numCentral, numMovido);
                     }
-
                     if (acertou) {
                         acerto++;
                         // faz o somatório
@@ -378,16 +383,16 @@ public class JogoDosVizinhosActivity extends AppCompatActivity {
                         v.setEnabled(false);
                     } else {
                         // mensagem de erro para o usuário
-                        Toast.makeText(JogoDosVizinhosActivity.this, "LETRA ERRADA!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(JogoDosVizinhosActivity.this, "OPA! VIZINHO ERRADO!", Toast.LENGTH_SHORT).show();
                         int total = Metodos.somaTotal(pontuacao,PONTO_ERRO, false);
                         setPontuacao(total);
                     }
                     if (acerto == TOTAL_ACERTO) {
                         // fala a palavra correta
                         if(getFase() < TOTAL_FASE - 1) {
-                            ShowDialogNext(JogoDosVizinhosActivity.this, R.drawable.icopala, "PARABÉNS!", "VOCÊ GANHOU!!");
+                            ShowDialogNext(JogoDosVizinhosActivity.this, R.drawable.icovisinhos, "PARABÉNS!", "VOCÊ GANHOU!!");
                         }else{
-                            ShowDialogRecreateGame(JogoDosVizinhosActivity.this, R.drawable.icocasa, "PARABÉNS!", "VOCÊ CONCLUIU TODAS AS FASES!\n SUA PONTUAÇÃO: " + getPontuacao());
+                            ShowDialogRecreateGame(JogoDosVizinhosActivity.this, R.drawable.icovisinhos, "PARABÉNS!", "VOCÊ CONCLUIU TODAS AS FASES!\n SUA PONTUAÇÃO: " + getPontuacao());
                         }
                     }
                     TextView mostra = (TextView)findViewById(R.id.txtPonto);
@@ -409,7 +414,7 @@ public class JogoDosVizinhosActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int id) {
                         fase++;
                         setFase(fase);
-                        if(getFase() <= Metodos.palavras.length && getFase() != Metodos.palavras.length) {
+                        if(getFase() <= TOTAL_FASE - 1) {
                             Intent nextActivity = new Intent(getBaseContext(), JogoDosVizinhosActivity.class);
                             nextActivity.putExtra("fase", getFase());
                             nextActivity.putExtra("pontuacao", getPontuacao());
@@ -433,8 +438,14 @@ public class JogoDosVizinhosActivity extends AppCompatActivity {
                 .setIcon(desenho)
                 .setPositiveButton("REINICIAR FASES", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
+                        fase = 0;
+                        setFase(fase);
                         pontuacao = 0;
                         setPontuacao(pontuacao);
+                        Intent nextActivity = new Intent(getBaseContext(), JogoDosVizinhosActivity.class);
+                        nextActivity.putExtra("fase", getFase());
+                        startActivity(nextActivity);
+                        finish();
                     }
                 }).setNegativeButton("SAIR", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
