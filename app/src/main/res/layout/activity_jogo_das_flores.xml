@@ -16,7 +16,7 @@
 
         <ImageView
             android:id="@+id/flor_laranja"
-            android:layout_width="100dp"
+            android:layout_width="90dp"
             android:layout_height="150dp"
             android:layout_marginTop="10dp"
             android:src="@drawable/flor_laranja" />
@@ -32,7 +32,7 @@
 
         <ImageView
             android:id="@+id/flor_verde2"
-            android:layout_width="100dp"
+            android:layout_width="90dp"
             android:layout_height="150dp"
             android:layout_marginTop="10dp"
             android:src="@drawable/flor_verde" />
@@ -49,7 +49,7 @@
 
         <ImageView
             android:id="@+id/flor_verde"
-            android:layout_width="100dp"
+            android:layout_width="90dp"
             android:layout_height="150dp"
             android:layout_marginTop="10dp"
             android:src="@drawable/flor_verde" />
@@ -64,7 +64,7 @@
 
         <ImageView
             android:id="@+id/flor_azul2"
-            android:layout_width="100dp"
+            android:layout_width="90dp"
             android:layout_height="150dp"
             android:layout_marginTop="10dp"
             android:src="@drawable/flor_azul" />
@@ -80,7 +80,7 @@
 
         <ImageView
             android:id="@+id/flor_laranja2"
-            android:layout_width="100dp"
+            android:layout_width="90dp"
             android:layout_height="150dp"
             android:layout_marginTop="10dp"
             android:src="@drawable/flor_laranja" />
@@ -97,7 +97,7 @@
 
         <ImageView
             android:id="@+id/flor_azul"
-            android:layout_width="100dp"
+            android:layout_width="90dp"
             android:layout_height="150dp"
             android:layout_marginTop="10dp"
             android:src="@drawable/flor_azul" />
