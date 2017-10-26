@@ -29,10 +29,6 @@ public class TelaActivity extends AppCompatActivity {
             startActivity(new Intent(this, Jogo_de_Ordenar_Palavra2.class));
         else if (view.getId() == R.id.jogo_de_ordenar_palavra)
             startActivity(new Intent(this, JogoDeOrdernarActivity.class));
-        else if (view.getId() == R.id.jogo_dos_vizinhos)
-            startActivity(new Intent(this, JogoDosVizinhosActivity.class));
-        else if (view.getId() == R.id.jogodaAdição)
-            startActivity(new Intent(this, JogoDaAdicaoActivity.class));
         else if(view.getId() == R.id.outra_fase) {
             if(this.mp.isPlaying()){
                 this.mp.stop();

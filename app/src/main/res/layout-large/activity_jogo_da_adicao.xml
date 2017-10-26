@@ -50,8 +50,8 @@
 
     <LinearLayout
         android:id="@+id/colRigth"
-        android:layout_width="120dp"
-        android:layout_height="318dp"
+        android:layout_width="105dp"
+        android:layout_height="500dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/linearLayout"
@@ -60,14 +60,14 @@
         android:background="@color/pastel"
         android:gravity="right"
         android:orientation="vertical"
-        android:weightSum="0">
+        android:weightSum="1">
 
         <LinearLayout
             android:id="@+id/primeiroD"
             android:layout_width="90dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
-            android:layout_weight="0.24"
+            android:layout_weight="0.20"
             android:background="@color/quadradosequen"
             android:gravity="center"
             android:orientation="vertical"
@@ -80,7 +80,7 @@
             android:layout_width="90dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
-            android:layout_weight="0.24"
+            android:layout_weight="0.16"
             android:background="@color/quadrado"
             android:gravity="center"
             android:orientation="vertical"
@@ -91,6 +91,7 @@
             android:layout_width="90dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
+            android:layout_weight="0.26"
             android:background="@color/quadradosequen"
             android:gravity="center"
             android:orientation="vertical"
@@ -101,7 +102,7 @@
             android:layout_width="90dp"
             android:layout_height="70dp"
             android:layout_gravity="center"
-            android:layout_weight="0.24"
+            android:layout_weight="0.29"
             android:background="@color/quadrado"
             android:gravity="center"
             android:orientation="vertical"
@@ -112,35 +113,32 @@
     <LinearLayout
         android:id="@+id/colCenter"
         android:layout_width="130dp"
-        android:layout_height="318dp"
-        android:orientation="vertical"
+        android:layout_height="500dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_below="@+id/linearLayout"
         android:layout_toLeftOf="@+id/colRigth"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/colim1"
-            android:layout_width="245dp"
-            android:layout_height="80dp"
-            android:layout_marginLeft="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
-            android:orientation="horizontal"
-            android:paddingTop="0dp">
+            android:orientation="horizontal">
 
 
             <ImageView
                 android:id="@+id/colCNum1"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="visible"
                 app:srcCompat="@drawable/somacinco" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginLeft="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
 
             android:orientation="horizontal"
             android:paddingTop="0dp">
@@ -149,15 +147,15 @@
                 android:id="@+id/ColCNum2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0"
                 android:visibility="visible"
                 app:srcCompat="@drawable/somadois" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginLeft="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
 
             android:orientation="horizontal"
             android:paddingTop="0dp">
@@ -165,15 +163,15 @@
             <ImageView
                 android:id="@+id/ColCNum3"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="132dp"
                 android:visibility="visible"
                 app:srcCompat="@drawable/somaseis" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
-            android:layout_marginLeft="30dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
 
             android:orientation="horizontal"
             android:paddingTop="0dp">
@@ -181,70 +179,21 @@
             <ImageView
                 android:id="@+id/ColCNum4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_height="132dp"
                 android:visibility="visible"
                 app:srcCompat="@drawable/somaum" />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/opcao1"
-        android:layout_width="180dp"
-        android:layout_height="80dp"
-
-        android:layout_weight="0.0"
-        android:background="@color/pastel"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="visible"
-        android:weightSum="1"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/colCenter"
-        android:layout_alignParentBottom="true">
-
-
-        <LinearLayout
-            android:id="@+id/op1_1"
-            android:layout_width="match_parent"
-            android:layout_height="68dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/num1"
-                android:layout_width="match_parent"
-                android:layout_height="79dp"
-                app:srcCompat="@drawable/numerodois" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/op1_2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:weightSum="1">
-
-            <ImageView
-                android:id="@+id/num2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:srcCompat="@drawable/numeroum" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/opcao2"
-        android:layout_width="180dp"
+        android:layout_width="300dp"
         android:layout_height="80dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:layout_below="@+id/colRigth"
-        android:layout_toRightOf="@+id/opcao1"
-        android:layout_weight="0.18"
-        android:orientation="vertical">
+        android:layout_weight="0.0"
+        android:orientation="vertical"
+        android:visibility="visible">
 
         <LinearLayout
             android:id="@+id/op1_4"
@@ -257,8 +206,8 @@
                 android:id="@+id/num4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:src="@drawable/numerocinco" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -272,9 +221,34 @@
                 android:id="@+id/num3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="0.18"
                 android:src="@drawable/numeroseis" />
         </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/opcao1"
+        android:layout_width="300dp"
+        android:layout_height="80dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/colRigth"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/num1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.70"
+            app:srcCompat="@drawable/numerodezoito" />
+
+        <ImageView
+            android:id="@+id/num2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.17"
+            app:srcCompat="@drawable/numerooito" />
     </LinearLayout>
 
 

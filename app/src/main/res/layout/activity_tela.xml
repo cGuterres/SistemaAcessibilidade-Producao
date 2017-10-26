@@ -172,13 +172,16 @@
 
         <Button
             android:id="@+id/outra_fase"
-            android:layout_width="90dp"
-            android:layout_height="45dp"
+            android:layout_width="107dp"
+            android:layout_height="51dp"
             android:layout_marginBottom="16dp"
             android:layout_marginRight="16dp"
             android:background="@drawable/seta_volta"
             android:onClick="eventosFases"
+            android:text="Próxima"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintRight_toRightOf="parent"
+            tools:layout_editor_absoluteX="261dp"
+            tools:layout_editor_absoluteY="444dp" />
 
 </android.support.constraint.ConstraintLayout>

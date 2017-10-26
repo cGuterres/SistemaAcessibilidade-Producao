@@ -745,7 +745,8 @@ public class Metodos {
             }
         } else if (fase == 1) {
             switch (number) {
-
+                case 0:
+                    return R.drawable.somazero;
                 case 1:
                     return R.drawable.somaumflor;
                 case 2:

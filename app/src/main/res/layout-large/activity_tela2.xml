@@ -10,21 +10,22 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="588dp"
-        android:layout_height="100dp"
+        android:layout_width="593dp"
+        android:layout_height="108dp"
         app:srcCompat="@drawable/manu"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        app:layout_constraintHorizontal_bias="0.0" />
 
 
     <Button
-        android:id="@+id/jogodaAdição"
-        android:layout_width="143dp"
-        android:layout_height="143dp"
+        android:id="@+id/jogodaAdicao"
+        android:layout_width="142dp"
+        android:layout_height="128dp"
         android:layout_alignEnd="@+id/Menu"
         android:layout_alignRight="@+id/Menu"
         android:layout_alignTop="@+id/fase_4"
@@ -32,19 +33,19 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="142dp"
         android:background="@drawable/icovisinhos"
         android:onClick="eventosFases"
-        app:layout_constraintHorizontal_bias="0.886"
+        app:layout_constraintHorizontal_bias="0.918"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
 
     <Button
-        android:id="@+id/jogo_dos_vizinhos"
-        android:layout_width="130dp"
-        android:layout_height="121dp"
+        android:id="@+id/vizinhos"
+        android:layout_width="142dp"
+        android:layout_height="128dp"
         android:layout_alignEnd="@+id/jogo_das_pas"
         android:layout_alignRight="@+id/jogo_das_pas"
         android:layout_below="@+id/fase_1"
@@ -53,35 +54,35 @@
 
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="145dp"
+        android:layout_marginTop="151dp"
         android:layout_weight="1"
         android:background="@drawable/icosoma"
         android:onClick="eventosFases"
-        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintHorizontal_bias="0.133"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/jogodasfruta"
-        android:layout_width="204dp"
-        android:layout_height="59dp"
-        android:layout_marginLeft="33dp"
+        android:layout_width="258dp"
+        android:layout_height="39dp"
+        android:layout_marginLeft="25dp"
         android:layout_marginTop="289dp"
         android:text="Jogo dos vizinhos"
         android:textColor="?android:attr/actionMenuTextColor"
-        android:textSize="20sp"
+        android:textSize="30sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/jogodasletra"
-        android:layout_width="172dp"
-        android:layout_height="47dp"
+        android:layout_width="242dp"
+        android:layout_height="36dp"
         android:text="Jogo das letras"
         android:textColor="?android:attr/actionMenuTextColor"
-        android:textSize="20sp"
-        android:layout_marginRight="47dp"
+        android:textSize="30sp"
+        android:layout_marginRight="-1dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="289dp" />
@@ -89,8 +90,8 @@
     <!--android:background="@drawable/check" busca o xml com os icones-->
     <ToggleButton
         android:id="@+id/toggle"
-        android:layout_width="53dp"
-        android:layout_height="52dp"
+        android:layout_width="87dp"
+        android:layout_height="78dp"
         android:layout_centerVertical="true"
         android:layout_margin="10dp"
         android:background="@drawable/check"
@@ -102,19 +103,22 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="36dp"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintHorizontal_bias="0.974" />
+        app:layout_constraintHorizontal_bias="0.955" />
 
     <Button
         android:id="@+id/retorna_fase"
-        android:layout_width="90dp"
-        android:layout_height="45dp"
+        android:layout_width="161dp"
+        android:layout_height="77dp"
         android:layout_marginBottom="16dp"
         android:layout_marginLeft="16dp"
         android:background="@drawable/img_seta"
-        android:onClick="returnMenu"
+        android:onClick="eventosFases"
+        android:textSize="25px"
+        android:text="Voltar"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        tools:layout_editor_absoluteY="794dp" />
 </android.support.constraint.ConstraintLayout>
