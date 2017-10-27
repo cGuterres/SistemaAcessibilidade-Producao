@@ -26,6 +26,8 @@ public class TelaActivity2 extends AppCompatActivity {
             startActivity(new Intent(this, JogoDaAdicaoActivity.class));
         else if (view.getId() == R.id.jogo_flores)
             startActivity(new Intent(this, JogoDasFloresActivity.class));
+        else if (view.getId() == R.id.jogo_memoria)
+            startActivity(new Intent(this, JogoDaMemoriaActivity.class));
         else if(view.getId() == R.id.retorna_fase) {
             if(this.mp.isPlaying()){
                 this.mp.stop();
