@@ -25,7 +25,7 @@ public class JogoDasPasActivity2 extends Activity {
     private final int PONTO_ERRO = 5;
     private final int TOTAL_ACERTO = 8;
     private final int TOTAL_FASE = 3;
-    private int acerto = 0,fase = 0;
+    private int acerto = 0, fase = 0;
     private int pontuacao = 0;
     private ImageView img;
 
@@ -50,64 +50,113 @@ public class JogoDasPasActivity2 extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jogo_das_pas2);
-        setContentView(R.layout.activity_jogo_das_pas2);
-    }
 
-    public boolean onDrag(View v, DragEvent event) {
-        int action = event.getAction();
-        switch (action) {
-            case DragEvent.ACTION_DROP:
-                // Move a imagem de um container para outro (6 linhas abaixo)
-                View view = (View) event.getLocalState();//aqui entra quem está sendo movido
+        Intent intent = getIntent();
+        if (intent != null) {
+            int nextPhase = intent.getIntExtra("fase", 0);
+            if (nextPhase <= 3) {
+                setFase(nextPhase);
+            }
+            int pontuacaoAtual = intent.getIntExtra("pontuacao", 0);
+            setPontuacao(pontuacaoAtual);
 
-                // indice onde foi largada a imagem
-                int index = 0;
-                if (v.getId() == R.id.bld1) // Clicou na primeira imagem
-                    index = 0;
-                else if (v.getId() == R.id.bld2) // Clicou na segunda imagem
-                    index = 1;
-                else if (v.getId() == R.id.bld3) // Clicou na terceira imagem
-                    index = 2;
-                else if (v.getId() == R.id.bld4) // Clicou na quarta imagem
-                    index = 3;
-
-                String tagId = view.getTag().toString();
-                String palavra = Metodos.getDrawableString(Integer.parseInt(tagId),fase);
-
-                boolean acertou = validade(index, palavra, getFase());
-                if(acertou){
-                    acerto++;
-                    // faz o somatório
-                    int total = Metodos.somaTotal(pontuacao, PONTO_ACERTO, true);
-                    setPontuacao(total);
-                    Toast.makeText(JogoDasPasActivity2.this, "VOCÊ ACERTOU!", Toast.LENGTH_SHORT).show();
-                    ViewGroup owner = (ViewGroup) view.getParent();
-                    owner.removeView(view);
-                    LinearLayout container = (LinearLayout) v;
-                    container.addView(view);
-                    view.setVisibility(View.VISIBLE);
-                    view.setEnabled(false);
-                    v.setEnabled(false);
-                } else{
-                    // mensagem de erro para o usuário
-                    Toast.makeText(JogoDasPasActivity2.this, "PALAVRA ERRADA!", Toast.LENGTH_SHORT).show();
-                    int total = Metodos.somaTotal(pontuacao,PONTO_ERRO, false);
-                    setPontuacao(total);
-                }
-
-                int pontuacaoAtual = getPontuacao();
-                break;
+            TextView txtPonto = (TextView) findViewById(R.id.txtPonto);
+            if (txtPonto != null) {
+                txtPonto.setText(Integer.toString(getPontuacao()));
+            }
         }
-        return true;
+
+        CreateElements();
+        setTags(getFase());
+
     }
 
+    class MyOnDragListener implements View.OnDragListener {
+        private int num;
 
+        // Construtor
+        public MyOnDragListener(int num) {
+            super();
+            this.num = num;
+        }
 
-    private boolean validade(int index, String palavra, int fase){
+        public boolean onDrag(View v, DragEvent event) {
+            int action = event.getAction();
+            switch (action) {
+                case DragEvent.ACTION_DROP:
+                    // Move a imagem de um container para outro (6 linhas abaixo)
+                    View view = (View) event.getLocalState();//aqui entra quem está sendo movido
+
+                    // indice onde foi largada a imagem
+                    int index = 0;
+                    if (v.getId() == R.id.primeiroBalde) // Clicou na primeira imagem
+                        index = 0;
+                    else if (v.getId() == R.id.segundoBalde) // Clicou na segunda imagem
+                        index = 1;
+                    else if (v.getId() == R.id.terceiroBalde) // Clicou na terceira imagem
+                        index = 2;
+                    else if (v.getId() == R.id.quartoBalde) // Clicou na quarta imagem
+                        index = 3;
+
+                    String tagId = view.getTag().toString();
+                    String pa = Metodos.setDrawableShovel(Integer.parseInt(tagId), fase);
+
+                    boolean acertou = validade(index, pa, getFase());
+                    if (acertou) {
+                        acerto++;
+                        // faz o somatório
+                        int total = Metodos.somaTotal(pontuacao, PONTO_ACERTO, true);
+                        setPontuacao(total);
+                        Toast.makeText(JogoDasPasActivity2.this, "VOCÊ ACERTOU!", Toast.LENGTH_SHORT).show();
+                        ViewGroup owner = (ViewGroup) view.getParent();
+                        owner.removeView(view);
+                        LinearLayout container = (LinearLayout) v;
+                        container.addView(view);
+                        view.setVisibility(View.VISIBLE);
+                        view.setEnabled(false);
+                        v.setEnabled(false);
+                    } else {
+                        // mensagem de erro para o usuário
+                        Toast.makeText(JogoDasPasActivity2.this, "PALAVRA ERRADA!", Toast.LENGTH_SHORT).show();
+                        int total = Metodos.somaTotal(pontuacao, PONTO_ERRO, false);
+                        setPontuacao(total);
+                    }
+
+                    if (acerto == TOTAL_ACERTO) {
+                        // fala a palavra correta
+                        if (getFase() < TOTAL_FASE - 1) {
+                            ShowDialogNext(JogoDasPasActivity2.this, R.drawable.icopala, "PARABÉNS!", "VOCÊ GANHOU!!");
+                        } else {
+                            ShowDialogRecreateGame(JogoDasPasActivity2.this, R.drawable.icocasa, "PARABÉNS!", "VOCÊ CONCLUIU TODAS AS FASES!\n SUA PONTUAÇÃO: " + getPontuacao());
+                        }
+                    }
+                    TextView mostra = (TextView) findViewById(R.id.txtPonto);
+                    int pontuacaoAtual = getPontuacao();
+                    mostra.setText(Integer.toString(pontuacaoAtual));
+                    break;
+            }
+            return true;
+        }
+    }
+
+    class MyOnLongClickListener implements View.OnLongClickListener {
+        @Override
+        public boolean onLongClick(View v) {
+            ClipData data = ClipData.newPlainText("simple_text", "text");
+            //DragShadowBuilder sb = new View.DragShadowBuilder(findViewById(R.id.shadow));
+            View.DragShadowBuilder sb = new View.DragShadowBuilder(v);
+            v.startDrag(data, sb, v, 0);
+            // Esconde a imagem quando for arrastar a sua sombra
+            // v.setVisibility(View.INVISIBLE);
+            return (true);
+        }
+    }
+
+    private boolean validade(int index, String palavra, int fase) {
         boolean isValid = false;
-        HashMap<Integer,String> map = hashMap(fase);
+        HashMap<Integer, String> map = hashMap(fase);
         for (int key : map.keySet()) {
-            if(palavra.equals(map.get(index))){
+            if (palavra.equals(map.get(index))) {
                 isValid = true;
                 break;
             }
@@ -115,20 +164,177 @@ public class JogoDasPasActivity2 extends Activity {
         return isValid;
     }
 
-    private HashMap<Integer,String> hashMap(int fase){
+    private HashMap<Integer, String> hashMap(int fase) {
         HashMap<Integer, String> map = new HashMap<>();
-        if(fase == 0) {
-            map.put(0, "balde_azul");
-            map.put(1, "balde_vermelho");
-            map.put(2, "balde_verde");
-        }else if(fase == 1){
-            map.put(0,"pa_roxa");
-            map.put(1,"pa_rosa");
-            map.put(2,"pa_vinho");
-            map.put(3,"pa_laranja");
+        if (fase == 0) {
+            map.put(0, "pa_azul");
+            map.put(1, "pa_vermelha");
+            map.put(2, "pa_amarela");
+        } else if (fase == 1) {
+            map.put(0, "balde_roxo");
+            map.put(1, "balde_rosa");
+            map.put(2, "balde_vinho");
+            map.put(3, "balde_laranja");
         }
         return map;
     }
 
+    public void CreateElements() {
+        findViewById(R.id.pa1).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.pa2).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.pa3).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.pa4).setOnLongClickListener(new MyOnLongClickListener());
 
+        findViewById(R.id.primeiroBalde).setOnDragListener(new MyOnDragListener(1));
+        findViewById(R.id.segundoBalde).setOnDragListener(new MyOnDragListener(2));
+        findViewById(R.id.terceiroBalde).setOnDragListener(new MyOnDragListener(3));
+        findViewById(R.id.quartoBalde).setOnDragListener(new MyOnDragListener(4));
+    }
+
+    private void setTags(int fase) {
+        int vetor[] = null;
+        int max = 0, min = 0;
+        //tamanho do vetor que será criado
+        int tamanho = 0;
+        if (fase == 0) {
+            max = 2;
+            tamanho = 3;
+        } else if (fase == 1) {
+            max = 3;
+            tamanho = 4;
+        }
+        vetor = new int[tamanho];
+
+        for (int i = 0; i < vetor.length; i++) {
+            vetor[i] = 100;
+        }
+
+        for (int i = 0; i < vetor.length; i++) {
+            int numeroSorteado = Metodos.randomNumber(max, min);
+            boolean valida = Metodos.validaNumero(vetor, numeroSorteado);
+            if (valida) {
+                if (fase == 0 && numeroSorteado <= 3) {
+                    vetor[i] = numeroSorteado;
+                } else if (fase == 1 && numeroSorteado > 4) {
+                    vetor[i] = numeroSorteado;
+                }
+            } else {
+                boolean encontrou = false;
+                while (!encontrou) {
+                    numeroSorteado = Metodos.randomNumber(max, min);
+                    valida = Metodos.validaNumero(vetor, numeroSorteado);
+                    if (valida) {
+                        vetor[i] = numeroSorteado;
+                        encontrou = true;
+                    }
+                }
+            }
+        }
+
+        img = new ImageView(this);
+        img = (ImageView) findViewById(R.id.pa1);
+        img.setImageResource(Metodos.getDrawableShovel(vetor[0], fase));
+        img.setTag(Metodos.getDrawableShovel(vetor[0], fase));
+
+        img = new ImageView(this);
+        img = (ImageView) findViewById(R.id.pa2);
+        img.setImageResource(Metodos.getDrawableShovel(vetor[1], fase));
+        img.setTag(Metodos.getDrawableShovel(vetor[1], fase));
+
+        img = new ImageView(this);
+        img = (ImageView) findViewById(R.id.pa3);
+        img.setImageResource(Metodos.getDrawableShovel(vetor[2], fase));
+        img.setTag(Metodos.getDrawableShovel(vetor[2], fase));
+
+        if (fase == 0) {
+
+            img = new ImageView(this);
+            img = (ImageView) findViewById(R.id.bld1);
+            img.setImageResource(R.drawable.balde_azul);
+
+            img = new ImageView(this);
+            img = (ImageView) findViewById(R.id.bld2);
+            img.setImageResource(R.drawable.balde_vermelho);
+
+            img = new ImageView(this);
+            img = (ImageView) findViewById(R.id.bld3);
+            img.setImageResource(R.drawable.balde_amarelo);
+
+        } else if (fase == 1) {
+
+            img = new ImageView(this);
+            img = (ImageView) findViewById(R.id.bld1);
+            img.setImageResource(R.drawable.balde_rosa);
+
+            img = new ImageView(this);
+            img = (ImageView) findViewById(R.id.bld2);
+            img.setImageResource(R.drawable.balde_roxo);
+
+
+            img = new ImageView(this);
+            img = (ImageView) findViewById(R.id.bld3);
+            img.setImageResource(R.drawable.balde_laranja);
+
+            img = new ImageView(this);
+            img = (ImageView) findViewById(R.id.pa4);
+            img.setImageResource(Metodos.getDrawableShovel(vetor[1], fase));
+            img.setTag(Metodos.getDrawableContent(vetor[3], fase));
+
+            img = new ImageView(this);
+            img = (ImageView) findViewById(R.id.bld4);
+            img.setImageResource(R.drawable.balde_vinho);
+        }
+
+    }
+
+    public void ShowDialogRecreateGame(final Activity act, @DrawableRes int desenho, String titulo, String mensagem) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(act);
+        builder.setTitle(titulo)
+                .setMessage(mensagem)
+                .setCancelable(false)
+                .setIcon(desenho)
+                .setPositiveButton("REINICIAR FASES", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        fase = 0;
+                        setFase(fase);
+                        pontuacao = 0;
+                        setPontuacao(pontuacao);
+                        Intent nextActivity = new Intent(getBaseContext(), JogoDasPasActivity2.class);
+                        nextActivity.putExtra("fase", getFase());
+                        startActivity(nextActivity);
+                        finish();
+                    }
+                }).setNegativeButton("SAIR", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                act.finish();
+            }
+        });
+        builder.create().show();        // create and show the alert dialog
+    }
+
+    public void ShowDialogNext(final Activity act, @DrawableRes int desenho, String titulo, String mensagem) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(act);
+        builder.setTitle(titulo)
+                .setMessage(mensagem)
+                .setCancelable(false)
+                .setIcon(desenho)
+                .setPositiveButton("PRÓXIMA", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        fase++;
+                        setFase(fase);
+                        if (getFase() <= TOTAL_FASE - 1) {
+                            Intent nextActivity = new Intent(getBaseContext(), JogoDasPasActivity2.class);
+                            nextActivity.putExtra("fase", getFase());
+                            nextActivity.putExtra("pontuacao", getPontuacao());
+                            startActivity(nextActivity);
+                            finish();
+                        }
+                    }
+                }).setNegativeButton("SAIR", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                act.finish();
+            }
+        });
+        builder.create().show();        // create and show the alert dialog
+    }
 }

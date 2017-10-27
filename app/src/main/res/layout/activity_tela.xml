@@ -59,7 +59,7 @@
             android:layout_marginTop="240dp"
             android:background="@drawable/icopa"
             android:onClick="eventosFases"
-            app:layout_constraintHorizontal_bias="0.871"
+            app:layout_constraintHorizontal_bias="0.855"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

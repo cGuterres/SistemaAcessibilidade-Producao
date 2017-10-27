@@ -689,33 +689,33 @@ public class Metodos {
         return 0;
     }
 
-    public static String getDrawableShovelString(int drawableId, int fase){
+    public static int getDrawableShovel(int drawableId, int fase){
         if(fase == 0) {
             switch (drawableId) {
-                case R.drawable.balde_amarelo:
-                    return "balde_amarelo";
-                case R.drawable.balde_azul:
-                    return "balde_azul";
-                case R.drawable.balde_vermelho:
-                    return "balde_vermelho";
+                case 0:
+                    return R.drawable.pa_azul;
+                case 1:
+                    return R.drawable.pa_vermelha;
+                case 2:
+                    return R.drawable.pa_amarela;
                 default:
                     break;
             }
         }else if (fase == 1){
             switch (drawableId){
-                case R.drawable.balde_laranja:
-                    return "balde_laranja";
-                case R.drawable.balde_rosa:
-                    return "balde_rosa";
-                case R.drawable.balde_roxo:
-                    return "cebola";
-                case R.drawable.balde_vinho:
-                    return "balde_vinho";
+                case 0:
+                    return R.drawable.pa_roxa;
+                case 1:
+                    return R.drawable.pa_rosa;
+                case 2:
+                    return R.drawable.pa_vinho;
+                case 3:
+                    return  R.drawable.pa_laranja;
                 default:
                     break;
             }
         }
-        return "";
+        return 0;
     }
 
     //ajustar imagens das somas
@@ -892,5 +892,34 @@ public class Metodos {
                 break;
         }
         return 0;
+    }
+
+    public static String setDrawableShovel(int drawableId, int fase){
+        if(fase == 0) {
+            switch (drawableId) {
+                case R.drawable.pa_azul:
+                    return "pa_azul";
+                case R.drawable.pa_vermelha:
+                    return "pa_vermelha";
+                case R.drawable.pa_amarela:
+                    return "pa_amarela";
+                default:
+                    break;
+            }
+        }else if (fase == 1){
+            switch (drawableId){
+                case R.drawable.pa_roxa:
+                    return "pa_roxa";
+                case  R.drawable.pa_rosa:
+                    return "pa_rosa";
+                case R.drawable.pa_vinho:
+                    return "pa_vinho";
+                case R.drawable.pa_laranja:
+                    return  "pa_laranja";
+                default:
+                    break;
+            }
+        }
+        return "";
     }
 }
