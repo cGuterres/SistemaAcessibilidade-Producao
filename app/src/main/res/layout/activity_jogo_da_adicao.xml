@@ -241,19 +241,36 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true">
 
-        <ImageView
-            android:id="@+id/num1"
+        <LinearLayout
+            android:id="@+id/op1_2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/numerodezoito" />
+            android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/num2"
+            <ImageView
+                android:id="@+id/num2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/numerooito" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/op1_1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            app:srcCompat="@drawable/numerooito" />
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/num1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/numerodezoito" />
+        </LinearLayout>
+
     </LinearLayout>
 
 
