@@ -63,9 +63,9 @@ public class JogoDaAdicaoActivity extends AppCompatActivity {
             }
         }
 
-        createElements();
+        createElements();// cria elementos que podem ser mexidos no layout
 
-        setTags(getFase());
+        setTags(getFase());// metodo usado para validar os drawlable
     }
 
     private void setTags(int fase){
@@ -153,6 +153,7 @@ public class JogoDaAdicaoActivity extends AppCompatActivity {
         return true;
     }
 
+    // cria elementos que podem ser mexidos no layout
     private void createElements(){
         findViewById(R.id.num1).setOnLongClickListener(new MyOnLongClickListener());
         findViewById(R.id.num2).setOnLongClickListener(new MyOnLongClickListener());
