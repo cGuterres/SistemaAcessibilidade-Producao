@@ -17,6 +17,7 @@ public class JogoDasFloresActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jogo_das_flores);
 
+        // Pego o elemento flor e seto como um clicavel e declaro como um objeto
         findViewById(R.id.flor_azul).setOnLongClickListener(new MyOnLongClickListener());
         findViewById(R.id.flor_laranja).setOnLongClickListener(new MyOnLongClickListener());
         findViewById(R.id.flor_verde).setOnLongClickListener(new MyOnLongClickListener());
@@ -24,7 +25,7 @@ public class JogoDasFloresActivity extends Activity {
         findViewById(R.id.flor_laranja2);
         findViewById(R.id.flor_verde);
 
-
+        // Pego o layout e seto como um drag e declaro como um objeto
         findViewById(R.id.topleft).setOnDragListener(new MyOnDragListener(1)); // flor azul
         findViewById(R.id.topright).setOnDragListener(new MyOnDragListener(2));// flor verde 2
         findViewById(R.id.centerleft).setOnDragListener(new MyOnDragListener(3)); // flor laranja
