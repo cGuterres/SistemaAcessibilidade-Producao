@@ -12,8 +12,6 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class JogoDasFloresActivity extends Activity {
-    int pontos = 0;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +49,7 @@ public class JogoDasFloresActivity extends Activity {
 
     class MyOnDragListener implements OnDragListener {
         private int num;
+        private int pontos = 0;
 
         // Construtor
         public MyOnDragListener(int num){
