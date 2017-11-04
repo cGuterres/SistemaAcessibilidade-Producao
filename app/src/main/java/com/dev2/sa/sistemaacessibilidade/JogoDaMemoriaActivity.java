@@ -133,7 +133,7 @@ public class JogoDaMemoriaActivity extends AppCompatActivity implements View.OnC
             buttonGraphics[4] = R.drawable.jacare;
             buttonGraphics[5] = R.drawable.gato;
             buttonGraphics[6] = R.drawable.rato;
-            buttonGraphics[7] = R.drawable.rato;
+            buttonGraphics[7] = R.drawable.tartaruga;
         }
     }
 
