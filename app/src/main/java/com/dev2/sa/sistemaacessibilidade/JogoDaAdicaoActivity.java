@@ -230,6 +230,8 @@ public class JogoDaAdicaoActivity extends AppCompatActivity {
                     int numMovido = Metodos.getNumberForDrawable(Integer.parseInt(tagId),0);
                     boolean acertou = valida(equacao, numMovido);
                     if (acertou) {
+                        // chama o som correspondente a soma
+                        Metodos.sound(Integer.parseInt(tagId), JogoDaAdicaoActivity.this);
                         acerto++;
                         // faz o somatório
                         int total = Metodos.somaTotal(pontuacao, PONTO_ACERTO, true);

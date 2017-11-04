@@ -72,6 +72,115 @@ public class Metodos {
         return 0;
     }
 
+    public static void sound(int drawableId, Context context){
+        pararSomletra();
+        int audio = Metodos.getSound(drawableId);
+        toque = MediaPlayer.create(context, audio);
+        toque.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                toque.stop();
+                toque.release();
+                toque = null;
+            }
+        });
+        toque.start();
+    }
+
+    public static int getSound(int drawableId){
+            switch (drawableId) {
+                case R.drawable.lixo:
+                    return R.raw.lixo;
+                case R.drawable.seta:
+                    return R.raw.seta;
+                case R.drawable.fada:
+                    return R.raw.fada;
+                case R.drawable.olho:
+                    return R.raw.olho;
+                case R.drawable.grilo:
+                    return R.raw.grilo;
+                case R.drawable.trono:
+                    return R.raw.trono;
+                case R.drawable.cebola:
+                    return R.raw.cebola;
+                case R.drawable.porta:
+                    return R.raw.porta;
+                case R.drawable.colher:
+                    return R.raw.colher;
+                case R.drawable.tomate:
+                    return R.raw.tomate;
+                case R.drawable.treno:
+                    return R.raw.treno;
+                case R.drawable.cavalo:
+                    return R.raw.cavalo;
+                case R.drawable.numerozero:
+                    return R.raw.zero;
+                case R.drawable.numeroum:
+                    return R.raw.um;
+                case R.drawable.numerodois:
+                    return R.raw.dois;
+                case R.drawable.numerotres:
+                    return R.raw.tres;
+                case R.drawable.numeroquatro:
+                    return R.raw.quatro;
+                case R.drawable.numerocinco:
+                    return R.raw.cinco;
+                case R.drawable.numeroseis:
+                    return R.raw.seis;
+                case R.drawable.numerosete:
+                    return R.raw.sete;
+                case R.drawable.numerooito:
+                    return R.raw.oito;
+                case R.drawable.numeronove:
+                    return R.raw.nove;
+                case R.drawable.numerodez:
+                    return R.raw.dez;
+                case R.drawable.numeroonze:
+                    return R.raw.onze;
+                case R.drawable.numerodoze:
+                    return R.raw.doze;
+                case R.drawable.numerotreze:
+                    return R.raw.treze;
+                case R.drawable.numeroquatorze:
+                    return R.raw.quatorze;
+                case R.drawable.numeroquinze:
+                    return R.raw.quinze;
+                case R.drawable.numerodezeseis:
+                    return R.raw.dezeseis;
+                case R.drawable.numerodezesete:
+                    return R.raw.dezesete;
+                case R.drawable.numerodezoito:
+                    return R.raw.dezoito;
+                case R.drawable.numerodezenove:
+                    return R.raw.dezenove;
+                case R.drawable.numerovinte:
+                    return R.raw.vinte;
+                case R.drawable.numerovinteum:
+                    return R.raw.vinteum;
+                case R.drawable.numerovintedois:
+                    return R.raw.vintedois;
+                case R.drawable.numerovintetres:
+                    return R.raw.vintetres;
+                case R.drawable.numerovintequatro:
+                    return R.raw.vintequatro;
+                case R.drawable.numerovintecinco:
+                    return R.raw.vintecinco;
+                case R.drawable.numerovinteseis:
+                    return R.raw.vinteseis;
+                case R.drawable.numerovintesete:
+                    return R.raw.vintesete;
+                case R.drawable.numerovinteoito:
+                    return R.raw.vinteoito;
+                case R.drawable.numerovintenove:
+                    return R.raw.vintenove;
+                case R.drawable.numerotrinta:
+                    return R.raw.trinta;
+                default:
+                    break;
+            }
+        return 0;
+    }
+
     // Retorna o RAW (áudio) pelo nome do letra.
     public static int getSom(String letra) {
         switch (letra){

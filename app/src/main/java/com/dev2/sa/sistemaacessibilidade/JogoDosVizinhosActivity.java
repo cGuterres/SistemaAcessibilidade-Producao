@@ -369,6 +369,8 @@ public class JogoDosVizinhosActivity extends AppCompatActivity {
                         acertou = Metodos.ehSucessor(numCentral, numMovido);
                     }
                     if (acertou) {
+                        // chama o som do numero correspondente
+                        Metodos.sound(Integer.parseInt(tagId), JogoDosVizinhosActivity.this);
                         acerto++;
                         // faz o somatório
                         int total = Metodos.somaTotal(pontuacao, PONTO_ACERTO, true);

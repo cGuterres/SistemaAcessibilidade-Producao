@@ -258,6 +258,8 @@ public class Jogo_de_Ordenar_Palavra2 extends AppCompatActivity {
 
                     boolean acertou = validade(index, palavra, getFase());
                     if(acertou){
+                        // busca o som da palavra correspondente
+                        Metodos.sound(Integer.parseInt(tagId),Jogo_de_Ordenar_Palavra2.this);
                         acerto++;
                         // faz o somatório
                         int total = Metodos.somaTotal(pontuacao, PONTO_ACERTO, true);
