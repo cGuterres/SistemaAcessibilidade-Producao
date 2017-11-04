@@ -120,18 +120,18 @@ public class JogoDaMemoriaActivity extends AppCompatActivity implements View.OnC
         // adiciona no array de imagens dos animais de cada fase
         if(fase == 0){
             buttonGraphics[0] = R.drawable.rato;
-            buttonGraphics[1] = R.drawable.rato;
-            buttonGraphics[2] = R.drawable.rato;
-            buttonGraphics[3] = R.drawable.rato;
-            buttonGraphics[4] = R.drawable.rato;
-            buttonGraphics[5] = R.drawable.rato;
+            buttonGraphics[1] = R.drawable.tartaruga;
+            buttonGraphics[2] = R.drawable.cachorro;
+            buttonGraphics[3] = R.drawable.girafa;
+            buttonGraphics[4] = R.drawable.tigre;
+            buttonGraphics[5] = R.drawable.elefante;
         }else if (fase == 1){
-            buttonGraphics[0] = R.drawable.rato;
-            buttonGraphics[1] = R.drawable.rato;
-            buttonGraphics[2] = R.drawable.rato;
-            buttonGraphics[3] = R.drawable.rato;
-            buttonGraphics[4] = R.drawable.rato;
-            buttonGraphics[5] = R.drawable.rato;
+            buttonGraphics[0] = R.drawable.zebra;
+            buttonGraphics[1] = R.drawable.vaca;
+            buttonGraphics[2] = R.drawable.porcoquinho;
+            buttonGraphics[3] = R.drawable.leao;
+            buttonGraphics[4] = R.drawable.jacare;
+            buttonGraphics[5] = R.drawable.gato;
             buttonGraphics[6] = R.drawable.rato;
             buttonGraphics[7] = R.drawable.rato;
         }
