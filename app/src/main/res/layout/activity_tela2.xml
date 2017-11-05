@@ -133,24 +133,25 @@
 
         <Button
             android:id="@+id/jogo_memoria"
-            android:layout_width="120dp"
-            android:layout_height="100dp"
+            android:layout_width="114dp"
+            android:layout_height="93dp"
             android:layout_marginLeft="8dp"
             android:layout_marginRight="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="0dp"
             android:background="@drawable/icogato"
             android:onClick="eventosFases"
-            app:layout_constraintHorizontal_bias="0.677"
+            app:layout_constraintHorizontal_bias="0.655"
             app:layout_constraintLeft_toRightOf="@+id/jogo_flores"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/jogodasletra" />
+            app:layout_constraintTop_toBottomOf="@+id/jogodasletra"
+            tools:layout_editor_absoluteX="206dp" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="174dp"
             android:layout_height="36dp"
             android:layout_marginBottom="8dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginRight="8dp"
             android:layout_marginTop="8dp"
             android:text="Jogo da Memória"
             android:textColor="?android:attr/actionMenuTextColor"
@@ -158,9 +159,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/jogo_memoria"
-            app:layout_constraintVertical_bias="0.034"
-            tools:layout_editor_absoluteY="328dp"
-            tools:layout_editor_absoluteX="202dp" />
+            app:layout_constraintVertical_bias="0.06" />
 
         <TextView
             android:id="@+id/textView4"
