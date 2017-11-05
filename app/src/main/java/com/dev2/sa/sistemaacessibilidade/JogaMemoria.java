@@ -33,8 +33,8 @@ public class JogaMemoria extends android.support.v7.widget.AppCompatButton {
         setBackground(imageVirada);
 
         GridLayout.LayoutParams parameters = new GridLayout.LayoutParams(GridLayout.spec(linha), GridLayout.spec(coluna));
-        parameters.width = (int)getResources().getDisplayMetrics().density * 80;
-        parameters.height = (int)getResources().getDisplayMetrics().density * 80;
+        parameters.width = (int)getResources().getDisplayMetrics().density * 90;
+        parameters.height = (int)getResources().getDisplayMetrics().density * 160;
 
         setLayoutParams(parameters);
     }
