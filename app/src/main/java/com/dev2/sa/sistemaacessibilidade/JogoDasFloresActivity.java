@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class JogoDasFloresActivity extends Activity {
     private int pontos = 0;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
