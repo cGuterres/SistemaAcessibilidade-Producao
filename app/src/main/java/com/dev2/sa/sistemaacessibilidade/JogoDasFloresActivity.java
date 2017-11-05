@@ -12,6 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class JogoDasFloresActivity extends Activity {
+    private int pontos = 0;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +25,7 @@ public class JogoDasFloresActivity extends Activity {
         findViewById(R.id.flor_verde).setOnLongClickListener(new MyOnLongClickListener());
         findViewById(R.id.flor_azul2);
         findViewById(R.id.flor_laranja2);
-        findViewById(R.id.flor_verde);
+        findViewById(R.id.flor_verde2);
 
         // Pego o layout e seto como um drag e declaro como um objeto
         findViewById(R.id.topleft).setOnDragListener(new MyOnDragListener(1)); // flor azul
@@ -50,7 +52,7 @@ public class JogoDasFloresActivity extends Activity {
 
     class MyOnDragListener implements OnDragListener {
         private int num;
-        private int pontos = 0;
+
 
         // Construtor
         public MyOnDragListener(int num){
@@ -64,9 +66,7 @@ public class JogoDasFloresActivity extends Activity {
             boolean hit = false;
             View view = (View) event.getLocalState();//aqui entra quem está sendo movido
                  switch (action) {
-
                     case DragEvent.ACTION_DROP:
-
                         if(view.getId() == R.id.flor_laranja && v.getId() == R.id.bottomright){
                             hit = true;
                             // comentario

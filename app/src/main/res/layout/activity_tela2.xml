@@ -156,8 +156,8 @@
             android:textSize="21dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/jogo_memoria"
-            app:layout_constraintVertical_bias="0.043"
-            android:layout_marginRight="16dp"
+            app:layout_constraintVertical_bias="0.042"
+            android:layout_marginRight="8dp"
             app:layout_constraintRight_toRightOf="parent" />
 
         <TextView
@@ -171,7 +171,7 @@
             android:textSize="21dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/jogo_flores"
-            android:layout_marginLeft="27dp"
+            android:layout_marginLeft="25dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintVertical_bias="0.061" />
+            app:layout_constraintVertical_bias="0.073" />
 </android.support.constraint.ConstraintLayout>
