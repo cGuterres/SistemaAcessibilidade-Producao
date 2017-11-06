@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.View.DragShadowBuilder;
 import android.view.View.OnDragListener;
 import android.view.View.OnLongClickListener;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -63,12 +64,10 @@ public class JogoDasFloresActivity extends Activity {
         @Override
         public boolean onDrag(View v, DragEvent event) {
             int action = event.getAction();
-            boolean hit = false;
-            View view = (View) event.getLocalState();//aqui entra quem está sendo movido
+            View view = (View) event.getLocalState();//aqui entra quem está sendo
                  switch (action) {
                     case DragEvent.ACTION_DROP:
                         if(view.getId() == R.id.flor_laranja && v.getId() == R.id.bottomright){
-                            hit = true;
                             // comentario
                             LinearLayout oldparent = (LinearLayout) view.getParent();
                             oldparent.removeView(view);
@@ -78,7 +77,6 @@ public class JogoDasFloresActivity extends Activity {
                             pontos++;
                         }
                         else if(view.getId() == R.id.flor_verde && v.getId() == R.id.topright){
-                            hit=true;
                             LinearLayout oldparent = (LinearLayout) view.getParent();
                             oldparent.removeView(view);
                             LinearLayout newParent = (LinearLayout)v;
@@ -87,7 +85,8 @@ public class JogoDasFloresActivity extends Activity {
                             pontos++;
                         }
                         else if(view.getId() == R.id.flor_azul && v.getId() == R.id.centerrigth){
-                            hit = true;
+                            ////////////////////////////// SOM
+                            Metodos.sound(R.drawable.flor_azul, JogoDasFloresActivity.this);
                             LinearLayout oldparent = (LinearLayout) view.getParent();
                             oldparent.removeView(view);
                             LinearLayout newParent = (LinearLayout)v;
@@ -98,14 +97,14 @@ public class JogoDasFloresActivity extends Activity {
                         else{
                             Toast.makeText(JogoDasFloresActivity.this, "VOCÊ ERROU!", Toast.LENGTH_SHORT).show();
                         }
-                        if(pontos <= 2 && hit) {
+                        if(pontos <= 2) {
                             Metodos.ShowHitMessage(JogoDasFloresActivity.this, "VOCÊ ACERTOU!");
+
                         }
                         if(pontos == 3) {
                             Metodos.ShowDialog(JogoDasFloresActivity.this, R.drawable.flor_verde, "PARABÉNS", "VOCÊ GANHOU!");
                         }
-                        hit = false;
-                            break;
+                        break;
                 }
             return true;
             }

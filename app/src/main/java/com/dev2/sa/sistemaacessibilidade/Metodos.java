@@ -175,6 +175,8 @@ public class Metodos {
                     return R.raw.vintenove;
                 case R.drawable.numerotrinta:
                     return R.raw.trinta;
+                case R.drawable.flor_azul:
+                    return R.raw.cavalo;
                 default:
                     break;
             }
