@@ -3,6 +3,7 @@ package com.dev2.sa.sistemaacessibilidade;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.AppCompatDrawableManager;
+import android.util.DisplayMetrics;
 import android.widget.Button;
 import android.widget.GridLayout;
 
@@ -32,12 +33,88 @@ public class JogaMemoria extends android.support.v7.widget.AppCompatButton {
 
         setBackground(imageVirada);
 
+
         GridLayout.LayoutParams parameters = new GridLayout.LayoutParams(GridLayout.spec(linha), GridLayout.spec(coluna));
-        parameters.width = (int)getResources().getDisplayMetrics().density * 90;
-        parameters.height = (int)getResources().getDisplayMetrics().density * 160;
+
+
+// metodo para sabe a Resolução - CORRETO - 05.11.2017
+
+        float density = getResources().getDisplayMetrics().density;
+
+        if (density == 0.75f)
+        {
+            // LDPI
+            parameters.width = (int)getResources().getDisplayMetrics().density * 5;
+            parameters.height = (int)getResources().getDisplayMetrics().density * 5;
+        }
+        else if (density >= 1.0f && density < 1.5f)
+        {
+            // MDPI - TABLET
+            parameters.width = (int)getResources().getDisplayMetrics().density * 150;
+            parameters.height = (int)getResources().getDisplayMetrics().density * 300;
+        }
+        else if (density == 1.5f)
+        {
+            // HDPI
+
+            parameters.width = (int)getResources().getDisplayMetrics().density * 90;
+            parameters.height = (int)getResources().getDisplayMetrics().density * 160;
+        }
+        else if (density > 1.5f && density <= 2.0f)
+        {
+            // XHDPI - J5
+            parameters.width = (int)getResources().getDisplayMetrics().density * 90;
+            parameters.height = (int)getResources().getDisplayMetrics().density * 170;
+        }
+        else if (density > 2.0f && density <= 3.0f)
+        {
+            // XXHDPI
+            parameters.width = (int)getResources().getDisplayMetrics().density * 100;
+            parameters.height = (int)getResources().getDisplayMetrics().density * 100;
+        }
+        else
+        {
+            // XXXHDPI
+            parameters.width = (int)getResources().getDisplayMetrics().density * 160;
+            parameters.height = (int)getResources().getDisplayMetrics().density * 160;
+        }
 
         setLayoutParams(parameters);
+
+
+
     }
+
+// metodo para sabe a Resolução
+    public static String getDeviceDensity(Context context){
+        String deviceDensity = "";
+        switch (context.getResources().getDisplayMetrics().densityDpi) {
+            case DisplayMetrics.DENSITY_LOW:
+                deviceDensity =  0.75 + " ldpi";
+                break;
+            case DisplayMetrics.DENSITY_MEDIUM:
+                deviceDensity =  1.0 + " mdpi";
+                break;
+            case DisplayMetrics.DENSITY_HIGH:
+                deviceDensity =  1.5 + " hdpi";
+                break;
+            case DisplayMetrics.DENSITY_XHIGH:
+                deviceDensity =  2.0 + " xhdpi";
+                break;
+            case DisplayMetrics.DENSITY_XXHIGH:
+                deviceDensity =  3.0 + " xxhdpi";
+                break;
+            case DisplayMetrics.DENSITY_XXXHIGH:
+                deviceDensity =  4.0 + " xxxhdpi";
+                break;
+            default:
+                deviceDensity = "Not found";
+        }
+        return deviceDensity;
+    }
+
+
+
 
     public boolean isVirada() {
         return virada;
