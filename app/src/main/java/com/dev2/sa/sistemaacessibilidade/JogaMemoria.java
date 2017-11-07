@@ -22,12 +22,13 @@ public class JogaMemoria extends android.support.v7.widget.AppCompatButton {
     private Drawable image;
     private Drawable imageVirada;
 
-    public JogaMemoria(Context context, int linha, int coluna, int imagemDrawableId){
+    public JogaMemoria(Context context, int linha, int coluna, int imagemDrawableId) {
         super(context);
+
         this.linha = linha;
         this.coluna = coluna;
         this.imageDrawableId = imagemDrawableId;
-
+        getDeviceDensity(context);
         image = AppCompatDrawableManager.get().getDrawable(context, imagemDrawableId);
         imageVirada = AppCompatDrawableManager.get().getDrawable(context, R.drawable.versocarta);
 
@@ -35,74 +36,104 @@ public class JogaMemoria extends android.support.v7.widget.AppCompatButton {
 
 
         GridLayout.LayoutParams parameters = new GridLayout.LayoutParams(GridLayout.spec(linha), GridLayout.spec(coluna));
+        JogoDaMemoriaActivity gamememory = new JogoDaMemoriaActivity();
+
+        // metodo para sabe a Resolução - CORRETO - 05.11.2017
+        // float density = getResources().getDisplayMetrics().density;
+
+        int pipoca = gamememory.getFase();
+        if ( pipoca == 0) {
+
+            switch (context.getResources().getDisplayMetrics().densityDpi) {
+                case DisplayMetrics.DENSITY_LOW:
+                    //deviceDensity =  0.75 + " ldpi";
+                    parameters.width = (int) getResources().getDisplayMetrics().density * 5;
+                    parameters.height = (int) getResources().getDisplayMetrics().density * 5;
+                    break;
+                case DisplayMetrics.DENSITY_MEDIUM:         //deviceDensity =  1.0 + " mdpi";
+                    // MDPI - TABLET
+                    parameters.width = (int) getResources().getDisplayMetrics().density * 150;
+                    parameters.height = (int) getResources().getDisplayMetrics().density * 300;
+
+                    break;
+                case DisplayMetrics.DENSITY_HIGH:
+                    //deviceDensity =  1.5 + " hdpi";
+                    break;
+                case DisplayMetrics.DENSITY_XHIGH:
+                    //deviceDensity =  2.0 + " xhdpi";
+
+                    break;
+                case DisplayMetrics.DENSITY_XXHIGH:
+                    // deviceDensity =  3.0 + " xxhdpi";
+
+                    break;
+                case DisplayMetrics.DENSITY_XXXHIGH:
+                    //deviceDensity =  4.0 + " xxxhdpi";
+                    break;
+                default:
+                    //deviceDensity = "Not found";
+            }
 
 
-// metodo para sabe a Resolução - CORRETO - 05.11.2017
-
-        float density = getResources().getDisplayMetrics().density;
-
-        if (density == 0.75f)
-        {
-            // LDPI
-            parameters.width = (int)getResources().getDisplayMetrics().density * 5;
-            parameters.height = (int)getResources().getDisplayMetrics().density * 5;
-        }
-        else if (density >= 1.0f && density < 1.5f)
-        {
-            // MDPI - TABLET
-            parameters.width = (int)getResources().getDisplayMetrics().density * 150;
-            parameters.height = (int)getResources().getDisplayMetrics().density * 300;
-        }
-        else if (density == 1.5f)
-        {
-            // HDPI
-
-            parameters.width = (int)getResources().getDisplayMetrics().density * 90;
-            parameters.height = (int)getResources().getDisplayMetrics().density * 160;
-        }
-        else if (density > 1.5f && density <= 2.0f)
-        {
-            // XHDPI - J5
-            parameters.width = (int)getResources().getDisplayMetrics().density * 90;
-            parameters.height = (int)getResources().getDisplayMetrics().density * 170;
-        }
-        else if (density > 2.0f && density <= 3.0f)
-        {
-            // XXHDPI
-            parameters.width = (int)getResources().getDisplayMetrics().density * 100;
-            parameters.height = (int)getResources().getDisplayMetrics().density * 100;
-        }
-        else
-        {
-            // XXXHDPI
-            parameters.width = (int)getResources().getDisplayMetrics().density * 160;
-            parameters.height = (int)getResources().getDisplayMetrics().density * 160;
         }
 
+        if (pipoca == 1) {
+
+            switch (context.getResources().getDisplayMetrics().densityDpi) {
+                case DisplayMetrics.DENSITY_LOW:
+                    //deviceDensity =  0.75 + " ldpi";
+                    parameters.width = (int) getResources().getDisplayMetrics().density * 5;
+                    parameters.height = (int) getResources().getDisplayMetrics().density * 5;
+                    break;
+                case DisplayMetrics.DENSITY_MEDIUM:         //deviceDensity =  1.0 + " mdpi";
+                    // MDPI - TABLET
+                    parameters.width = (int) getResources().getDisplayMetrics().density * 150;
+                    parameters.height = (int) getResources().getDisplayMetrics().density * 300;
+
+                    break;
+                case DisplayMetrics.DENSITY_HIGH:
+                    //deviceDensity =  1.5 + " hdpi";
+                    break;
+                case DisplayMetrics.DENSITY_XHIGH:
+                    //deviceDensity =  2.0 + " xhdpi";
+
+                    break;
+                case DisplayMetrics.DENSITY_XXHIGH:
+                    // deviceDensity =  3.0 + " xxhdpi";
+
+                    break;
+                case DisplayMetrics.DENSITY_XXXHIGH:
+                    //deviceDensity =  4.0 + " xxxhdpi";
+                    break;
+                default:
+                    //deviceDensity = "Not found";
+            }
+        }
         setLayoutParams(parameters);
-
-
-
     }
 
 // metodo para sabe a Resolução
-    public static String getDeviceDensity(Context context){
-        String deviceDensity = "";
+    public static void getDeviceDensity(Context context){
+
+       String deviceDensity = "";
         switch (context.getResources().getDisplayMetrics().densityDpi) {
             case DisplayMetrics.DENSITY_LOW:
                 deviceDensity =  0.75 + " ldpi";
                 break;
             case DisplayMetrics.DENSITY_MEDIUM:
                 deviceDensity =  1.0 + " mdpi";
+
                 break;
             case DisplayMetrics.DENSITY_HIGH:
                 deviceDensity =  1.5 + " hdpi";
                 break;
             case DisplayMetrics.DENSITY_XHIGH:
                 deviceDensity =  2.0 + " xhdpi";
+
                 break;
             case DisplayMetrics.DENSITY_XXHIGH:
                 deviceDensity =  3.0 + " xxhdpi";
+
                 break;
             case DisplayMetrics.DENSITY_XXXHIGH:
                 deviceDensity =  4.0 + " xxxhdpi";
@@ -110,11 +141,8 @@ public class JogaMemoria extends android.support.v7.widget.AppCompatButton {
             default:
                 deviceDensity = "Not found";
         }
-        return deviceDensity;
+        //return deviceDensity;
     }
-
-
-
 
     public boolean isVirada() {
         return virada;
