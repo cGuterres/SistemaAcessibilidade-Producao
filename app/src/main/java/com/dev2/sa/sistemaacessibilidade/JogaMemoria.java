@@ -22,7 +22,7 @@ public class JogaMemoria extends android.support.v7.widget.AppCompatButton {
     private Drawable image;
     private Drawable imageVirada;
 
-    public JogaMemoria(Context context, int linha, int coluna, int imagemDrawableId) {
+    public JogaMemoria(Context context, int linha, int coluna, int imagemDrawableId, int fase) {
         super(context);
 
         this.linha = linha;
@@ -34,15 +34,11 @@ public class JogaMemoria extends android.support.v7.widget.AppCompatButton {
 
         setBackground(imageVirada);
 
-
         GridLayout.LayoutParams parameters = new GridLayout.LayoutParams(GridLayout.spec(linha), GridLayout.spec(coluna));
-        JogoDaMemoriaActivity gamememory = new JogoDaMemoriaActivity();
-
         // metodo para sabe a Resolução - CORRETO - 05.11.2017
         // float density = getResources().getDisplayMetrics().density;
 
-        int pipoca = gamememory.getFase();
-        if ( pipoca == 0) {
+        if ( fase == 0) {
 
             switch (context.getResources().getDisplayMetrics().densityDpi) {
                 case DisplayMetrics.DENSITY_LOW:
@@ -73,11 +69,9 @@ public class JogaMemoria extends android.support.v7.widget.AppCompatButton {
                 default:
                     //deviceDensity = "Not found";
             }
-
-
         }
 
-        if (pipoca == 1) {
+        if (fase == 1) {
 
             switch (context.getResources().getDisplayMetrics().densityDpi) {
                 case DisplayMetrics.DENSITY_LOW:

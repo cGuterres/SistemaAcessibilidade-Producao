@@ -104,7 +104,7 @@ public class JogoDaMemoriaActivity extends AppCompatActivity implements View.OnC
             for(int c = 0; c < numColunas; c++){
                 // calculo para pegar o indice de um a um (linha*coluna)
                 int index = l * numColunas + c;
-                JogaMemoria obj = new JogaMemoria(this, l, c, buttonGraphics[buttonGraphiLocations[index]]);
+                JogaMemoria obj = new JogaMemoria(this, l, c, buttonGraphics[buttonGraphiLocations[index]], getFase());
                 obj.setId(View.generateViewId());
                 // seta o botão como clicavel
                 obj.setOnClickListener(this);
