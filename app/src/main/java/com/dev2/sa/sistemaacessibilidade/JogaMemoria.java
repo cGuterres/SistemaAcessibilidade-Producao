@@ -57,10 +57,13 @@ public class JogaMemoria extends android.support.v7.widget.AppCompatButton {
                     break;
                 case DisplayMetrics.DENSITY_XHIGH:
                     //deviceDensity =  2.0 + " xhdpi";
-
+                    parameters.width = (int) getResources().getDisplayMetrics().density * 90;
+                    parameters.height = (int) getResources().getDisplayMetrics().density * 180;
                     break;
                 case DisplayMetrics.DENSITY_XXHIGH:
                     // deviceDensity =  3.0 + " xxhdpi";
+                    parameters.width = (int) getResources().getDisplayMetrics().density * 80;
+                    parameters.height = (int) getResources().getDisplayMetrics().density * 160;
 
                     break;
                 case DisplayMetrics.DENSITY_XXXHIGH:
@@ -81,19 +84,22 @@ public class JogaMemoria extends android.support.v7.widget.AppCompatButton {
                     break;
                 case DisplayMetrics.DENSITY_MEDIUM:         //deviceDensity =  1.0 + " mdpi";
                     // MDPI - TABLET
-                    parameters.width = (int) getResources().getDisplayMetrics().density * 150;
-                    parameters.height = (int) getResources().getDisplayMetrics().density * 300;
+                    parameters.width = (int) getResources().getDisplayMetrics().density * 145;
+                    parameters.height = (int) getResources().getDisplayMetrics().density * 233;
 
                     break;
                 case DisplayMetrics.DENSITY_HIGH:
                     //deviceDensity =  1.5 + " hdpi";
                     break;
                 case DisplayMetrics.DENSITY_XHIGH:
-                    //deviceDensity =  2.0 + " xhdpi";
-
+                    //deviceDensity =  2.0 + " xhdpi" J5;
+                    parameters.width = (int) getResources().getDisplayMetrics().density * 90;
+                    parameters.height = (int) getResources().getDisplayMetrics().density * 135;
                     break;
                 case DisplayMetrics.DENSITY_XXHIGH:
-                    // deviceDensity =  3.0 + " xxhdpi";
+                    // deviceDensity =  3.0 + " xxhdpi moto g5";
+                    parameters.width = (int) getResources().getDisplayMetrics().density * 85;
+                    parameters.height = (int) getResources().getDisplayMetrics().density * 125;
 
                     break;
                 case DisplayMetrics.DENSITY_XXXHIGH:
