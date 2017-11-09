@@ -14,6 +14,7 @@ import android.support.v7.widget.AppCompatDrawableManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.GridLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -114,6 +115,39 @@ public class JogoDaMemoriaActivity extends AppCompatActivity implements View.OnC
             }
         }
 
+        for(int i = 0;i < numeroTotal; i++){
+            botoes[i].setVirada(false);
+            botoes[i].setDesvirada(false);
+            botoes[i].girar();
+        }
+
+        // thread de 1 segundo para deixar as duas imagens desviradas (erradas)
+        Thread t = new Thread(){
+            @Override
+            public void run(){
+                try{
+
+                    Thread.sleep(5000);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try{
+                                for(int i = 0;i < numeroTotal; i++){
+                                    botoes[i].setVirada(true);
+                                    botoes[i].setDesvirada(false);
+                                    botoes[i].girar();
+                                }
+                            }catch (Exception ex){
+                                ex.printStackTrace();
+                            }
+                        }
+                    });
+                }catch (InterruptedException ex){
+                    ex.printStackTrace();
+                }
+            }
+        };
+        t.start();
     }
 
     private void setImagemFase(final int[] buttonGraphics, int fase){
