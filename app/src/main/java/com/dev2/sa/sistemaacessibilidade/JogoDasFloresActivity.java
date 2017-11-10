@@ -44,6 +44,7 @@ public class JogoDasFloresActivity extends Activity {
             ClipData data = ClipData.newPlainText("simple_text", "text");
             //DragShadowBuilder sb = new View.DragShadowBuilder(findViewById(R.id.shadow));
             DragShadowBuilder sb = new DragShadowBuilder(v);
+            v.setVisibility(View.INVISIBLE);
             v.startDrag(data, sb, v, 0);
             // Esconde a imagem quando for arrastar a sua sombra
             //v.setVisibility(View.INVISIBLE);
@@ -64,6 +65,7 @@ public class JogoDasFloresActivity extends Activity {
         @Override
         public boolean onDrag(View v, DragEvent event) {
             int action = event.getAction();
+            boolean hit = false;
             View view = (View) event.getLocalState();//aqui entra quem está sendo
                  switch (action) {
                     case DragEvent.ACTION_DROP:
@@ -72,32 +74,40 @@ public class JogoDasFloresActivity extends Activity {
                             LinearLayout oldparent = (LinearLayout) view.getParent();
                             oldparent.removeView(view);
                             LinearLayout newParent = (LinearLayout)v;
-                            view.setEnabled(false);
                             newParent.addView(view);
+                            view.setVisibility(View.VISIBLE);
+                            view.setEnabled(false);
+                            hit = true;
                             pontos++;
                         }
                         else if(view.getId() == R.id.flor_verde && v.getId() == R.id.topright){
                             LinearLayout oldparent = (LinearLayout) view.getParent();
                             oldparent.removeView(view);
                             LinearLayout newParent = (LinearLayout)v;
-                            view.setEnabled(false);
                             newParent.addView(view);
+                            view.setVisibility(View.VISIBLE);
+                            view.setEnabled(false);
+                            hit = true;
                             pontos++;
                         }
                         else if(view.getId() == R.id.flor_azul && v.getId() == R.id.centerrigth){
                             ////////////////////////////// SOM
+
                             Metodos.sound(R.drawable.flor_azul, JogoDasFloresActivity.this);
                             LinearLayout oldparent = (LinearLayout) view.getParent();
                             oldparent.removeView(view);
                             LinearLayout newParent = (LinearLayout)v;
                             newParent.addView(view);
+                            view.setVisibility(View.VISIBLE);
+                            hit = true;
                             view.setEnabled(false);
                             pontos++;
                         }
                         else{
                             Toast.makeText(JogoDasFloresActivity.this, "VOCÊ ERROU!", Toast.LENGTH_SHORT).show();
+                            view.setVisibility(View.VISIBLE);
                         }
-                        if(pontos <= 2) {
+                        if(hit && pontos <= 2) {
                             Metodos.ShowHitMessage(JogoDasFloresActivity.this, "VOCÊ ACERTOU!");
 
                         }
