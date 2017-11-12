@@ -35,7 +35,6 @@ public class JogoDasFloresActivity extends Activity {
         findViewById(R.id.centerrigth).setOnDragListener(new MyOnDragListener(4));// flor azul 2
         findViewById(R.id.bottomleft).setOnDragListener(new MyOnDragListener(5)); // flor verde
         findViewById(R.id.bottomright).setOnDragListener(new MyOnDragListener(6));// flor azul 2
-
     }
 
     class MyOnLongClickListener implements OnLongClickListener {
@@ -44,17 +43,15 @@ public class JogoDasFloresActivity extends Activity {
             ClipData data = ClipData.newPlainText("simple_text", "text");
             //DragShadowBuilder sb = new View.DragShadowBuilder(findViewById(R.id.shadow));
             DragShadowBuilder sb = new DragShadowBuilder(v);
+            // Esconde a imagem quando for arrastar a sua sombra
             v.setVisibility(View.INVISIBLE);
             v.startDrag(data, sb, v, 0);
-            // Esconde a imagem quando for arrastar a sua sombra
-            //v.setVisibility(View.INVISIBLE);
             return(true);
         }
     }
 
     class MyOnDragListener implements OnDragListener {
         private int num;
-
 
         // Construtor
         public MyOnDragListener(int num){
@@ -92,22 +89,21 @@ public class JogoDasFloresActivity extends Activity {
                         }
                         else if(view.getId() == R.id.flor_azul && v.getId() == R.id.centerrigth){
                             ////////////////////////////// SOM
-
-                            Metodos.sound(R.drawable.flor_azul, JogoDasFloresActivity.this);
+                            //Metodos.sound(R.drawable.flor_azul, JogoDasFloresActivity.this);
                             LinearLayout oldparent = (LinearLayout) view.getParent();
                             oldparent.removeView(view);
                             LinearLayout newParent = (LinearLayout)v;
                             newParent.addView(view);
                             view.setVisibility(View.VISIBLE);
-                            hit = true;
                             view.setEnabled(false);
+                            hit = true;
                             pontos++;
                         }
                         else{
                             Toast.makeText(JogoDasFloresActivity.this, "VOCÊ ERROU!", Toast.LENGTH_SHORT).show();
                             view.setVisibility(View.VISIBLE);
                         }
-                        if(hit && pontos <= 2) {
+                        if(pontos <= 2 && hit) {
                             Metodos.ShowHitMessage(JogoDasFloresActivity.this, "VOCÊ ACERTOU!");
 
                         }

@@ -42,7 +42,7 @@
     <LinearLayout
         android:id="@+id/topleft"
         android:layout_width="192dp"
-        android:layout_height="210dp"
+        android:layout_height="193dp"
         android:layout_gravity="top|left"
         android:layout_marginRight="10dp"
         android:background="#FFC0CB">
@@ -92,7 +92,7 @@
     <LinearLayout
         android:id="@+id/centerrigth"
         android:layout_width="192dp"
-        android:layout_height="211dp"
+        android:layout_height="186dp"
         android:layout_gravity="center|right"
         android:background="#FFC0CB">
 
