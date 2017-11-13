@@ -71,6 +71,9 @@ public class JogaMemoria extends android.support.v7.widget.AppCompatButton {
                     break;
                 default:
                     //deviceDensity = "Not found";
+                    parameters.width = (int) getResources().getDisplayMetrics().density * 125;
+                    parameters.height = (int) getResources().getDisplayMetrics().density * 250;
+                    break;
             }
         }
 
@@ -107,6 +110,9 @@ public class JogaMemoria extends android.support.v7.widget.AppCompatButton {
                     break;
                 default:
                     //deviceDensity = "Not found";
+                    parameters.width = (int) getResources().getDisplayMetrics().density * 130;
+                    parameters.height = (int) getResources().getDisplayMetrics().density * 195;
+                    break;
             }
         }
         setLayoutParams(parameters);

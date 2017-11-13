@@ -24,7 +24,7 @@ public class JogoDasPasActivity2 extends Activity {
     private final int PONTO_ACERTO = 10;
     private final int PONTO_ERRO = 5;
     private int TOTAL_ACERTO = 3;
-    private final int TOTAL_FASE = 3;
+    private final int TOTAL_FASE = 2;
     private int acerto = 0, fase = 0;
     private int pontuacao = 0;
     private ImageView img;
@@ -67,7 +67,7 @@ public class JogoDasPasActivity2 extends Activity {
         }
 
         if(getFase() == 1){
-            TOTAL_ACERTO = 4;
+            TOTAL_ACERTO = 3;
         }
 
         CreateElements();
@@ -99,8 +99,8 @@ public class JogoDasPasActivity2 extends Activity {
                         index = 1;
                     else if (v.getId() == R.id.terceiroBalde) // Clicou na terceira imagem
                         index = 2;
-                    else if (v.getId() == R.id.quartoBalde) // Clicou na quarta imagem
-                        index = 3;
+//                    else if (v.getId() == R.id.quartoBalde) // Clicou na quarta imagem
+//                        index = 3;
 
                     String tagId = view.getTag().toString();
                     String pa = Metodos.setDrawableShovel(Integer.parseInt(tagId), fase);
@@ -175,10 +175,10 @@ public class JogoDasPasActivity2 extends Activity {
             map.put(1, "pa_vermelha");
             map.put(2, "pa_amarela");
         } else if (fase == 1) {
-            map.put(0, "pa_roxa");
-            map.put(1, "pa_rosa");
-            map.put(2, "pa_vinho");
-            map.put(3, "pa_laranja");
+            map.put(0, "pa_rosa");
+            map.put(1, "pa_roxa");
+            map.put(2, "pa_laranja");
+//            map.put(3, "pa_vinho");
         }
         return map;
     }
@@ -187,28 +187,22 @@ public class JogoDasPasActivity2 extends Activity {
         findViewById(R.id.pa1).setOnLongClickListener(new MyOnLongClickListener());
         findViewById(R.id.pa2).setOnLongClickListener(new MyOnLongClickListener());
         findViewById(R.id.pa3).setOnLongClickListener(new MyOnLongClickListener());
-        if(getFase() == 1) {
-            findViewById(R.id.pa4).setOnLongClickListener(new MyOnLongClickListener());
-            findViewById(R.id.quartoBalde).setOnDragListener(new MyOnDragListener(4));
-        }
+//        findViewById(R.id.pa4).setOnLongClickListener(new MyOnLongClickListener());
+
         findViewById(R.id.primeiroBalde).setOnDragListener(new MyOnDragListener(1));
         findViewById(R.id.segundoBalde).setOnDragListener(new MyOnDragListener(2));
         findViewById(R.id.terceiroBalde).setOnDragListener(new MyOnDragListener(3));
+//        findViewById(R.id.quartoBalde).setOnDragListener(new MyOnDragListener(4));
 
     }
 
     private void setTags(int fase) {
         int vetor[] = null;
         int max = 0, min = 0;
+        max = 2;
+        int tamanho = 3;
         //tamanho do vetor que será criado
-        int tamanho = 0;
-        if (fase == 0) {
-            max = 2;
-            tamanho = 3;
-        } else if (fase == 1) {
-            max = 3;
-            tamanho = 4;
-        }
+
         vetor = new int[tamanho];
 
         for (int i = 0; i < vetor.length; i++) {
@@ -241,37 +235,37 @@ public class JogoDasPasActivity2 extends Activity {
             img = (ImageView) findViewById(R.id.pa1);
             img.setImageResource(Metodos.getDrawableShovel(vetor[0], fase));
             img.setTag(Metodos.getDrawableShovel(vetor[0], fase));
-            img.setMaxHeight(146);
+
 
             img = new ImageView(this);
             img = (ImageView) findViewById(R.id.pa2);
             img.setImageResource(Metodos.getDrawableShovel(vetor[1], fase));
             img.setTag(Metodos.getDrawableShovel(vetor[1], fase));
 
-            img.setMaxHeight(146);
+
             img = new ImageView(this);
             img = (ImageView) findViewById(R.id.pa3);
             img.setImageResource(Metodos.getDrawableShovel(vetor[2], fase));
             img.setTag(Metodos.getDrawableShovel(vetor[2], fase));
-            img.setMaxHeight(146);
+
 
             img = new ImageView(this);
             img = (ImageView) findViewById(R.id.bld1);
             img.setImageResource(R.drawable.balde_azul);
 
-            img.setMaxHeight(146);
+
 
             img = new ImageView(this);
             img = (ImageView) findViewById(R.id.bld2);
             img.setImageResource(R.drawable.balde_vermelho);
 
-            img.setMaxHeight(146);
+
 
             img = new ImageView(this);
             img = (ImageView) findViewById(R.id.bld3);
             img.setImageResource(R.drawable.balde_amarelo);
 
-            img.setMaxHeight(146);
+
         } else if (fase == 1) {
 
             img = new ImageView(this);
@@ -302,14 +296,14 @@ public class JogoDasPasActivity2 extends Activity {
             img = (ImageView) findViewById(R.id.bld3);
             img.setImageResource(R.drawable.balde_laranja);
 
-            img = new ImageView(this);
-            img = (ImageView) findViewById(R.id.pa4);
-            img.setImageResource(Metodos.getDrawableShovel(vetor[3], fase));
-            img.setTag(Metodos.getDrawableContent(vetor[3], fase));
+//            img = new ImageView(this);
+//            img = (ImageView) findViewById(R.id.pa4);
+//            img.setImageResource(Metodos.getDrawableShovel(vetor[3], fase));
+//            img.setTag(Metodos.getDrawableContent(vetor[3], fase));
 
-            img = new ImageView(this);
-            img = (ImageView) findViewById(R.id.bld4);
-            img.setImageResource(R.drawable.balde_vinho);
+//            img = new ImageView(this);
+//            img = (ImageView) findViewById(R.id.bld4);
+//            img.setImageResource(R.drawable.balde_vinho);
         }
 
     }

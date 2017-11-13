@@ -22,7 +22,7 @@ public class TelaActivity extends AppCompatActivity {
     public void eventosFases(View view) {
 
         if (view.getId() == R.id.jogo_das_pas)
-            startActivity(new Intent(this, JogoDasPasActivity.class));
+            startActivity(new Intent(this, JogoDasPasActivity2.class));
         else if (view.getId() == R.id.jogo_das_frutas)
             startActivity(new Intent(this, JogoDasFrutasActivity.class));
         else if (view.getId() == R.id.jogo_de_ordenar)

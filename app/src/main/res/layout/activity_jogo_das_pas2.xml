@@ -12,7 +12,7 @@
     android:paddingLeft="6dp"
     android:paddingRight="6dp"
     android:weightSum="1"
-    tools:context="com.dev2.sa.sistemaacessibilidade.JogoDasPasActivity2"><![CDATA[
+    tools:context="com.dev2.sa.sistemaacessibilidade.JogoDosVizinhosActivity"><![CDATA[
     android:gravity="bottom">
 
     ]]>
@@ -47,180 +47,114 @@
 
     </LinearLayout>
 
-
     <LinearLayout
         android:id="@+id/colRigth"
         android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/linearLayout"
-        android:layout_gravity="right"
-        android:layout_weight="0.24"
-        android:background="#87CEFF"
-        android:gravity="right"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
         android:orientation="vertical"
-        android:weightSum="0">
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout">
 
         <LinearLayout
-            android:id="@+id/primeiroBalde"
-            android:layout_width="150dp"
-            android:layout_height="110dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingTop="25dp" >
+            android:id="@+id/primeiraPa"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/bld1"
-                android:layout_width="80dp"
-                android:layout_height="50dp"
-                android:layout_gravity="left"
-                app:srcCompat="@drawable/numerosete" />
+                android:id="@+id/pa1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/pa_amarela" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/segundoBalde"
-            android:layout_width="150dp"
-            android:layout_height="110dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingTop="25dp" >
+            android:id="@+id/segundaPa"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/bld2"
-                android:layout_width="80dp"
-                android:layout_height="50dp"
-                android:visibility="visible"
-                android:layout_gravity="left"
-                app:srcCompat="@drawable/numerosete" />
+                android:id="@+id/pa2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/pa_azul" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/terceiroBalde"
-            android:layout_width="150dp"
-            android:layout_height="110dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingTop="25dp" >
+            android:id="@+id/terceiraPa"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/bld3"
-                android:layout_width="80dp"
-                android:layout_height="50dp"
-                android:visibility="visible"
-                android:layout_gravity="left"
-                app:srcCompat="@drawable/numerosete" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/quartoBalde"
-            android:layout_width="150dp"
-            android:layout_height="110dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingTop="25dp" >
-
-            <ImageView
-                android:id="@+id/bld4"
-                android:layout_width="80dp"
-                android:layout_height="50dp"
-                android:layout_gravity="left"
-                android:visibility="visible"
-                app:srcCompat="@drawable/numerosete" />
-
+                android:id="@+id/pa3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/pa_vermelha" />
         </LinearLayout>
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/colLeft"
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/linearLayout"
-        android:layout_gravity="left"
-        android:layout_weight="0.24"
-        android:background="#87CEFF"
-        android:gravity="left"
+        android:layout_width="180dp"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="0">
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/colRigth"
+        android:layout_toEndOf="@+id/colRigth"
+        android:layout_below="@+id/linearLayout">
 
         <LinearLayout
-            android:id="@+id/primeiraPa"
-            android:layout_width="100dp"
-            android:layout_height="110dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingTop="25dp">
+            android:id="@+id/primeiroBalde"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_gravity="top|left"
+            android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/pa1"
+                android:id="@+id/bld1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="visible"
-                app:srcCompat="@drawable/numerosete" />
-
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/balde_azul" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/segundaPa"
-            android:layout_width="100dp"
-            android:layout_height="110dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingTop="25dp">
+            android:id="@+id/segundoBalde"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/pa2"
+                android:id="@+id/bld2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="visible"
-                app:srcCompat="@drawable/numerosete" />
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/balde_amarelo" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/terceiraPa"
-            android:layout_width="100dp"
-            android:layout_height="110dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingTop="25dp">
+            android:id="@+id/terceiroBalde"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/pa3"
+                android:id="@+id/bld3"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="visible"
-                app:srcCompat="@drawable/numerosete" />
-
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/balde_vermelho" />
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/quartaPa"
-            android:layout_width="100dp"
-            android:layout_height="110dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingTop="25dp">
-
-            <ImageView
-                android:id="@+id/pa4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="visible"
-                app:srcCompat="@drawable/numerosete" />
-        </LinearLayout>
-
     </LinearLayout>
 
 
