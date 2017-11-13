@@ -819,9 +819,9 @@ public class Metodos {
                 case 1:
                     return R.drawable.pa_rosa;
                 case 2:
-                    return R.drawable.pa_vinho;
-                case 3:
                     return  R.drawable.pa_laranja;
+                case 3:
+                    return R.drawable.pa_vinho;
                 default:
                     break;
             }
