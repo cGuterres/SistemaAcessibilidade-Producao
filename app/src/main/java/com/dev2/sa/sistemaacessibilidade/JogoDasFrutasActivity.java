@@ -59,6 +59,7 @@ public class JogoDasFrutasActivity extends Activity {
             ClipData data = ClipData.newPlainText("simple_text", "text");
             //DragShadowBuilder sb = new View.DragShadowBuilder(findViewById(R.id.shadow));
             DragShadowBuilder sb = new View.DragShadowBuilder(v);
+            v.setVisibility(View.INVISIBLE);
             v.startDrag(data, sb, v, 0);
             // Esconde a imagem quando for arrastar a sua sombra
             //v.setVisibility(View.INVISIBLE);
@@ -81,6 +82,9 @@ public class JogoDasFrutasActivity extends Activity {
             boolean hit = false;
             View view = (View) event.getLocalState();//aqui entra quem está sendo movido
                  switch (action) {
+                     case DragEvent.ACTION_DRAG_ENDED:
+                         view.setVisibility(View.VISIBLE);
+                         break;
                     case DragEvent.ACTION_DROP:
                         if(view.getId() == R.id.laranja_colorida && v.getId() == R.id.topright){
                             hit = true;
@@ -112,6 +116,7 @@ public class JogoDasFrutasActivity extends Activity {
                         else{
                             Toast.makeText(JogoDasFrutasActivity.this, "VOCÊ ERROU!", Toast.LENGTH_SHORT).show();
                         }
+                        view.setVisibility(View.VISIBLE);
                         if(pontos <= 2 && hit) {
                             Metodos.ShowHitMessage(JogoDasFrutasActivity.this, "VOCÊ ACERTOU!");
                         }
