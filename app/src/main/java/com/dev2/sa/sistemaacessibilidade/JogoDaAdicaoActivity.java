@@ -172,6 +172,8 @@ public class JogoDaAdicaoActivity extends AppCompatActivity {
             ClipData data = ClipData.newPlainText("simple_text", "text");
             //DragShadowBuilder sb = new View.DragShadowBuilder(findViewById(R.id.shadow));
             View.DragShadowBuilder sb = new View.DragShadowBuilder(v);
+            // seta a visibilidade de quem está sendo movido para invisível
+            v.setVisibility(View.INVISIBLE);
             v.startDrag(data, sb, v, 0);
             // Esconde a imagem quando for arrastar a sua sombra
             // v.setVisibility(View.INVISIBLE);
@@ -192,11 +194,18 @@ public class JogoDaAdicaoActivity extends AppCompatActivity {
         @Override
         public boolean onDrag(View v, DragEvent event) {
             int action = event.getAction();
+            View view = (View) event.getLocalState();//aqui entra quem está sendo movido
             switch (action) {
+                // Quando tem ação de drop deixa a sombra sempre visível
+                case DragEvent.ACTION_DRAG_ENDED:
+                    //qualquer evento de drag que acabar vai setar a figura para visível, independente do lugar que a figura cair
+                    view.setVisibility(View.VISIBLE);
+                    break;
+
                 case DragEvent.ACTION_DROP:
                     Log.i("Script", num + " - ACTION_DROP");
                     // Move a imagem de um container para outro (6 linhas abaixo)
-                    View view = (View) event.getLocalState();//aqui entra quem está sendo movido
+
 
                     // fluxo para pegar a imagem da soma correspondente ao valor que foi movido
                     int colDrawableId = 0;
@@ -241,7 +250,7 @@ public class JogoDaAdicaoActivity extends AppCompatActivity {
                         owner.removeView(view);
                         LinearLayout container = (LinearLayout) v;
                         container.addView(view);
-                        view.setVisibility(View.VISIBLE);
+                       // view.setVisibility(View.VISIBLE);
                         view.setEnabled(false);
                         v.setEnabled(false);
                     } else {
@@ -250,6 +259,8 @@ public class JogoDaAdicaoActivity extends AppCompatActivity {
                         int total = Metodos.somaTotal(pontuacao,PONTO_ERRO, false);
                         setPontuacao(total);
                     }
+                    //volta com a visibilidade de quem está sendo movido para voltar a qualquer lugar
+                    view.setVisibility(View.VISIBLE);
                     if (acerto == TOTAL_ACERTO) {
                         // fala a palavra correta
                         if(getFase() < TOTAL_FASE - 1) {

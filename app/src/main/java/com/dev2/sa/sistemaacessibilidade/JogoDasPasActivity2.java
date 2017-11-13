@@ -90,11 +90,14 @@ public class JogoDasPasActivity2 extends Activity {
 
         public boolean onDrag(View v, DragEvent event) {
             int action = event.getAction();
+            View view = (View) event.getLocalState();//aqui entra quem está sendo movido
             switch (action) {
+                case DragEvent.ACTION_DRAG_ENDED:
+                    //qualquer evento de drag que acabar vai setar a figura para visível, independente do lugar que a figura cair
+                    view.setVisibility(View.VISIBLE);
+                    break;
                 case DragEvent.ACTION_DROP:
                     // Move a imagem de um container para outro (6 linhas abaixo)
-                    View view = (View) event.getLocalState();//aqui entra quem está sendo movido
-
                     // indice onde foi largada a imagem
                     int index = 0;
                     if (v.getId() == R.id.primeiroBalde) // Clicou na primeira imagem
@@ -129,7 +132,7 @@ public class JogoDasPasActivity2 extends Activity {
                         int total = Metodos.somaTotal(pontuacao, PONTO_ERRO, false);
                         setPontuacao(total);
                     }
-
+                    view.setVisibility(View.VISIBLE);
                     if (acerto == TOTAL_ACERTO) {
                         // fala a palavra correta
                         if (getFase() < TOTAL_FASE - 1) {
@@ -153,6 +156,7 @@ public class JogoDasPasActivity2 extends Activity {
             ClipData data = ClipData.newPlainText("simple_text", "text");
             //DragShadowBuilder sb = new View.DragShadowBuilder(findViewById(R.id.shadow));
             View.DragShadowBuilder sb = new View.DragShadowBuilder(v);
+            v.setVisibility(View.INVISIBLE);
             v.startDrag(data, sb, v, 0);
             // Esconde a imagem quando for arrastar a sua sombra
             // v.setVisibility(View.INVISIBLE);
