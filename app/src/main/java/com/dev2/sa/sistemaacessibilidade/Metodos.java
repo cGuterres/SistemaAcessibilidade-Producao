@@ -3,6 +3,8 @@ package com.dev2.sa.sistemaacessibilidade;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 
 import java.util.ArrayList;
@@ -14,6 +16,8 @@ import android.support.annotation.DrawableRes;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -1032,5 +1036,57 @@ public class Metodos {
             }
         }
         return "";
+    }
+
+    public void dialogMessageResult(boolean acertou, final Activity act, int totalFase, Context context){
+       /* AlertDialog.Builder start_dialog = new AlertDialog.Builder(act);
+
+        TextView start_dialog_desc = new TextView(act);
+        if(acertou)
+            start_dialog_desc.setBackgroundResource(R.drawable.tela_acertou);
+        else
+            start_dialog_desc.setBackgroundResource(R.drawable.tela_errou);
+
+        start_dialog_desc.setGravity(Gravity.CENTER);
+        start_dialog_desc.setTextColor(Color.WHITE);
+        start_dialog.setView(start_dialog_desc);
+
+        start_dialog.setPositiveButton("PRÓXIMA", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                fase++;
+                setFase(fase);
+                if(getFase(context) <= totalFase - 1) {
+                    Intent nextActivity = new Intent(getBaseContext(), JogoDaMemoriaActivity.class);
+                    nextActivity.putExtra("fase", getFase());
+                    nextActivity.putExtra("pontuacao", getPontuacao());
+                    startActivity(nextActivity);
+                    finish();
+                }
+            }
+        }).setNegativeButton("SAIR", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                act.finish();
+            }
+        });
+
+        AlertDialog alert = start_dialog.create();
+        alert.show();
+        */
+    }
+
+    public static int getPontuacao(Context context, Intent intent){
+        int pontuacao = 0;
+        if(intent != null){
+            pontuacao = intent.getIntExtra("pontuacao",0);
+        }
+        return pontuacao;
+    }
+
+    public static int getFase(Context context, Intent intent){
+        int fase = 0;
+        if(intent != null){
+            fase = intent.getIntExtra("fase",0);
+        }
+        return fase;
     }
 }

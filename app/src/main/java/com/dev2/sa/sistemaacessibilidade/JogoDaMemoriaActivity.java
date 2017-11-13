@@ -3,6 +3,7 @@ package com.dev2.sa.sistemaacessibilidade;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.CountDownTimer;
 import android.support.annotation.DrawableRes;
@@ -12,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatDrawableManager;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.ImageView;
@@ -232,13 +234,13 @@ public class JogoDaMemoriaActivity extends AppCompatActivity implements View.OnC
             acerto++;
             int total = Metodos.somaTotal(pontuacao, PONTO_ACERTO, true);
             setPontuacao(total);
-            Toast.makeText(JogoDaMemoriaActivity.this, "VOCÊ ACERTOU!", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(JogoDaMemoriaActivity.this, "VOCÊ ACERTOU!", Toast.LENGTH_SHORT).show();
 
             if(acerto == TOTAL_ACERTO){
                 if(getFase() < TOTAL_FASE - 1) {
-                    ShowDialogNext(JogoDaMemoriaActivity.this, R.drawable.icopala, "PARABÉNS!", "VOCÊ GANHOU!!");
+                    dialogMessageResult(true,JogoDaMemoriaActivity.this);
                 }else{
-                    ShowDialogRecreateGame(JogoDaMemoriaActivity.this, R.drawable.icogato, "PARABÉNS!", "VOCÊ CONCLUIU O JOGO DA MEMÓRIA!\n SUA PONTUAÇÃO: " + getPontuacao());
+                    dialogMessageResultFinal(true, JogoDaMemoriaActivity.this);
                 }
             }
             return;
@@ -246,7 +248,7 @@ public class JogoDaMemoriaActivity extends AppCompatActivity implements View.OnC
             //caso o usuário erre..
             int total = Metodos.somaTotal(pontuacao,PONTO_ERRO, false);
             setPontuacao(total);
-            Toast.makeText(JogoDaMemoriaActivity.this, "OPS!! VOCÊ ERROU!!", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(JogoDaMemoriaActivity.this, "OPS!! VOCÊ ERROU!!", Toast.LENGTH_SHORT).show();
             btn2 = botao;
             btn2.girar();
             jogando = true;
@@ -281,51 +283,69 @@ public class JogoDaMemoriaActivity extends AppCompatActivity implements View.OnC
         }
     }
 
-    public void ShowDialogNext(final Activity act, @DrawableRes int desenho, String titulo, String mensagem) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(act);
-        builder.setTitle(titulo)
-                .setMessage(mensagem)
-                .setCancelable(false)
-                .setIcon(desenho)
-                .setPositiveButton("PRÓXIMA", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        fase++;
-                        setFase(fase);
-                        if(getFase() <= TOTAL_FASE - 1) {
-                            Intent nextActivity = new Intent(getBaseContext(), JogoDaMemoriaActivity.class);
-                            nextActivity.putExtra("fase", getFase());
-                            nextActivity.putExtra("pontuacao", getPontuacao());
-                            startActivity(nextActivity);
-                            finish();
-                        }
-                    }
-                }).setNegativeButton("SAIR", new DialogInterface.OnClickListener() {
+    public void dialogMessageResultFinal(boolean acertou, final Activity act){
+        AlertDialog.Builder start_dialog = new AlertDialog.Builder(this);
+
+        TextView start_dialog_desc = new TextView(this);
+        if(acertou)
+            start_dialog_desc.setBackgroundResource(R.drawable.tela_acertou);
+        else
+            start_dialog_desc.setBackgroundResource(R.drawable.tela_errou);
+
+        start_dialog_desc.setGravity(Gravity.CENTER);
+        start_dialog_desc.setTextColor(Color.WHITE);
+        start_dialog.setView(start_dialog_desc);
+
+        start_dialog.setPositiveButton("REINICIAR FASES", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                pontuacao = 0;
+                setPontuacao(pontuacao);
+                Intent nextActivity = new Intent(getBaseContext(), JogoDaMemoriaActivity.class);
+                startActivity(nextActivity);
+                finish();
+            }
+        }).setNegativeButton("SAIR", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 act.finish();
             }
         });
-        builder.create().show();        // create and show the alert dialog
+
+        AlertDialog alert = start_dialog.create();
+        alert.show();
     }
 
-    public void ShowDialogRecreateGame(final Activity act, @DrawableRes int desenho, String titulo, String mensagem) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(act);
-        builder.setTitle(titulo)
-                .setMessage(mensagem)
-                .setCancelable(false)
-                .setIcon(desenho)
-                .setPositiveButton("REINICIAR JOGO", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        pontuacao = 0;
-                        setPontuacao(pontuacao);
-                        Intent nextActivity = new Intent(getBaseContext(), JogoDaMemoriaActivity.class);
-                        startActivity(nextActivity);
-                        finish();
-                    }
-                }).setNegativeButton("SAIR", new DialogInterface.OnClickListener() {
+    public void dialogMessageResult(boolean acertou, final Activity act){
+        AlertDialog.Builder start_dialog = new AlertDialog.Builder(this);
+
+        TextView start_dialog_desc = new TextView(this);
+        if(acertou)
+            start_dialog_desc.setBackgroundResource(R.drawable.tela_acertou);
+        else
+            start_dialog_desc.setBackgroundResource(R.drawable.tela_errou);
+
+        start_dialog_desc.setGravity(Gravity.CENTER);
+        start_dialog_desc.setTextColor(Color.WHITE);
+        start_dialog.setView(start_dialog_desc);
+
+        start_dialog.setPositiveButton("PRÓXIMA", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                fase++;
+                setFase(fase);
+                if(getFase() <= TOTAL_FASE - 1) {
+                    Intent nextActivity = new Intent(getBaseContext(), JogoDaMemoriaActivity.class);
+                    nextActivity.putExtra("fase", getFase());
+                    nextActivity.putExtra("pontuacao", getPontuacao());
+                    startActivity(nextActivity);
+                    finish();
+                }
+            }
+        }).setNegativeButton("SAIR", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 act.finish();
             }
         });
-        builder.create().show();        // create and show the alert dialog
+
+        AlertDialog alert = start_dialog.create();
+        alert.show();
     }
 }
