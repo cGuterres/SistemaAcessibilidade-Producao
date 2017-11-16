@@ -59,6 +59,7 @@ public class Jogo_de_Ordenar_Palavra2 extends AppCompatActivity {
 
         Intent intent = getIntent();
         if(intent != null) {
+            // recupera os valores em tempo de execução para exibir pontuação e fases
             int nextPhase = intent.getIntExtra("fase", 0);
             if(nextPhase <= 3) {
                 setFase(nextPhase);
@@ -76,7 +77,6 @@ public class Jogo_de_Ordenar_Palavra2 extends AppCompatActivity {
         findViewById(R.id.palavra2).setOnLongClickListener(new MyOnLongClickListener());
         findViewById(R.id.palavra3).setOnLongClickListener(new MyOnLongClickListener());
         findViewById(R.id.palavra4).setOnLongClickListener(new MyOnLongClickListener());
-
 
         findViewById(R.id.primeiro).setOnDragListener(new MyOnDragListener(1));
         findViewById(R.id.segundo).setOnDragListener(new MyOnDragListener(2));
@@ -258,9 +258,11 @@ public class Jogo_de_Ordenar_Palavra2 extends AppCompatActivity {
                     else if (v.getId() == R.id.quarto) // Clicou na quarta imagem
                         index = 3;
 
+                    // pega o id da ImageView movida pelo usuario
                     String tagId = view.getTag().toString();
+                    // procura pelo id da imagem no resource o Drawable correspondente
                     String palavra = Metodos.getDrawableString(Integer.parseInt(tagId),fase);
-
+                    // chama o metodo de validaçao  onde é informado a palavra, o indece da pralavra
                     boolean acertou = validade(index, palavra, getFase());
                     if(acertou){
                         // busca o som da palavra correspondente
@@ -301,6 +303,7 @@ public class Jogo_de_Ordenar_Palavra2 extends AppCompatActivity {
         }
     }
 
+    // valida a palavra corresponde no array
     private boolean validade(int index, String palavra, int fase){
         boolean isValid = false;
         HashMap<Integer,String> map = hashMap(fase);
@@ -313,6 +316,7 @@ public class Jogo_de_Ordenar_Palavra2 extends AppCompatActivity {
         return isValid;
     }
 
+    // lista com as palavras definidas no array
     private HashMap<Integer,String> hashMap(int fase){
         HashMap<Integer, String> map = new HashMap<>();
         if(fase == 0) {

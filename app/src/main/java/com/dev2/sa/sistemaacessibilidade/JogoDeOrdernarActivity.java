@@ -114,6 +114,8 @@ public class JogoDeOrdernarActivity extends Activity {
         fase++;
     }
 
+    // metodo responsavel por setar as imagens correspondentes a palavra informada por parametro.
+    // palavra - definida de acordo com a fase
     private void setLetrasImagem(String palavra) {
         char[] array = palavra.toCharArray();
 
@@ -224,7 +226,7 @@ public class JogoDeOrdernarActivity extends Activity {
 
             lnCenter = (LinearLayout) findViewById(R.id.yellowLayout);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                    LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
             layoutParams.setMargins(130, 25, 0, 30);
             lnCenter.setLayoutParams(layoutParams);
@@ -267,11 +269,13 @@ public class JogoDeOrdernarActivity extends Activity {
         }
     }
 
+    // de acordo com o indice informado, seta a imagem central da activity
     private void setImageCenter(int index) {
         imgCenter = (ImageView) findViewById(R.id.molduraparaimagem);
         imgCenter.setImageResource(Metodos.imagensCentro[index]);
     }
 
+    // metodo responsavel por validar se a letra se encontra no indece informado
     private boolean validaLetra(char letra, int index) {
         boolean isValid = false;
         char[] array = palavra.toCharArray();
@@ -287,12 +291,10 @@ public class JogoDeOrdernarActivity extends Activity {
         @Override
         public boolean onLongClick(View v) {
             ClipData data = ClipData.newPlainText("simple_text", "text");
-            //DragShadowBuilder sb = new View.DragShadowBuilder(findViewById(R.id.shadow));
             DragShadowBuilder sb = new View.DragShadowBuilder(v);
             v.setVisibility(View.INVISIBLE);
             v.startDrag(data, sb, v, 0);
             // Esconde a imagem quando for arrastar a sua sombra
-            // v.setVisibility(View.INVISIBLE);
             return (true);
         }
     }

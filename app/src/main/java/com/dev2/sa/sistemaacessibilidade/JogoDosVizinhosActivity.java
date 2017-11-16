@@ -323,36 +323,36 @@ public class JogoDosVizinhosActivity extends AppCompatActivity {
                     boolean ladoE = false, ladoD = false;
                     String tagV = "";
                     ImageView imageCenter = null;
-                    if (v.getId() == R.id.primeiroE) { // Clicou na primeira imagem
+                    if (v.getId() == R.id.primeiroE) { // Clicou na primeira imagem e largou na view da esquerda
                         ladoE = true;
                         imageCenter = (ImageView)findViewById(R.id.colCNum1);
                         tagV = imageCenter.getTag().toString();
-                    } else if (v.getId() == R.id.segundoE) { // Clicou na segunda imagem
+                    } else if (v.getId() == R.id.segundoE) { // Clicou na segunda imagem e largou na view da esquerda
                         ladoE = true;
                         imageCenter = (ImageView)findViewById(R.id.ColCNum2);
                         tagV = imageCenter.getTag().toString();
-                    } else if (v.getId() == R.id.terceiroE) { // Clicou na terceira imagem
+                    } else if (v.getId() == R.id.terceiroE) { // Clicou na terceira imagem e largou na view da esquerda
                         ladoE = true;
                         imageCenter = (ImageView)findViewById(R.id.ColCNum3);
                         tagV = imageCenter.getTag().toString();
-                    } else if (v.getId() == R.id.quartoE) { // Clicou na quarta imagem
+                    } else if (v.getId() == R.id.quartoE) { // Clicou na quarta imagem e largou na view da esquerda
                         ladoE = true;
                         imageCenter = (ImageView)findViewById(R.id.ColCNum4);
                         tagV = imageCenter.getTag().toString();
                     }
-                    else if(v.getId() == R.id.primeiroD){
+                    else if(v.getId() == R.id.primeiroD){ // clicou na primeira e largou na view da direita
                         ladoD = true;
                         imageCenter = (ImageView)findViewById(R.id.colCNum1);
                         tagV = imageCenter.getTag().toString();
-                    }else if(v.getId() == R.id.segundoD){
+                    }else if(v.getId() == R.id.segundoD){ // clicou na segunda e largou na view da direita
                         ladoD = true;
                         imageCenter = (ImageView)findViewById(R.id.ColCNum2);
                         tagV = imageCenter.getTag().toString();
-                    }else if(v.getId() == R.id.terceiroD){
+                    }else if(v.getId() == R.id.terceiroD){ // clicou na terceira e largou na view da direita
                         ladoD = true;
                         imageCenter = (ImageView)findViewById(R.id.ColCNum3);
                         tagV = imageCenter.getTag().toString();
-                    }else if(v.getId() == R.id.quartoD){
+                    }else if(v.getId() == R.id.quartoD){ // clicou na quarta e largou na view da direita
                         ladoD = true;
                         imageCenter = (ImageView)findViewById(R.id.ColCNum4);
                         tagV = imageCenter.getTag().toString();
@@ -365,8 +365,10 @@ public class JogoDosVizinhosActivity extends AppCompatActivity {
                     if(tagId.equals("8")){
                         tagId = Integer.toString(R.drawable.numerooito);
                     }
+                    // numero que foi movido pelo usuario
                     int numMovido = Metodos.getNumberForDrawable(Integer.parseInt(tagId),fase);
                     boolean acertou = false;
+                    // verifica se a imagem foi largada no lado esquerdo e chama o metodo é antecessor
                     if(ladoE){
                         acertou = Metodos.ehAntecessor(numCentral, numMovido);
                     }else if(ladoD){

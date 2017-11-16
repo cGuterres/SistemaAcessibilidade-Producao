@@ -37,9 +37,8 @@ public class JogaMemoria extends android.support.v7.widget.AppCompatButton {
         GridLayout.LayoutParams parameters = new GridLayout.LayoutParams(GridLayout.spec(linha), GridLayout.spec(coluna));
         // metodo para sabe a Resolução - CORRETO - 05.11.2017
         // float density = getResources().getDisplayMetrics().density;
-
+        // de acordo com a fase seta as dimensões de acordo com o equipamento em que aplicação esta rodando.
         if ( fase == 0) {
-
             switch (context.getResources().getDisplayMetrics().densityDpi) {
                 case DisplayMetrics.DENSITY_LOW:
                     //deviceDensity =  0.75 + " ldpi";

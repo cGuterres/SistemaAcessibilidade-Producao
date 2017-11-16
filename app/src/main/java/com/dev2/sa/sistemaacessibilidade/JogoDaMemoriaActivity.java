@@ -283,6 +283,7 @@ public class JogoDaMemoriaActivity extends AppCompatActivity implements View.OnC
         }
     }
 
+    // metodo responsavel por reiniciar o jogo da memória, iniciando da fase 0
     public void dialogMessageResultFinal(boolean acertou, final Activity act){
         AlertDialog.Builder start_dialog = new AlertDialog.Builder(this);
 
@@ -314,6 +315,7 @@ public class JogoDaMemoriaActivity extends AppCompatActivity implements View.OnC
         alert.show();
     }
 
+    // dialog responsavel por exibir imagem de acerto ao final
     public void dialogMessageResult(boolean acertou, final Activity act){
         AlertDialog.Builder start_dialog = new AlertDialog.Builder(this);
 
