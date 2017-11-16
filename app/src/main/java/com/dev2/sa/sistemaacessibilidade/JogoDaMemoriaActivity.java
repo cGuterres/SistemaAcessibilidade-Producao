@@ -162,12 +162,12 @@ public class JogoDaMemoriaActivity extends AppCompatActivity implements View.OnC
             buttonGraphics[4] = R.drawable.tigre;
             buttonGraphics[5] = R.drawable.elefante;
         }else if (fase == 1){
-            buttonGraphics[0] = R.drawable.gato;
+            buttonGraphics[0] = R.drawable.tigre;
             buttonGraphics[1] = R.drawable.rato;
             buttonGraphics[2] = R.drawable.porcoquinho;
-            buttonGraphics[3] = R.drawable.leao;
+            buttonGraphics[3] = R.drawable.zebra;
             buttonGraphics[4] = R.drawable.jacare;
-            buttonGraphics[5] = R.drawable.girafa;
+            buttonGraphics[5] = R.drawable.elefante;
             buttonGraphics[6] = R.drawable.vaca;
             buttonGraphics[7] = R.drawable.tartaruga;
         }
