@@ -4,12 +4,14 @@ import android.app.Activity;
 import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.DrawableRes;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.DragEvent;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -399,9 +401,9 @@ public class JogoDosVizinhosActivity extends AppCompatActivity {
                     if (acerto == TOTAL_ACERTO) {
                         // fala a palavra correta
                         if(getFase() < TOTAL_FASE - 1) {
-                            ShowDialogNext(JogoDosVizinhosActivity.this, R.drawable.icovisinhos, "PARABÉNS!", "VOCÊ GANHOU!!");
+                            dialogMessageResult(true, JogoDosVizinhosActivity.this);
                         }else{
-                            ShowDialogRecreateGame(JogoDosVizinhosActivity.this, R.drawable.icovisinhos, "PARABÉNS!", "VOCÊ CONCLUIU TODAS AS FASES!\n SUA PONTUAÇÃO: " + getPontuacao());
+                            dialogMessageResultFinal(true, JogoDosVizinhosActivity.this);
                         }
                     }
                     TextView mostra = (TextView)findViewById(R.id.txtPonto);
@@ -413,54 +415,71 @@ public class JogoDosVizinhosActivity extends AppCompatActivity {
         }
     }
 
-    public void ShowDialogNext(final Activity act, @DrawableRes int desenho, String titulo, String mensagem) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(act);
-        builder.setTitle(titulo)
-                .setMessage(mensagem)
-                .setCancelable(false)
-                .setIcon(desenho)
-                .setPositiveButton("PRÓXIMA", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        fase++;
-                        setFase(fase);
-                        if(getFase() <= TOTAL_FASE - 1) {
-                            Intent nextActivity = new Intent(getBaseContext(), JogoDosVizinhosActivity.class);
-                            nextActivity.putExtra("fase", getFase());
-                            nextActivity.putExtra("pontuacao", getPontuacao());
-                            startActivity(nextActivity);
-                            finish();
-                        }
-                    }
-                }).setNegativeButton("SAIR", new DialogInterface.OnClickListener() {
+    // metodo responsavel por reiniciar o jogo da memória, iniciando da fase 0
+    public void dialogMessageResultFinal(boolean acertou, final Activity act){
+        AlertDialog.Builder start_dialog = new AlertDialog.Builder(this);
+
+        TextView start_dialog_desc = new TextView(this);
+        if(acertou)
+            start_dialog_desc.setBackgroundResource(R.drawable.tela_acertou);
+        else
+            start_dialog_desc.setBackgroundResource(R.drawable.tela_errou);
+
+        start_dialog_desc.setGravity(Gravity.CENTER);
+        start_dialog_desc.setTextColor(Color.WHITE);
+        start_dialog.setView(start_dialog_desc);
+
+        start_dialog.setPositiveButton("REINICIAR FASES", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                pontuacao = 0;
+                setPontuacao(pontuacao);
+                Intent nextActivity = new Intent(getBaseContext(), JogoDosVizinhosActivity.class);
+                startActivity(nextActivity);
+                finish();
+            }
+        }).setNegativeButton("SAIR", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 act.finish();
             }
         });
-        builder.create().show();        // create and show the alert dialog
+
+        AlertDialog alert = start_dialog.create();
+        alert.show();
     }
 
-    public void ShowDialogRecreateGame(final Activity act, @DrawableRes int desenho, String titulo, String mensagem) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(act);
-        builder.setTitle(titulo)
-                .setMessage(mensagem)
-                .setCancelable(false)
-                .setIcon(desenho)
-                .setPositiveButton("REINICIAR FASES", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        fase = 0;
-                        setFase(fase);
-                        pontuacao = 0;
-                        setPontuacao(pontuacao);
-                        Intent nextActivity = new Intent(getBaseContext(), JogoDosVizinhosActivity.class);
-                        nextActivity.putExtra("fase", getFase());
-                        startActivity(nextActivity);
-                        finish();
-                    }
-                }).setNegativeButton("SAIR", new DialogInterface.OnClickListener() {
+    // dialog responsavel por exibir imagem de acerto ao final
+    public void dialogMessageResult(boolean acertou, final Activity act){
+        AlertDialog.Builder start_dialog = new AlertDialog.Builder(this);
+
+        TextView start_dialog_desc = new TextView(this);
+        if(acertou)
+            start_dialog_desc.setBackgroundResource(R.drawable.tela_acertou);
+        else
+            start_dialog_desc.setBackgroundResource(R.drawable.tela_errou);
+
+        start_dialog_desc.setGravity(Gravity.CENTER);
+        start_dialog_desc.setTextColor(Color.WHITE);
+        start_dialog.setView(start_dialog_desc);
+
+        start_dialog.setPositiveButton("PRÓXIMA", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                fase++;
+                setFase(fase);
+                if(getFase() <= TOTAL_FASE - 1) {
+                    Intent nextActivity = new Intent(getBaseContext(), JogoDosVizinhosActivity.class);
+                    nextActivity.putExtra("fase", getFase());
+                    nextActivity.putExtra("pontuacao", getPontuacao());
+                    startActivity(nextActivity);
+                    finish();
+                }
+            }
+        }).setNegativeButton("SAIR", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 act.finish();
             }
         });
-        builder.create().show();        // create and show the alert dialog
+
+        AlertDialog alert = start_dialog.create();
+        alert.show();
     }
 }

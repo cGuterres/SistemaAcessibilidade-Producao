@@ -2,9 +2,11 @@ package com.dev2.sa.sistemaacessibilidade;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.DrawableRes;
 import android.support.v7.app.AlertDialog;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.app.Activity;
@@ -366,9 +368,9 @@ public class JogoDeOrdernarActivity extends Activity {
                         // fala a palavra correta
                         Metodos.chamarSomPalavra(getFase(),JogoDeOrdernarActivity.this);
                         if(getFase() <= Metodos.palavras.length && getFase() != Metodos.palavras.length - 1) {
-                            ShowDialogNext(JogoDeOrdernarActivity.this, R.drawable.icocasa, "PARABÉNS!", "VOCÊ GANHOU!!");
+                            dialogMessageResult(true, JogoDeOrdernarActivity.this);
                         }else{
-                            ShowDialogRecreateGame(JogoDeOrdernarActivity.this, R.drawable.icocasa, "PARABÉNS!", "VOCÊ CONCLUIU TODAS AS FASES!\n SUA PONTUAÇÃO: " + getPontuacao());
+                            dialogMessageResultFinal(true, JogoDeOrdernarActivity.this);
                         }
                     }
                     TextView mostra = (TextView)findViewById(R.id.txtPonto);
@@ -379,54 +381,74 @@ public class JogoDeOrdernarActivity extends Activity {
             return true;
         }
     }
-    public void ShowDialogNext(final Activity act, @DrawableRes int desenho, String titulo, String mensagem) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(act);
-        builder.setTitle(titulo)
-                .setMessage(mensagem)
-                .setCancelable(false)
-                .setIcon(desenho)
-                .setPositiveButton("PRÓXIMA", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        fase++;
-                        setFase(fase);
-                        if(getFase() <= Metodos.palavras.length && getFase() != Metodos.palavras.length) {
-                            Intent nextActivity = new Intent(getBaseContext(), JogoDeOrdernarActivity.class);
-                            nextActivity.putExtra("fase", getFase());
-                            nextActivity.putExtra("pontuacao", getPontuacao());
-                            startActivity(nextActivity);
-                            finish();
-                        }
-                    }
-                }).setNegativeButton("SAIR", new DialogInterface.OnClickListener() {
+
+    // metodo responsavel por reiniciar o jogo da memória, iniciando da fase 0
+    public void dialogMessageResultFinal(boolean acertou, final Activity act){
+        AlertDialog.Builder start_dialog = new AlertDialog.Builder(this);
+
+        TextView start_dialog_desc = new TextView(this);
+        if(acertou)
+            start_dialog_desc.setBackgroundResource(R.drawable.tela_acertou);
+        else
+            start_dialog_desc.setBackgroundResource(R.drawable.tela_errou);
+
+        start_dialog_desc.setGravity(Gravity.CENTER);
+        start_dialog_desc.setTextColor(Color.WHITE);
+        start_dialog.setView(start_dialog_desc);
+
+        start_dialog.setPositiveButton("REINICIAR FASES", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                fase = 0;
+                setFase(fase);
+                pontuacao = 0;
+                setPontuacao(pontuacao);
+                Intent nextActivity = new Intent(getBaseContext(), JogoDeOrdernarActivity.class);
+                startActivity(nextActivity);
+                finish();
+            }
+        }).setNegativeButton("SAIR", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 act.finish();
             }
         });
-        builder.create().show();        // create and show the alert dialog
+
+        AlertDialog alert = start_dialog.create();
+        alert.show();
     }
 
-    public void ShowDialogRecreateGame(final Activity act, @DrawableRes int desenho, String titulo, String mensagem) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(act);
-        builder.setTitle(titulo)
-                .setMessage(mensagem)
-                .setCancelable(false)
-                .setIcon(desenho)
-                .setPositiveButton("REINICIAR FASES", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        fase = 0;
-                        setFase(fase);
-                        pontuacao = 0;
-                        setPontuacao(pontuacao);
-                        Intent nextActivity = new Intent(getBaseContext(), JogoDeOrdernarActivity.class);
-                        nextActivity.putExtra("fase", getFase());
-                        startActivity(nextActivity);
-                        finish();
-                    }
-                }).setNegativeButton("SAIR", new DialogInterface.OnClickListener() {
+    // dialog responsavel por exibir imagem de acerto ao final
+    public void dialogMessageResult(boolean acertou, final Activity act){
+        AlertDialog.Builder start_dialog = new AlertDialog.Builder(this);
+
+        TextView start_dialog_desc = new TextView(this);
+        if(acertou)
+            start_dialog_desc.setBackgroundResource(R.drawable.tela_acertou);
+        else
+            start_dialog_desc.setBackgroundResource(R.drawable.tela_errou);
+
+        start_dialog_desc.setGravity(Gravity.CENTER);
+        start_dialog_desc.setTextColor(Color.WHITE);
+        start_dialog.setView(start_dialog_desc);
+
+        start_dialog.setPositiveButton("PRÓXIMA", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                fase++;
+                setFase(fase);
+                if(getFase() <= Metodos.palavras.length && getFase() != Metodos.palavras.length){
+                    Intent nextActivity = new Intent(getBaseContext(), JogoDeOrdernarActivity.class);
+                    nextActivity.putExtra("fase", getFase());
+                    nextActivity.putExtra("pontuacao", getPontuacao());
+                    startActivity(nextActivity);
+                    finish();
+                }
+            }
+        }).setNegativeButton("SAIR", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 act.finish();
             }
         });
-        builder.create().show();        // create and show the alert dialog
+
+        AlertDialog alert = start_dialog.create();
+        alert.show();
     }
 }
