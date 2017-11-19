@@ -19,18 +19,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".TelaActivity2"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".JogoDasPasActivity2"
             android:exported="true"
@@ -39,7 +35,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".JogoDasFloresActivity"
             android:exported="true"
@@ -48,7 +43,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".JogoDasFloresActivity2"
             android:exported="true"
@@ -57,7 +51,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".JogoDeOrdernarActivity"
             android:exported="true"
@@ -110,6 +103,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".JogoDasEmocoes"></activity>
     </application>
 
 </manifest>
