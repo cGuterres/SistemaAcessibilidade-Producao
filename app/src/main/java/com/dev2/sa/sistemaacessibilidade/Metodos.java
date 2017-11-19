@@ -180,7 +180,11 @@ public class Metodos {
                 case R.drawable.numerotrinta:
                     return R.raw.trinta;
                 case R.drawable.flor_azul:
-                    return R.raw.cavalo;
+                    return R.raw.sound_success;
+                case R.drawable.flor_laranja:
+                    return R.raw.sound_success;
+                case R.drawable.flor_verde:
+                    return R.raw.sound_success;
                 default:
                     break;
             }
