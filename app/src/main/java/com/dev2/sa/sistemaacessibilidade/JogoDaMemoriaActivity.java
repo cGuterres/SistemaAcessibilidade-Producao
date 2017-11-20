@@ -239,10 +239,10 @@ public class JogoDaMemoriaActivity extends AppCompatActivity implements View.OnC
 
             if(acerto == TOTAL_ACERTO){
                 if(getFase() < TOTAL_FASE - 1) {
-                    dialogMessageResult(true,JogoDaMemoriaActivity.this, R.drawable.icocasa, "PARABÉNS", "VOCÊ GANHOU!!");
+                    dialogMessageResult(true,JogoDaMemoriaActivity.this, R.drawable.icotrofeu, "PARABÉNS", "VOCÊ GANHOU!!");
                 }else{
                     Metodos.sound(R.raw.sound_aplausos, JogoDaMemoriaActivity.this);
-                    dialogMessageResultFinal(true, JogoDaMemoriaActivity.this, R.drawable.icocasa, "PARABÉNS", "VOCÊ CONCLUIU TODAS AS FASES!\n SUA PONTUAÇÃO: " + getPontuacao());
+                    dialogMessageResultFinal(true, JogoDaMemoriaActivity.this, R.drawable.icotrofeu, "PARABÉNS", "VOCÊ CONCLUIU TODAS AS FASES!\n SUA PONTUAÇÃO: " + getPontuacao());
                 }
             }
             return;
