@@ -234,13 +234,15 @@ public class JogoDaMemoriaActivity extends AppCompatActivity implements View.OnC
             acerto++;
             int total = Metodos.somaTotal(pontuacao, PONTO_ACERTO, true);
             setPontuacao(total);
-            //Toast.makeText(JogoDaMemoriaActivity.this, "VOCÊ ACERTOU!", Toast.LENGTH_SHORT).show();
+            // som de acerto
+            Metodos.sound(R.raw.sound_success, JogoDaMemoriaActivity.this);
 
             if(acerto == TOTAL_ACERTO){
                 if(getFase() < TOTAL_FASE - 1) {
-                    dialogMessageResult(true,JogoDaMemoriaActivity.this);
+                    dialogMessageResult(true,JogoDaMemoriaActivity.this, R.drawable.icocasa, "PARABÉNS", "VOCÊ GANHOU!!");
                 }else{
-                    dialogMessageResultFinal(true, JogoDaMemoriaActivity.this);
+                    Metodos.sound(R.raw.sound_aplausos, JogoDaMemoriaActivity.this);
+                    dialogMessageResultFinal(true, JogoDaMemoriaActivity.this, R.drawable.icocasa, "PARABÉNS", "VOCÊ CONCLUIU TODAS AS FASES!\n SUA PONTUAÇÃO: " + getPontuacao());
                 }
             }
             return;
@@ -284,15 +286,17 @@ public class JogoDaMemoriaActivity extends AppCompatActivity implements View.OnC
     }
 
     // metodo responsavel por reiniciar o jogo da memória, iniciando da fase 0
-    public void dialogMessageResultFinal(boolean acertou, final Activity act){
+    public void dialogMessageResultFinal(boolean acertou, final Activity act, @DrawableRes int desenho, String titulo, String mensagem){
         AlertDialog.Builder start_dialog = new AlertDialog.Builder(this);
 
         TextView start_dialog_desc = new TextView(this);
-        if(acertou)
-            start_dialog_desc.setBackgroundResource(R.drawable.tela_acertou);
-        else
-            start_dialog_desc.setBackgroundResource(R.drawable.tela_errou);
-
+        //if(acertou)
+          //  start_dialog_desc.setBackgroundResource(R.drawable.tela_acertou);
+        //else
+          //  start_dialog_desc.setBackgroundResource(R.drawable.tela_errou);
+        start_dialog.setTitle(titulo);
+        start_dialog.setMessage(mensagem);
+        start_dialog.setIcon(desenho);
         start_dialog_desc.setGravity(Gravity.CENTER);
         start_dialog_desc.setTextColor(Color.WHITE);
         start_dialog.setView(start_dialog_desc);
@@ -316,15 +320,13 @@ public class JogoDaMemoriaActivity extends AppCompatActivity implements View.OnC
     }
 
     // dialog responsavel por exibir imagem de acerto ao final
-    public void dialogMessageResult(boolean acertou, final Activity act){
+    public void dialogMessageResult(boolean acertou, final Activity act, @DrawableRes int desenho, String titulo, String mensagem){
         AlertDialog.Builder start_dialog = new AlertDialog.Builder(this);
 
         TextView start_dialog_desc = new TextView(this);
-        if(acertou)
-            start_dialog_desc.setBackgroundResource(R.drawable.tela_acertou);
-        else
-            start_dialog_desc.setBackgroundResource(R.drawable.tela_errou);
-
+        start_dialog.setTitle(titulo);
+        start_dialog.setMessage(mensagem);
+        start_dialog.setIcon(desenho);
         start_dialog_desc.setGravity(Gravity.CENTER);
         start_dialog_desc.setTextColor(Color.WHITE);
         start_dialog.setView(start_dialog_desc);

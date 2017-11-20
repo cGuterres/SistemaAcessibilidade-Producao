@@ -346,10 +346,11 @@ public class JogoDeOrdernarActivity extends Activity {
                     boolean acertou = validaLetra(letra, index);
                     if (acertou) {
                         acerto++;
+                        //Metodos.sound(R.raw.sound_success, JogoDeOrdernarActivity.this);
                         // faz o somatório
                         int total = Metodos.somaTotal(pontuacao, pontoAcerto, true);
                         setPontuacao(total);
-                        Toast.makeText(JogoDeOrdernarActivity.this, "VOCÊ ACERTOU!", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(JogoDeOrdernarActivity.this, "VOCÊ ACERTOU!", Toast.LENGTH_SHORT).show();
                         ViewGroup owner = (ViewGroup) view.getParent();
                         owner.removeView(view);
                         LinearLayout container = (LinearLayout) v;
@@ -359,7 +360,7 @@ public class JogoDeOrdernarActivity extends Activity {
                         v.setEnabled(false);
                     } else {
                         // mensagem de erro para o usuário
-                        Toast.makeText(JogoDeOrdernarActivity.this, "LETRA ERRADA!", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(JogoDeOrdernarActivity.this, "LETRA ERRADA!", Toast.LENGTH_SHORT).show();
                         int total = Metodos.somaTotal(pontuacao,pontoErro, false);
                         setPontuacao(total);
                     }
@@ -368,9 +369,10 @@ public class JogoDeOrdernarActivity extends Activity {
                         // fala a palavra correta
                         Metodos.chamarSomPalavra(getFase(),JogoDeOrdernarActivity.this);
                         if(getFase() <= Metodos.palavras.length && getFase() != Metodos.palavras.length - 1) {
-                            dialogMessageResult(true, JogoDeOrdernarActivity.this);
+                            dialogMessageResult(true, JogoDeOrdernarActivity.this, R.drawable.icocasa, "PARABÉNS","VOCê GANHOU!!");
                         }else{
-                            dialogMessageResultFinal(true, JogoDeOrdernarActivity.this);
+                            //Metodos.sound(R.raw.sound_aplausos, JogoDeOrdernarActivity.this);
+                            dialogMessageResultFinal(true, JogoDeOrdernarActivity.this, R.drawable.icocasa, "PARABÉNS", "VOCÊ CONCLUIU TODAS AS FASES!\n SUA PONTUAÇÃO: " + getPontuacao());
                         }
                     }
                     TextView mostra = (TextView)findViewById(R.id.txtPonto);
@@ -383,15 +385,14 @@ public class JogoDeOrdernarActivity extends Activity {
     }
 
     // metodo responsavel por reiniciar o jogo da memória, iniciando da fase 0
-    public void dialogMessageResultFinal(boolean acertou, final Activity act){
+    public void dialogMessageResultFinal(boolean acertou, final Activity act, @DrawableRes int desenho, String titulo, String mensagem){
         AlertDialog.Builder start_dialog = new AlertDialog.Builder(this);
 
         TextView start_dialog_desc = new TextView(this);
-        if(acertou)
-            start_dialog_desc.setBackgroundResource(R.drawable.tela_acertou);
-        else
-            start_dialog_desc.setBackgroundResource(R.drawable.tela_errou);
 
+        start_dialog.setIcon(desenho);
+        start_dialog.setMessage(mensagem);
+        start_dialog.setTitle(titulo);
         start_dialog_desc.setGravity(Gravity.CENTER);
         start_dialog_desc.setTextColor(Color.WHITE);
         start_dialog.setView(start_dialog_desc);
@@ -417,15 +418,13 @@ public class JogoDeOrdernarActivity extends Activity {
     }
 
     // dialog responsavel por exibir imagem de acerto ao final
-    public void dialogMessageResult(boolean acertou, final Activity act){
+    public void dialogMessageResult(boolean acertou, final Activity act, @DrawableRes int desenho, String titulo, String mensagem){
         AlertDialog.Builder start_dialog = new AlertDialog.Builder(this);
 
         TextView start_dialog_desc = new TextView(this);
-        if(acertou)
-            start_dialog_desc.setBackgroundResource(R.drawable.tela_acertou);
-        else
-            start_dialog_desc.setBackgroundResource(R.drawable.tela_errou);
-
+        start_dialog.setIcon(desenho);
+        start_dialog.setMessage(mensagem);
+        start_dialog.setTitle(titulo);
         start_dialog_desc.setGravity(Gravity.CENTER);
         start_dialog_desc.setTextColor(Color.WHITE);
         start_dialog.setView(start_dialog_desc);
