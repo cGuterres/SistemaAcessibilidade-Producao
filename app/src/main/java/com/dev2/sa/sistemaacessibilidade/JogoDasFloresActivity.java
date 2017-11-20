@@ -136,6 +136,8 @@ public class JogoDasFloresActivity extends Activity {
                         //Metodos.ShowDialog(JogoDasFloresActivity.this, R.drawable.flor_verde, "PARABÉNS", "VOCÊ GANHOU!");
                         // Para chamar a proxima fase
                         ShowDialogNext(JogoDasFloresActivity.this, R.drawable.flor_verde, "PARABÉNS", "VOCÊ GANHOU!");
+                        ////////////////////////////// SOM
+                        Metodos.sound(R.drawable.aplausos, JogoDasFloresActivity.this);
                     }
                     break;
             }

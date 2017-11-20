@@ -185,6 +185,8 @@ public class Metodos {
                     return R.raw.sound_success;
                 case R.drawable.flor_verde:
                     return R.raw.sound_success;
+                case R.drawable.aplausos:
+                    return R.raw.sound_aplausos;
                 default:
                     break;
             }
