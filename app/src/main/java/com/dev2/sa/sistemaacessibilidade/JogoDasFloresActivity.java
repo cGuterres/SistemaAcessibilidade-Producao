@@ -131,9 +131,7 @@ public class JogoDasFloresActivity extends Activity {
                         // Se o número de acertos for igual a 3, exibe o dialog de vitoria e as opções de voltar para o menu ou reiniciar o jogo
                         //Metodos.ShowDialog(JogoDasFloresActivity.this, R.drawable.flor_verde, "PARABÉNS", "VOCÊ GANHOU!");
                         // Para chamar a proxima fase
-                        ShowDialogNext(JogoDasFloresActivity.this, R.drawable.flor_verde, "PARABÉNS", "VOCÊ GANHOU!");
-                        ////////////////////////////// SOM
-                        Metodos.sound(R.drawable.aplausos, JogoDasFloresActivity.this);
+                        ShowDialogNext(JogoDasFloresActivity.this, R.drawable.icotrofeu, "PARABÉNS", "VOCÊ GANHOU!");
                         ////////////////////////////// SOM
                         Metodos.sound(R.raw.sound_aplausos, JogoDasFloresActivity.this);
                     }

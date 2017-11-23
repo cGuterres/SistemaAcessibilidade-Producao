@@ -15,6 +15,7 @@ import android.view.View.OnLongClickListener;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+
 public class JogoDasFloresActivity2 extends Activity {
     private int pontos = 0;
 
@@ -160,9 +161,8 @@ public class JogoDasFloresActivity2 extends Activity {
 
     }
 
-    // Colocar na activity 2
     public void ShowDialogRecreateGame(final Activity act, @DrawableRes int desenho, String titulo, String mensagem) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(act);
+        android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(act);
         builder.setTitle(titulo)
                 .setMessage(mensagem)
                 .setCancelable(false)
