@@ -81,8 +81,6 @@ public class JogoDasFloresActivity extends Activity {
                 // Realiza a movimentação das imagens de um layout para o outro
                 case DragEvent.ACTION_DROP:
                     if(view.getId() == R.id.flor_laranja && v.getId() == R.id.bottomright){
-                        ////////////////////////////// SOM
-                        Metodos.sound(R.drawable.flor_laranja, JogoDasFloresActivity.this);
                         // O layout atual recebe a imagem
                         LinearLayout oldparent = (LinearLayout) view.getParent();
                         // Remove a imagem do layout atual
@@ -100,8 +98,6 @@ public class JogoDasFloresActivity extends Activity {
                         // Soma 1 ponto
                         pontos++;
                     } else if(view.getId() == R.id.flor_verde && v.getId() == R.id.topright){
-                        ////////////////////////////// SOM
-                        Metodos.sound(R.drawable.flor_verde, JogoDasFloresActivity.this);
                         LinearLayout oldparent = (LinearLayout) view.getParent();
                         oldparent.removeView(view);
                         LinearLayout newParent = (LinearLayout)v;
@@ -111,8 +107,6 @@ public class JogoDasFloresActivity extends Activity {
                         hit = true;
                         pontos++;
                     } else if(view.getId() == R.id.flor_azul && v.getId() == R.id.centerrigth){
-                        ////////////////////////////// SOM
-                        Metodos.sound(R.drawable.flor_azul, JogoDasFloresActivity.this);
                         LinearLayout oldparent = (LinearLayout) view.getParent();
                         oldparent.removeView(view);
                         LinearLayout newParent = (LinearLayout)v;
@@ -130,6 +124,8 @@ public class JogoDasFloresActivity extends Activity {
                     if(pontos <= 2 && hit) {
                         // Se o número de acertos for menor ou igual a 2, exibe a mensagem de acerto
                         Metodos.ShowHitMessage(JogoDasFloresActivity.this, "VOCÊ ACERTOU!");
+                        ////////////////////////////// SOM
+                        Metodos.sound(R.raw.sound_success, JogoDasFloresActivity.this);
                     }
                     if(pontos == 3) {
                         // Se o número de acertos for igual a 3, exibe o dialog de vitoria e as opções de voltar para o menu ou reiniciar o jogo
@@ -138,6 +134,8 @@ public class JogoDasFloresActivity extends Activity {
                         ShowDialogNext(JogoDasFloresActivity.this, R.drawable.flor_verde, "PARABÉNS", "VOCÊ GANHOU!");
                         ////////////////////////////// SOM
                         Metodos.sound(R.drawable.aplausos, JogoDasFloresActivity.this);
+                        ////////////////////////////// SOM
+                        Metodos.sound(R.raw.sound_aplausos, JogoDasFloresActivity.this);
                     }
                     break;
             }

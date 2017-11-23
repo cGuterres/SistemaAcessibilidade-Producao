@@ -1,8 +1,12 @@
 package com.dev2.sa.sistemaacessibilidade;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ClipData;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
 import android.view.DragEvent;
 import android.view.View;
 import android.view.View.DragShadowBuilder;
@@ -97,7 +101,7 @@ public class JogoDasFloresActivity2 extends Activity {
                         hit = true;
                         // Soma 1 ponto
                         pontos++;
-                    } else if(view.getId() == R.id.flor_verde && v.getId() == R.id.topright){
+                    } else if(view.getId() == R.id.flor_vermelha && v.getId() == R.id.finalright){
                         LinearLayout oldparent = (LinearLayout) view.getParent();
                         oldparent.removeView(view);
                         LinearLayout newParent = (LinearLayout)v;
@@ -106,7 +110,18 @@ public class JogoDasFloresActivity2 extends Activity {
                         view.setEnabled(false);
                         hit = true;
                         pontos++;
-                    } else if(view.getId() == R.id.flor_azul && v.getId() == R.id.centerrigth){
+                    } else if(view.getId() == R.id.flor_verde_limao && v.getId() == R.id.centerrigth){
+                        ////////////////////////////// SOM
+                        //Metodos.sound(R.drawable.flor_azul, JogoDasFloresActivity.this);
+                        LinearLayout oldparent = (LinearLayout) view.getParent();
+                        oldparent.removeView(view);
+                        LinearLayout newParent = (LinearLayout)v;
+                        newParent.addView(view);
+                        view.setVisibility(View.VISIBLE);
+                        view.setEnabled(false);
+                        hit = true;
+                        pontos++;
+                    } else if(view.getId() == R.id.flor_roxa && v.getId() == R.id.topright){
                         ////////////////////////////// SOM
                         //Metodos.sound(R.drawable.flor_azul, JogoDasFloresActivity.this);
                         LinearLayout oldparent = (LinearLayout) view.getParent();
@@ -123,15 +138,20 @@ public class JogoDasFloresActivity2 extends Activity {
                         // Deixa a imagem visivel
                         view.setVisibility(View.VISIBLE);
                     }
-                    if(pontos <= 2 && hit) {
+                    if(pontos <= 3 && hit) {
                         // Se o número de acertos for menor ou igual a 2, exibe a mensagem de acerto
                         Metodos.ShowHitMessage(JogoDasFloresActivity2.this, "VOCÊ ACERTOU!");
+                        ////////////////////////////// SOM
+                        Metodos.sound(R.raw.sound_success, JogoDasFloresActivity2.this);
                     }
-                    if(pontos == 3) {
+                    if(pontos == 4) {
                         // Se o número de acertos for igual a 3, exibe o dialog de vitoria e as opções de voltar para o menu ou reiniciar o jogo
-                        Metodos.ShowDialog(JogoDasFloresActivity2.this, R.drawable.flor_verde, "PARABÉNS", "VOCÊ GANHOU!");
+                        //Metodos.ShowDialog(JogoDasFloresActivity2.this, R.drawable.flor_verde, "PARABÉNS", "VOCÊ GANHOU!");
                         // Para chamar a proxima fase
-                        //ShowDialogRecreateGame(JogoDasFloresActivity.this, R.drawable.flor_verde, "PARABÉNS", "VOCÊ GANHOU!");
+                        ShowDialogRecreateGame(JogoDasFloresActivity2.this, R.drawable.icotrofeu, "PARABÉNS", "VOCÊ GANHOU!");
+                        ////////////////////////////// SOM
+                        Metodos.sound(R.raw.sound_aplausos, JogoDasFloresActivity2.this);
+
                     }
                     break;
             }
@@ -139,8 +159,6 @@ public class JogoDasFloresActivity2 extends Activity {
         }
 
     }
-
-    /*
 
     // Colocar na activity 2
     public void ShowDialogRecreateGame(final Activity act, @DrawableRes int desenho, String titulo, String mensagem) {
@@ -162,7 +180,7 @@ public class JogoDasFloresActivity2 extends Activity {
         });
         builder.create().show();        // create and show the alert dialog
     }
-    */
+
 
 }
 
