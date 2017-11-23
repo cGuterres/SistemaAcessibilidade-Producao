@@ -1,11 +1,14 @@
 package com.dev2.sa.sistemaacessibilidade;
 
 import android.content.Context;
+import android.graphics.Point;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.AppCompatDrawableManager;
 import android.util.DisplayMetrics;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.GridLayout;
+
 
 /**
  * Created by Christian on 27/10/2017.
@@ -24,7 +27,10 @@ public class JogaMemoria extends android.support.v7.widget.AppCompatButton {
 
     public JogaMemoria(Context context, int linha, int coluna, int imagemDrawableId, int fase) {
         super(context);
-
+        double polegada = 0;
+        if(context != null){
+            polegada = getScreenInches(context);
+        }
         this.linha = linha;
         this.coluna = coluna;
         this.imageDrawableId = imagemDrawableId;
@@ -48,12 +54,17 @@ public class JogaMemoria extends android.support.v7.widget.AppCompatButton {
                 case DisplayMetrics.DENSITY_MEDIUM:         //deviceDensity =  1.0 + " mdpi";
                     // MDPI - TABLET
                     // ******************tablet 07 polegadas*********************
-                   // parameters.width = (int) getResources().getDisplayMetrics().density * 150;
-                   // parameters.height = (int) getResources().getDisplayMetrics().density * 300;
+                    if(polegada < 8) {
+                        parameters.width = (int) getResources().getDisplayMetrics().density * 150;
+                        parameters.height = (int) getResources().getDisplayMetrics().density * 300;
+                    }
+
 
                     // ******************tablet 10 polegadas*********************
-                    parameters.width = (int) getResources().getDisplayMetrics().density * 200;
-                    parameters.height = (int) getResources().getDisplayMetrics().density * 350;
+                    if(polegada > 8) {
+                        parameters.width = (int) getResources().getDisplayMetrics().density * 200;
+                        parameters.height = (int) getResources().getDisplayMetrics().density * 350;
+                    }
 
                     break;
                 case DisplayMetrics.DENSITY_HIGH:
@@ -92,13 +103,16 @@ public class JogaMemoria extends android.support.v7.widget.AppCompatButton {
                 case DisplayMetrics.DENSITY_MEDIUM:         //deviceDensity =  1.0 + " mdpi";
                     // MDPI - TABLET
                     // ******************tablet 7 polegadas*********************
-                  //  parameters.width = (int) getResources().getDisplayMetrics().density * 145;
-                   // parameters.height = (int) getResources().getDisplayMetrics().density * 233;
-
+                    if(polegada < 8) {
+                        parameters.width = (int) getResources().getDisplayMetrics().density * 145;
+                        parameters.height = (int) getResources().getDisplayMetrics().density * 233;
+                    }
                     // ******************tablet 10 polegadas*********************
-                    parameters.width = (int) getResources().getDisplayMetrics().density * 190;
-                    parameters.height = (int) getResources().getDisplayMetrics().density * 280;
+                    if(polegada > 8) {
 
+                        parameters.width = (int) getResources().getDisplayMetrics().density * 190;
+                        parameters.height = (int) getResources().getDisplayMetrics().density * 280;
+                    }
                     break;
                 case DisplayMetrics.DENSITY_HIGH:
                     //deviceDensity =  1.5 + " hdpi";
@@ -125,6 +139,30 @@ public class JogaMemoria extends android.support.v7.widget.AppCompatButton {
             }
         }
         setLayoutParams(parameters);
+    }
+
+    public static Point getScreenSize(Context context)
+    {
+        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        int w = wm.getDefaultDisplay().getWidth();
+        int h = wm.getDefaultDisplay().getHeight();
+        //displayMetrics = context.getResources().getDisplayMetrics();
+        return new Point(w, h);
+
+    }
+
+    //pega a polegada da tela
+    public static double getScreenInches(Context context){
+        DisplayMetrics dm = new DisplayMetrics();
+        dm = context.getResources().getDisplayMetrics();
+        int width=dm.widthPixels;
+        int height=dm.heightPixels;
+        double wi=(double)width/(double)dm.xdpi;
+        double hi=(double)height/(double)dm.ydpi;
+        double x = Math.pow(wi,2);
+        double y = Math.pow(hi,2);
+        double screenInches = Math.sqrt(x+y);
+        return screenInches;
     }
 
 // metodo para sabe a Resolução
@@ -196,4 +234,6 @@ public class JogaMemoria extends android.support.v7.widget.AppCompatButton {
             virada = true;
         }
     }
+
+
 }
