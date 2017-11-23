@@ -8,15 +8,15 @@
 
     <LinearLayout
         android:id="@+id/centerleft"
-        android:layout_width="315dp"
-        android:layout_height="300dp"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         android:layout_gravity="center|left"
         android:background="#FFC0CB">
 
         <ImageView
             android:id="@+id/flor_laranja"
-            android:layout_width="150dp"
-            android:layout_height="250dp"
+            android:layout_width="200dp"
+            android:layout_height="300dp"
             android:layout_marginTop="10dp"
             android:src="@drawable/flor_laranja" />
 
@@ -25,8 +25,8 @@
 
     <LinearLayout
         android:id="@+id/bottomleft"
-        android:layout_width="315dp"
-        android:layout_height="300dp"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         android:layout_gravity="bottom|left"
         android:layout_marginRight="10dp"
         android:background="#FFC0CB"
@@ -34,8 +34,8 @@
 
         <ImageView
             android:id="@+id/flor_verde"
-            android:layout_width="150dp"
-            android:layout_height="250dp"
+            android:layout_width="200dp"
+            android:layout_height="300dp"
             android:layout_marginTop="10dp"
             android:src="@drawable/flor_verde" />
 
@@ -43,50 +43,33 @@
 
     <LinearLayout
         android:id="@+id/centerrigth"
-        android:layout_width="315dp"
-        android:layout_height="300dp"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         android:layout_gravity="center|right"
         android:background="#FFC0CB"
         android:weightSum="1">
 
         <ImageView
             android:id="@+id/flor_azul2"
-            android:layout_width="150dp"
-            android:layout_height="250dp"
+            android:layout_width="200dp"
+            android:layout_height="300dp"
             android:layout_marginTop="10dp"
             android:src="@drawable/flor_azul" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/bottomright"
-        android:layout_width="315dp"
-        android:layout_height="300dp"
-        android:layout_gravity="bottom|right"
-        android:background="#FFC0CB"
-        android:weightSum="1">
-
-        <ImageView
-            android:id="@+id/flor_laranja2"
-            android:layout_width="150dp"
-            android:layout_height="250dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/flor_laranja" />
-
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/topleft"
-        android:layout_width="315dp"
-        android:layout_height="300dp"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         android:layout_gravity="top|left"
         android:layout_marginRight="10dp"
         android:background="#FFC0CB">
 
         <ImageView
             android:id="@+id/flor_azul"
-            android:layout_width="150dp"
-            android:layout_height="250dp"
+            android:layout_width="200dp"
+            android:layout_height="300dp"
             android:layout_marginTop="10dp"
             android:src="@drawable/flor_azul" />
 
@@ -94,19 +77,36 @@
 
     <LinearLayout
         android:id="@+id/topright"
-        android:layout_width="315dp"
-        android:layout_height="300dp"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         android:layout_gravity="top|right"
         android:background="#FFC0CB"
         android:weightSum="1">
 
         <ImageView
             android:id="@+id/flor_verde2"
-            android:layout_width="150dp"
-            android:layout_height="250dp"
+            android:layout_width="200dp"
+            android:layout_height="300dp"
             android:layout_marginTop="10dp"
             android:src="@drawable/flor_verde" />
 
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomright"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_gravity="bottom|right"
+        android:background="#FFC0CB"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/flor_laranja2"
+            android:layout_width="200dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/flor_laranja" />
 
     </LinearLayout>
 
