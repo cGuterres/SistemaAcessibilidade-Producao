@@ -7,24 +7,9 @@
 
 
     <LinearLayout
-        android:id="@+id/topleft"
-        android:layout_width="315dp"
-        android:layout_height="300dp"
-        android:layout_gravity="top|left"
-        android:background="#90EE90"
-        android:weightSum="1">
-
-        <ImageView
-            android:id="@+id/abacaxi_colorido"
-            android:layout_width="170dp"
-            android:layout_height="260dp"
-            android:src="@drawable/abacaxi_colorido" />
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/bottomleft"
-        android:layout_width="315dp"
-        android:layout_height="300dp"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         android:layout_gravity="bottom|left"
         android:layout_marginRight="10dp"
         android:background="#90EE90"
@@ -32,69 +17,84 @@
 
         <ImageView
             android:id="@+id/laranja_colorida"
-            android:layout_width="160dp"
-            android:layout_height="260dp"
+            android:layout_width="210dp"
+            android:layout_height="350dp"
             android:src="@drawable/laranja_colorida" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/topright"
-        android:layout_width="315dp"
-        android:layout_height="300dp"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         android:layout_gravity="top|right"
         android:background="#90EE90"
         android:weightSum="1">
 
         <ImageView
             android:id="@+id/laranja_preta"
-            android:layout_width="160dp"
-            android:layout_height="260dp"
+            android:layout_width="210dp"
+            android:layout_height="350dp"
             android:src="@drawable/laranja_preta" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/bottomright"
-        android:layout_width="315dp"
-        android:layout_height="300dp"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         android:layout_gravity="bottom|right"
         android:background="#90EE90"
         android:weightSum="1">
 
         <ImageView
             android:id="@+id/uva_preta"
-            android:layout_width="160dp"
-            android:layout_height="260dp"
+            android:layout_width="210dp"
+            android:layout_height="350dp"
             android:src="@drawable/uva_preta" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/centerrigth"
-        android:layout_width="315dp"
-        android:layout_height="300dp"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         android:layout_gravity="center|right"
         android:background="#90EE90"
         android:weightSum="1">
 
         <ImageView
             android:id="@+id/abacaxi_preto"
-            android:layout_width="170dp"
-            android:layout_height="260dp"
+            android:layout_width="210dp"
+            android:layout_height="350dp"
             android:src="@drawable/abacaxi_preto" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/centerleft"
-        android:layout_width="315dp"
-        android:layout_height="300dp"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
         android:layout_gravity="center|left"
         android:background="#90EE90"
         android:weightSum="1">
 
         <ImageView
             android:id="@+id/uva_colorida"
-            android:layout_width="160dp"
-            android:layout_height="260dp"
+            android:layout_width="210dp"
+            android:layout_height="350dp"
             android:src="@drawable/uva_colorida" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/topleft"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_gravity="top|left"
+        android:background="#90EE90"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/abacaxi_colorido"
+            android:layout_width="210dp"
+            android:layout_height="350dp"
+            android:src="@drawable/abacaxi_colorido" />
     </LinearLayout>
 
 

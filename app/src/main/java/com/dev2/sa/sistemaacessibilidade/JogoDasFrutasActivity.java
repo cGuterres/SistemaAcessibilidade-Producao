@@ -45,12 +45,6 @@ public class JogoDasFrutasActivity extends Activity {
         findViewById(R.id.bottomright).setOnDragListener(new MyOnDragListener(6));//uva preta
 
 
-
-
-        Balde_Pa.put(String.valueOf(R.id.uva_colorida), String.valueOf(R.id.bottomright));
-        Balde_Pa.put(String.valueOf(R.id.abacaxi_colorido), String.valueOf(R.id.centerrigth));
-        Balde_Pa.put(String.valueOf(R.id.laranja_colorida), String.valueOf(R.id.topright));
-
     }
 
     class MyOnLongClickListener implements OnLongClickListener {
@@ -119,9 +113,13 @@ public class JogoDasFrutasActivity extends Activity {
                         view.setVisibility(View.VISIBLE);
                         if(pontos <= 2 && hit) {
                             Metodos.ShowHitMessage(JogoDasFrutasActivity.this, "VOCÊ ACERTOU!");
+                            ////////////////////////////// SOM
+                            Metodos.sound(R.raw.sound_success, JogoDasFrutasActivity.this);
                         }
                         if(pontos == 3) {
                             Metodos.ShowDialog(JogoDasFrutasActivity.this, R.drawable.abacaxi_colorido, "PARABÉNS", "VOCÊ GANHOU!");
+                            ////////////////////////////// SOM
+                            Metodos.sound(R.raw.sound_aplausos, JogoDasFrutasActivity.this);
                         }
                         hit = false;
                             break;

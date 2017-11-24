@@ -76,6 +76,23 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/bottomright"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:layout_gravity="bottom|right"
+        android:background="#FFC0CB"
+        android:weightSum="1">
+
+        <ImageView
+            android:id="@+id/flor_laranja2"
+            android:layout_width="200dp"
+            android:layout_height="300dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/flor_laranja" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/topright"
         android:layout_width="400dp"
         android:layout_height="400dp"
@@ -90,23 +107,6 @@
             android:layout_marginTop="10dp"
             android:src="@drawable/flor_verde" />
 
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/bottomright"
-        android:layout_width="400dp"
-        android:layout_height="400dp"
-        android:layout_gravity="bottom|right"
-        android:background="#FFC0CB"
-        android:weightSum="1">
-
-        <ImageView
-            android:id="@+id/flor_laranja2"
-            android:layout_width="200dp"
-            android:layout_height="300dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/flor_laranja" />
 
     </LinearLayout>
 
