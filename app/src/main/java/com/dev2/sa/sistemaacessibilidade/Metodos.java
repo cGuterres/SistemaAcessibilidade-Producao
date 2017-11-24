@@ -38,6 +38,14 @@ public class Metodos {
     // alfabeto para utilização nos jogos
     public static String[] letras = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"};
 
+    // menina - menina brava, menina feliz, menina má, menina medo, menina triste, menina raiva
+    // menino assustado, menino bravo, menino chorando ,menina feliz, menino orando, menino sorrindo, menino trist, menino medo, menino raiva, menino vergonha
+    // array com as palavras das emoções de menina
+    public  static String[] emocoesMenino = {"Assustado","Bravo","Chorando","Feliz","Orando","Sorrindo","Triste", "Medo","Raiva","Vergonha"};
+
+    //array com as palavras das emoções de menina
+    public  static String[] emocoesMenina = {"Brava","Feliz","Má","Medo","Triste","Raiva"};
+
     // Retorna a ImageView da respectiva posição da lista (Imagem do letra).
     public static int getImagem(char tmpLetra, Context context) {
         String letra = Character.toString(tmpLetra);
@@ -1048,42 +1056,6 @@ public class Metodos {
         return "";
     }
 
-    public void dialogMessageResult(boolean acertou, final Activity act, int totalFase, Context context){
-       /* AlertDialog.Builder start_dialog = new AlertDialog.Builder(act);
-
-        TextView start_dialog_desc = new TextView(act);
-        if(acertou)
-            start_dialog_desc.setBackgroundResource(R.drawable.tela_acertou);
-        else
-            start_dialog_desc.setBackgroundResource(R.drawable.tela_errou);
-
-        start_dialog_desc.setGravity(Gravity.CENTER);
-        start_dialog_desc.setTextColor(Color.WHITE);
-        start_dialog.setView(start_dialog_desc);
-
-        start_dialog.setPositiveButton("PRÓXIMA", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                fase++;
-                setFase(fase);
-                if(getFase(context) <= totalFase - 1) {
-                    Intent nextActivity = new Intent(getBaseContext(), JogoDaMemoriaActivity.class);
-                    nextActivity.putExtra("fase", getFase());
-                    nextActivity.putExtra("pontuacao", getPontuacao());
-                    startActivity(nextActivity);
-                    finish();
-                }
-            }
-        }).setNegativeButton("SAIR", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                act.finish();
-            }
-        });
-
-        AlertDialog alert = start_dialog.create();
-        alert.show();
-        */
-    }
-
     public static int getPontuacao(Context context, Intent intent){
         int pontuacao = 0;
         if(intent != null){
@@ -1098,5 +1070,91 @@ public class Metodos {
             fase = intent.getIntExtra("fase",0);
         }
         return fase;
+    }
+
+    public static int setDrawableEmotion(int index, String type) {
+        if(type.equals("f")){
+            switch (index){
+                case 0:
+                    return R.drawable.meninafeliz;
+                case 1:
+                    return R.drawable.meninama;
+                case 2:
+                    return R.drawable.meninabrava;
+                case 3:
+                    return R.drawable.meninamedo;
+                case 4:
+                    return R.drawable.meninaraiva;
+                case 5:
+                    return  R.drawable.meninatriste;
+            }
+        }else if(type.equals("m")){
+            switch (index){
+                case 0:
+                    return R.drawable.meninoassustado;
+                case 1:
+                    return R.drawable.meninobravo;
+                case 2:
+                    return R.drawable.meninochorando;
+                case 3:
+                    return R.drawable.meninofeliz;
+                case 4:
+                    return R.drawable.meninomedo;
+                case 5:
+                    return R.drawable.meninoorando;
+                case 6:
+                    return R.drawable.meninoraiva;
+                case 7:
+                    return R.drawable.meninosorrindo;
+                case 8:
+                    return  R.drawable.meninovergonha;
+                case 9:
+                    return  R.drawable.meninotriste;
+            }
+        }
+        return 0;
+    }
+
+    public static String getPalavraRosto(int drawableId, String type) {
+        if(type.equals("f")){
+            switch (drawableId){
+                case R.drawable.meninafeliz:
+                    return "Feliz";
+                case R.drawable.meninama:
+                    return "Má";
+                case R.drawable.meninabrava:
+                    return "Brava";
+                case R.drawable.meninamedo:
+                    return  "Medo";
+                case R.drawable.meninaraiva:
+                    return  "Raiva";
+                case R.drawable.meninatriste:
+                    return "Triste";
+            }
+        }else{
+            switch (drawableId){
+                case R.drawable.meninoassustado:
+                    return "Assustado";
+                case R.drawable.meninobravo:
+                    return "Bravo";
+                case R.drawable.meninochorando:
+                    return "Chorando";
+                case R.drawable.meninofeliz:
+                    return "Feliz";
+                case R.drawable.meninomedo:
+                    return "Medo";
+                case R.drawable.meninoorando:
+                    return "Orando";
+                case R.drawable.meninoraiva:
+                    return "Raiva";
+                case R.drawable.meninosorrindo:
+                    return "Sorrindo";
+                case R.drawable.meninovergonha:
+                    return "Vergonha";
+                case R.drawable.meninotriste:
+                    return "Triste";
+            }
+        }
+        return null;
     }
 }
