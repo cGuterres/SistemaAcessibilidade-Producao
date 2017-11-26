@@ -55,8 +55,8 @@
         android:orientation="horizontal"
         android:layout_marginTop="30dp"
         android:layout_below="@+id/linearLayout"
-        android:layout_alignLeft="@+id/linearLayout3"
-        android:layout_alignStart="@+id/linearLayout3">
+        android:layout_alignLeft="@+id/lnlCenter"
+        android:layout_alignStart="@+id/lnlCenter">
 
         <ImageView
             android:id="@+id/imageView4"
@@ -152,7 +152,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/lnlCenter"
         android:layout_width="180dp"
         android:layout_height="100dp"
         android:layout_alignParentEnd="true"
@@ -163,19 +163,24 @@
         android:layout_marginTop="26dp"
         android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/imgCenter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/meninatriste" />
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txtPalavra"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="42dp"
+        android:layout_marginRight="42dp"
         android:text="TextView"
         android:textSize="20sp"
         android:layout_below="@+id/linearLayout2"
         android:layout_alignRight="@+id/linearLayout2"
-        android:layout_alignEnd="@+id/linearLayout2"
-        android:layout_marginRight="42dp"
-        android:layout_marginEnd="42dp" />
+        android:layout_alignEnd="@+id/linearLayout2" />
 
 
 </RelativeLayout>
