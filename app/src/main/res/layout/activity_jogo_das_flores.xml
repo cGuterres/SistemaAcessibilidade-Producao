@@ -6,6 +6,8 @@
     android:background="#FFC0CB">
 
 
+
+
     <LinearLayout
         android:id="@+id/centerleft"
         android:layout_width="192dp"

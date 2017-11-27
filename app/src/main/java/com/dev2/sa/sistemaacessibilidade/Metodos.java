@@ -1157,4 +1157,49 @@ public class Metodos {
         }
         return null;
     }
+
+    public static String getPalavraCorpo(int drawableId){
+        switch (drawableId) {
+            case R.drawable.perna:
+                return "Perna";
+            case R.drawable.cabeca:
+                return "Cabeca";
+            case R.drawable.ombro:
+                return "Ombro";
+            case R.drawable.joelho:
+                return "Joelho";
+            case R.drawable.braco:
+                return "Braco";
+            case R.drawable.pes:
+                return "Pes";
+            case R.drawable.coxa:
+                return "Coxa";
+            case R.drawable.mao:
+                return "Mao";
+        }
+        return "";
+    }
+
+    public static int setPalavraCorpoId(int index)
+    {
+        switch (index){
+            case 0:
+                return R.drawable.perna;
+            case 1:
+                return R.drawable.cabeca;
+            case 2:
+                return R.drawable.ombro;
+            case 3:
+                return R.drawable.joelho;
+            case 4:
+                return R.drawable.braco;
+            case 5:
+                return R.drawable.pes;
+            case 6:
+                return R.drawable.coxa;
+            case 7:
+                return R.drawable.mao;
+        }
+        return 0;
+    }
 }
