@@ -118,6 +118,7 @@ public class JogoDaMemoriaActivity extends AppCompatActivity implements View.OnC
         }
 
         for(int i = 0;i < numeroTotal; i++){
+            botoes[i].setEnabled(false);
             botoes[i].setVirada(false);
             botoes[i].setDesvirada(false);
             botoes[i].girar();
@@ -135,6 +136,7 @@ public class JogoDaMemoriaActivity extends AppCompatActivity implements View.OnC
                         public void run() {
                             try{
                                 for(int i = 0;i < numeroTotal; i++){
+                                    botoes[i].setEnabled(true);
                                     botoes[i].setVirada(true);
                                     botoes[i].setDesvirada(false);
                                     botoes[i].girar();
