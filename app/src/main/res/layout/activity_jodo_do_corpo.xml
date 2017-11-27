@@ -59,91 +59,101 @@ tools:context="com.dev2.sa.sistemaacessibilidade.JogoDosVizinhosActivity"><![CDA
         android:layout_alignParentEnd="true">
 
         <LinearLayout
+            android:id="@+id/box_perna"
             android:layout_width="40dp"
             android:layout_height="30dp"
-            android:orientation="horizontal"
             android:layout_alignBottom="@+id/linearLayout8"
-            android:layout_marginBottom="13dp"
+            android:layout_alignEnd="@+id/linearLayout9"
             android:layout_alignRight="@+id/linearLayout9"
-            android:layout_alignEnd="@+id/linearLayout9"></LinearLayout>
+            android:layout_marginBottom="13dp"
+            android:orientation="horizontal"
+            tools:tag="Perna"></LinearLayout>
 
         <LinearLayout
+            android:id="@+id/box_pes"
             android:layout_width="40dp"
             android:layout_height="30dp"
-            android:orientation="horizontal"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"></LinearLayout>
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:tag="Pes"></LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout8"
             android:layout_width="40dp"
             android:layout_height="30dp"
-            android:orientation="horizontal"
-            android:layout_below="@+id/linearLayout7"
             android:layout_alignLeft="@+id/linearLayout7"
             android:layout_alignStart="@+id/linearLayout7"
+            android:layout_below="@+id/linearLayout7"
             android:layout_marginLeft="12dp"
             android:layout_marginStart="12dp"
             android:layout_marginTop="39dp"
-            android:id="@+id/linearLayout8"></LinearLayout>
+            android:orientation="horizontal"
+            tools:tag="Joelho"></LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout9"
             android:layout_width="40dp"
             android:layout_height="30dp"
-            android:orientation="horizontal"
             android:layout_alignBottom="@+id/linearLayout7"
             android:layout_alignLeft="@+id/linearLayout5"
             android:layout_alignStart="@+id/linearLayout5"
+            android:layout_marginBottom="15dp"
             android:layout_marginLeft="23dp"
             android:layout_marginStart="23dp"
-            android:layout_marginBottom="15dp"
-            android:id="@+id/linearLayout9"></LinearLayout>
+            android:orientation="horizontal"
+            tools:tag="Coxa"></LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout7"
             android:layout_width="40dp"
             android:layout_height="30dp"
-            android:orientation="horizontal"
-            android:layout_below="@+id/linearLayout6"
-            android:layout_alignRight="@+id/linearLayout6"
             android:layout_alignEnd="@+id/linearLayout6"
-            android:layout_marginRight="26dp"
+            android:layout_alignRight="@+id/linearLayout6"
+            android:layout_below="@+id/linearLayout6"
             android:layout_marginEnd="26dp"
+            android:layout_marginRight="26dp"
             android:layout_marginTop="38dp"
-            android:id="@+id/linearLayout7"></LinearLayout>
+            android:orientation="horizontal"
+            tools:tag="Mao"></LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout6"
             android:layout_width="40dp"
             android:layout_height="30dp"
-            android:orientation="horizontal"
             android:layout_alignTop="@+id/linearLayout5"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="13dp"
             android:layout_toLeftOf="@+id/linearLayout5"
             android:layout_toStartOf="@+id/linearLayout5"
-            android:layout_marginRight="30dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginTop="13dp"
-            android:id="@+id/linearLayout6"></LinearLayout>
+            android:orientation="horizontal"
+            tools:tag="Braco"></LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout5"
             android:layout_width="40dp"
             android:layout_height="30dp"
-            android:orientation="horizontal"
             android:layout_below="@+id/linearLayout4"
-            android:layout_toRightOf="@+id/linearLayout4"
-            android:layout_toEndOf="@+id/linearLayout4"
             android:layout_marginLeft="88dp"
             android:layout_marginStart="88dp"
             android:layout_marginTop="19dp"
-            android:id="@+id/linearLayout5"></LinearLayout>
+            android:layout_toEndOf="@+id/linearLayout4"
+            android:layout_toRightOf="@+id/linearLayout4"
+            android:orientation="horizontal"
+            tools:tag="Ombro"></LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout4"
             android:layout_width="40dp"
             android:layout_height="30dp"
-            android:orientation="horizontal"
-            android:layout_alignTop="@+id/imageView4"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/imageView4"
             android:layout_marginLeft="108dp"
             android:layout_marginStart="108dp"
-            android:id="@+id/linearLayout4"></LinearLayout>
+            android:orientation="horizontal"
+            tools:tag="Cabeca"></LinearLayout>
 
         <ImageView
             android:id="@+id/imageView4"
@@ -167,25 +177,25 @@ tools:context="com.dev2.sa.sistemaacessibilidade.JogoDosVizinhosActivity"><![CDA
         android:visibility="visible">
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/vw_cabeca"
             android:layout_width="match_parent"
             android:layout_height="31dp"
             app:srcCompat="@drawable/cabeca" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/vw_pes"
             android:layout_width="match_parent"
             android:layout_height="31dp"
             app:srcCompat="@drawable/pes" />
 
         <ImageView
-            android:id="@+id/num3"
+            android:id="@+id/vw_mao"
             android:layout_width="match_parent"
             android:layout_height="34dp"
             android:src="@drawable/mao" />
 
         <ImageView
-            android:id="@+id/num4"
+            android:id="@+id/vw_perna"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.13"
@@ -206,28 +216,28 @@ tools:context="com.dev2.sa.sistemaacessibilidade.JogoDosVizinhosActivity"><![CDA
         android:visibility="visible">
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/vw_ombro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             app:srcCompat="@drawable/ombro" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/vw_joelho"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             app:srcCompat="@drawable/joelho" />
 
         <ImageView
-            android:id="@+id/num1"
+            android:id="@+id/vw_braco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             app:srcCompat="@drawable/braco" />
 
         <ImageView
-            android:id="@+id/num2"
+            android:id="@+id/vw_coxa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
