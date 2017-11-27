@@ -1,6 +1,10 @@
 package com.dev2.sa.sistemaacessibilidade;
 
 import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.annotation.DrawableRes;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.ClipData;
@@ -117,7 +121,9 @@ public class JogoDasFrutasActivity extends Activity {
                             Metodos.sound(R.raw.sound_success, JogoDasFrutasActivity.this);
                         }
                         if(pontos == 3) {
-                            Metodos.ShowDialog(JogoDasFrutasActivity.this, R.drawable.abacaxi_colorido, "PARABÉNS", "VOCÊ GANHOU!");
+                            //Metodos.ShowDialog(JogoDasFrutasActivity.this, R.drawable.abacaxi_colorido, "PARABÉNS", "VOCÊ GANHOU!");
+                            // Para chamar a proxima fase
+                            ShowDialogNext(JogoDasFrutasActivity.this, R.drawable.icotrofeu, "PARABÉNS", "VOCÊ GANHOU!");
                             ////////////////////////////// SOM
                             Metodos.sound(R.raw.sound_aplausos, JogoDasFrutasActivity.this);
                         }
@@ -128,6 +134,26 @@ public class JogoDasFrutasActivity extends Activity {
             }
 
         }
+
+    public void ShowDialogNext(final Activity act, @DrawableRes int desenho, String titulo, String mensagem) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(act);
+        builder.setTitle(titulo)
+                .setMessage(mensagem)
+                .setCancelable(false)
+                .setIcon(desenho)
+                .setPositiveButton("PRÓXIMA", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent nextActivity = new Intent(getBaseContext(), JogoDasFrutasActivity2.class);
+                        startActivity(nextActivity);
+                        finish();
+                    }
+                }).setNegativeButton("SAIR", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                act.finish();
+            }
+        });
+        builder.create().show();        // create and show the alert dialog
+    }
 
     }
 
