@@ -203,7 +203,7 @@ tools:context="com.dev2.sa.sistemaacessibilidade.JogoDosVizinhosActivity"><![CDA
         <ImageView
             android:id="@+id/vw_perna"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="34dp"
             android:layout_weight="0.13"
             android:src="@drawable/perna" />
 
