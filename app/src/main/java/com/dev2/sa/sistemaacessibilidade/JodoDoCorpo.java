@@ -24,14 +24,14 @@ public class JodoDoCorpo extends AppCompatActivity {
     }
 
     private void createElements(){
-        findViewById(R.id.vw_cabeca).setOnLongClickListener(new MyOnLongClickListener());
-        findViewById(R.id.vw_braco).setOnLongClickListener(new MyOnLongClickListener());
-        findViewById(R.id.vw_joelho).setOnLongClickListener(new MyOnLongClickListener());
-        findViewById(R.id.vw_pes).setOnLongClickListener(new MyOnLongClickListener());
-        findViewById(R.id.vw_coxa).setOnLongClickListener(new MyOnLongClickListener());
-        findViewById(R.id.vw_perna).setOnLongClickListener(new MyOnLongClickListener());
-        findViewById(R.id.vw_ombro).setOnLongClickListener(new MyOnLongClickListener());
-        findViewById(R.id.vw_mao).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.palavra_cabeca).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.palavra_braco).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.palavra_joelho).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.palavra_pes).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.palavra_coxa).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.palavra_perna).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.palavra_ombro).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.palavra_mao).setOnLongClickListener(new MyOnLongClickListener());
 
         findViewById(R.id.linearLayout4).setOnDragListener(new MyOnDragListener(1));
         findViewById(R.id.linearLayout5).setOnDragListener(new MyOnDragListener(2));
@@ -143,42 +143,42 @@ public class JodoDoCorpo extends AppCompatActivity {
         }
 
         img = new ImageView(this);
-        img = (ImageView) findViewById(R.id.vw_cabeca);
+        img = (ImageView) findViewById(R.id.palavra_cabeca);
         img.setImageResource(Metodos.setPalavraCorpoId(vetor[0]));
         img.setTag(Metodos.setPalavraCorpoId(vetor[0]));
 
         img = new ImageView(this);
-        img = (ImageView) findViewById(R.id.vw_pes);
+        img = (ImageView) findViewById(R.id.palavra_pes);
         img.setImageResource(Metodos.setPalavraCorpoId(vetor[1]));
         img.setTag(Metodos.setPalavraCorpoId(vetor[1]));
 
         img = new ImageView(this);
-        img = (ImageView) findViewById(R.id.vw_mao);
+        img = (ImageView) findViewById(R.id.palavra_mao);
         img.setImageResource(Metodos.setPalavraCorpoId(vetor[2]));
         img.setTag(Metodos.setPalavraCorpoId(vetor[2]));
 
         img = new ImageView(this);
-        img = (ImageView) findViewById(R.id.vw_perna);
+        img = (ImageView) findViewById(R.id.palavra_perna);
         img.setImageResource(Metodos.setPalavraCorpoId(vetor[3]));
         img.setTag(Metodos.setPalavraCorpoId(vetor[3]));
 
         img = new ImageView(this);
-        img = (ImageView) findViewById(R.id.vw_ombro);
+        img = (ImageView) findViewById(R.id.palavra_ombro);
         img.setImageResource(Metodos.setPalavraCorpoId(vetor[4]));
         img.setTag(Metodos.setPalavraCorpoId(vetor[4]));
 
         img = new ImageView(this);
-        img = (ImageView) findViewById(R.id.vw_joelho);
+        img = (ImageView) findViewById(R.id.palavra_joelho);
         img.setImageResource(Metodos.setPalavraCorpoId(vetor[5]));
         img.setTag(Metodos.setPalavraCorpoId(vetor[5]));
 
         img = new ImageView(this);
-        img = (ImageView) findViewById(R.id.vw_braco);
+        img = (ImageView) findViewById(R.id.palavra_braco);
         img.setImageResource(Metodos.setPalavraCorpoId(vetor[6]));
         img.setTag(Metodos.setPalavraCorpoId(vetor[6]));
 
         img = new ImageView(this);
-        img = (ImageView) findViewById(R.id.vw_coxa);
+        img = (ImageView) findViewById(R.id.palavra_coxa);
         img.setImageResource(Metodos.setPalavraCorpoId(vetor[7]));
         img.setTag(Metodos.setPalavraCorpoId(vetor[7]));
     }
