@@ -3,13 +3,11 @@ package com.dev2.sa.sistemaacessibilidade;
 import android.content.ClipData;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.DragEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class JodoDoCorpo extends AppCompatActivity {
@@ -18,7 +16,7 @@ public class JodoDoCorpo extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jodo_do_corpo);
+        setContentView(R.layout.activity_jogo_do_corpo);
         setTags();
         createElements();
     }
