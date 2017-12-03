@@ -62,7 +62,7 @@ public class JogaMemoria extends android.support.v7.widget.AppCompatButton {
 
                     // ******************tablet 10 polegadas*********************
                     if(polegada > 8) {
-                        parameters.width = (int) getResources().getDisplayMetrics().density * 200;
+                        parameters.width = (int) getResources().getDisplayMetrics().density * 190 ;
                         parameters.height = (int) getResources().getDisplayMetrics().density * 350;
                     }
 
