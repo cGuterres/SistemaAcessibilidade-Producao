@@ -131,7 +131,7 @@ public class JodoDoCorpo extends AppCompatActivity {
                     }
                     else{
                         // mensagem de erro para o usuário
-                        Toast.makeText(JodoDoCorpo.this, "VOCÊ ERRADA!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(JodoDoCorpo.this, "VOCÊ ERROU!", Toast.LENGTH_SHORT).show();
                         int total = Metodos.somaTotal(pontuacao,PONTO_ERRO, false);
                         setPontuacao(total);
                     }
