@@ -8,9 +8,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class JodoDoCorpo extends AppCompatActivity {
+
+    private int fase = 0, acerto = 0;
+    private final int PONTO_ACERTO = 10;
+    private final int PONTO_ERRO = 5;
+    private final int TOTAL_ACERTO = 8;
+    private final int TOTAL_FASE = 1;
+    private int pontuacao = 0;
+
+    public int getPontuacao() {
+        return pontuacao;
+    }
+
+    public void setPontuacao(int pontuacao) {
+        this.pontuacao = pontuacao;
+    }
 
     private ImageView img = null;
     @Override
@@ -101,6 +117,9 @@ public class JodoDoCorpo extends AppCompatActivity {
 
                     if(movido.toLowerCase().equals(box.toLowerCase())){
                         Toast.makeText(JodoDoCorpo.this, "VOCÊ ACERTOU!", Toast.LENGTH_SHORT).show();
+                        int total = Metodos.somaTotal(pontuacao, PONTO_ACERTO, true);
+                        setPontuacao(total);
+                        acerto++;
                         ViewGroup owner = (ViewGroup) view.getParent();
                         owner.removeView(view);
                         LinearLayout container = (LinearLayout) v;
@@ -108,8 +127,23 @@ public class JodoDoCorpo extends AppCompatActivity {
                         view.setVisibility(View.VISIBLE);
                         view.setEnabled(false);
                         v.setEnabled(false);
+
                     }
-                break;
+                    else{
+                        // mensagem de erro para o usuário
+                        Toast.makeText(JodoDoCorpo.this, "VOCÊ ERRADA!", Toast.LENGTH_SHORT).show();
+                        int total = Metodos.somaTotal(pontuacao,PONTO_ERRO, false);
+                        setPontuacao(total);
+                    }
+
+                    if (acerto == TOTAL_ACERTO) {
+                        Metodos.ShowDialog(JodoDoCorpo.this, R.drawable.icotrofeu, "PARABÉNS", "VOCÊ GANHOU!");
+                    }
+                    TextView mostra = (TextView)findViewById(R.id.txtPonto);
+                    int pontuacaoAtual = getPontuacao();
+                    mostra.setText(Integer.toString(pontuacaoAtual));
+                    break;
+
             }
             return true;
         }
