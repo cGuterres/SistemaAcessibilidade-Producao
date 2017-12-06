@@ -23,6 +23,8 @@ public class TelaActivity3 extends AppCompatActivity {
             startActivity(new Intent(this, JogoDasEmocoes.class));
         else if (view.getId() == R.id.corpo)
             startActivity(new Intent(this, JodoDoCorpo.class));
+        else if (view.getId() == R.id.sobre)
+            startActivity(new Intent(this, TelaSobre.class));
         else if(view.getId() == R.id.retorna_fase) {
             if(this.mp.isPlaying()){
                 this.mp.stop();
