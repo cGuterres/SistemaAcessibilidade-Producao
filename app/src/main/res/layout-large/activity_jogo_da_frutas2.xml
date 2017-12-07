@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#90EE90">
+
+
+    <LinearLayout
+        android:id="@+id/bottomright"
+        android:layout_width="400dp"
+        android:layout_height="242dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="400dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/banana_sombra"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/banana_sombra" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/centerleft"
+        android:layout_width="200dp"
+        android:layout_height="235dp"
+        android:layout_marginBottom="200dp"
+        android:layout_marginTop="150dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/melancia"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/melancia" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/bottomleft"
+        android:layout_width="200dp"
+        android:layout_height="242dp"
+        android:layout_marginTop="400dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/pera"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/pera" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/finalleft"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="600dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/morango"
+            android:layout_width="200dp"
+            android:layout_height="300dp"
+            android:src="@drawable/morango" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/topleft"
+        android:layout_width="200dp"
+        android:layout_height="198dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/banana"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/banana" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/finalright"
+        android:layout_width="400dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="600dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/pera_sombra"
+            android:layout_width="200dp"
+            android:layout_height="300dp"
+            android:src="@drawable/pera_sombra" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/centerrigth"
+        android:layout_width="400dp"
+        android:layout_height="215dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginTop="200dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/morango_sombra"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/morango_sombra" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/topright"
+        android:layout_width="400dp"
+        android:layout_height="226dp"
+        android:layout_marginLeft="200dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/melancia_sombra"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/melancia_sombra" />
+    </LinearLayout>
+
+</FrameLayout>
