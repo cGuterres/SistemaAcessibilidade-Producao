@@ -115,6 +115,7 @@ public class JogoDasPasActivity2 extends Activity {
                     boolean acertou = validade(index, pa, getFase());
                     if (acertou) {
                         acerto++;
+                        Metodos.sound(R.raw.sound_success, JogoDasPasActivity2.this);
                         // faz o somatório
                         int total = Metodos.somaTotal(pontuacao, PONTO_ACERTO, true);
                         setPontuacao(total);
@@ -136,8 +137,10 @@ public class JogoDasPasActivity2 extends Activity {
                     if (acerto == TOTAL_ACERTO) {
                         // fala a palavra correta
                         if (getFase() < TOTAL_FASE - 1) {
+                            Metodos.sound(R.raw.sound_aplausos, JogoDasPasActivity2.this);
                             ShowDialogNext(JogoDasPasActivity2.this, R.drawable.icopala, "PARABÉNS!", "VOCÊ GANHOU!!");
                         } else {
+                            Metodos.sound(R.raw.sound_aplausos, JogoDasPasActivity2.this);
                             ShowDialogRecreateGame(JogoDasPasActivity2.this, R.drawable.icocasa, "PARABÉNS!", "VOCÊ CONCLUIU TODAS AS FASES!\n SUA PONTUAÇÃO: " + getPontuacao());
                         }
                     }
@@ -235,8 +238,6 @@ public class JogoDasPasActivity2 extends Activity {
             }
         }
 
-
-
         if (fase == 0) {
 
             img = new ImageView(this);
@@ -244,38 +245,28 @@ public class JogoDasPasActivity2 extends Activity {
             img.setImageResource(Metodos.getDrawableShovel(vetor[0], fase));
             img.setTag(Metodos.getDrawableShovel(vetor[0], fase));
 
-
             img = new ImageView(this);
             img = (ImageView) findViewById(R.id.pa2);
             img.setImageResource(Metodos.getDrawableShovel(vetor[1], fase));
             img.setTag(Metodos.getDrawableShovel(vetor[1], fase));
-
 
             img = new ImageView(this);
             img = (ImageView) findViewById(R.id.pa3);
             img.setImageResource(Metodos.getDrawableShovel(vetor[2], fase));
             img.setTag(Metodos.getDrawableShovel(vetor[2], fase));
 
-
             img = new ImageView(this);
             img = (ImageView) findViewById(R.id.bld1);
             img.setImageResource(R.drawable.balde_azul);
-
-
 
             img = new ImageView(this);
             img = (ImageView) findViewById(R.id.bld2);
             img.setImageResource(R.drawable.balde_vermelho);
 
-
-
             img = new ImageView(this);
             img = (ImageView) findViewById(R.id.bld3);
             img.setImageResource(R.drawable.balde_amarelo);
-
-
         } else if (fase == 1) {
-
             img = new ImageView(this);
             img = (ImageView) findViewById(R.id.pa1);
             img.setImageResource(Metodos.getDrawableShovel(vetor[0], fase));
@@ -299,7 +290,6 @@ public class JogoDasPasActivity2 extends Activity {
             img = (ImageView) findViewById(R.id.bld2);
             img.setImageResource(R.drawable.balde_roxo);
 
-
             img = new ImageView(this);
             img = (ImageView) findViewById(R.id.bld3);
             img.setImageResource(R.drawable.balde_laranja);
@@ -313,7 +303,6 @@ public class JogoDasPasActivity2 extends Activity {
 //            img = (ImageView) findViewById(R.id.bld4);
 //            img.setImageResource(R.drawable.balde_vinho);
         }
-
     }
 
     public void ShowDialogRecreateGame(final Activity act, @DrawableRes int desenho, String titulo, String mensagem) {

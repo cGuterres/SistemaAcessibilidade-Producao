@@ -291,9 +291,9 @@ public class JogoDasEmocoes extends AppCompatActivity {
                         acertou = true;
                     }
                     if (acertou) {
-                        // chama o som correspondente a soma
-                        Metodos.sound(R.raw.sound_aplausos, JogoDasEmocoes.this);
                         acerto++;
+                        int rawId = Metodos.getSomEmocao(rostoMovido, getType());
+                        Metodos.defaultSound(rawId, JogoDasEmocoes.this);
                         // faz o somatório
                         int total = Metodos.somaTotal(pontuacao, PONTO_ACERTO, true);
                         setPontuacao(total);

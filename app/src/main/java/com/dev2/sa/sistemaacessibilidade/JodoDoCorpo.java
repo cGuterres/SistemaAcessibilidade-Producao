@@ -114,8 +114,9 @@ public class JodoDoCorpo extends AppCompatActivity {
                     }
                     String movido = Metodos.getPalavraCorpo(Integer.parseInt(view.getTag().toString()));
 
-
                     if(movido.toLowerCase().equals(box.toLowerCase())){
+                        int rawId = Metodos.getSomCorpo(movido);
+                        Metodos.defaultSound(rawId, JodoDoCorpo.this);
                         Toast.makeText(JodoDoCorpo.this, "VOCÊ ACERTOU!", Toast.LENGTH_SHORT).show();
                         int total = Metodos.somaTotal(pontuacao, PONTO_ACERTO, true);
                         setPontuacao(total);

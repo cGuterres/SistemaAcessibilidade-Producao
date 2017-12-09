@@ -1202,4 +1202,84 @@ public class Metodos {
         }
         return 0;
     }
+
+    public static int getSomEmocao(String palavra, String type) {
+        if(type.equals("f")){
+            switch (palavra){
+                case "Feliz":
+                    return R.raw.menina_feliz;
+                case "Má":
+                    return R.raw.manina_ma;
+                case "Brava":
+                    return R.raw.manina_brava;
+                case "Medo":
+                    return  R.raw.maniuna_medo;
+                case "Raiva":
+                    return  R.raw.manina_raiva;
+                case "Triste":
+                    return R.raw.manina_triste;
+            }
+        }else{
+            switch (palavra){
+                case "Assustado":
+                    return R.raw.menino_assustado;
+                case "Bravo":
+                    return R.raw.menino_bravo;
+                case "Chorando":
+                    return R.raw.manino_chorando;
+                case "Feliz":
+                    return R.raw.menino_feliz;
+                case "Medo":
+                    return R.raw.menino_medo;
+                case "Orando":
+                    return R.raw.menino_orando;
+                case "Raiva":
+                    return R.raw.menino_raiva;
+                case "Sorrindo":
+                    return R.raw.manino_sorrindo;
+                case "Vergonha":
+                    return R.raw.menino_vergionha;
+                case "Triste":
+                    return R.raw.menino_triste;
+            }
+        }
+        return 0;
+    }
+
+    public static void defaultSound(int rawId, Context context){
+        toque = MediaPlayer.create(context, rawId);
+        toque.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                toque.stop();
+                toque.release();
+                toque = null;
+            }
+        });
+        toque.start();
+    }
+
+    public static int getSomCorpo(String parte){
+        if(!parte.isEmpty()) {
+            switch (parte) {
+                case "Perna":
+                    return R.raw.perna;
+                case "Cabeca":
+                    return R.raw.cabeca;
+                case "Ombro":
+                    return R.raw.ombro;
+                case "Joelho":
+                    return R.raw.joelho;
+                case "Braco":
+                    return R.raw.braco;
+                case "Pes":
+                    return R.raw.pes;
+                case "Coxa":
+                    return R.raw.coxa;
+                case "Mao":
+                    return R.raw.mao;
+            }
+        }
+        return 0;
+    }
 }
