@@ -34,7 +34,7 @@ public class TelaSobre extends AppCompatActivity {
                         @Override
                         public void run() {
                             try{
-                                for (int i = 0; i < getList().length; i++) {
+                                for (int i = 1; i < getList().length; i++) { // alterei para o for começar no 1
                                     Thread.sleep(2000);
                                     mp = getList()[i];
 
@@ -55,7 +55,7 @@ public class TelaSobre extends AppCompatActivity {
 
     public MediaPlayer[] getList(){
         MediaPlayer[] vet = new MediaPlayer[6];
-        vet[0] = MediaPlayer.create(this, R.raw.creditosdev);
+     //   vet[0] = MediaPlayer.create(this, R.raw.creditosdev);// comentei para não construir esse cara
         vet[1] = MediaPlayer.create(this, R.raw.apaeviamao);
         vet[2] = MediaPlayer.create(this, R.raw.desenvol);
         vet[3] = MediaPlayer.create(this, R.raw.christian);
@@ -72,7 +72,7 @@ public class TelaSobre extends AppCompatActivity {
 
 
     private void playMusic(){
-        this.mp = MediaPlayer.create(this, R.raw.creditosdev);
+        this.mp = MediaPlayer.create(this, R.raw.creditosdev); // a primeira vez que ele falava era pq ele começava nesse cara aqui
         this.mp.start();
         // this.mp.setLooping(true);
     }
