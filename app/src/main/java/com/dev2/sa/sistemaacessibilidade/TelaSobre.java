@@ -35,7 +35,7 @@ public class TelaSobre extends AppCompatActivity {
                         public void run() {
                             try{
                                 for (int i = 1; i < getList().length; i++) { // alterei para o for começar no 1
-                                    Thread.sleep(2000);
+                                    Thread.sleep(2500);
                                     mp = getList()[i];
 
                                     mp.start();
