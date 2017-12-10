@@ -32,14 +32,14 @@
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="31dp"
         app:layout_constraintHorizontal_bias="0.0" />
 
 
     <Button
         android:id="@+id/jogodaAdicao"
-        android:layout_width="153dp"
-        android:layout_height="157dp"
+        android:layout_width="210dp"
+        android:layout_height="214dp"
         android:layout_alignEnd="@+id/Menu"
         android:layout_alignRight="@+id/Menu"
         android:layout_alignTop="@+id/fase_4"
@@ -47,10 +47,10 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="218dp"
+        android:layout_marginTop="202dp"
         android:background="@drawable/icosoma"
         android:onClick="eventosFases"
-        app:layout_constraintHorizontal_bias="0.846"
+        app:layout_constraintHorizontal_bias="0.832"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -58,8 +58,8 @@
 
     <Button
         android:id="@+id/vizinhos"
-        android:layout_width="153dp"
-        android:layout_height="157dp"
+        android:layout_width="248dp"
+        android:layout_height="250dp"
         android:layout_alignEnd="@+id/jogo_das_pas"
         android:layout_alignRight="@+id/jogo_das_pas"
         android:layout_below="@+id/fase_1"
@@ -68,36 +68,38 @@
 
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="218dp"
+        android:layout_marginTop="185dp"
         android:layout_weight="1"
         android:background="@drawable/icovisinhos"
         android:onClick="eventosFases"
-        app:layout_constraintHorizontal_bias="0.101"
+        app:layout_constraintHorizontal_bias="0.139"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/jogodasfruta"
-        android:layout_width="189dp"
-        android:layout_height="40dp"
-        android:layout_marginLeft="58dp"
-        android:layout_marginTop="390dp"
+        android:layout_width="265dp"
+        android:layout_height="45dp"
+        android:layout_marginLeft="74dp"
+        android:layout_marginTop="439dp"
         android:text="Jogo dos Vizinhos"
         android:textColor="?android:attr/actionMenuTextColor"
-        android:textSize="20sp"
+        android:textSize="30sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+
     <TextView
         android:id="@+id/jogodasletra"
-        android:layout_width="130dp"
-        android:layout_height="49dp"
-        android:layout_marginRight="107dp"
-        android:layout_marginTop="399dp"
+        android:layout_width="232dp"
+        android:layout_height="48dp"
+        android:layout_marginRight="92dp"
+        android:layout_marginTop="439dp"
         android:text="Jogo da Soma"
         android:textColor="?android:attr/actionMenuTextColor"
-        android:textSize="20sp"
+        android:textSize="30sp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -136,10 +138,10 @@
 
     <Button
         android:id="@+id/jogo_flores"
-        android:layout_width="153dp"
-        android:layout_height="157dp"
-        android:layout_marginLeft="72dp"
-        android:layout_marginTop="85dp"
+        android:layout_width="231dp"
+        android:layout_height="234dp"
+        android:layout_marginLeft="83dp"
+        android:layout_marginTop="34dp"
         android:background="@drawable/icoflor"
         android:onClick="eventosFases"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -147,45 +149,45 @@
 
     <Button
         android:id="@+id/jogo_memoria"
-        android:layout_width="200dp"
-        android:layout_height="157dp"
+        android:layout_width="313dp"
+        android:layout_height="249dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginTop="67dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/icogato"
         android:onClick="eventosFases"
-        app:layout_constraintHorizontal_bias="0.855"
+        app:layout_constraintHorizontal_bias="0.668"
         app:layout_constraintLeft_toRightOf="@+id/jogo_flores"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/jogodasletra" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="230dp"
-        android:layout_height="49dp"
+        android:layout_width="260dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginRight="77dp"
         android:layout_marginTop="8dp"
         android:text="Jogo da Memória"
         android:textColor="?android:attr/actionMenuTextColor"
-        android:textSize="21dp"
+        android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/jogo_memoria"
-        app:layout_constraintVertical_bias="0.032" />
+        app:layout_constraintVertical_bias="0.045" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="230dp"
         android:layout_height="49dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="72dp"
+        android:layout_marginLeft="101dp"
         android:layout_marginTop="8dp"
         android:text="Jogo das flores"
         android:textColor="?android:attr/actionMenuTextColor"
-        android:textSize="21dp"
+        android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/jogo_flores"
-        app:layout_constraintVertical_bias="0.011" />
+        app:layout_constraintVertical_bias="0.046" />
 </android.support.constraint.ConstraintLayout>
