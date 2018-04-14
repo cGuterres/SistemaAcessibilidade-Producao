@@ -1,4 +1,4 @@
-package com.dev2.sa.sistemaacessibilidade;
+package com.dev2.sa.sistemaacessibilidade.activities;
 
 /**
  * Created by GUILHERME on 09/10/2017.

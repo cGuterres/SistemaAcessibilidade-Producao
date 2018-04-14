@@ -1,35 +1,46 @@
-package com.dev2.sa.sistemaacessibilidade;
+package com.dev2.sa.sistemaacessibilidade.activities;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-public class TelaActivity3 extends AppCompatActivity {
+import com.dev2.sa.sistemaacessibilidade.JogoDaMemoriaActivity;
+import com.dev2.sa.sistemaacessibilidade.R;
+
+public class TelaActivity2 extends AppCompatActivity {
 
     MediaPlayer mp = new MediaPlayer();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tela3);
+        setContentView(R.layout.activity_tela2);
 
         mp.stop();
         playMusic();
     }
 
     public void eventosFases(View view) {
-        if (view.getId() == R.id.emocoes)
-            startActivity(new Intent(this, JogoDasEmocoes.class));
-        else if (view.getId() == R.id.corpo)
-            startActivity(new Intent(this, JodoDoCorpo.class));
-        else if (view.getId() == R.id.sobre)
-            startActivity(new Intent(this, TelaSobre.class));
+        if (view.getId() == R.id.vizinhos)
+            startActivity(new Intent(this, JogoDosVizinhosActivity.class));
+        else if (view.getId() == R.id.jogodaAdicao)
+            startActivity(new Intent(this, JogoDaAdicaoActivity.class));
+        else if (view.getId() == R.id.jogo_flores)
+            startActivity(new Intent(this, JogoDasFloresActivity.class));
+        else if (view.getId() == R.id.jogo_memoria)
+            startActivity(new Intent(this, JogoDaMemoriaActivity.class));
         else if(view.getId() == R.id.retorna_fase) {
             if(this.mp.isPlaying()){
                 this.mp.stop();
             }
-            startActivity(new Intent(this, TelaActivity2.class));
+            startActivity(new Intent(this, TelaActivity.class));
+        }else if(view.getId() == R.id.btn_vaipraproxima){
+            if(this.mp.isPlaying()){
+                this.mp.stop();
+            }
+            startActivity(new Intent(this, TelaActivity3.class));
         }
     }
 

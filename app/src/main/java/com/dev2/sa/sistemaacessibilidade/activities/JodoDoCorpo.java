@@ -1,4 +1,4 @@
-package com.dev2.sa.sistemaacessibilidade;
+package com.dev2.sa.sistemaacessibilidade.activities;
 
 import android.content.ClipData;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +10,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.dev2.sa.sistemaacessibilidade.utils.Metodos;
+import com.dev2.sa.sistemaacessibilidade.R;
 
 public class JodoDoCorpo extends AppCompatActivity {
 

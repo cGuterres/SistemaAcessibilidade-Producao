@@ -1,24 +1,22 @@
-package com.dev2.sa.sistemaacessibilidade;
+package com.dev2.sa.sistemaacessibilidade.activities;
 
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.DrawableRes;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.ClipData;
-import android.content.ClipDescription;
-import android.util.Log;
 import android.view.DragEvent;
 import android.view.View;
 import android.view.View.DragShadowBuilder;
 import android.view.View.OnDragListener;
 import android.view.View.OnLongClickListener;
-import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import com.dev2.sa.sistemaacessibilidade.utils.Metodos;
+import com.dev2.sa.sistemaacessibilidade.R;
 
 import java.util.HashMap;
 //PRIORIDADES: 1MSG DE ERRO 2RANDOM

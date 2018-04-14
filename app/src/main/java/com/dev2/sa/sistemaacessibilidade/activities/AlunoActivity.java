@@ -1,4 +1,4 @@
-package com.dev2.sa.sistemaacessibilidade;
+package com.dev2.sa.sistemaacessibilidade.activities;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.dev2.sa.sistemaacessibilidade.R;
 import com.dev2.sa.sistemaacessibilidade.dao.AlunoDAO;
 import com.dev2.sa.sistemaacessibilidade.model.Aluno;
 import com.dev2.sa.sistemaacessibilidade.model.Contexto;

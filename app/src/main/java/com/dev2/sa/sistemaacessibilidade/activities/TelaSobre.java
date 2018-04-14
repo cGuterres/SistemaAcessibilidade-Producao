@@ -1,10 +1,12 @@
-package com.dev2.sa.sistemaacessibilidade;
+package com.dev2.sa.sistemaacessibilidade.activities;
 
 import android.media.CamcorderProfile;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.dev2.sa.sistemaacessibilidade.R;
 
 public class TelaSobre extends AppCompatActivity {
 
@@ -14,15 +16,6 @@ public class TelaSobre extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_sobre);
-/*
-        mp = MediaPlayer.create(this, R.raw.creditosdev);
-       mp = MediaPlayer.create(this, R.raw.apaeviamao);
-        mp = MediaPlayer.create(this, R.raw.desenvol);
-        mp = MediaPlayer.create(this, R.raw.christian);
-        mp = MediaPlayer.create(this, R.raw.guilherme);
-        mp = MediaPlayer.create(this, R.raw.levy);
-        mp.start();*/
-
 
         Thread t = new Thread(){
             @Override
@@ -55,7 +48,6 @@ public class TelaSobre extends AppCompatActivity {
 
     public MediaPlayer[] getList(){
         MediaPlayer[] vet = new MediaPlayer[6];
-     //   vet[0] = MediaPlayer.create(this, R.raw.creditosdev);// comentei para não construir esse cara
         vet[1] = MediaPlayer.create(this, R.raw.apaeviamao);
         vet[2] = MediaPlayer.create(this, R.raw.desenvol);
         vet[3] = MediaPlayer.create(this, R.raw.christian);

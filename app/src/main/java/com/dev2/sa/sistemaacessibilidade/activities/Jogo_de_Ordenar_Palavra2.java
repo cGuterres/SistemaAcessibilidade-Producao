@@ -1,19 +1,16 @@
-package com.dev2.sa.sistemaacessibilidade;
+package com.dev2.sa.sistemaacessibilidade.activities;
 
 import android.app.Activity;
 import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.support.annotation.DrawableRes;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.Gravity;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -21,9 +18,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.jmedeisis.draglinearlayout.DragLinearLayout;
+import com.dev2.sa.sistemaacessibilidade.utils.Metodos;
+import com.dev2.sa.sistemaacessibilidade.R;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Jogo_de_Ordenar_Palavra2 extends AppCompatActivity {

@@ -1,10 +1,12 @@
-package com.dev2.sa.sistemaacessibilidade;
+package com.dev2.sa.sistemaacessibilidade.activities;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.dev2.sa.sistemaacessibilidade.R;
 
 public class TelaActivity extends AppCompatActivity {
 

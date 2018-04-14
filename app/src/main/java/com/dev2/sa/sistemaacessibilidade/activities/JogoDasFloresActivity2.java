@@ -1,4 +1,4 @@
-package com.dev2.sa.sistemaacessibilidade;
+package com.dev2.sa.sistemaacessibilidade.activities;
 
 import android.app.Activity;
 import android.content.ClipData;
@@ -14,24 +14,27 @@ import android.view.View.OnLongClickListener;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.dev2.sa.sistemaacessibilidade.utils.Metodos;
+import com.dev2.sa.sistemaacessibilidade.R;
 
-public class JogoDasFrutasActivity2 extends Activity {
+
+public class JogoDasFloresActivity2 extends Activity {
     private int pontos = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_jogo_da_frutas2);
+        setContentView(R.layout.activity_jogo_da_flores2);
 
         // Pego o elemento flor_azul e seto como um elemento clicavel
-        findViewById(R.id.banana).setOnLongClickListener(new MyOnLongClickListener());
-        findViewById(R.id.melancia).setOnLongClickListener(new MyOnLongClickListener());
-        findViewById(R.id.pera).setOnLongClickListener(new MyOnLongClickListener());
-        findViewById(R.id.morango).setOnLongClickListener(new MyOnLongClickListener());
-        findViewById(R.id.melancia_sombra);
-        findViewById(R.id.morango_sombra);
-        findViewById(R.id.banana_sombra);
-        findViewById(R.id.pera_sombra);
+        findViewById(R.id.flor_rosa).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.flor_verde_limao).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.flor_roxa).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.flor_vermelha).setOnLongClickListener(new MyOnLongClickListener());
+        findViewById(R.id.flor_rosa2);
+        findViewById(R.id.flor_verde_limao2);
+        findViewById(R.id.flor_roxa2);
+        findViewById(R.id.flor_vermelha2);
 
         // Pego o layout topleft e seto como um drag
         findViewById(R.id.topleft).setOnDragListener(new MyOnDragListener(1));
@@ -84,7 +87,7 @@ public class JogoDasFrutasActivity2 extends Activity {
                     break;
                 // Realiza a movimentação das imagens de um layout para o outro
                 case DragEvent.ACTION_DROP:
-                    if(view.getId() == R.id.banana && v.getId() == R.id.bottomright){
+                    if(view.getId() == R.id.flor_rosa && v.getId() == R.id.bottomright){
                         // O layout atual recebe a imagem
                         LinearLayout oldparent = (LinearLayout) view.getParent();
                         // Remove a imagem do layout atual
@@ -101,7 +104,7 @@ public class JogoDasFrutasActivity2 extends Activity {
                         hit = true;
                         // Soma 1 ponto
                         pontos++;
-                    } else if(view.getId() == R.id.melancia && v.getId() == R.id.topright){
+                    } else if(view.getId() == R.id.flor_vermelha && v.getId() == R.id.finalright){
                         LinearLayout oldparent = (LinearLayout) view.getParent();
                         oldparent.removeView(view);
                         LinearLayout newParent = (LinearLayout)v;
@@ -110,7 +113,7 @@ public class JogoDasFrutasActivity2 extends Activity {
                         view.setEnabled(false);
                         hit = true;
                         pontos++;
-                    } else if(view.getId() == R.id.pera && v.getId() == R.id.finalright){
+                    } else if(view.getId() == R.id.flor_verde_limao && v.getId() == R.id.centerrigth){
                         ////////////////////////////// SOM
                         //Metodos.sound(R.drawable.flor_azul, JogoDasFloresActivity.this);
                         LinearLayout oldparent = (LinearLayout) view.getParent();
@@ -121,7 +124,7 @@ public class JogoDasFrutasActivity2 extends Activity {
                         view.setEnabled(false);
                         hit = true;
                         pontos++;
-                    } else if(view.getId() == R.id.morango && v.getId() == R.id.centerrigth){
+                    } else if(view.getId() == R.id.flor_roxa && v.getId() == R.id.topright){
                         ////////////////////////////// SOM
                         //Metodos.sound(R.drawable.flor_azul, JogoDasFloresActivity.this);
                         LinearLayout oldparent = (LinearLayout) view.getParent();
@@ -134,23 +137,23 @@ public class JogoDasFrutasActivity2 extends Activity {
                         pontos++;
                     } else{
                         // Senão acertar exibe a mensagem de erro
-                        Toast.makeText(JogoDasFrutasActivity2.this, "VOCÊ ERROU!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(JogoDasFloresActivity2.this, "VOCÊ ERROU!", Toast.LENGTH_SHORT).show();
                         // Deixa a imagem visivel
                         view.setVisibility(View.VISIBLE);
                     }
                     if(pontos <= 3 && hit) {
                         // Se o número de acertos for menor ou igual a 2, exibe a mensagem de acerto
-                        Metodos.ShowHitMessage(JogoDasFrutasActivity2.this, "VOCÊ ACERTOU!");
+                        Metodos.ShowHitMessage(JogoDasFloresActivity2.this, "VOCÊ ACERTOU!");
                         ////////////////////////////// SOM
-                        Metodos.sound(R.raw.sound_success, JogoDasFrutasActivity2.this);
+                        Metodos.sound(R.raw.sound_success, JogoDasFloresActivity2.this);
                     }
                     if(pontos == 4) {
                         // Se o número de acertos for igual a 3, exibe o dialog de vitoria e as opções de voltar para o menu ou reiniciar o jogo
                         //Metodos.ShowDialog(JogoDasFloresActivity2.this, R.drawable.flor_verde, "PARABÉNS", "VOCÊ GANHOU!");
                         // Para chamar a proxima fase
-                        ShowDialogRecreateGame(JogoDasFrutasActivity2.this, R.drawable.icotrofeu, "PARABÉNS", "VOCÊ GANHOU!");
+                        ShowDialogRecreateGame(JogoDasFloresActivity2.this, R.drawable.icotrofeu, "PARABÉNS", "VOCÊ GANHOU!");
                         ////////////////////////////// SOM
-                        Metodos.sound(R.raw.sound_aplausos, JogoDasFrutasActivity2.this);
+                        Metodos.sound(R.raw.sound_aplausos, JogoDasFloresActivity2.this);
 
                     }
                     break;
@@ -168,7 +171,7 @@ public class JogoDasFrutasActivity2 extends Activity {
                 .setIcon(desenho)
                 .setPositiveButton("REINICIAR FASES", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        Intent nextActivity = new Intent(getBaseContext(), JogoDasFrutasActivity.class);
+                        Intent nextActivity = new Intent(getBaseContext(), JogoDasFloresActivity.class);
                         startActivity(nextActivity);
                         finish();
                     }

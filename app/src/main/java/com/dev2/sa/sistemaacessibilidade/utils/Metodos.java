@@ -1,10 +1,9 @@
-package com.dev2.sa.sistemaacessibilidade;
+package com.dev2.sa.sistemaacessibilidade.utils;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.media.MediaPlayer;
 
 import java.util.ArrayList;
@@ -14,11 +13,9 @@ import java.util.Random;
 
 import android.support.annotation.DrawableRes;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.Gravity;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.dev2.sa.sistemaacessibilidade.R;
 
 
 /**
