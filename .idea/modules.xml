@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SistemaAcessibilidade.iml" filepath="$PROJECT_DIR$/SistemaAcessibilidade.iml" />
+      <module fileurl="file://C:\Users\Christian\Desktop\SistemaAcessibilidade-Producao\SistemaAcessibilidade-Producao\SistemaAcessibilidade.iml" filepath="C:\Users\Christian\Desktop\SistemaAcessibilidade-Producao\SistemaAcessibilidade-Producao\SistemaAcessibilidade.iml" />
       <module fileurl="file://$PROJECT_DIR$/SistemaAcessibilidade-Producao.iml" filepath="$PROJECT_DIR$/SistemaAcessibilidade-Producao.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/trabalho.iml" filepath="$PROJECT_DIR$/trabalho.iml" />
+      <module fileurl="file://C:\Users\Christian\Desktop\SistemaAcessibilidade-Producao\SistemaAcessibilidade-Producao\trabalho.iml" filepath="C:\Users\Christian\Desktop\SistemaAcessibilidade-Producao\SistemaAcessibilidade-Producao\trabalho.iml" />
     </modules>
   </component>
 </project>
