@@ -11,6 +11,7 @@ import android.widget.ListView;
 
 import com.dev2.sa.sistemaacessibilidade.dao.AlunoDAO;
 import com.dev2.sa.sistemaacessibilidade.model.Aluno;
+import com.dev2.sa.sistemaacessibilidade.model.Contexto;
 
 import java.util.List;
 
@@ -55,7 +56,11 @@ public class AlunoActivity extends AppCompatActivity {
     }
 
     private void alunoSelecionado(int position) {
+        //inicia o contexto da aplicação
+        Contexto contexto = new Contexto();
         Aluno aluno = alunoAdapter.getItem(position);
+        contexto.setAlunoId(aluno.getCodigo());
+        contexto.setContexto(contexto);
         Intent intent = new Intent(this, TelaActivity.class);
 
         intent.putExtra("aluno", aluno);

@@ -3,6 +3,7 @@ package com.dev2.sa.sistemaacessibilidade;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.DrawableRes;
 import android.support.v7.app.AlertDialog;
@@ -21,7 +22,32 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dev2.sa.sistemaacessibilidade.dao.HistoricoDAO;
+import com.dev2.sa.sistemaacessibilidade.model.Contexto;
+import com.dev2.sa.sistemaacessibilidade.model.Historico;
+import com.dev2.sa.sistemaacessibilidade.model.JogoEnum;
+
+import java.util.Date;
+
 public class JogoDeOrdernarActivity extends Activity {
+
+
+    // tarefa assincrona para salvar os dados no banco de dados
+    private class SalvarJogadaWSTask extends AsyncTask<Historico, Void, Void> {
+
+        @Override
+        public Void doInBackground(Historico... params) {
+            HistoricoDAO dao = new HistoricoDAO();
+
+            dao.inserirJogada(params[0]);
+            return null;
+        }
+
+        @Override
+        public void onPostExecute(Void notes) {
+
+        }
+    }
 
     // imagens da tela e variavies
     private ImageView img1, img2, img3, img4, img5, img6, imgCenter;
@@ -60,11 +86,13 @@ public class JogoDeOrdernarActivity extends Activity {
         return this.pontuacao;
     }
 
+    private Historico historico;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_jogo_de_ordernar);
 
+        this.historico = new Historico();
         Intent intent = getIntent();
         if(intent != null) {
             int nextPhase = intent.getIntExtra("fase", 0);
@@ -400,6 +428,9 @@ public class JogoDeOrdernarActivity extends Activity {
 
         start_dialog.setPositiveButton("REINICIAR FASES", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
+                //envia dados p/ banco
+                sendHistoricoToWS();
+
                 pontuacao = 0;
                 setPontuacao(pontuacao);
                 Intent nextActivity = new Intent(getBaseContext(), JogoDeOrdernarActivity.class);
@@ -408,6 +439,7 @@ public class JogoDeOrdernarActivity extends Activity {
             }
         }).setNegativeButton("SAIR", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
+                sendHistoricoToWS();
                 act.finish();
             }
         });
@@ -450,5 +482,16 @@ public class JogoDeOrdernarActivity extends Activity {
 
         AlertDialog alert = start_dialog.create();
         alert.show();
+    }
+
+    private void sendHistoricoToWS(){
+        if(Contexto.getContexto() != null){
+            historico.setAlunoCodigo(Contexto.getContexto().getAlunoId());
+            historico.setJogoCodigo(JogoEnum.JOGO_DAS_LETRAS.getValor());
+            historico.setPontuacao(getPontuacao());
+            historico.setDataCriacao(new Date());
+
+            new SalvarJogadaWSTask().execute(historico);
+        }
     }
 }

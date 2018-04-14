@@ -1,6 +1,7 @@
 package com.dev2.sa.sistemaacessibilidade.model;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -8,17 +9,20 @@ import java.util.Date;
  */
 
 public class Historico implements Serializable {
+
+    private static final String DATE_FORMAT = "yyyy/MM/dd HH:mm:ss";
+
     private int codigo;
     private int jogoCodigo;
     private int alunoCodigo;
-    private double pontuacao;
+    private Double pontuacao;
     private Date dataCriacao;
 
     public Historico(){
 
     }
 
-    public Historico(int codigo, int jogoCodigo, int alunoCodigo, double pontuacao, Date dataCriacao){
+    public Historico(int codigo, int jogoCodigo, int alunoCodigo, Double pontuacao, Date dataCriacao){
         this.codigo = codigo;
         this.jogoCodigo = jogoCodigo;
         this.alunoCodigo = alunoCodigo;
@@ -50,7 +54,7 @@ public class Historico implements Serializable {
         this.alunoCodigo = alunoCodigo;
     }
 
-    public double getPontuacao() {
+    public Double getPontuacao() {
         return pontuacao;
     }
 
@@ -64,5 +68,15 @@ public class Historico implements Serializable {
 
     public void setDataCriacao(Date dataCriacao) {
         this.dataCriacao = dataCriacao;
+    }
+
+    public String getDateString() {
+        SimpleDateFormat format = new SimpleDateFormat(DATE_FORMAT);
+
+        return format.format(this.getDataCriacao());
+    }
+
+    public void setDateString(String date) {
+        SimpleDateFormat format = new SimpleDateFormat(DATE_FORMAT);
     }
 }
