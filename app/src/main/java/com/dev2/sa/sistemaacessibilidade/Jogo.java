@@ -6,11 +6,11 @@ package com.dev2.sa.sistemaacessibilidade;
 
 public class Jogo {
     private int pontuacao;
-    private final int pontoAcerto = 10;
+    private final int ACERTO = 10;
     private final int pontoErro = 5;
 
     public int getPontoAcerto() {
-        return pontoAcerto;
+        return ACERTO;
     }
 
     public int getPontoErro() {
