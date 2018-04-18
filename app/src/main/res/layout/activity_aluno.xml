@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.dev2.sa.sistemaacessibilidade.AlunoActivity">
+    tools:context="com.dev2.sa.sistemaacessibilidade.activities.AlunoActivity">
 
     <ListView
         android:id="@+id/alunosList"

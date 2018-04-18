@@ -11,7 +11,9 @@ import android.widget.ListView;
 
 import com.dev2.sa.sistemaacessibilidade.R;
 import com.dev2.sa.sistemaacessibilidade.dao.AlunoDAO;
+import com.dev2.sa.sistemaacessibilidade.dao.ConfiguracaoDAO;
 import com.dev2.sa.sistemaacessibilidade.model.Aluno;
+import com.dev2.sa.sistemaacessibilidade.model.Configuracao;
 import com.dev2.sa.sistemaacessibilidade.model.Contexto;
 
 import java.util.List;
@@ -30,8 +32,26 @@ public class AlunoActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onPostExecute(List<Aluno> notes) {
-            alunoAdapter.addAll(notes);
+        public void onPostExecute(List<Aluno> alunos) {
+            alunoAdapter.addAll(alunos);
+        }
+    }
+
+    private class ConfiguracaoLoaderTask extends AsyncTask<Void, Void, List<Configuracao>> {
+
+        @Override
+        public List<Configuracao> doInBackground(Void... params) {
+            ConfiguracaoDAO dao = new ConfiguracaoDAO();
+            List<Configuracao> configuracoes = null;
+
+            configuracoes = dao.listConfiguracoes();
+            return configuracoes;
+        }
+
+        @Override
+        public void onPostExecute(List<Configuracao> configs) {
+            if(configs != null && configs.size() > 0)
+            Contexto.setConfiguracoes(configs);
         }
     }
 
@@ -52,8 +72,10 @@ public class AlunoActivity extends AppCompatActivity {
                 alunoSelecionado(position);
             }
         });
-
+        //busca na nuvem os alunos
         new AlunoLoaderTask().execute();
+        //busca no ws as configurações
+        new ConfiguracaoLoaderTask().execute();
     }
 
     private void alunoSelecionado(int position) {

@@ -12,7 +12,7 @@
     android:paddingLeft="6dp"
     android:paddingRight="6dp"
     android:weightSum="1"
-    tools:context="com.dev2.sa.sistemaacessibilidade.Jogo_de_Ordenar_Palavra2"><![CDATA[
+    tools:context="com.dev2.sa.sistemaacessibilidade.activities.Jogo_de_Ordenar_Palavra2"><![CDATA[
     android:gravity="bottom">
 
 

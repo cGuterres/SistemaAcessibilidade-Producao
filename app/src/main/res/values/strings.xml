@@ -6,4 +6,6 @@
     <string name="draggable_button">Draggable Button</string>
     <string name="title_activity_menu">Menu</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="login">LOGIN</string>
+    <string name="senha">SENHA</string>
 </resources>

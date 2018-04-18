@@ -13,7 +13,7 @@
     android:paddingLeft="6dp"
     android:paddingRight="6dp"
     android:weightSum="1"
-    tools:context="com.dev2.sa.sistemaacessibilidade.JogoDeOrdernarActivity"><![CDATA[
+    tools:context="com.dev2.sa.sistemaacessibilidade.activities.JogoDeOrdernarActivity"><![CDATA[
     android:gravity="bottom">
 
 

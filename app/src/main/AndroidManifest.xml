@@ -12,17 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".TelaActivity"
+            android:name=".activities.TelaActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
-                <!--<action android:name="android.intent.action.MAIN" />-->
+
+                <!-- <action android:name="android.intent.action.MAIN" /> -->
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".TelaActivity2"
+            android:name=".activities.TelaActivity2"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -30,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".JogoDasPasActivity2"
+            android:name=".activities.JogoDasPasActivity2"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -38,7 +39,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".JogoDasFloresActivity"
+            android:name=".activities.JogoDasFloresActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -46,7 +47,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".JogoDasFloresActivity2"
+            android:name=".activities.JogoDasFloresActivity2"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -54,7 +55,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".JogoDasFrutasActivity2"
+            android:name=".activities.JogoDasFrutasActivity2"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -62,7 +63,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".JogoDeOrdernarActivity"
+            android:name=".activities.JogoDeOrdernarActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -70,11 +71,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".JogoDasFrutasActivity"
+            android:name=".activities.JogoDasFrutasActivity"
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".Jogo_de_Ordenar_Palavra2"
+            android:name=".activities.Jogo_de_Ordenar_Palavra2"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -82,14 +83,14 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".JogoDosVizinhosActivity"
+            android:name=".activities.JogoDosVizinhosActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Dialog" />
+        <activity android:name=".activities.Dialog" />
 
         <supports-screens
             android:anyDensity="true"
@@ -99,7 +100,7 @@
             android:xlargeScreens="true" />
 
         <activity
-            android:name=".JogoDaAdicaoActivity"
+            android:name=".activities.JogoDaAdicaoActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -115,7 +116,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".JodoDoCorpo"
+            android:name=".activities.JodoDoCorpo"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -123,7 +124,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".JogoDasEmocoes"
+            android:name=".activities.JogoDasEmocoes"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -131,21 +132,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".TelaActivity3"
+            android:name=".activities.TelaActivity3"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TelaSobre">
+        <activity android:name=".activities.TelaSobre">
             ndroid:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AlunoActivity">
+        <activity android:name=".activities.AlunoActivity">
+            <intent-filter>
+                <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
