@@ -7,6 +7,7 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
+import retrofit2.http.Query;
 
 /**
  * Created by Christian on 17/04/2018.
@@ -15,5 +16,5 @@ import retrofit2.http.Headers;
 public interface ConfiguracaoService {
     @GET("configuracao")
     @Headers("x-apikey: a76132d31039f02a3a12c639028e1d5f98b6a")
-    Call<List<Configuracao>> listaConfiguracoes();
+    Call<List<Configuracao>> listaConfiguracoes(@Query("tipoUsuarioCodigo") int tipoUsuarioCodigo);
 }

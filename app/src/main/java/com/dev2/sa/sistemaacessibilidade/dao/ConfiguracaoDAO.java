@@ -32,8 +32,8 @@ public class ConfiguracaoDAO {
         this.service = retrofit.create(ConfiguracaoService.class);
     }
 
-    public List<Configuracao> listConfiguracoes() {
-        Call<List<Configuracao>> call = this.service.listaConfiguracoes();
+    public List<Configuracao> listConfiguracoes(int tipoUsuarioCodigo) {
+        Call<List<Configuracao>> call = this.service.listaConfiguracoes(tipoUsuarioCodigo);
         List<Configuracao> configs = null;
 
         try {

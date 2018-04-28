@@ -10,6 +10,7 @@ import android.widget.EditText;
 
 import com.dev2.sa.sistemaacessibilidade.R;
 import com.dev2.sa.sistemaacessibilidade.dao.UsuarioDAO;
+import com.dev2.sa.sistemaacessibilidade.model.Contexto;
 import com.dev2.sa.sistemaacessibilidade.model.Usuario;
 
 import org.w3c.dom.Text;
@@ -27,11 +28,17 @@ public class LoginActivity extends AppCompatActivity {
 
         @Override
         public void onPostExecute(Usuario usuario) {
-            Intent intent = new Intent();
+            if(usuario != null && usuario.isAtivo()){
+                if(Contexto.getUsuario() == null){
+                    Contexto.setUsuario(usuario);
+                }
+                Intent intent = new Intent(LoginActivity.this, AlunoActivity.class);
+                intent.putExtra("usuario", usuario);
+                startActivity(intent);
+                finish();
+            }else{
 
-            //intent.putExtra("usuario", usuario);
-            //setResult(Activity.RESULT_OK, intent);
-            finish();
+            }
         }
     }
 

@@ -1,5 +1,7 @@
 package com.dev2.sa.sistemaacessibilidade.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -8,11 +10,17 @@ import java.util.Date;
  */
 
 public class Usuario implements Serializable {
+    @SerializedName("codigo")
     private int codigo;
+    @SerializedName("tipoUsuarioCodigo")
     private int tipoUsuarioCodigo;
+    @SerializedName("login")
     private String login;
+    @SerializedName("senha")
     private String senha;
+    @SerializedName("ativo")
     private boolean ativo;
+    @SerializedName("dataCriacao")
     private Date dataCriacao;
 
     public Usuario(){

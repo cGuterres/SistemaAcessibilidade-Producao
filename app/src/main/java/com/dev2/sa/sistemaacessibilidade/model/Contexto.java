@@ -11,6 +11,7 @@ public class Contexto {
     private int alunoId;
     private static Contexto contexto = null;
     private static List<Configuracao> configuracoes = null;
+    private static Usuario usuario = null;
 
     public static Contexto getContexto(){
         if(contexto == null){
@@ -40,5 +41,13 @@ public class Contexto {
 
     public static void setConfiguracoes(List<Configuracao> configuracoes) {
         Contexto.configuracoes = configuracoes;
+    }
+
+    public static Usuario getUsuario() {
+        return usuario;
+    }
+
+    public static void setUsuario(Usuario usuario) {
+        Contexto.usuario = usuario;
     }
 }

@@ -44,7 +44,9 @@ public class AlunoActivity extends AppCompatActivity {
             ConfiguracaoDAO dao = new ConfiguracaoDAO();
             List<Configuracao> configuracoes = null;
 
-            configuracoes = dao.listConfiguracoes();
+            if(Contexto.getUsuario() != null){
+                configuracoes = dao.listConfiguracoes(Contexto.getUsuario().getTipoUsuarioCodigo());
+            }
             return configuracoes;
         }
 
@@ -88,5 +90,6 @@ public class AlunoActivity extends AppCompatActivity {
 
         intent.putExtra("aluno", aluno);
         startActivity(intent);
+        finish();
     }
 }

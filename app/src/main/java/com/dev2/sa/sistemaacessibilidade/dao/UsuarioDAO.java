@@ -4,10 +4,12 @@ import android.util.Log;
 
 import com.dev2.sa.sistemaacessibilidade.model.Usuario;
 import com.dev2.sa.sistemaacessibilidade.service.UsuarioService;
+import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Converter;
 import retrofit2.Response;
@@ -33,11 +35,11 @@ public class UsuarioDAO {
     }
 
     public Usuario validaUsuario(String login, String senha) {
-        Call<Usuario> call = this.service.validaUsuario(login, senha);
-        Usuario usuario = null;
+        Call<List<Usuario>> call = this.service.validaUsuario(login,senha);
+        List<Usuario> usuario = null;
 
         try {
-            Response<Usuario> res = call.execute();
+            Response<List<Usuario>> res = call.execute();
 
             if (res.isSuccessful()) {
                 usuario = res.body();
@@ -54,6 +56,6 @@ public class UsuarioDAO {
         } catch (IOException exc){
             Log.e(TAG, "IO error during REST operation.", exc);
         }
-        return usuario;
+        return usuario.get(0);
     }
 }
